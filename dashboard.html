@@ -67,6 +67,10 @@ a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: un
 .chartbox { position: relative; height: 280px; }
 tr.sel td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
 h3 { font-size: 14px; margin: 0 0 8px; }
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+nav.tabs a { padding: 8px 14px; color: var(--ink-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav.tabs a:hover { color: var(--ink); text-decoration: none; }
+nav.tabs a.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
 ul.strat { margin: 0 0 12px; padding-left: 18px; color: var(--ink-2); }
 ul.strat li { margin: 2px 0; }
 button { font: inherit; color: var(--ink); background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 7px 12px; cursor: pointer; }
@@ -77,6 +81,7 @@ pre.json { background: var(--page); border: 1px solid var(--border); border-radi
 </head>
 <body>
 <main>
+  <nav class="tabs"><a class="active" href="dashboard.html">🔥 Fire Score</a><a href="copy.html">🏈 Copiar NFL · Elaran1993</a></nav>
   <h1>Fire Score Tracker</h1>
   <p class="sub">Registra las recomendaciones de firepolymarket.com y simula si apostar en ellas da ganancias. <span id="updated" class="small"></span></p>
 
@@ -84,7 +89,7 @@ pre.json { background: var(--page); border: 1px solid var(--border); border-radi
 
   <div class="card">
     <h2>📒 Mis apuestas (historial fijo)</h2>
-    <p class="sub">Cada hora el tracker apuesta según la estrategia guardada en el repositorio. Una vez registrada, una apuesta no cambia aunque cambies la estrategia o los filtros del simulador: solo se actualiza su resultado.</p>
+    <p class="sub">Cada 5 minutos el tracker apuesta según la estrategia guardada en el repositorio. Una vez registrada, una apuesta no cambia aunque cambies la estrategia o los filtros del simulador: solo se actualiza su resultado.</p>
     <div class="tiles" id="ledgerTiles"></div>
     <div class="grid2" style="margin-top:16px">
       <div>
@@ -194,7 +199,7 @@ pre.json { background: var(--page); border: 1px solid var(--border); border-radi
     <div class="tablewrap"><table id="signals"></table></div>
     <p class="small" id="sigNote"></p>
   </div>
-  <p class="small">La página se recarga sola cada 10 minutos. Los datos los actualiza <code>tracker.ps1</code> cada hora en GitHub Actions. Esto no es asesoría financiera.</p>
+  <p class="small">La página se recarga sola cada 5 minutos. Los datos los actualiza <code>tracker.ps1</code> cada 5 minutos en GitHub Actions (GitHub puede atrasarlo). Esto no es asesoría financiera.</p>
 </main>
 
 <script>
@@ -290,7 +295,7 @@ function stats(bs, runs = 3000) {
 
 function verdictOf(st) {
   if (st.n < 30) return { tone: '', title: `Aún no hay datos suficientes (${st.n} resueltas, se necesitan ≥ 30)`,
-    text: 'Las señales se van registrando cada hora; los partidos y eSports se resuelven en días, los mercados políticos pueden tardar meses. Mientras tanto, mira la ganancia "a precio de mercado" de las abiertas, pero no saques conclusiones.' };
+    text: 'Las señales se van registrando cada 5 minutos; los partidos y eSports se resuelven en días, los mercados políticos pueden tardar meses. Mientras tanto, mira la ganancia "a precio de mercado" de las abiertas, pero no saques conclusiones.' };
   if (st.roi > 0 && st.pValue < 0.05) return { tone: 'pos', title: 'Las señales muestran ventaja estadística',
     text: `Ganan ${fmtPp(st.edge)} más de lo que el precio implica; solo un ${fmtPct(st.pValue)} de las simulaciones "por suerte" llegan a este resultado.` };
   if (st.roi > 0) return { tone: '', title: 'Hay ganancia, pero no se distingue de la suerte',
@@ -371,7 +376,7 @@ $('useFilters').addEventListener('click', async () => {
   const editUrl = onPages ? `https://github.com/${location.hostname.split('.')[0]}/${location.pathname.split('/')[1]}/edit/main/strategy.json` : null;
   if (editUrl) window.open(editUrl, '_blank', 'noopener');
   $('stratHelp').innerHTML = `<p><b>Nueva estrategia v${next.version}:</b></p><ul class="strat">${describeStrategy(next).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` +
-    `<p>${copied ? 'Se copió al portapapeles.' : 'Copia este texto.'} ${editUrl ? 'En la pestaña de GitHub que se abrió' : 'En strategy.json del repositorio'}, reemplaza todo el contenido (Ctrl+A, Ctrl+V) y pulsa <b>Commit changes</b>. Se aplica desde la próxima hora; las apuestas ya hechas no cambian.</p>` +
+    `<p>${copied ? 'Se copió al portapapeles.' : 'Copia este texto.'} ${editUrl ? 'En la pestaña de GitHub que se abrió' : 'En strategy.json del repositorio'}, reemplaza todo el contenido (Ctrl+A, Ctrl+V) y pulsa <b>Commit changes</b>. Se aplica desde la próxima ejecución (unos minutos); las apuestas ya hechas no cambian.</p>` +
     `<pre class="json">${esc(json)}</pre>`;
 });
 
@@ -386,9 +391,9 @@ function render() {
 
   // Aviso si los datos no se actualizan
   const ageH = D.generatedAt ? (Date.now() - Date.parse(D.generatedAt)) / 36e5 : Infinity;
-  $('stale').style.display = ageH > 2 ? '' : 'none';
-  $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? Math.floor(ageH) + ' horas' : 'nunca'}</b>
-    <div class="sub" style="margin:4px 0 0">La actualización corre cada hora en GitHub Actions (workflow "Tracker cada hora"). Revisa la pestaña Actions del repositorio y <code>data/log.txt</code> para ver el error.</div>`;
+  $('stale').style.display = ageH > 1 ? '' : 'none';
+  $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? (ageH < 2 ? Math.round(ageH * 60) + ' minutos' : Math.floor(ageH) + ' horas') : 'nunca'}</b>
+    <div class="sub" style="margin:4px 0 0">La actualización corre cada 5 minutos en GitHub Actions (workflow "Tracker"). Revisa la pestaña Actions del repositorio y <code>data/log.txt</code> para ver el error.</div>`;
 
   renderLedger();
 
@@ -547,10 +552,10 @@ for (const id of ['th', 'slip', 'maxDays', 'cat', 'rule', 'minAgree', 'topN', 'm
   state.maxDays = +$('maxDays').value || null; state.cat = $('cat').value; render();
 });
 const runs = D.runs || [];
-$('updated').textContent = D.generatedAt ? `Última actualización: ${new Date(D.generatedAt).toLocaleString('es')} · ${runs.length} ejecuciones · * = valor a precio actual` : 'Sin datos: ejecuta tracker.ps1';
+$('updated').textContent = D.generatedAt ? `Última actualización: ${new Date(D.generatedAt).toLocaleString('es')} · * = valor a precio actual` : 'Sin datos: ejecuta tracker.ps1';
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
 render();
-setTimeout(() => location.reload(), 10 * 60 * 1000);
+setTimeout(() => location.reload(), 5 * 60 * 1000);
 </script>
 </body>
 </html>

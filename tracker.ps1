@@ -374,18 +374,26 @@ try {
             wallets = $ws.wallets; capital = $ws.capital; endDate = $m.endDate
         }
     }
-    if ($rows) { $rows | Export-Csv -Path $SnapFile -Append -NoTypeInformation -Encoding UTF8 }
+    # El tracker corre cada 5 minutos, pero el historico de mercados se guarda una vez por hora para no inflar el archivo
+    $lastSnap = $null
+    if (Test-Path $SnapFile) {
+        $last = Get-Content $SnapFile -Tail 1 -Encoding UTF8
+        if ($last -match '^"([^"]+)"') { try { $lastSnap = [DateTimeOffset]::Parse($Matches[1]).UtcDateTime } catch {} }
+    }
+    $snapDue = -not $lastSnap -or ((Get-Date).ToUniversalTime() - $lastSnap).TotalMinutes -ge 55
+    if ($rows -and $snapDue) { $rows | Export-Csv -Path $SnapFile -Append -NoTypeInformation -Encoding UTF8 }
 
     # 6. Guardar
     $above70 = @($candidates | Where-Object { $_.fireScore -ge 70 }).Count
     $runs += [pscustomobject]@{ t = $now; markets = $markets.Count; above60 = $candidates.Count; above70 = $above70; newSignals = $newCount; resolved = $resolvedCount }
-    if ($runs.Count -gt 3000) { $runs = $runs[-3000..-1] }
+    if ($runs.Count -gt 10000) { $runs = $runs[-10000..-1] }
 
     $sigArr = @($signals.Values | Sort-Object { $_.firstSeen })
     $sigJson = ConvertTo-Json -InputObject $sigArr -Depth 8 -Compress
     Write-FileAtomic $SignalsFile $sigJson
-    $runsJson = ConvertTo-Json -InputObject @($runs) -Depth 4 -Compress
-    Write-FileAtomic $RunsFile $runsJson
+    Write-FileAtomic $RunsFile (ConvertTo-Json -InputObject @($runs) -Depth 4 -Compress)
+    # Al panel solo van las ultimas ejecuciones (el archivo completo queda en runs.json)
+    $runsJson = ConvertTo-Json -InputObject @($runs | Select-Object -Last 300) -Depth 4 -Compress
     $curJson = ConvertTo-Json -InputObject @($current) -Depth 4 -Compress
     $betsJson = ConvertTo-Json -InputObject @($bets.Values) -Depth 6 -Compress
     Write-FileAtomic $BetsFile $betsJson

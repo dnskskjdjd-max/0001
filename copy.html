@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copiar NFL</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  // Evita que el navegador (o GitHub Pages) muestre datos en caché
+  document.write('<script src="data/copy.js?v=' + Date.now() + '"><\/script>');
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --border: rgba(11,11,11,0.10); --s1: #2a78d6;
+  --good: #006300; --bad: #d03b3b; --accent: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --border: rgba(255,255,255,0.10); --s1: #3987e5;
+    --good: #0ca30c; --bad: #e66767; --accent: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --border: rgba(255,255,255,0.10); --s1: #3987e5;
+  --good: #0ca30c; --bad: #e66767; --accent: #3987e5;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1180px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 0 0 4px; }
+h3 { font-size: 14px; margin: 0 0 8px; }
+.sub { color: var(--ink-2); margin: 0 0 12px; }
+.small { font-size: 12px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 16px; min-width: 0; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.tile .k { font-size: 12px; color: var(--ink-2); }
+.tile .v { font-size: 24px; font-weight: 600; margin-top: 2px; }
+.tile .d { font-size: 12px; color: var(--muted); }
+.verdict { border-radius: 12px; padding: 14px 16px; margin-top: 16px; border: 1px solid var(--bad); background: var(--surface); }
+.pos { color: var(--good); } .neg { color: var(--bad); }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+th { font-size: 12px; color: var(--ink-2); font-weight: 600; }
+td.num, th.num { text-align: right; }
+td.title { white-space: normal; min-width: 220px; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; border: 1px solid var(--border); }
+.badge.won { color: var(--good); } .badge.lost { color: var(--bad); } .badge.open, .badge.sold { color: var(--ink-2); }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+.chartbox { position: relative; height: 260px; }
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+nav.tabs a { padding: 8px 14px; color: var(--ink-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav.tabs a:hover { color: var(--ink); text-decoration: none; }
+nav.tabs a.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+ul.strat { margin: 0; padding-left: 18px; color: var(--ink-2); }
+ul.strat li { margin: 2px 0; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="tabs"><a href="dashboard.html">🔥 Fire Score</a><a class="active" href="copy.html">🏈 Copiar NFL · Elaran1993</a></nav>
+  <h1>Copiar apuestas NFL</h1>
+  <p class="sub">Copia automáticamente las apuestas de NFL de un apostador. Historial fijo: cada copia queda registrada con el precio al que se habría comprado; solo cambia su resultado. <span id="updated" class="small"></span></p>
+
+  <div id="stale" class="verdict" style="display:none"></div>
+
+  <div class="tiles" style="margin-top:16px" id="tiles"></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Reglas de copia <span class="small" id="ver"></span></h2>
+      <ul class="strat" id="rules"></ul>
+      <p class="small" style="margin-top:10px">Se cambian editando <code>copy-strategy.json</code> en el repositorio. Las copias ya hechas no cambian.</p>
+    </div>
+    <div class="card">
+      <h2>Ganancia acumulada (copias cerradas)</h2>
+      <div class="chartbox"><canvas id="equity"></canvas></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Historial de copias <span class="small" id="nBets"></span></h2>
+    <div class="tablewrap"><table id="bets"></table></div>
+    <p class="small">* valor a precio actual (apuesta abierta). "Vendida" = el apostador salió antes del final y la copia también.</p>
+  </div>
+
+  <div class="card">
+    <h2>Posiciones NFL abiertas del apostador ahora</h2>
+    <p class="small" id="traderNote"></p>
+    <div class="tablewrap"><table id="trader"></table></div>
+  </div>
+  <p class="small">La página se recarga sola cada 5 minutos. Los datos los actualiza <code>copier.ps1</code> cada 5 minutos en GitHub Actions (GitHub puede atrasarlo). Esto no es asesoría financiera.</p>
+</main>
+
+<script>
+const C = window.COPY_DATA || { bets: [], traderPositions: [], strategy: null };
+const $ = id => document.getElementById(id);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmt$ = v => v == null ? '–' : (v < 0 ? '−$' : '$') + Math.abs(v).toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtK = v => v == null ? '–' : '$' + (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? Math.round(v / 1e3) + 'k' : Math.round(v));
+const fmtPct = v => v == null ? '–' : (v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(1) + '%';
+const fmtC = v => v == null ? '–' : (v * 100).toFixed(1) + '¢';
+const cls = v => v == null ? '' : v > 0 ? 'pos' : v < 0 ? 'neg' : '';
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+// Fechas solo-día ("2026-10-04") se leen al mediodía para que la zona horaria no las corra al día anterior
+const fmtDate = s => s ? new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + 'T12:00:00' : s).toLocaleDateString('es', { day: 'numeric', month: 'short' }) : '–';
+const fmtDT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
+const link = b => `https://polymarket.com/event/${b.eventSlug || b.slug}`;
+
+function render() {
+  const s = C.strategy;
+  const ageH = C.generatedAt ? (Date.now() - Date.parse(C.generatedAt)) / 36e5 : Infinity;
+  $('updated').textContent = C.generatedAt ? `Última actualización: ${new Date(C.generatedAt).toLocaleString('es')}` : 'Sin datos todavía';
+  $('stale').style.display = ageH > 1 ? '' : 'none';
+  $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? (ageH < 2 ? Math.round(ageH * 60) + ' minutos' : Math.floor(ageH) + ' horas') : 'nunca'}</b>
+    <div class="sub" style="margin:4px 0 0">Revisa la pestaña Actions del repositorio y <code>data/log.txt</code> (líneas con [copia]).</div>`;
+
+  if (s) {
+    $('ver').textContent = `(v${s.version}${s.nota ? ' · ' + s.nota : ''})`;
+    $('rules').innerHTML = [
+      `Apostador: <a href="https://polymarket.com/profile/${esc(s.traderWallet)}" target="_blank" rel="noopener">${esc(s.traderName)}</a>`,
+      `Solo mercados de NFL (eventos que empiezan con <code>${esc(s.eventPrefix)}</code>)`,
+      `Copia cada posición nueva suya de al menos ${fmtK(s.minTraderUsd)}, con $${s.stake} al precio de compra del momento`,
+      'Si apuesta a ambos lados de un mercado, se copia solo el lado donde tiene más dinero',
+      s.mirrorExits ? 'Si él vende antes del final, la copia se vende también (precio de venta del momento)' : 'Las copias se mantienen hasta el resultado final',
+      'Una copia por mercado y lado; las posiciones que ya tenía al empezar también se copiaron, al precio de ese momento',
+    ].map(x => `<li>${x}</li>`).join('');
+  }
+
+  const B = (C.bets || []).slice().sort((a, b) => Date.parse(b.copiedAt) - Date.parse(a.copiedAt));
+  const closed = B.filter(b => ['won', 'lost', 'sold', 'void'].includes(b.status)), open = B.filter(b => b.status === 'open');
+  const mtmOf = b => b.curPrice != null ? b.stake * (b.curPrice / b.price - 1) : 0;
+  const pnl = closed.reduce((a, b) => a + (b.pnl || 0), 0), stakedClosed = closed.reduce((a, b) => a + b.stake, 0);
+  const mtm = open.reduce((a, b) => a + mtmOf(b), 0);
+  const settled = closed.filter(b => b.status === 'won' || b.status === 'lost'), wins = settled.filter(b => b.status === 'won').length;
+  const lag = B.filter(b => b.traderAvgPrice).map(b => b.price - b.traderAvgPrice);
+  $('tiles').innerHTML = [
+    ['Copias realizadas', B.length, `${open.length} abiertas · ${closed.length} cerradas`],
+    ['Invertido total', fmt$(B.reduce((a, b) => a + b.stake, 0)), `${fmt$(open.reduce((a, b) => a + b.stake, 0))} en abiertas`],
+    ['Ganancia realizada', `<span class="${cls(pnl)}">${fmt$(pnl)}</span>`, `ROI ${fmtPct(stakedClosed ? pnl / stakedClosed : null)} sobre lo cerrado`],
+    ['Abiertas a precio actual', `<span class="${cls(mtm)}">${fmt$(mtm)}</span>`, 'si vendieras ahora'],
+    ['Acierto', settled.length ? fmtPct(wins / settled.length) : '–', `${wins} de ${settled.length} resueltas`],
+    ['Costo de copiar tarde', lag.length ? (lag.reduce((a, b) => a + b, 0) / lag.length * 100).toFixed(1) + '¢' : '–', 'precio nuestro − precio de él, promedio'],
+  ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
+
+  let acc = 0;
+  const pts = closed.slice().sort((a, b) => Date.parse(a.resolvedAt) - Date.parse(b.resolvedAt)).map(b => ({ x: Date.parse(b.resolvedAt), y: (acc += b.pnl), title: b.title }));
+  Chart.defaults.color = css('--muted'); Chart.defaults.borderColor = css('--grid');
+  Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
+  new Chart($('equity'), {
+    type: 'line',
+    data: { datasets: [{ data: pts, borderColor: css('--s1'), backgroundColor: css('--s1'), borderWidth: 2, pointRadius: 0, pointHoverRadius: 5, stepped: true }] },
+    options: { maintainAspectRatio: false, parsing: false, interaction: { mode: 'nearest', intersect: false },
+      scales: { x: { type: 'linear', ticks: { callback: v => fmtDate(v), maxTicksLimit: 6 }, grid: { display: false } }, y: { ticks: { callback: v => fmt$(v) } } },
+      plugins: { legend: { display: false }, title: { display: !pts.length, text: 'Sin copias cerradas todavía' },
+        tooltip: { callbacks: { title: it => fmtDate(it[0].raw.x), label: it => `${fmt$(it.raw.y)} — ${it.raw.title}` } } } }
+  });
+
+  const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', sold: 'Vendida', void: 'Anulada' };
+  $('nBets').textContent = `(${B.length})`;
+  $('bets').innerHTML = `<tr><th>Copiada</th><th>Mercado</th><th>Apuesta a</th><th class="num">Precio nuestro</th><th class="num">Precio de él</th><th class="num">Monto</th><th class="num">Actual / final</th><th>Partido</th><th>Estado</th><th class="num">P&amp;L</th></tr>` +
+    (B.length ? B.map(b => { const p = b.status === 'open' ? mtmOf(b) : b.pnl;
+      return `<tr><td>${fmtDT(b.copiedAt)}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.outcome)}</td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtC(b.traderAvgPrice)}</td><td class="num"><b>$${b.stake}</b></td><td class="num">${fmtC(b.status === 'open' ? b.curPrice : b.finalPrice)}</td><td>${fmtDate(b.endDate)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
+      : `<tr><td colspan="10" class="small">Todavía no hay copias.</td></tr>`);
+
+  const T = (C.traderPositions || []).slice().sort((a, b) => b.value - a.value);
+  $('traderNote').textContent = s ? `Lado principal de cada mercado NFL donde ${s.traderName} tiene dinero ahora. Se copian las de ${fmtK(s.minTraderUsd)} o más.` : '';
+  $('trader').innerHTML = `<tr><th>Mercado</th><th>Apuesta a</th><th class="num">Su entrada</th><th class="num">Precio actual</th><th class="num">Valor</th><th class="num">Su P&amp;L</th><th>Partido</th></tr>` +
+    (T.length ? T.map(t => `<tr><td class="title"><a href="${link(t)}" target="_blank" rel="noopener">${esc(t.title)}</a></td><td>${esc(t.outcome)}</td><td class="num">${fmtC(t.avgPrice)}</td><td class="num">${fmtC(t.curPrice)}</td><td class="num">${fmtK(t.value)}</td><td class="num ${cls(t.pnl)}">${fmtK(t.pnl)}</td><td>${fmtDate(t.endDate)}</td></tr>`).join('')
+      : `<tr><td colspan="7" class="small">No tiene posiciones NFL abiertas ahora.</td></tr>`);
+}
+render();
+setTimeout(() => location.reload(), 5 * 60 * 1000);
+</script>
+</body>
+</html>

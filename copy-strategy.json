@@ -1,0 +1,10 @@
+{
+    "version":  1,
+    "nota":  "Copiar NFL de Elaran1993",
+    "traderName":  "Elaran1993",
+    "traderWallet":  "0xb7271c112cbd83eb4c1ef1b554ff963604ae2a9d",
+    "eventPrefix":  "nfl-",
+    "stake":  5,
+    "minTraderUsd":  1000,
+    "mirrorExits":  true
+}
