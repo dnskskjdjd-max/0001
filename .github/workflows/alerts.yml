@@ -1,0 +1,59 @@
+name: Alertas
+
+# Cuando la PC sube alertas nuevas o resueltas, se envian/cierran como issues (llegan por correo)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/alerts-new.json'
+      - 'data/alerts-close.json'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: alerts
+  cancel-in-progress: false
+
+jobs:
+  issues:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enviar alertas de venta
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if (Test-Path data/alerts-new.json) {
+            $alerts = Get-Content data/alerts-new.json -Raw | ConvertFrom-Json
+            foreach ($a in @($alerts)) {
+              if (-not $a.title) { continue }
+              $f = New-TemporaryFile
+              Set-Content -Path $f -Value $a.body -Encoding utf8NoBOM
+              gh issue create --repo "${{ github.repository }}" --title $a.title --body-file $f
+            }
+          }
+
+      - name: Cerrar alertas resueltas
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if (Test-Path data/alerts-close.json) {
+            $items = @(Get-Content data/alerts-close.json -Raw | ConvertFrom-Json) | Where-Object { $_.title }
+            if ($items) {
+              $open = gh issue list --repo "${{ github.repository }}" --state open --limit 200 --json number,title | ConvertFrom-Json
+              foreach ($x in $items) {
+                $iss = $open | Where-Object { $_.title -eq $x.title } | Select-Object -First 1
+                if (-not $iss) { Write-Host "Sin issue abierto para: $($x.title)"; continue }
+                $f = New-TemporaryFile
+                Set-Content -Path $f -Value $x.body -Encoding utf8NoBOM
+                gh issue comment $iss.number --repo "${{ github.repository }}" --body-file $f
+                gh issue close $iss.number --repo "${{ github.repository }}" --reason completed
+              }
+            }
+          }
