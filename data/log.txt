@@ -63,3 +63,7 @@
 2026-10-03 08:57:00  Apuesta: $5 a PARIVISION en Counter-Strike: Legacy vs PARIVISION (BO3) - ESL Pro League Group Stage @ 55c (consenso 7/10)
 2026-10-03 08:57:01  OK: 21 mercados >= 60, 9 >= 70, 1 senales nuevas, 0 de control nuevas, 1 apuestas nuevas (9 en el historial), 0 resueltas, 21 senales + 181 de control
 2026-10-03 08:57:03  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 09:19:56  --- inicio ---
+2026-10-03 09:20:07  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T09:15:13.323Z)
+2026-10-03 09:20:14  OK: 21 mercados >= 60, 8 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (9 en el historial), 0 resueltas, 21 senales + 182 de control
+2026-10-03 09:20:15  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
