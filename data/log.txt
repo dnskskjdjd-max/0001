@@ -142,3 +142,7 @@
 2026-10-03 10:30:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T15:15:54.829Z)
 2026-10-03 10:31:09  OK: 19 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (12 en el historial), 0 alertas de venta, 0 resueltas, 27 senales + 192 de control
 2026-10-03 10:31:11  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 10:35:30  --- inicio ---
+2026-10-03 10:35:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T15:15:54.829Z)
+2026-10-03 10:36:07  OK: 19 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (12 en el historial), 0 alertas de venta, 0 resueltas, 27 senales + 192 de control
+2026-10-03 10:36:09  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
