@@ -85,3 +85,8 @@
 2026-10-03 10:36:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T10:30:15.617Z)
 2026-10-03 10:37:00  OK: 21 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas, 23 senales + 182 de control
 2026-10-03 10:37:01  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 11:10:52  --- inicio ---
+2026-10-03 11:11:05  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T11:00:14.085Z)
+2026-10-03 11:11:13  Apuesta: $1 a NO en Will Naftali Bennett be the next Prime Minister of Israel? @ 87c (consenso 5/10)
+2026-10-03 11:11:13  OK: 21 mercados >= 60, 9 >= 70, 0 senales nuevas, 2 de control nuevas, 1 apuestas nuevas (12 en el historial), 0 resueltas, 23 senales + 184 de control
+2026-10-03 11:11:15  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
