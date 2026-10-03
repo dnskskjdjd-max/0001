@@ -499,3 +499,11 @@
 2026-10-03 18:00:54  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-03 18:00:55  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-03 18:00:55  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 18:03:10  --- inicio ---
+2026-10-03 18:03:27  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T23:00:50.520Z)
+2026-10-03 18:03:40  Apuesta: $1 a YES en Will Lula win the most votes in the first round of the 2026 Brazil presidential election? @ 60c (consenso 2/10)
+2026-10-03 18:03:42  ALERTA DE VENTA: Will Lula win the most votes in the first round of the 2026 Brazil presidential election? [YES] - solo 2 de las 10 ballenas mejor rankeadas siguen en YES
+2026-10-03 18:03:43  OK: 20 mercados >= 60, 7 >= 70, 1 senales nuevas, 2 de control nuevas, 1 apuestas nuevas (13 en el historial), 1 alertas de venta, 0 resueltas, 40 senales + 212 de control
+2026-10-03 18:03:46  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 18:03:46  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 18:03:46  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
