@@ -363,3 +363,25 @@
 2026-10-03 14:41:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-03 14:41:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-03 14:41:06  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 16:02:53  --- inicio ---
+2026-10-03 16:03:07  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T20:51:42.947Z)
+2026-10-03 16:03:19  Resuelta: Spread: Houston (-10.5) [UCF] -> won
+2026-10-03 16:03:19  Resuelta: UCF vs. Houston [HOUSTON] -> won
+2026-10-03 16:03:20  Resuelta: Alabama vs. Mississippi State [ALABAMA] -> won
+2026-10-03 16:03:20  Resuelta: Croatia vs. England: O/U 2.5 [OVER] -> won
+2026-10-03 16:03:20  Resuelta: UCF vs. Houston [UCF] -> lost
+2026-10-03 16:03:20  Resuelta: Michigan vs. Minnesota [MINNESOTA] -> won
+2026-10-03 16:03:20  Resuelta: Will England win on 2026-10-03? [YES] -> won
+2026-10-03 16:03:20  Resuelta: Counter-Strike: FURIA vs BetBoom Team (BO3) - ESL Pro League Group Stage [FURIA] -> won
+2026-10-03 16:03:20  Resuelta: Will England win on 2026-10-03? [YES] -> won
+2026-10-03 16:03:20  Resuelta: Chicago White Sox vs. Cleveland Guardians [CHICAGO WHITE SOX] -> won
+2026-10-03 16:03:20  Resuelta: Michigan vs. Minnesota [MICHIGAN] -> lost
+2026-10-03 16:03:20  Resuelta: Alabama vs. Mississippi State [ALABAMA] -> won
+2026-10-03 16:03:20  Resuelta: Michigan vs. Minnesota [MICHIGAN] -> lost
+2026-10-03 16:03:20  Resuelta: Spread: Alabama (-5.5) [ALABAMA] -> won
+2026-10-03 16:03:20  Apuesta resuelta: Will England win on 2026-10-03? [YES] -> won (3.7719)
+2026-10-03 16:03:20  Apuesta resuelta: Chicago White Sox vs. Cleveland Guardians [CHICAGO WHITE SOX] -> won (0.1628)
+2026-10-03 16:03:23  OK: 20 mercados >= 60, 6 >= 70, 2 senales nuevas, 4 de control nuevas, 0 apuestas nuevas (11 en el historial), 0 alertas de venta, 14 resueltas, 37 senales + 208 de control
+2026-10-03 16:03:25  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 16:03:26  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 16:03:26  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
