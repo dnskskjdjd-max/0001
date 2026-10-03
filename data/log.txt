@@ -22,3 +22,6 @@
 2026-10-03 01:03:40  --- inicio ---
 2026-10-03 01:03:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T05:21:06.454Z)
 2026-10-03 01:03:59  OK: 20 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 resueltas, 20 senales + 177 de control
+2026-10-03 06:22:55  --- inicio ---
+2026-10-03 06:23:09  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T06:04:07.339Z)
+2026-10-03 06:23:18  OK: 20 mercados >= 60, 8 >= 70, 0 senales nuevas, 1 de control nuevas, 0 resueltas, 20 senales + 178 de control
