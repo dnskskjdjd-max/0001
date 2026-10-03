@@ -77,3 +77,7 @@
 2026-10-03 09:55:22  Apuesta: $1 a TEAM LIQUID en Valorant: G2 Esports vs Team Liquid (BO3) - VCT Champions Group C @ 41c (consenso 4/10)
 2026-10-03 09:55:23  OK: 21 mercados >= 60, 8 >= 70, 2 senales nuevas, 0 de control nuevas, 2 apuestas nuevas (11 en el historial), 0 resueltas, 23 senales + 182 de control
 2026-10-03 09:55:25  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 10:14:13  --- inicio ---
+2026-10-03 10:14:30  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T09:55:19.649Z)
+2026-10-03 10:14:39  OK: 21 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas, 23 senales + 182 de control
+2026-10-03 10:14:40  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
