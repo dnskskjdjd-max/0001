@@ -25,3 +25,14 @@
 2026-10-03 06:22:55  --- inicio ---
 2026-10-03 06:23:09  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T06:04:07.339Z)
 2026-10-03 06:23:18  OK: 20 mercados >= 60, 8 >= 70, 0 senales nuevas, 1 de control nuevas, 0 resueltas, 20 senales + 178 de control
+2026-10-03 06:35:43  --- inicio ---
+2026-10-03 06:35:56  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T06:23:22.903Z)
+2026-10-03 06:36:02  Apuesta: $5 a NO en Will the U.S. invade Iran before 2027? @ 84c (consenso 9/10)
+2026-10-03 06:36:02  Apuesta: $5 a NO en Strait of Hormuz traffic returns to normal by December 31? @ 80c (consenso 8/10)
+2026-10-03 06:36:02  Apuesta: $5 a NO en Will Bitcoin dip to $55,000 by December 31, 2026? @ 92c (consenso 9/10)
+2026-10-03 06:36:02  Apuesta: $5 a NO en Will Bitcoin dip to $60,000 by December 31, 2026? @ 87c (consenso 8/10)
+2026-10-03 06:36:02  Apuesta: $1 a G2 ESPORTS en Valorant: G2 Esports vs Team Liquid (BO3) - VCT Champions Group C @ 54c (consenso 3/10)
+2026-10-03 06:36:02  Apuesta: $5 a NO en Extended FDV above $500M one day after launch? @ 81c (consenso 9/10)
+2026-10-03 06:36:02  Apuesta: $5 a NO en Extended FDV above $300M one day after launch? @ 63c (consenso 7/10)
+2026-10-03 06:36:02  Apuesta: $1 a COLTS en Colts vs. Commanders @ 66c (consenso 4/10)
+2026-10-03 06:36:03  OK: 20 mercados >= 60, 8 >= 70, 0 senales nuevas, 1 de control nuevas, 8 apuestas nuevas (8 en el historial), 0 resueltas, 20 senales + 179 de control
