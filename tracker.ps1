@@ -15,6 +15,7 @@ $LogFile     = Join-Path $DataDir 'log.txt'
 $BetsFile    = Join-Path $DataDir 'bets.json'      # historial de apuestas: una vez registrada, la apuesta no cambia (solo su resultado)
 $StrategyFile = Join-Path $Root 'strategy.json'    # reglas con que se apuesta cada hora; cambiarlas solo afecta a apuestas futuras
 $AlertsNewFile = Join-Path $DataDir 'alerts-new.json'  # alertas de venta nuevas de esta ejecucion (el workflow las envia como issues)
+$AlertsCloseFile = Join-Path $DataDir 'alerts-close.json'  # alertas cuyo mercado ya se resolvio (el workflow comenta y cierra el issue)
 $PagesUrl = 'https://dnskskjdjd-max.github.io/0001/'
 
 $Thresholds   = @(60, 65, 70, 75, 80)   # se guarda la entrada al cruzar cada umbral
@@ -401,6 +402,23 @@ try {
         Log "ALERTA DE VENTA: $($b.title) [$($b.position)] - $($reasons -join '; ')"
     }
     Write-FileAtomic $AlertsNewFile (ConvertTo-Json -InputObject @($alertsNew) -Depth 4)
+
+    # 4c. Alertas resueltas: el workflow busca el issue por titulo, deja el resultado como comentario y lo cierra (una sola vez)
+    $alertsClose = @()
+    foreach ($b in @($bets.Values | Where-Object { $_.alert -and $_.status -ne 'open' -and -not $_.alert.closedNotified })) {
+        $label = switch ($b.status) { 'won' { 'GANO' } 'lost' { 'PERDIO' } default { 'ANULADA' } }
+        $sold = $b.alert.pnlIfSold
+        $verdict = if ($null -eq $sold) { '' } elseif ($sold -gt $b.pnl) { 'Hacerle caso a la alerta habria sido MEJOR.' } elseif ($sold -lt $b.pnl) { 'Hacerle caso a la alerta habria sido PEOR.' } else { 'Habria dado lo mismo.' }
+        $alertsClose += @{
+            title = "Alerta de venta: $($b.title) [$($b.position)]"
+            body  = "**Mercado resuelto: la apuesta $label.**`n`n" +
+                    "- Apuesta: `$$($b.stake) a **$($b.position)** a $([Math]::Round($b.price * 100, 1))c`n" +
+                    "- Resultado manteniendo hasta el final: $([Math]::Round($b.pnl, 2)) USD`n" +
+                    "- Si se hubiera vendido en la alerta: $(if ($null -ne $sold) { "$([Math]::Round($sold, 2)) USD" } else { '-' })`n`n$verdict`n`n_Issue cerrado automaticamente por el tracker._"
+        }
+        $b.alert.closedNotified = $now
+    }
+    Write-FileAtomic $AlertsCloseFile (ConvertTo-Json -InputObject @($alertsClose) -Depth 4)
 
     # 5. Snapshot historico (todos los mercados con score >= $SnapMinScore)
     $rows = foreach ($m in $markets) {
