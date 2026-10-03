@@ -12,6 +12,8 @@ $RunsFile    = Join-Path $DataDir 'runs.json'
 $SnapFile    = Join-Path $DataDir 'snapshots.csv'
 $DataJsFile  = Join-Path $DataDir 'data.js'
 $LogFile     = Join-Path $DataDir 'log.txt'
+$BetsFile    = Join-Path $DataDir 'bets.json'      # historial de apuestas: una vez registrada, la apuesta no cambia (solo su resultado)
+$StrategyFile = Join-Path $Root 'strategy.json'    # reglas con que se apuesta cada hora; cambiarlas solo afecta a apuestas futuras
 
 $Thresholds   = @(60, 65, 70, 75, 80)   # se guarda la entrada al cruzar cada umbral
 $MinTrack     = 60
@@ -161,6 +163,39 @@ function Get-TopWhales($m, $position, $rank) {
     return ,@($holders | Sort-Object r | Select-Object -First 20 | ForEach-Object { ,@($_.r, $_.a, $_.h) })
 }
 
+function Get-Category($slug) {
+    if ($slug -match 'bitcoin|btc|ethereum|eth-|solana|crypto|fdv|token|airdrop|xrp|doge') { return 'Cripto' }
+    if ($slug -match '^(nfl|nba|mlb|nhl|cfb|cbb|wnba|epl|ucl|uel|mls|unl|lal|sea|bun|fl1|ser|atp|wta|ufc|val|cs2|lol|dota2?|ow|r6)-' -or $slug -match '-\d{4}-\d{2}-\d{2}') { return 'Deportes / eSports' }
+    return 'Política / otros'
+}
+
+# Mismo calculo que el panel: de las N mejor rankeadas (filtradas), cuantas apuestan igual que la senal
+function Get-Consensus($top, $st) {
+    $pool = @($top | Where-Object { (-not $st.maxRank -or $_[0] -le $st.maxRank) -and -not ($st.exclHedged -and $_[2]) } | Select-Object -First $st.topN)
+    $agree = @($pool | Where-Object { $_[1] }).Count
+    return @{ agree = $agree; n = $pool.Count; ok = ($agree -ge $st.minAgree) }
+}
+
+# Actualiza precio actual y, si el mercado cerro, el resultado. Devuelve el nuevo estado o $null.
+function Update-FromGamma($s, $g, $now) {
+    $p = Get-GammaPrice $g $s.position
+    if ($null -ne $p) { $s.curPrice = [Math]::Round($p, 4); $s.curPriceAt = $now }
+    if ($g.closed -ne $true) { return $null }
+    $status = $null
+    if ($null -eq $p) { $status = 'void' }
+    elseif ($p -ge 0.99) { $status = 'won' }
+    elseif ($p -le 0.01) { $status = 'lost' }
+    elseif ($g.umaResolutionStatus -eq 'resolved') { $status = 'void' }
+    if ($status) { $s.status = $status; $s.resolvedAt = $now; $s.finalPrice = $p }
+    return $status
+}
+
+$DefaultStrategy = [ordered]@{
+    version = 1; nota = 'Estrategia inicial'
+    th = 70; rule = 'consensus'; baseStake = 1; consensusStake = 5; minAgree = 6; topN = 10; maxRank = 0; exclHedged = 0
+    priceMode = 'ask'; slip = 0; minLiq = 0; maxHedge = 1; maxDays = $null; cat = 'all'
+}
+
 function Get-WhaleStats($m, $position) {
     $ps  = @($m.positions | Where-Object { $_.outcome -and $_.outcome.ToUpper() -eq $position })
     $tot = ($ps | Measure-Object value -Sum).Sum
@@ -181,6 +216,18 @@ try {
     }
     $runs = @()
     if (Test-Path $RunsFile) { $runs = @(ConvertFrom-JsonArray (Get-Content $RunsFile -Raw -Encoding UTF8)) }
+    $bets = [ordered]@{}
+    if (Test-Path $BetsFile) {
+        foreach ($b in (ConvertTo-Hash (Get-Content $BetsFile -Raw -Encoding UTF8 | ConvertFrom-Json))) { if ($b -and $b.key) { $bets[$b.key] = $b } }
+    }
+    # Estrategia: si falta se crea la inicial; si es invalida no se apuesta esta hora (el resto sigue funcionando)
+    if (-not (Test-Path $StrategyFile)) { Write-FileAtomic $StrategyFile (ConvertTo-Json -InputObject $DefaultStrategy -Depth 3) }
+    $strategy = $null
+    try {
+        $strategy = ConvertTo-Hash (Get-Content $StrategyFile -Raw -Encoding UTF8 | ConvertFrom-Json)
+        foreach ($k in $DefaultStrategy.Keys) { if (-not $strategy.ContainsKey($k)) { $strategy[$k] = $DefaultStrategy[$k] } }
+        if ($strategy.th -lt $MinTrack) { throw "th debe ser >= $MinTrack" }
+    } catch { Log "strategy.json invalido, no se apuesta esta hora: $($_.Exception.Message)"; $strategy = $null }
 
     # 2. Datos del sitio
     $headers = @{ apikey = $AnonKey; Authorization = "Bearer $AnonKey" }
@@ -200,7 +247,8 @@ try {
     $controls   = @($markets | Where-Object { $_.fireScore -lt $MinTrack -and -not (Test-ShortCrypto $_) })
     $openSlugs  = @($signals.Values | Where-Object { $_.status -eq 'open' } | ForEach-Object { $_.slug })
     $newCtlSlugs = @($controls | Where-Object { -not $signals.ContainsKey("ctl|$($_.slug)|$("$($_.position)".ToUpper())") } | ForEach-Object { $_.slug })
-    $gamma = Get-GammaMarkets (@($candidates | ForEach-Object { $_.slug }) + $newCtlSlugs + $openSlugs)
+    $openBetSlugs = @($bets.Values | Where-Object { $_.status -eq 'open' } | ForEach-Object { $_.slug })
+    $gamma = Get-GammaMarkets (@($candidates | ForEach-Object { $_.slug }) + $newCtlSlugs + $openSlugs + $openBetSlugs)
 
     # 3. Registrar / actualizar senales
     $newCount = 0
@@ -267,24 +315,50 @@ try {
         $newCtl++
     }
 
-    # 4. Precio actual y resolucion de senales abiertas
+    # 3c. Apuestas: se registran una sola vez por mercado y lado, con una copia de la estrategia vigente
+    $newBets = 0
+    if ($strategy) {
+        $nowUtc = (Get-Date).ToUniversalTime()
+        foreach ($c in $current) {
+            if ($c.score -lt $strategy.th -or $bets.Contains($c.key)) { continue }
+            $days = $null
+            if ($c.endDate) { try { $days = ([DateTimeOffset]::Parse("$($c.endDate)").UtcDateTime - $nowUtc).TotalDays } catch {} }
+            if ($strategy.maxDays -and ($null -eq $days -or $days -gt $strategy.maxDays)) { continue }
+            if ($strategy.cat -ne 'all' -and (Get-Category $c.slug) -ne $strategy.cat) { continue }
+            if ($strategy.minLiq -and -not ($c.liq -ge $strategy.minLiq)) { continue }
+            if ($strategy.maxHedge -lt 1 -and $null -ne $c.hedgeCap -and $c.hedgeCap -gt $strategy.maxHedge) { continue }
+            $base = if ($strategy.priceMode -eq 'ask' -and $c.ask) { $c.ask } else { $c.price }
+            $price = [Math]::Round([Math]::Min(0.99, $base + $strategy.slip / 100), 4)
+            $cons = Get-Consensus $c.top $strategy
+            $stake = if ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
+            $bets[$c.key] = @{
+                key = $c.key; placedAt = $now; slug = $c.slug; title = $c.title; position = $c.position
+                eventSlug = $c.eventSlug; questionID = $c.questionID; endDate = $c.endDate
+                score = $c.score; price = $price; stake = $stake; consensus = "$($cons.agree)/$($cons.n)"
+                hedgeCap = $c.hedgeCap; liq = $c.liq; strategy = $strategy.Clone()
+                status = 'open'; curPrice = $c.price; curPriceAt = $now
+            }
+            $newBets++
+            Log "Apuesta: `$$stake a $($c.position) en $($c.title) @ $([Math]::Round($price * 100, 1))c (consenso $($cons.agree)/$($cons.n))"
+        }
+    }
+
+    # 4. Precio actual y resolucion de senales y apuestas abiertas
     $resolvedCount = 0
     foreach ($s in @($signals.Values | Where-Object { $_.status -eq 'open' })) {
         $g = $gamma[$s.slug]
         if (-not $g) { continue }
-        $p = Get-GammaPrice $g $s.position
-        if ($null -ne $p) { $s.curPrice = [Math]::Round($p, 4); $s.curPriceAt = $now }
-        if ($g.closed -eq $true) {
-            $status = $null
-            if ($null -eq $p) { $status = 'void' }
-            elseif ($p -ge 0.99) { $status = 'won' }
-            elseif ($p -le 0.01) { $status = 'lost' }
-            elseif ($g.umaResolutionStatus -eq 'resolved') { $status = 'void' }
-            if ($status) {
-                $s.status = $status; $s.resolvedAt = $now; $s.finalPrice = $p
-                $resolvedCount++
-                Log "Resuelta: $($s.title) [$($s.position)] -> $status"
-            }
+        if ($status = Update-FromGamma $s $g $now) {
+            $resolvedCount++
+            Log "Resuelta: $($s.title) [$($s.position)] -> $status"
+        }
+    }
+    foreach ($b in @($bets.Values | Where-Object { $_.status -eq 'open' })) {
+        $g = $gamma[$b.slug]
+        if (-not $g) { continue }
+        if ($status = Update-FromGamma $b $g $now) {
+            $b.pnl = switch ($status) { 'won' { [Math]::Round($b.stake * (1 / $b.price - 1), 4) } 'lost' { -$b.stake } default { 0 } }
+            Log "Apuesta resuelta: $($b.title) [$($b.position)] -> $status ($($b.pnl))"
         }
     }
 
@@ -313,12 +387,15 @@ try {
     $runsJson = ConvertTo-Json -InputObject @($runs) -Depth 4 -Compress
     Write-FileAtomic $RunsFile $runsJson
     $curJson = ConvertTo-Json -InputObject @($current) -Depth 4 -Compress
+    $betsJson = ConvertTo-Json -InputObject @($bets.Values) -Depth 6 -Compress
+    Write-FileAtomic $BetsFile $betsJson
+    $stratJson = if ($strategy) { ConvertTo-Json -InputObject $strategy -Depth 3 -Compress } else { 'null' }
 
-    $js = "window.TRACKER_DATA = {`"generatedAt`":`"$now`",`"siteUpdatedAt`":`"$($site.lastUpdated)`",`"thresholds`":[$($Thresholds -join ',')],`"signals`":$sigJson,`"runs`":$runsJson,`"current`":$curJson};"
+    $js = "window.TRACKER_DATA = {`"generatedAt`":`"$now`",`"siteUpdatedAt`":`"$($site.lastUpdated)`",`"thresholds`":[$($Thresholds -join ',')],`"signals`":$sigJson,`"runs`":$runsJson,`"current`":$curJson,`"bets`":$betsJson,`"strategy`":$stratJson};"
     Write-FileAtomic $DataJsFile $js
 
     $ctlTotal = @($signals.Values | Where-Object { $_.kind -eq 'control' }).Count
-    Log "OK: $($candidates.Count) mercados >= $MinTrack, $above70 >= 70, $newCount senales nuevas, $newCtl de control nuevas, $resolvedCount resueltas, $($signals.Count - $ctlTotal) senales + $ctlTotal de control"
+    Log "OK: $($candidates.Count) mercados >= $MinTrack, $above70 >= 70, $newCount senales nuevas, $newCtl de control nuevas, $newBets apuestas nuevas ($($bets.Count) en el historial), $resolvedCount resueltas, $($signals.Count - $ctlTotal) senales + $ctlTotal de control"
     exit 0
 } catch {
     Log "ERROR: $($_.Exception.Message) $($_.InvocationInfo.PositionMessage)"

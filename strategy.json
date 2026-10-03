@@ -1,0 +1,18 @@
+{
+    "version":  1,
+    "nota":  "Estrategia inicial",
+    "th":  70,
+    "rule":  "consensus",
+    "baseStake":  1,
+    "consensusStake":  5,
+    "minAgree":  6,
+    "topN":  10,
+    "maxRank":  0,
+    "exclHedged":  0,
+    "priceMode":  "ask",
+    "slip":  0,
+    "minLiq":  0,
+    "maxHedge":  1,
+    "maxDays":  null,
+    "cat":  "all"
+}

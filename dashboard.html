@@ -66,6 +66,12 @@ a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: un
 @media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
 .chartbox { position: relative; height: 280px; }
 tr.sel td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+h3 { font-size: 14px; margin: 0 0 8px; }
+ul.strat { margin: 0 0 12px; padding-left: 18px; color: var(--ink-2); }
+ul.strat li { margin: 2px 0; }
+button { font: inherit; color: var(--ink); background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+button:hover { border-color: var(--accent); }
+pre.json { background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 8px; overflow-x: auto; font-size: 12px; }
 .note { background: var(--warn-bg); border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 13px; }
 </style>
 </head>
@@ -73,6 +79,30 @@ tr.sel td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
 <main>
   <h1>Fire Score Tracker</h1>
   <p class="sub">Registra las recomendaciones de firepolymarket.com y simula si apostar en ellas da ganancias. <span id="updated" class="small"></span></p>
+
+  <div id="stale" class="verdict" style="display:none; border-color: var(--bad)"></div>
+
+  <div class="card">
+    <h2>📒 Mis apuestas (historial fijo)</h2>
+    <p class="sub">Cada hora el tracker apuesta según la estrategia guardada en el repositorio. Una vez registrada, una apuesta no cambia aunque cambies la estrategia o los filtros del simulador: solo se actualiza su resultado.</p>
+    <div class="tiles" id="ledgerTiles"></div>
+    <div class="grid2" style="margin-top:16px">
+      <div>
+        <h3>Ganancia acumulada (apuestas resueltas)</h3>
+        <div class="chartbox"><canvas id="ledgerChart"></canvas></div>
+      </div>
+      <div>
+        <h3>Estrategia vigente <span class="small" id="stratVer"></span></h3>
+        <ul id="stratList" class="strat"></ul>
+        <button id="useFilters" type="button">Usar los filtros del simulador como nueva estrategia</button>
+        <div id="stratHelp" class="small" style="margin-top:8px"></div>
+      </div>
+    </div>
+    <div class="tablewrap" style="margin-top:16px"><table id="ledger"></table></div>
+  </div>
+
+  <h2 style="margin:32px 0 4px; font-size:18px">Simulador (hipotético)</h2>
+  <p class="sub">Recalcula todas las señales registradas con los filtros que elijas. Sirve para probar reglas antes de pasarlas a la estrategia; no modifica el historial.</p>
 
   <div class="card controls">
     <label>Umbral de Fire Score <select id="th"></select></label>
@@ -99,7 +129,6 @@ tr.sel td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
       <option value="all">Todas</option><option>Deportes / eSports</option><option>Cripto</option><option>Política / otros</option></select></label>
   </div>
 
-  <div id="stale" class="verdict" style="display:none; border-color: var(--bad)"></div>
   <div id="verdict" class="verdict"></div>
   <div class="tiles" style="margin-top:16px" id="tiles"></div>
 
@@ -270,6 +299,82 @@ function verdictOf(st) {
     text: `El ROI es ${fmtPct(st.roi)} y la ventaja es ${fmtPp(st.edge)}: el precio ya refleja (o sobreestima) lo que saben las ballenas.` };
 }
 
+// ---- Historial fijo de apuestas (lo escribe el tracker; aquí solo se muestra) ----
+function describeStrategy(s) {
+  if (!s) return ['Sin estrategia válida: el tracker no está apostando. Revisa strategy.json en el repositorio.'];
+  return [
+    `Fire Score ≥ ${s.th}`,
+    s.rule === 'consensus'
+      ? `$${s.consensusStake} si ≥ ${s.minAgree} de las ${s.topN} ballenas mejor rankeadas apuestan igual${s.maxRank ? ` (solo top ${s.maxRank} del ranking)` : ''}${s.exclHedged ? ', sin contar ballenas cubiertas' : ''}; si no, $${s.baseStake}`
+      : `$${s.baseStake} fija por apuesta`,
+    (s.priceMode === 'ask' ? 'Precio de compra real' : 'Precio medio') + (s.slip ? ` + ${s.slip}¢` : ''),
+    s.minLiq ? `Liquidez ≥ ${fmtK(s.minLiq)}` : null,
+    s.maxHedge < 1 ? `Capital de ballenas cubierto ≤ ${Math.round(s.maxHedge * 100)}%` : null,
+    s.maxDays ? `Cierra en ≤ ${s.maxDays} días` : null,
+    s.cat && s.cat !== 'all' ? `Solo ${s.cat}` : null,
+    'Una apuesta por mercado y lado; cripto intradía excluido',
+  ].filter(Boolean);
+}
+
+function renderLedger() {
+  const B = (D.bets || []).slice().sort((a, b) => Date.parse(b.placedAt) - Date.parse(a.placedAt));
+  const res = B.filter(b => b.status === 'won' || b.status === 'lost'), open = B.filter(b => b.status === 'open');
+  const wins = res.filter(b => b.status === 'won').length;
+  const staked = B.reduce((a, b) => a + b.stake, 0), stakedRes = res.reduce((a, b) => a + b.stake, 0);
+  const pnl = B.reduce((a, b) => a + (b.pnl || 0), 0);
+  const mtmOf = b => b.curPrice != null ? b.stake * (b.curPrice / b.price - 1) : 0;
+  const mtm = open.reduce((a, b) => a + mtmOf(b), 0);
+  const winRate = res.length ? wins / res.length : null, implied = res.length ? res.reduce((a, b) => a + b.price, 0) / res.length : null;
+  $('ledgerTiles').innerHTML = [
+    ['Apuestas realizadas', B.length, `${open.length} abiertas · ${res.length} resueltas`],
+    ['Invertido total', fmt$(staked), `${fmt$(open.reduce((a, b) => a + b.stake, 0))} en apuestas abiertas`],
+    ['Ganancia realizada', `<span class="${cls(pnl)}">${fmt$(pnl)}</span>`, `ROI ${fmtPct(stakedRes ? pnl / stakedRes : null)} sobre lo resuelto`],
+    ['Abiertas a precio actual', `<span class="${cls(mtm)}">${fmt$(mtm)}</span>`, 'si vendieras ahora'],
+    ['Acierto vs implícita', `${fmtPct(winRate)} / ${fmtPct(implied)}`, `ventaja ${fmtPp(winRate == null ? null : winRate - implied)}`],
+  ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
+
+  let acc = 0;
+  const pts = res.slice().sort((a, b) => Date.parse(a.resolvedAt) - Date.parse(b.resolvedAt))
+    .map(b => ({ x: Date.parse(b.resolvedAt), y: (acc += b.pnl), title: b.title }));
+  chart('ledgerChart', {
+    type: 'line',
+    data: { datasets: [{ label: 'Ganancia acumulada', data: pts, borderColor: css('--s1'), backgroundColor: css('--s1'), borderWidth: 2, pointRadius: 0, pointHoverRadius: 5, stepped: true }] },
+    options: { maintainAspectRatio: false, parsing: false, interaction: { mode: 'nearest', intersect: false },
+      scales: { x: { type: 'linear', ticks: { callback: v => fmtDate(v), maxTicksLimit: 6 }, grid: { display: false } }, y: { ticks: { callback: v => fmt$(v) } } },
+      plugins: { legend: { display: false }, title: { display: !pts.length, text: 'Sin apuestas resueltas todavía' },
+        tooltip: { callbacks: { title: it => fmtDate(it[0].raw.x), label: it => `${fmt$(it.raw.y)} — ${it.raw.title}` } } } }
+  });
+
+  const s = D.strategy;
+  $('stratVer').textContent = s ? `(v${s.version}${s.nota ? ' · ' + s.nota : ''})` : '';
+  $('stratList').innerHTML = describeStrategy(s).map(x => `<li>${esc(x)}</li>`).join('');
+
+  const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', void: 'Anulada' };
+  $('ledger').innerHTML = `<tr><th>Apostada</th><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio</th><th class="num">Consenso</th><th class="num">Apuesta</th><th class="num">Estrategia</th><th class="num">Actual / final</th><th>Cierra</th><th>Estado</th><th class="num">P&amp;L</th></tr>` +
+    (B.length ? B.map(b => { const p = b.status === 'open' ? mtmOf(b) : b.pnl;
+      return `<tr><td>${new Date(b.placedAt).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.position)}</td><td class="num">${b.score}</td><td class="num">${fmtC(b.price)}</td><td class="num">${esc(b.consensus)}</td><td class="num"><b>$${b.stake}</b></td><td class="num">v${b.strategy ? b.strategy.version : '?'}</td><td class="num">${fmtC(b.status === 'open' ? b.curPrice : b.finalPrice)}</td><td>${fmtDate(b.endDate)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
+      : `<tr><td colspan="12" class="small">Todavía no hay apuestas. Se registran en la próxima ejecución del tracker.</td></tr>`);
+}
+
+// Convierte los filtros del simulador en una nueva estrategia y abre el editor de GitHub
+$('useFilters').addEventListener('click', async () => {
+  const next = {
+    version: ((D.strategy && D.strategy.version) || 0) + 1, nota: 'Desde el simulador ' + new Date().toLocaleDateString('es'),
+    th: state.th, rule: state.rule, baseStake: BASE_STAKE, consensusStake: CONSENSUS_STAKE, minAgree: state.minAgree, topN: state.topN,
+    maxRank: state.maxRank, exclHedged: state.exclHedged, priceMode: state.priceMode, slip: state.slip, minLiq: state.minLiq,
+    maxHedge: state.maxHedge, maxDays: state.maxDays, cat: state.cat,
+  };
+  const json = JSON.stringify(next, null, 2);
+  let copied = false;
+  try { await navigator.clipboard.writeText(json); copied = true; } catch (e) {}
+  const onPages = location.hostname.endsWith('github.io');
+  const editUrl = onPages ? `https://github.com/${location.hostname.split('.')[0]}/${location.pathname.split('/')[1]}/edit/main/strategy.json` : null;
+  if (editUrl) window.open(editUrl, '_blank', 'noopener');
+  $('stratHelp').innerHTML = `<p><b>Nueva estrategia v${next.version}:</b></p><ul class="strat">${describeStrategy(next).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` +
+    `<p>${copied ? 'Se copió al portapapeles.' : 'Copia este texto.'} ${editUrl ? 'En la pestaña de GitHub que se abrió' : 'En strategy.json del repositorio'}, reemplaza todo el contenido (Ctrl+A, Ctrl+V) y pulsa <b>Commit changes</b>. Se aplica desde la próxima hora; las apuestas ya hechas no cambian.</p>` +
+    `<pre class="json">${esc(json)}</pre>`;
+});
+
 let charts = {};
 function chart(id, cfg) { if (charts[id]) charts[id].destroy(); charts[id] = new Chart($(id), cfg); }
 const series = () => ['--s1', '--s2', '--s3', '--s4', '--s5'].map(css);
@@ -284,6 +389,8 @@ function render() {
   $('stale').style.display = ageH > 2 ? '' : 'none';
   $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? Math.floor(ageH) + ' horas' : 'nunca'}</b>
     <div class="sub" style="margin:4px 0 0">La actualización corre cada hora en GitHub Actions (workflow "Tracker cada hora"). Revisa la pestaña Actions del repositorio y <code>data/log.txt</code> para ver el error.</div>`;
+
+  renderLedger();
 
   const bs = bets(state.th), st = stats(bs, 5000);
   const v = verdictOf(st);
