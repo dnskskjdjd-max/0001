@@ -76,6 +76,11 @@ ul.strat { margin: 0 0 12px; padding-left: 18px; color: var(--ink-2); }
 ul.strat li { margin: 2px 0; }
 button { font: inherit; color: var(--ink); background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 7px 12px; cursor: pointer; }
 button:hover { border-color: var(--accent); }
+.decide { margin: 6px 0 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+a.btn { display: inline-block; padding: 5px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--page); color: var(--ink); font-weight: 600; }
+a.btn:hover { text-decoration: none; border-color: var(--accent); }
+a.btn.sell { border-color: var(--bad); }
+.badge.sold { color: var(--ink-2); }
 pre.json { background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 8px; overflow-x: auto; font-size: 12px; }
 .note { background: var(--warn-bg); border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 13px; }
 </style>
@@ -354,17 +359,42 @@ function describeStrategy(s) {
   ].filter(Boolean);
 }
 
+// Botones de decisión sobre una alerta: abren en GitHub un issue ya rellenado; el tracker lo aplica en ≤ 5 min.
+// Solo se aceptan decisiones creadas por la cuenta dueña del repositorio (lo verifica el tracker).
+const REPO = location.hostname.endsWith('github.io') ? `${location.hostname.split('.')[0]}/${location.pathname.split('/')[1]}` : 'dnskskjdjd-max/0001';
+function decisionUrl(b, action) {
+  const title = `Decision: ${action} - ${b.title} [${b.position}]`;
+  const body = 'Decision sobre la alerta de venta de esta apuesta. Pulsa **Create** para confirmarla; el tracker la aplica en su proxima ejecucion (5 minutos como maximo).\n\nkey: `' + b.key + '`';
+  return `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+}
+// Decisiones enviadas desde este navegador que el tracker todavía no aplicó (solo para mostrar "Enviada")
+const pendingKey = k => 'fst-decision:' + k;
+function getPending(k) { try { const v = JSON.parse(localStorage.getItem(pendingKey(k)) || 'null'); return v && Date.now() - v.t < 30 * 60e3 ? v : null; } catch (e) { return null; } }
+function markPending(k, action) { try { localStorage.setItem(pendingKey(k), JSON.stringify({ action, t: Date.now() })); } catch (e) {} }
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[data-decision]');
+  if (a) { markPending(a.dataset.key, a.dataset.decision); setTimeout(renderLedger, 50); }
+});
+function decisionButtons(b) {
+  const p = getPending(b.key);
+  if (p) return `<span class="small">⏳ Decisión "${p.action === 'VENDER' ? 'vender' : 'mantener'}" enviada: pulsa <b>Create</b> en GitHub si no lo hiciste. Se aplica en ≤ 5 min.</span>`;
+  return `<a class="btn sell" data-decision="VENDER" data-key="${esc(b.key)}" href="${decisionUrl(b, 'VENDER')}" target="_blank" rel="noopener" title="Aceptar la alerta: vender al precio actual">⭕ Vender</a>
+          <a class="btn keep" data-decision="MANTENER" data-key="${esc(b.key)}" href="${decisionUrl(b, 'MANTENER')}" target="_blank" rel="noopener" title="Rechazar la alerta: mantener hasta el final">❌ Mantener</a>`;
+}
+
 function renderLedger() {
   const B = (D.bets || []).slice().sort((a, b) => Date.parse(b.placedAt) - Date.parse(a.placedAt));
-  const res = B.filter(b => b.status === 'won' || b.status === 'lost'), open = B.filter(b => b.status === 'open');
-  const wins = res.filter(b => b.status === 'won').length;
+  // res = cerradas con resultado en dinero (incluye vendidas por alerta); settled = las que llegaron al resultado final
+  const res = B.filter(b => ['won', 'lost', 'sold'].includes(b.status)), open = B.filter(b => b.status === 'open');
+  const settled = res.filter(b => b.status !== 'sold'), wins = settled.filter(b => b.status === 'won').length;
   const staked = B.reduce((a, b) => a + b.stake, 0), stakedRes = res.reduce((a, b) => a + b.stake, 0);
   const pnl = B.reduce((a, b) => a + (b.pnl || 0), 0);
   const mtmOf = b => b.curPrice != null ? b.stake * (b.curPrice / b.price - 1) : 0;
   const mtm = open.reduce((a, b) => a + mtmOf(b), 0);
-  const winRate = res.length ? wins / res.length : null, implied = res.length ? res.reduce((a, b) => a + b.price, 0) / res.length : null;
+  const winRate = settled.length ? wins / settled.length : null, implied = settled.length ? settled.reduce((a, b) => a + b.price, 0) / settled.length : null;
+  const soldN = res.length - settled.length;
   $('ledgerTiles').innerHTML = [
-    ['Apuestas realizadas', B.length, `${open.length} abiertas · ${res.length} resueltas`],
+    ['Apuestas realizadas', B.length, `${open.length} abiertas · ${settled.length} resueltas${soldN ? ` · ${soldN} vendidas` : ''}`],
     ['Invertido total', fmt$(staked), `${fmt$(open.reduce((a, b) => a + b.stake, 0))} en apuestas abiertas`],
     ['Ganancia realizada', `<span class="${cls(pnl)}">${fmt$(pnl)}</span>`, `ROI ${fmtPct(stakedRes ? pnl / stakedRes : null)} sobre lo resuelto`],
     ['Abiertas a precio actual', `<span class="${cls(mtm)}">${fmt$(mtm)}</span>`, 'si vendieras ahora'],
@@ -372,12 +402,15 @@ function renderLedger() {
   ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
 
   // Alertas de venta: activas (apuesta abierta) y evaluación de las ya cerradas (vender en la alerta vs mantener)
-  const alerted = B.filter(b => b.alert), activeA = alerted.filter(b => b.status === 'open');
+  // Alertas activas: apuesta abierta, con alerta y sin decisión de mantener
+  const alerted = B.filter(b => b.alert), activeA = alerted.filter(b => b.status === 'open' && b.alert.decision !== 'keep');
   const closedA = alerted.filter(b => b.status === 'won' || b.status === 'lost');
   const ifSold = closedA.reduce((a, b) => a + (b.alert.pnlIfSold || 0), 0), held = closedA.reduce((a, b) => a + b.pnl, 0);
   $('alerts').innerHTML = (activeA.length ? `<div class="verdict" style="border-color: var(--bad); margin: 0 0 16px">
       <b class="neg">⚠ ${activeA.length} alerta${activeA.length > 1 ? 's' : ''} de venta activa${activeA.length > 1 ? 's' : ''}</b>
-      <ul class="strat" style="margin-top:6px">${activeA.map(b => `<li><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a> [${esc(b.position)}] — ${esc((b.alert.reasons || []).join('; '))}. Alerta ${fmtDT(b.alert.t)} a ${fmtC(b.alert.price)} (vender entonces: <span class="${cls(b.alert.pnlIfSold)}">${fmt$(b.alert.pnlIfSold)}</span>; ahora: <span class="${cls(mtmOf(b))}">${fmt$(mtmOf(b))}</span>)</li>`).join('')}</ul></div>` : '') +
+      <ul class="strat alerts" style="margin-top:6px">${activeA.map(b => `<li><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a> [${esc(b.position)}] — ${esc((b.alert.reasons || []).join('; '))}. Alerta ${fmtDT(b.alert.t)} a ${fmtC(b.alert.price)} (vender entonces: <span class="${cls(b.alert.pnlIfSold)}">${fmt$(b.alert.pnlIfSold)}</span>; ahora: <span class="${cls(mtmOf(b))}">${fmt$(mtmOf(b))}</span>)
+        <div class="decide">${decisionButtons(b)}</div></li>`).join('')}</ul>
+      <div class="small">⭕ acepta la alerta y vende al precio de venta del momento · ❌ la rechaza y mantiene la apuesta hasta el final. Se abre GitHub con la decisión lista: pulsa <b>Create</b>.</div></div>` : '') +
     (closedA.length ? `<p class="small" style="margin:0 0 12px">Alertas ya resueltas (${closedA.length}): vendiendo en la alerta habrías obtenido <b class="${cls(ifSold)}">${fmt$(ifSold)}</b>; manteniendo hasta el final, <b class="${cls(held)}">${fmt$(held)}</b>.</p>` : '');
 
   let acc = 0;
@@ -396,10 +429,14 @@ function renderLedger() {
   $('stratVer').textContent = s ? `(v${s.version}${s.nota ? ' · ' + s.nota : ''})` : '';
   $('stratList').innerHTML = describeStrategy(s).map(x => `<li>${esc(x)}</li>`).join('');
 
-  const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', void: 'Anulada' };
+  const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', void: 'Anulada', sold: 'Vendida' };
   $('ledger').innerHTML = `<tr><th>Apostada</th><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio</th><th class="num">Consenso</th><th class="num">Apuesta</th><th class="num">Estrategia</th><th class="num">Actual / final</th><th>Cierra</th><th>Estado</th><th>Alerta</th><th class="num">P&amp;L</th></tr>` +
     (B.length ? B.map(b => { const p = b.status === 'open' ? mtmOf(b) : b.pnl;
-      const al = b.alert ? `<span class="neg" title="${esc((b.alert.reasons || []).join('; '))}">⚠ Vender (${fmtDT(b.alert.t)})</span>` : '';
+      const why = esc((b.alert && b.alert.reasons || []).join('; '));
+      const al = !b.alert ? ''
+        : b.alert.decision === 'sell' ? `<span title="${why}">⭕ Vendida por alerta (${fmtDT(b.alert.decidedAt)})</span>`
+        : b.alert.decision === 'keep' ? `<span title="${why}">❌ Alerta rechazada (${fmtDT(b.alert.decidedAt)})</span>`
+        : `<span class="neg" title="${why}">⚠ Vender (${fmtDT(b.alert.t)})</span>`;
       return `<tr><td>${fmtDT(b.placedAt)}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.position)}</td><td class="num">${b.score}</td><td class="num">${fmtC(b.price)}</td><td class="num">${esc(b.consensus)}</td><td class="num"><b>$${b.stake}</b></td><td class="num">v${b.strategy ? b.strategy.version : '?'}</td><td class="num">${fmtC(b.status === 'open' ? b.curPrice : b.finalPrice)}</td><td>${fmtDate(b.endDate)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td>${al}</td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
       : `<tr><td colspan="13" class="small">Todavía no hay apuestas. Se registran en la próxima ejecución del tracker.</td></tr>`);
 }

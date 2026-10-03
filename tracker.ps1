@@ -17,6 +17,18 @@ $StrategyFile = Join-Path $Root 'strategy.json'    # reglas con que se apuesta c
 $AlertsNewFile = Join-Path $DataDir 'alerts-new.json'  # alertas de venta nuevas de esta ejecucion (el workflow las envia como issues)
 $AlertsCloseFile = Join-Path $DataDir 'alerts-close.json'  # alertas cuyo mercado ya se resolvio (el workflow comenta y cierra el issue)
 $PagesUrl = 'https://dnskskjdjd-max.github.io/0001/'
+$Repo = 'dnskskjdjd-max/0001'
+$RepoOwner = 'dnskskjdjd-max'   # solo se aceptan decisiones (issues) creadas por esta cuenta: el repositorio es publico
+$DecisionsFile    = Join-Path $DataDir 'decisions.json'      # historial de decisiones aplicadas (vender / mantener)
+$DecisionsNewFile = Join-Path $DataDir 'decisions-new.json'  # decisiones aplicadas en esta ejecucion (el workflow cierra los issues)
+
+# Enlaces que crean el issue de decision ya rellenado: el usuario solo pulsa "Create" en GitHub
+function Get-DecisionUrl($b, $action) {
+    $verb = if ($action -eq 'VENDER') { 'VENDER' } else { 'MANTENER' }
+    $title = "Decision: $verb - $($b.title) [$($b.position)]"
+    $body = "Decision sobre la alerta de venta de esta apuesta. Pulsa **Create** para confirmarla; el tracker la aplica en su proxima ejecucion (5 minutos como maximo).`n`nkey: ``$($b.key)``"
+    return "https://github.com/$Repo/issues/new?title=$([Uri]::EscapeDataString($title))&body=$([Uri]::EscapeDataString($body))"
+}
 
 $Thresholds   = @(60, 65, 70, 75, 80)   # se guarda la entrada al cruzar cada umbral
 $MinTrack     = 60
@@ -98,12 +110,17 @@ function Get-GammaPrice($g, $position) {
 # Precio al que realmente se compraria (mejor oferta de venta), diferencial y liquidez.
 # bestBid/bestAsk de Gamma son del primer resultado; para el segundo, ask = 1 - bestBid.
 function Get-GammaQuote($g, $position) {
-    $q = @{ ask = $null; spread = $null; liq = $null }
+    $q = @{ ask = $null; bid = $null; spread = $null; liq = $null }
     if (-not $g) { return $q }
     $outs = @(ConvertFrom-JsonArray $g.outcomes)
     $idx = Find-OutcomeIndex $outs $position
-    if ($idx -eq 0 -and $null -ne $g.bestAsk) { $q.ask = [double]$g.bestAsk }
-    elseif ($idx -eq 1 -and $null -ne $g.bestBid) { $q.ask = [Math]::Round(1 - [double]$g.bestBid, 4) }
+    if ($idx -eq 0) {
+        if ($null -ne $g.bestAsk) { $q.ask = [double]$g.bestAsk }
+        if ($null -ne $g.bestBid) { $q.bid = [double]$g.bestBid }
+    } elseif ($idx -eq 1) {
+        if ($null -ne $g.bestBid) { $q.ask = [Math]::Round(1 - [double]$g.bestBid, 4) }
+        if ($null -ne $g.bestAsk) { $q.bid = [Math]::Round(1 - [double]$g.bestAsk, 4) }
+    }
     if ($null -ne $g.spread) { $q.spread = [double]$g.spread }
     if ($null -ne $g.liquidityNum) { $q.liq = [Math]::Round([double]$g.liquidityNum) }
     return $q
@@ -367,6 +384,48 @@ try {
         }
     }
 
+    # 4a. Decisiones del usuario sobre las alertas: issues abiertos "Decision: VENDER|MANTENER - ..." creados por
+    # el dueno del repositorio (los de otras cuentas se ignoran). VENDER cierra la apuesta al precio de venta actual.
+    $decisions = @()
+    if (Test-Path $DecisionsFile) { $decisions = @(ConvertTo-Hash (Get-Content $DecisionsFile -Raw -Encoding UTF8 | ConvertFrom-Json)) | Where-Object { $_ } }
+    $processed = @{}; foreach ($d in $decisions) { $processed["$($d.issue)"] = $true }
+    $decisionsNew = @()
+    $issues = @()
+    try { $issues = @(Invoke-Json "https://api.github.com/repos/$Repo/issues?state=open&per_page=100" 'Get' @{ 'User-Agent' = 'fire-score-tracker' }) | ForEach-Object { $_ } }
+    catch { Log "No se pudieron leer las decisiones en GitHub: $($_.Exception.Message)" }
+    foreach ($iss in $issues) {
+        if ($iss.pull_request -or $processed.ContainsKey("$($iss.number)")) { continue }
+        if ($iss.title -notmatch '^Decision: (VENDER|MANTENER)') { continue }
+        $action = $Matches[1]
+        if ($iss.user.login -ne $RepoOwner) { Log "Decision #$($iss.number) ignorada: creada por $($iss.user.login)"; continue }
+        if ("$($iss.body)" -notmatch 'key: `([^`]+)`') { continue }
+        $key = $Matches[1]
+        $b = if ($bets.Contains($key)) { $bets[$key] } else { $null }
+        if (-not $b) { $result = 'No se encontro la apuesta; no se hizo nada.' }
+        elseif ($b.status -ne 'open') { $result = "La apuesta ya estaba cerrada ($($b.status)); no se hizo nada." }
+        elseif ($action -eq 'VENDER') {
+            $q = Get-GammaQuote $gamma[$b.slug] $b.position
+            $exit = if ($q.bid) { $q.bid } else { $b.curPrice }
+            if ($null -eq $exit) { $result = 'No hay precio de venta disponible ahora; vuelve a intentarlo mas tarde.' }
+            else {
+                $b.status = 'sold'; $b.soldByAlert = $true; $b.resolvedAt = $now; $b.finalPrice = [Math]::Round($exit, 4)
+                $b.pnl = [Math]::Round($b.stake * ($exit / $b.price - 1), 4)
+                if ($b.alert) { $b.alert.decision = 'sell'; $b.alert.decidedAt = $now; $b.alert.closedNotified = $now }
+                $result = "Vendida a $([Math]::Round($exit * 100, 1))c. Resultado: $([Math]::Round($b.pnl, 2)) USD."
+            }
+        } else {
+            if ($b.alert) { $b.alert.decision = 'keep'; $b.alert.decidedAt = $now }
+            $result = 'Se mantiene abierta hasta el resultado final.'
+        }
+        $entry = @{ issue = $iss.number; key = $key; action = $action; t = $now; result = $result
+                    alertTitle = $(if ($b) { "Alerta de venta: $($b.title) [$($b.position)]" } else { $null })
+                    sellsAlert = ($action -eq 'VENDER' -and $b -and $b.status -eq 'sold') }
+        $decisions += $entry; $decisionsNew += $entry
+        Log "Decision #$($iss.number) $action ($key): $result"
+    }
+    Write-FileAtomic $DecisionsFile (ConvertTo-Json -InputObject @($decisions) -Depth 4 -Compress)
+    Write-FileAtomic $DecisionsNewFile (ConvertTo-Json -InputObject @($decisionsNew) -Depth 4)
+
     # 4b. Alertas de venta: en apuestas abiertas, si el sitio cambia de bando o las ballenas abandonan nuestro lado.
     # La apuesta no se modifica; se registra la alerta y lo que se habria obtenido vendiendo en ese momento.
     $alertsNew = @()
@@ -393,7 +452,9 @@ try {
                     "- Precio actual: $(if ($null -ne $px) { "$([Math]::Round($px * 100, 1))c" } else { 'desconocido' })`n" +
                     "- Si se vende ahora: $(if ($null -ne $pnlIfSold) { "$([Math]::Round($pnlIfSold, 2)) USD" } else { '-' })`n" +
                     "- Motivo: $($reasons -join '; ')`n" +
-                    "- Cierra: $($b.endDate)`n`n[Ver mercado en Polymarket]($link) | [Panel]($PagesUrl)`n`n_Alerta automatica del tracker. No es asesoria financiera._"
+                    "- Cierra: $($b.endDate)`n`n" +
+                    "### Decide: [⭕ Vender ahora]($(Get-DecisionUrl $b 'VENDER'))  |  [❌ Mantener]($(Get-DecisionUrl $b 'MANTENER'))`n`n" +
+                    "[Ver mercado en Polymarket]($link) | [Panel]($PagesUrl)`n`n_Alerta automatica del tracker. No es asesoria financiera._"
         }
         Log "ALERTA DE VENTA: $($b.title) [$($b.position)] - $($reasons -join '; ')"
     }

@@ -7,6 +7,7 @@ on:
     paths:
       - 'data/alerts-new.json'
       - 'data/alerts-close.json'
+      - 'data/decisions-new.json'
 
 permissions:
   contents: read
@@ -54,6 +55,34 @@ jobs:
                 Set-Content -Path $f -Value $x.body -Encoding utf8NoBOM
                 gh issue comment $iss.number --repo "${{ github.repository }}" --body-file $f
                 gh issue close $iss.number --repo "${{ github.repository }}" --reason completed
+              }
+            }
+          }
+
+      # Decisiones (botones ⭕ / ❌): se cierra el issue de la decision con el resultado. En la alerta se deja el
+      # resultado; si se vendio, la alerta tambien se cierra. Si se mantuvo, sigue abierta hasta que el mercado se resuelva.
+      - name: Aplicar decisiones
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if (Test-Path data/decisions-new.json) {
+            $items = @(Get-Content data/decisions-new.json -Raw | ConvertFrom-Json) | Where-Object { $_.issue }
+            if ($items) {
+              $open = gh issue list --repo "${{ github.repository }}" --state open --limit 200 --json number,title | ConvertFrom-Json
+              foreach ($x in $items) {
+                $verbo = if ($x.action -eq 'VENDER') { 'vender' } else { 'mantener' }
+                $f = New-TemporaryFile
+                Set-Content -Path $f -Value "**Decisión aplicada ($verbo):** $($x.result)" -Encoding utf8NoBOM
+                gh issue comment $x.issue --repo "${{ github.repository }}" --body-file $f
+                gh issue close $x.issue --repo "${{ github.repository }}" --reason completed
+                if ($x.alertTitle) {
+                  $al = $open | Where-Object { $_.title -eq $x.alertTitle } | Select-Object -First 1
+                  if ($al) {
+                    gh issue comment $al.number --repo "${{ github.repository }}" --body-file $f
+                    if ($x.sellsAlert) { gh issue close $al.number --repo "${{ github.repository }}" --reason completed }
+                  }
+                }
               }
             }
           }
