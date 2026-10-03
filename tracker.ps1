@@ -120,13 +120,17 @@ function New-Entry($now, $price, $m, $g, $position, $top) {
 function Get-GammaMarkets($slugs) {
     $res = @{}
     $list = @($slugs | Where-Object { $_ } | Select-Object -Unique)
-    for ($i = 0; $i -lt $list.Count; $i += 20) {
-        $chunk = $list[$i..([Math]::Min($i + 19, $list.Count - 1))]
-        $qs = ($chunk | ForEach-Object { 'slug=' + [Uri]::EscapeDataString($_) }) -join '&'
-        try {
-            $resp = Invoke-WithRetry { Invoke-Json "$GammaUrl`?$qs&limit=100" } 'Gamma'
-            foreach ($m in ($resp | ForEach-Object { $_ })) { if ($m.slug) { $res[$m.slug] = $m } }
-        } catch { Log "Gamma error: $($_.Exception.Message)" }
+    # Gamma solo devuelve mercados abiertos por defecto; los que falten se buscan con closed=true (asi se detectan los resultados)
+    foreach ($extra in '', '&closed=true') {
+        $pending = @($list | Where-Object { -not $res.ContainsKey($_) })
+        for ($i = 0; $i -lt $pending.Count; $i += 20) {
+            $chunk = $pending[$i..([Math]::Min($i + 19, $pending.Count - 1))]
+            $qs = ($chunk | ForEach-Object { 'slug=' + [Uri]::EscapeDataString($_) }) -join '&'
+            try {
+                $resp = Invoke-WithRetry { Invoke-Json "$GammaUrl`?$qs&limit=100$extra" } 'Gamma'
+                foreach ($m in ($resp | ForEach-Object { $_ })) { if ($m.slug) { $res[$m.slug] = $m } }
+            } catch { Log "Gamma error: $($_.Exception.Message)" }
+        }
     }
     return $res
 }
