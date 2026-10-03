@@ -1,0 +1,24 @@
+﻿2026-10-02 23:32:35  --- inicio ---
+2026-10-02 23:32:47  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T04:28:31.351Z)
+2026-10-02 23:32:49  OK: 20 mercados >= 60, 6 >= 70, 20 senales nuevas, 0 resueltas, 20 senales totales
+2026-10-02 23:36:08  --- inicio ---
+2026-10-02 23:36:14  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T04:28:31.351Z)
+2026-10-02 23:36:15  OK: 20 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 resueltas, 20 senales totales
+2026-10-02 23:46:50  --- inicio ---
+2026-10-02 23:46:56  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T04:45:13.597Z)
+2026-10-02 23:46:58  OK: 20 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 resueltas, 20 senales totales
+2026-10-02 23:51:27  --- inicio ---
+2026-10-02 23:51:34  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T04:45:13.597Z)
+2026-10-02 23:51:35  OK: 20 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 resueltas, 20 senales totales
+2026-10-03 00:01:43  --- inicio ---
+2026-10-03 00:01:54  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T04:45:13.597Z)
+2026-10-03 00:01:56  OK: 20 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 resueltas, 20 senales totales
+2026-10-03 00:03:39  --- inicio ---
+2026-10-03 00:03:56  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T05:02:08.281Z)
+2026-10-03 00:04:00  OK: 20 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 resueltas, 20 senales totales
+2026-10-03 00:20:37  --- inicio ---
+2026-10-03 00:20:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T05:02:08.281Z)
+2026-10-03 00:20:55  OK: 20 mercados >= 60, 7 >= 70, 0 senales nuevas, 177 de control nuevas, 0 resueltas, 20 senales + 177 de control
+2026-10-03 01:03:40  --- inicio ---
+2026-10-03 01:03:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T05:21:06.454Z)
+2026-10-03 01:03:59  OK: 20 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 resueltas, 20 senales + 177 de control
