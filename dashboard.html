@@ -132,7 +132,7 @@ pre.json { background: var(--page); border: 1px solid var(--border); border-radi
       <option value="">Cualquiera</option><option value="2">≤ 2 días</option><option value="7">≤ 7 días</option>
       <option value="30">≤ 30 días</option><option value="90">≤ 90 días</option></select></label>
     <label>Categoría <select id="cat">
-      <option value="all">Todas</option><option>Deportes / eSports</option><option>Cripto</option><option>Política / otros</option></select></label>
+      <option value="all">Todas</option><option value="no-esports">Todas menos eSports</option><option>Deportes</option><option>eSports</option><option>Cripto</option><option>Política / otros</option></select></label>
   </div>
 
   <div id="verdict" class="verdict"></div>
@@ -216,6 +216,8 @@ try {
   Object.assign(state, saved);
 } catch (e) {}
 delete state.stake;
+// Las categorías cambiaron ("Deportes / eSports" se separó); un filtro guardado que ya no existe vuelve a "Todas"
+if (!['all', 'no-esports', 'Deportes', 'eSports', 'Cripto', 'Política / otros'].includes(state.cat)) state.cat = 'all';
 
 // Consenso: de las N ballenas mejor rankeadas del mercado (opcionalmente solo del top X global), cuántas apuestan igual que la señal
 function consensus(top) {
@@ -238,11 +240,15 @@ const link = s => s.eventSlug && s.questionID ? `https://polymarket.com/event/${
 const fmtDate = s => s ? new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + 'T12:00:00' : s).toLocaleDateString('es', { day: 'numeric', month: 'short', year: '2-digit' }) : '–';
 const fmtDT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
 
-function category(slug) {
+// Misma clasificación que el tracker (Get-Category en tracker.ps1)
+function category(slug, title = '') {
+  if (/^(cs2|csgo|val|lol|dota2?|ow|r6|rl|sc2|pubg|apex|mlbb|hok|codm|cod|fortnite|wr)-/i.test(slug) ||
+      /Counter-Strike|Valorant|League of Legends|LoL:|Dota|Overwatch|Rainbow Six|Rocket League|Call of Duty|Mobile Legends|PUBG|Apex Legends|\(BO\d\)/i.test(title)) return 'eSports';
   if (/bitcoin|btc|ethereum|eth-|solana|crypto|fdv|token|airdrop|xrp|doge/i.test(slug)) return 'Cripto';
-  if (/^(nfl|nba|mlb|nhl|cfb|cbb|wnba|epl|ucl|uel|mls|unl|lal|sea|bun|fl1|ser|atp|wta|ufc|val|cs2|lol|dota2?|ow|r6)-/.test(slug) || /-\d{4}-\d{2}-\d{2}/.test(slug)) return 'Deportes / eSports';
+  if (/^(nfl|nba|mlb|nhl|cfb|cbb|wnba|epl|ucl|uel|mls|unl|lal|sea|bun|fl1|ser|atp|wta|ufc)-/.test(slug) || /-\d{4}-\d{2}-\d{2}/.test(slug)) return 'Deportes';
   return 'Política / otros';
 }
+const catAllowed = (cat, filter) => !filter || filter === 'all' ? true : filter === 'no-esports' ? cat !== 'eSports' : cat === filter;
 
 // th = umbral ('ctl' para el grupo de control, que siempre apuesta $1)
 function bets(th, opts = state) {
@@ -253,8 +259,8 @@ function bets(th, opts = state) {
     if (!e) continue;
     const days = s.endDate ? (Date.parse(s.endDate) - Date.parse(e.t)) / 864e5 : null;
     if (opts.maxDays && (days == null || days > opts.maxDays)) continue;
-    const cat = category(s.slug);
-    if (opts.cat !== 'all' && cat !== opts.cat) continue;
+    const cat = category(s.slug, s.title);
+    if (!catAllowed(cat, opts.cat)) continue;
     if (opts.minLiq && !(e.liq >= opts.minLiq)) continue;
     if (opts.maxHedge < 1 && e.hedgeCap != null && e.hedgeCap > opts.maxHedge) continue;
     const realAsk = opts.priceMode === 'ask' && e.ask != null && e.ask > 0;
@@ -319,7 +325,7 @@ function describeStrategy(s) {
     s.minLiq ? `Liquidez ≥ ${fmtK(s.minLiq)}` : null,
     s.maxHedge < 1 ? `Capital de ballenas cubierto ≤ ${Math.round(s.maxHedge * 100)}%` : null,
     s.maxDays ? `Cierra en ≤ ${s.maxDays} días` : null,
-    s.cat && s.cat !== 'all' ? `Solo ${s.cat}` : null,
+    s.cat === 'no-esports' ? 'Sin eSports (CS2, Valorant, LoL, Dota…)' : s.cat && s.cat !== 'all' ? `Solo ${s.cat}` : null,
     'Una sola apuesta por mercado: si Fire Score cambia de bando, se ignora (desde el 3 oct, 11:30 UTC)',
     'Cripto intradía excluido',
     'Alerta de venta (por correo, como issue de GitHub) si Fire Score cambia de bando o ≤ 3 de las 10 mejores ballenas siguen en tu lado; la apuesta no se vende sola',
@@ -528,7 +534,7 @@ function render() {
   const buckets = [['< 50¢', 0, 0.5], ['50–70¢', 0.5, 0.7], ['70–85¢', 0.7, 0.85], ['≥ 85¢', 0.85, 1.01]];
   $('buckets').innerHTML = groupTable(buckets.map(([n, a, b]) => [n, bs.filter(x => x.price >= a && x.price < b)]));
   const allCats = bets(state.th, { ...state, cat: 'all' });
-  $('cats').innerHTML = groupTable(['Deportes / eSports', 'Cripto', 'Política / otros'].map(c => [c, allCats.filter(x => x.cat === c)]));
+  $('cats').innerHTML = groupTable(['Deportes', 'eSports', 'Cripto', 'Política / otros'].map(c => [c, allCats.filter(x => x.cat === c)]));
 
   // Recomendaciones actuales
   const cur = (D.current || []).filter(c => c.score >= state.th).sort((a, b) => b.score - a.score);

@@ -170,10 +170,20 @@ function Get-TopWhales($m, $position, $rank) {
     return ,@($holders | Sort-Object r | Select-Object -First 20 | ForEach-Object { ,@($_.r, $_.a, $_.h) })
 }
 
-function Get-Category($slug) {
+# Misma clasificacion que el panel (function category en dashboard.html)
+$EsportsSlugRx  = '^(cs2|csgo|val|lol|dota2?|ow|r6|rl|sc2|pubg|apex|mlbb|hok|codm|cod|fortnite|wr)-'
+$EsportsTitleRx = 'Counter-Strike|Valorant|League of Legends|LoL:|Dota|Overwatch|Rainbow Six|Rocket League|Call of Duty|Mobile Legends|PUBG|Apex Legends|\(BO\d\)'
+function Get-Category($slug, $title = '') {
+    if ($slug -match $EsportsSlugRx -or $title -match $EsportsTitleRx) { return 'eSports' }
     if ($slug -match 'bitcoin|btc|ethereum|eth-|solana|crypto|fdv|token|airdrop|xrp|doge') { return 'Cripto' }
-    if ($slug -match '^(nfl|nba|mlb|nhl|cfb|cbb|wnba|epl|ucl|uel|mls|unl|lal|sea|bun|fl1|ser|atp|wta|ufc|val|cs2|lol|dota2?|ow|r6)-' -or $slug -match '-\d{4}-\d{2}-\d{2}') { return 'Deportes / eSports' }
-    return 'Política / otros'
+    if ($slug -match '^(nfl|nba|mlb|nhl|cfb|cbb|wnba|epl|ucl|uel|mls|unl|lal|sea|bun|fl1|ser|atp|wta|ufc)-' -or $slug -match '-\d{4}-\d{2}-\d{2}') { return 'Deportes' }
+    return "Pol$([char]0xED)tica / otros"   # sin tilde literal: PowerShell 5.1 lee este archivo como ANSI
+}
+# Filtro de categoria de la estrategia: 'all', 'no-esports' o una categoria concreta
+function Test-CategoryAllowed($cat, $filter) {
+    if (-not $filter -or $filter -eq 'all') { return $true }
+    if ($filter -eq 'no-esports') { return $cat -ne 'eSports' }
+    return $cat -eq $filter
 }
 
 # Mismo calculo que el panel: de las N mejor rankeadas (filtradas), cuantas apuestan igual que la senal
@@ -332,7 +342,7 @@ try {
             $days = $null
             if ($c.endDate) { try { $days = ([DateTimeOffset]::Parse("$($c.endDate)").UtcDateTime - $nowUtc).TotalDays } catch {} }
             if ($strategy.maxDays -and ($null -eq $days -or $days -gt $strategy.maxDays)) { continue }
-            if ($strategy.cat -ne 'all' -and (Get-Category $c.slug) -ne $strategy.cat) { continue }
+            if (-not (Test-CategoryAllowed (Get-Category $c.slug $c.title) $strategy.cat)) { continue }
             if ($strategy.minLiq -and -not ($c.liq -ge $strategy.minLiq)) { continue }
             if ($strategy.maxHedge -lt 1 -and $null -ne $c.hedgeCap -and $c.hedgeCap -gt $strategy.maxHedge) { continue }
             $base = if ($strategy.priceMode -eq 'ask' -and $c.ask) { $c.ask } else { $c.price }
