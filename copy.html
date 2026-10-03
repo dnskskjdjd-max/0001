@@ -133,7 +133,8 @@ function render() {
       `Copia cada posición nueva suya de al menos ${fmtK(s.minTraderUsd)}, con $${s.stake} al precio de compra del momento`,
       'Si apuesta a ambos lados de un mercado, se copia solo el lado donde tiene más dinero',
       s.mirrorExits ? 'Si él vende antes del final, la copia se vende también (precio de venta del momento)' : 'Las copias se mantienen hasta el resultado final',
-      'Una copia por mercado y lado; las posiciones que ya tenía al empezar también se copiaron, al precio de ese momento',
+      'Una sola copia por mercado: si él cambia de lado después, no se copia el otro lado',
+      'Las posiciones que ya tenía al empezar también se copiaron, al precio de ese momento',
     ].map(x => `<li>${x}</li>`).join('');
   }
 

@@ -99,10 +99,12 @@ try {
     $gamma = Get-GammaMarkets (@($live | ForEach-Object { $_.slug }) + $openSlugs)
 
     # 1. Copiar posiciones nuevas
+    # Una sola copia por mercado: si el apostador cambia de lado despues, no se copia el otro lado
     $newCount = 0
+    $copiedSlugs = @{}; foreach ($b in $bets.Values) { $copiedSlugs[$b.slug] = $true }
     foreach ($p in $live) {
         $key = "$($p.slug)|$("$($p.outcome)".ToUpper())"
-        if ($bets.Contains($key)) { continue }
+        if ($copiedSlugs.ContainsKey($p.slug)) { continue }
         $g = $gamma[$p.slug]
         if ($g -and $g.closed -eq $true) { continue }
         $q = Get-Quote $g $p.outcome
@@ -115,6 +117,7 @@ try {
             traderSize = [double]$p.size; preexisting = $firstRun; strategy = $cfg.Clone()
             status = 'open'; curPrice = $(if ($q.mid) { $q.mid } else { [double]$p.curPrice }); curPriceAt = $now
         }
+        $copiedSlugs[$p.slug] = $true
         $newCount++
         Log "Copia: `$$($cfg.stake) a $($p.outcome) en $($p.title) @ $([Math]::Round($price * 100, 1))c (el entro a $([Math]::Round($p.avgPrice * 100, 1))c con `$$([Math]::Round($p.currentValue)))"
     }

@@ -90,6 +90,7 @@ pre.json { background: var(--page); border: 1px solid var(--border); border-radi
   <div class="card">
     <h2>📒 Mis apuestas (historial fijo)</h2>
     <p class="sub">Cada 5 minutos el tracker apuesta según la estrategia guardada en el repositorio. Una vez registrada, una apuesta no cambia aunque cambies la estrategia o los filtros del simulador: solo se actualiza su resultado.</p>
+    <div id="alerts"></div>
     <div class="tiles" id="ledgerTiles"></div>
     <div class="grid2" style="margin-top:16px">
       <div>
@@ -233,7 +234,9 @@ const fmtC = v => v == null ? '–' : (v * 100).toFixed(1) + '¢';
 const cls = v => v == null ? '' : v > 0 ? 'pos' : v < 0 ? 'neg' : '';
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const link = s => s.eventSlug && s.questionID ? `https://polymarket.com/event/${s.eventSlug}?tid=${s.questionID}` : `https://polymarket.com/event/${s.slug}`;
-const fmtDate = s => s ? new Date(s).toLocaleDateString('es', { day: 'numeric', month: 'short', year: '2-digit' }) : '–';
+// Fechas solo-día ("2026-10-04") se leen al mediodía para que la zona horaria no las corra al día anterior
+const fmtDate = s => s ? new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + 'T12:00:00' : s).toLocaleDateString('es', { day: 'numeric', month: 'short', year: '2-digit' }) : '–';
+const fmtDT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
 
 function category(slug) {
   if (/bitcoin|btc|ethereum|eth-|solana|crypto|fdv|token|airdrop|xrp|doge/i.test(slug)) return 'Cripto';
@@ -317,7 +320,9 @@ function describeStrategy(s) {
     s.maxHedge < 1 ? `Capital de ballenas cubierto ≤ ${Math.round(s.maxHedge * 100)}%` : null,
     s.maxDays ? `Cierra en ≤ ${s.maxDays} días` : null,
     s.cat && s.cat !== 'all' ? `Solo ${s.cat}` : null,
-    'Una apuesta por mercado y lado; cripto intradía excluido',
+    'Una sola apuesta por mercado: si Fire Score cambia de bando, se ignora (desde el 3 oct, 11:30 UTC)',
+    'Cripto intradía excluido',
+    'Alerta de venta (por correo, como issue de GitHub) si Fire Score cambia de bando o ≤ 3 de las 10 mejores ballenas siguen en tu lado; la apuesta no se vende sola',
   ].filter(Boolean);
 }
 
@@ -338,6 +343,15 @@ function renderLedger() {
     ['Acierto vs implícita', `${fmtPct(winRate)} / ${fmtPct(implied)}`, `ventaja ${fmtPp(winRate == null ? null : winRate - implied)}`],
   ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
 
+  // Alertas de venta: activas (apuesta abierta) y evaluación de las ya cerradas (vender en la alerta vs mantener)
+  const alerted = B.filter(b => b.alert), activeA = alerted.filter(b => b.status === 'open');
+  const closedA = alerted.filter(b => b.status === 'won' || b.status === 'lost');
+  const ifSold = closedA.reduce((a, b) => a + (b.alert.pnlIfSold || 0), 0), held = closedA.reduce((a, b) => a + b.pnl, 0);
+  $('alerts').innerHTML = (activeA.length ? `<div class="verdict" style="border-color: var(--bad); margin: 0 0 16px">
+      <b class="neg">⚠ ${activeA.length} alerta${activeA.length > 1 ? 's' : ''} de venta activa${activeA.length > 1 ? 's' : ''}</b>
+      <ul class="strat" style="margin-top:6px">${activeA.map(b => `<li><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a> [${esc(b.position)}] — ${esc((b.alert.reasons || []).join('; '))}. Alerta ${fmtDT(b.alert.t)} a ${fmtC(b.alert.price)} (vender entonces: <span class="${cls(b.alert.pnlIfSold)}">${fmt$(b.alert.pnlIfSold)}</span>; ahora: <span class="${cls(mtmOf(b))}">${fmt$(mtmOf(b))}</span>)</li>`).join('')}</ul></div>` : '') +
+    (closedA.length ? `<p class="small" style="margin:0 0 12px">Alertas ya resueltas (${closedA.length}): vendiendo en la alerta habrías obtenido <b class="${cls(ifSold)}">${fmt$(ifSold)}</b>; manteniendo hasta el final, <b class="${cls(held)}">${fmt$(held)}</b>.</p>` : '');
+
   let acc = 0;
   const pts = res.slice().sort((a, b) => Date.parse(a.resolvedAt) - Date.parse(b.resolvedAt))
     .map(b => ({ x: Date.parse(b.resolvedAt), y: (acc += b.pnl), title: b.title }));
@@ -355,10 +369,11 @@ function renderLedger() {
   $('stratList').innerHTML = describeStrategy(s).map(x => `<li>${esc(x)}</li>`).join('');
 
   const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', void: 'Anulada' };
-  $('ledger').innerHTML = `<tr><th>Apostada</th><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio</th><th class="num">Consenso</th><th class="num">Apuesta</th><th class="num">Estrategia</th><th class="num">Actual / final</th><th>Cierra</th><th>Estado</th><th class="num">P&amp;L</th></tr>` +
+  $('ledger').innerHTML = `<tr><th>Apostada</th><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio</th><th class="num">Consenso</th><th class="num">Apuesta</th><th class="num">Estrategia</th><th class="num">Actual / final</th><th>Cierra</th><th>Estado</th><th>Alerta</th><th class="num">P&amp;L</th></tr>` +
     (B.length ? B.map(b => { const p = b.status === 'open' ? mtmOf(b) : b.pnl;
-      return `<tr><td>${new Date(b.placedAt).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.position)}</td><td class="num">${b.score}</td><td class="num">${fmtC(b.price)}</td><td class="num">${esc(b.consensus)}</td><td class="num"><b>$${b.stake}</b></td><td class="num">v${b.strategy ? b.strategy.version : '?'}</td><td class="num">${fmtC(b.status === 'open' ? b.curPrice : b.finalPrice)}</td><td>${fmtDate(b.endDate)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
-      : `<tr><td colspan="12" class="small">Todavía no hay apuestas. Se registran en la próxima ejecución del tracker.</td></tr>`);
+      const al = b.alert ? `<span class="neg" title="${esc((b.alert.reasons || []).join('; '))}">⚠ Vender (${fmtDT(b.alert.t)})</span>` : '';
+      return `<tr><td>${fmtDT(b.placedAt)}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.position)}</td><td class="num">${b.score}</td><td class="num">${fmtC(b.price)}</td><td class="num">${esc(b.consensus)}</td><td class="num"><b>$${b.stake}</b></td><td class="num">v${b.strategy ? b.strategy.version : '?'}</td><td class="num">${fmtC(b.status === 'open' ? b.curPrice : b.finalPrice)}</td><td>${fmtDate(b.endDate)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td>${al}</td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
+      : `<tr><td colspan="13" class="small">Todavía no hay apuestas. Se registran en la próxima ejecución del tracker.</td></tr>`);
 }
 
 // Convierte los filtros del simulador en una nueva estrategia y abre el editor de GitHub

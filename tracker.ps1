@@ -14,6 +14,8 @@ $DataJsFile  = Join-Path $DataDir 'data.js'
 $LogFile     = Join-Path $DataDir 'log.txt'
 $BetsFile    = Join-Path $DataDir 'bets.json'      # historial de apuestas: una vez registrada, la apuesta no cambia (solo su resultado)
 $StrategyFile = Join-Path $Root 'strategy.json'    # reglas con que se apuesta cada hora; cambiarlas solo afecta a apuestas futuras
+$AlertsNewFile = Join-Path $DataDir 'alerts-new.json'  # alertas de venta nuevas de esta ejecucion (el workflow las envia como issues)
+$PagesUrl = 'https://dnskskjdjd-max.github.io/0001/'
 
 $Thresholds   = @(60, 65, 70, 75, 80)   # se guarda la entrada al cruzar cada umbral
 $MinTrack     = 60
@@ -315,12 +317,13 @@ try {
         $newCtl++
     }
 
-    # 3c. Apuestas: se registran una sola vez por mercado y lado, con una copia de la estrategia vigente
+    # 3c. Apuestas: una sola por mercado (si el sitio cambia de bando, se ignora), con una copia de la estrategia vigente
     $newBets = 0
     if ($strategy) {
         $nowUtc = (Get-Date).ToUniversalTime()
+        $betSlugs = @{}; foreach ($b in $bets.Values) { $betSlugs[$b.slug] = $true }
         foreach ($c in $current) {
-            if ($c.score -lt $strategy.th -or $bets.Contains($c.key)) { continue }
+            if ($c.score -lt $strategy.th -or $betSlugs.ContainsKey($c.slug)) { continue }
             $days = $null
             if ($c.endDate) { try { $days = ([DateTimeOffset]::Parse("$($c.endDate)").UtcDateTime - $nowUtc).TotalDays } catch {} }
             if ($strategy.maxDays -and ($null -eq $days -or $days -gt $strategy.maxDays)) { continue }
@@ -338,6 +341,7 @@ try {
                 hedgeCap = $c.hedgeCap; liq = $c.liq; strategy = $strategy.Clone()
                 status = 'open'; curPrice = $c.price; curPriceAt = $now
             }
+            $betSlugs[$c.slug] = $true
             $newBets++
             Log "Apuesta: `$$stake a $($c.position) en $($c.title) @ $([Math]::Round($price * 100, 1))c (consenso $($cons.agree)/$($cons.n))"
         }
@@ -361,6 +365,38 @@ try {
             Log "Apuesta resuelta: $($b.title) [$($b.position)] -> $status ($($b.pnl))"
         }
     }
+
+    # 4b. Alertas de venta: en apuestas abiertas, si el sitio cambia de bando o las ballenas abandonan nuestro lado.
+    # La apuesta no se modifica; se registra la alerta y lo que se habria obtenido vendiendo en ese momento.
+    $alertsNew = @()
+    $marketBySlug = @{}; foreach ($m in $markets) { $marketBySlug[$m.slug] = $m }
+    foreach ($b in @($bets.Values | Where-Object { $_.status -eq 'open' -and -not $_.alert })) {
+        $m = $marketBySlug[$b.slug]
+        if (-not $m) { continue }
+        $sitePos = if ($m.position) { $m.position.ToString().ToUpper() } else { 'YES' }
+        $topAll = Get-TopWhales $m $b.position $rank   # se asigna primero: la funcion devuelve el arreglo envuelto
+        $top10 = @($topAll | Select-Object -First 10)
+        $agree = @($top10 | Where-Object { $_[1] }).Count
+        $reasons = @()
+        if ($sitePos -ne $b.position) { $reasons += "FirePolymarket ahora recomienda $sitePos (score $($m.fireScore))" }
+        if ($top10.Count -ge 5 -and $agree -le 3) { $reasons += "solo $agree de las $($top10.Count) ballenas mejor rankeadas siguen en $($b.position)" }
+        if (-not $reasons) { continue }
+        $px = $b.curPrice
+        $pnlIfSold = if ($null -ne $px) { [Math]::Round($b.stake * ($px / $b.price - 1), 4) } else { $null }
+        $b.alert = @{ t = $now; reasons = $reasons; newPosition = $sitePos; newScore = $m.fireScore; agree = "$agree/$($top10.Count)"; price = $px; pnlIfSold = $pnlIfSold }
+        $link = if ($b.eventSlug -and $b.questionID) { "https://polymarket.com/event/$($b.eventSlug)?tid=$($b.questionID)" } else { "https://polymarket.com/event/$($b.slug)" }
+        $alertsNew += @{
+            title = "Alerta de venta: $($b.title) [$($b.position)]"
+            body  = "**Las ballenas cambiaron de opinion en un mercado donde hay una apuesta abierta.**`n`n" +
+                    "- Apuesta: `$$($b.stake) a **$($b.position)** a $([Math]::Round($b.price * 100, 1))c (registrada $($b.placedAt))`n" +
+                    "- Precio actual: $(if ($null -ne $px) { "$([Math]::Round($px * 100, 1))c" } else { 'desconocido' })`n" +
+                    "- Si se vende ahora: $(if ($null -ne $pnlIfSold) { "$([Math]::Round($pnlIfSold, 2)) USD" } else { '-' })`n" +
+                    "- Motivo: $($reasons -join '; ')`n" +
+                    "- Cierra: $($b.endDate)`n`n[Ver mercado en Polymarket]($link) | [Panel]($PagesUrl)`n`n_Alerta automatica del tracker. No es asesoria financiera._"
+        }
+        Log "ALERTA DE VENTA: $($b.title) [$($b.position)] - $($reasons -join '; ')"
+    }
+    Write-FileAtomic $AlertsNewFile (ConvertTo-Json -InputObject @($alertsNew) -Depth 4)
 
     # 5. Snapshot historico (todos los mercados con score >= $SnapMinScore)
     $rows = foreach ($m in $markets) {
@@ -403,7 +439,7 @@ try {
     Write-FileAtomic $DataJsFile $js
 
     $ctlTotal = @($signals.Values | Where-Object { $_.kind -eq 'control' }).Count
-    Log "OK: $($candidates.Count) mercados >= $MinTrack, $above70 >= 70, $newCount senales nuevas, $newCtl de control nuevas, $newBets apuestas nuevas ($($bets.Count) en el historial), $resolvedCount resueltas, $($signals.Count - $ctlTotal) senales + $ctlTotal de control"
+    Log "OK: $($candidates.Count) mercados >= $MinTrack, $above70 >= 70, $newCount senales nuevas, $newCtl de control nuevas, $newBets apuestas nuevas ($($bets.Count) en el historial), $($alertsNew.Count) alertas de venta, $resolvedCount resueltas, $($signals.Count - $ctlTotal) senales + $ctlTotal de control"
     exit 0
 } catch {
     Log "ERROR: $($_.Exception.Message) $($_.InvocationInfo.PositionMessage)"
