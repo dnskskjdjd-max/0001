@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write   # para enviar las alertas de venta como issues (llegan por correo)
 
 concurrency:
   group: tracker
@@ -22,6 +23,21 @@ jobs:
       - name: Ejecutar tracker
         shell: powershell
         run: .\tracker.ps1
+
+      # Sin "if: always()": si el tracker fallo, no se reenvian alertas viejas
+      - name: Enviar alertas de venta
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if (Test-Path data\alerts-new.json) {
+            $alerts = (Get-Content data\alerts-new.json -Raw -Encoding UTF8 | ConvertFrom-Json) | ForEach-Object { $_ }
+            foreach ($a in $alerts) {
+              $f = New-TemporaryFile
+              [IO.File]::WriteAllText($f.FullName, $a.body, (New-Object System.Text.UTF8Encoding $false))
+              gh issue create --repo "${{ github.repository }}" --title $a.title --body-file $f.FullName
+            }
+          }
 
       - name: Ejecutar copiador NFL
         if: always()
