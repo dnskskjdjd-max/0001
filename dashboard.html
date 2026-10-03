@@ -8,6 +8,7 @@
 <script>
   // Evita que el navegador (o GitHub Pages) muestre datos en caché
   document.write('<script src="data/data.js?v=' + Date.now() + '"><\/script>');
+  document.write('<script src="data/copiers.js?v=' + Date.now() + '"><\/script>');
 </script>
 <style>
 :root {
@@ -81,7 +82,7 @@ pre.json { background: var(--page); border: 1px solid var(--border); border-radi
 </head>
 <body>
 <main>
-  <nav class="tabs"><a class="active" href="dashboard.html">🔥 Fire Score</a><a href="copy.html">🏈 Copiar NFL · Elaran1993</a></nav>
+  <nav class="tabs" id="tabs"><a class="active" href="dashboard.html">🔥 Fire Score</a></nav>
   <h1>Fire Score Tracker</h1>
   <p class="sub">Registra las recomendaciones de firepolymarket.com y simula si apostar en ellas da ganancias. <span id="updated" class="small"></span></p>
 
@@ -602,6 +603,10 @@ for (const id of ['th', 'slip', 'maxDays', 'cat', 'rule', 'minAgree', 'topN', 'm
 const runs = D.runs || [];
 $('updated').textContent = D.generatedAt ? `Última actualización: ${new Date(D.generatedAt).toLocaleString('es')} · * = valor a precio actual` : 'Sin datos: ejecuta tracker.ps1';
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
+// Pestañas de los copiadores (copiers/*.json)
+const COPIER_ICONS = { 'NFL': '🏈', 'Fútbol': '⚽', 'Economía / Fed': '🏦' };
+$('tabs').innerHTML += (window.COPIERS || []).map(c =>
+  `<a href="copy.html?c=${encodeURIComponent(c.id)}">${COPIER_ICONS[c.category] || '📋'} ${esc(c.title || c.id)}</a>`).join('');
 render();
 setTimeout(() => location.reload(), 5 * 60 * 1000);
 </script>

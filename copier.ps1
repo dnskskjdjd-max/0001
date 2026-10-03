@@ -1,31 +1,35 @@
-# Copiador: replica automaticamente las apuestas de un apostador de Polymarket (por defecto, las de NFL de Elaran1993).
-# Cada ejecucion: lee sus posiciones abiertas, copia las nuevas al precio de compra del momento, imita sus salidas
-# y resuelve con la API de Polymarket. Las copias quedan fijas en data/copy-bets.json (solo cambia su resultado).
+﻿# Copiadores: replican automaticamente las apuestas de apostadores de Polymarket en una categoria.
+# Cada archivo de copiers/*.json es un copiador (por ejemplo, NFL de Elaran1993 o Fed de MysticFind).
+# Cada ejecucion, por copiador: lee las posiciones abiertas del apostador en esa categoria, copia las nuevas
+# al precio de compra del momento, imita sus salidas y resuelve con la API de Polymarket.
+# Las copias quedan fijas en data/copy-<id>-bets.json (solo cambia su resultado).
 $ErrorActionPreference = 'Stop'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 $Root       = $PSScriptRoot
 $DataDir    = Join-Path $Root 'data'
 New-Item -ItemType Directory -Force $DataDir | Out-Null
-$ConfigFile = Join-Path $Root 'copy-strategy.json'
-$BetsFile   = Join-Path $DataDir 'copy-bets.json'
-$JsFile     = Join-Path $DataDir 'copy.js'
+$ConfigDir  = Join-Path $Root 'copiers'
+$IndexFile  = Join-Path $DataDir 'copiers.js'
 $LogFile    = Join-Path $DataDir 'log.txt'
 $GammaUrl   = 'https://gamma-api.polymarket.com/markets'
 $DataApi    = 'https://data-api.polymarket.com'
 $Utf8 = New-Object System.Text.UTF8Encoding $false
+. (Join-Path $Root 'categories.ps1')   # Get-Category: mismas categorias que el tracker y el panel
 
 $DefaultConfig = [ordered]@{
-    version = 1; nota = 'Copiar NFL de Elaran1993'
-    traderName = 'Elaran1993'; traderWallet = '0xb7271c112cbd83eb4c1ef1b554ff963604ae2a9d'
-    eventPrefix = 'nfl-'      # solo mercados cuyo evento empieza asi (NFL)
+    version = 1; nota = ''; title = ''
+    traderName = ''; traderWallet = ''
+    category = ''             # solo mercados de esta categoria (ver categories.ps1)
+    eventPrefix = ''          # alternativa: solo eventos cuyo slug empieza asi
     stake = 5                 # USD por cada posicion copiada
-    minTraderUsd = 1000       # ignora posiciones de el menores a esto
+    minTraderUsd = 1000       # ignora posiciones del apostador menores a esto
     mirrorExits = $true       # si el vende antes del final, nosotros tambien
 }
+$script:CopierId = ''
 
 function Log($msg) {
-    $line = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  [copia] $msg"
+    $line = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  [copia:$script:CopierId] $msg"
     Add-Content -Path $LogFile -Value $line -Encoding UTF8
     Write-Host $line
 }
@@ -80,11 +84,22 @@ function Get-GammaMarkets($slugs) {
     return $res
 }
 
-try {
+# Posiciones por billetera (dos copiadores del mismo apostador comparten la consulta)
+$PositionsCache = @{}
+function Get-TraderPositions($wallet) {
+    if (-not $PositionsCache.ContainsKey($wallet)) { $PositionsCache[$wallet] = @(Invoke-Json "$DataApi/positions?user=$wallet&limit=500&sizeThreshold=1") }
+    return $PositionsCache[$wallet]
+}
+
+function Invoke-Copier($ConfigFile) {
     $now = Get-NowIso
-    if (-not (Test-Path $ConfigFile)) { Write-FileAtomic $ConfigFile (ConvertTo-Json -InputObject $DefaultConfig -Depth 3) }
     $cfg = ConvertTo-Hash (Get-Content $ConfigFile -Raw -Encoding UTF8 | ConvertFrom-Json)
     foreach ($k in $DefaultConfig.Keys) { if (-not $cfg.ContainsKey($k)) { $cfg[$k] = $DefaultConfig[$k] } }
+    if (-not $cfg.id) { $cfg.id = [IO.Path]::GetFileNameWithoutExtension($ConfigFile) }
+    $script:CopierId = $cfg.id
+    if (-not $cfg.traderWallet -or (-not $cfg.category -and -not $cfg.eventPrefix)) { throw 'falta traderWallet o category en la configuracion' }
+    $BetsFile = Join-Path $DataDir "copy-$($cfg.id)-bets.json"
+    $JsFile   = Join-Path $DataDir "copy-$($cfg.id).js"
 
     $firstRun = -not (Test-Path $BetsFile)
     $bets = [ordered]@{}
@@ -92,9 +107,11 @@ try {
         foreach ($b in (ConvertTo-Hash (Get-Content $BetsFile -Raw -Encoding UTF8 | ConvertFrom-Json))) { if ($b -and $b.key) { $bets[$b.key] = $b } }
     }
 
-    # Posiciones del apostador en los mercados elegidos; por mercado se toma su lado principal
-    $all = @(Invoke-Json "$DataApi/positions?user=$($cfg.traderWallet)&limit=500&sizeThreshold=1")
-    $mine = @($all | Where-Object { "$($_.eventSlug)".StartsWith($cfg.eventPrefix) })
+    # Posiciones del apostador en la categoria elegida; por mercado se toma su lado principal
+    $all = Get-TraderPositions $cfg.traderWallet
+    $mine = @($all | Where-Object {
+        if ($cfg.eventPrefix) { "$($_.eventSlug)".StartsWith($cfg.eventPrefix) }
+        else { (Get-Category "$($_.slug) $($_.eventSlug) $($_.title)") -eq $cfg.category } })
     $main = @($mine | Group-Object conditionId | ForEach-Object { $_.Group | Sort-Object currentValue -Descending | Select-Object -First 1 })
     $live = @($main | Where-Object { -not $_.redeemable -and $_.currentValue -ge $cfg.minTraderUsd -and $_.curPrice -gt 0.01 -and $_.curPrice -lt 0.99 })
     $traderByKey = @{}; foreach ($p in $mine) { $traderByKey["$($p.slug)|$("$($p.outcome)".ToUpper())"] = $p }
@@ -166,8 +183,15 @@ try {
     Write-FileAtomic $JsFile "window.COPY_DATA = {`"generatedAt`":`"$now`",`"strategy`":$cfgJson,`"bets`":$betsJson,`"traderPositions`":$traderJson};"
 
     Log "OK: $($live.Count) posiciones de $($cfg.traderName) a copiar, $newCount copias nuevas, $closedCount cerradas, $($bets.Count) en el historial"
-    exit 0
-} catch {
-    Log "ERROR: $($_.Exception.Message) $($_.InvocationInfo.PositionMessage)"
-    exit 1
+    return @{ id = $cfg.id; title = $cfg.title; traderName = $cfg.traderName; category = $cfg.category }
 }
+
+# Cada copiador corre por separado: si uno falla, los demas siguen
+$failed = 0; $index = @()
+foreach ($f in @(Get-ChildItem (Join-Path $ConfigDir '*.json') -ErrorAction SilentlyContinue | Sort-Object Name)) {
+    try { $index += Invoke-Copier $f.FullName }
+    catch { $failed++; Log "ERROR ($($f.Name)): $($_.Exception.Message) $($_.InvocationInfo.PositionMessage)" }
+}
+# Lista de copiadores para las pestanas del panel
+Write-FileAtomic $IndexFile "window.COPIERS = $(ConvertTo-Json -InputObject @($index) -Depth 3 -Compress);"
+exit $(if ($failed) { 1 } else { 0 })

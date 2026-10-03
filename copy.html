@@ -3,11 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Copiar NFL</title>
+<title>Copiadores</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-  // Evita que el navegador (o GitHub Pages) muestre datos en caché
-  document.write('<script src="data/copy.js?v=' + Date.now() + '"><\/script>');
+  // Lista de copiadores (el ?v= evita que el navegador o GitHub Pages muestren datos en caché)
+  document.write('<script src="data/copiers.js?v=' + Date.now() + '"><\/script>');
+</script>
+<script>
+  // copy.html?c=<id> muestra el copiador <id> (copiers/<id>.json); sin parámetro, el primero de la lista
+  window.COPIER_SEL = (new URLSearchParams(location.search).get('c') || ((window.COPIERS || [])[0] || {}).id || 'nfl').replace(/[^a-z0-9-]/gi, '');
+  document.write('<script src="data/copy-' + window.COPIER_SEL + '.js?v=' + Date.now() + '"><\/script>');
 </script>
 <style>
 :root {
@@ -68,9 +73,9 @@ ul.strat li { margin: 2px 0; }
 </head>
 <body>
 <main>
-  <nav class="tabs"><a href="dashboard.html">🔥 Fire Score</a><a class="active" href="copy.html">🏈 Copiar NFL · Elaran1993</a></nav>
-  <h1>Copiar apuestas NFL</h1>
-  <p class="sub">Copia automáticamente las apuestas de NFL de un apostador. Historial fijo: cada copia queda registrada con el precio al que se habría comprado; solo cambia su resultado. <span id="updated" class="small"></span></p>
+  <nav class="tabs" id="tabs"></nav>
+  <h1 id="pageTitle">Copiar apuestas</h1>
+  <p class="sub">Copia automáticamente las apuestas de un apostador en una categoría. Historial fijo: cada copia queda registrada con el precio al que se habría comprado; solo cambia su resultado. <span id="updated" class="small"></span></p>
 
   <div id="stale" class="verdict" style="display:none"></div>
 
@@ -80,7 +85,7 @@ ul.strat li { margin: 2px 0; }
     <div class="card">
       <h2>Reglas de copia <span class="small" id="ver"></span></h2>
       <ul class="strat" id="rules"></ul>
-      <p class="small" style="margin-top:10px">Se cambian editando <code>copy-strategy.json</code> en el repositorio. Las copias ya hechas no cambian.</p>
+      <p class="small" style="margin-top:10px">Se cambian editando <code id="cfgFile">copiers/…json</code> en el repositorio. Las copias ya hechas no cambian.</p>
     </div>
     <div class="card">
       <h2>Ganancia acumulada (copias cerradas)</h2>
@@ -95,7 +100,7 @@ ul.strat li { margin: 2px 0; }
   </div>
 
   <div class="card">
-    <h2>Posiciones NFL abiertas del apostador ahora</h2>
+    <h2 id="traderTitle">Posiciones abiertas del apostador ahora</h2>
     <p class="small" id="traderNote"></p>
     <div class="tablewrap"><table id="trader"></table></div>
   </div>
@@ -107,7 +112,8 @@ const C = window.COPY_DATA || { bets: [], traderPositions: [], strategy: null };
 const $ = id => document.getElementById(id);
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const fmt$ = v => v == null ? '–' : (v < 0 ? '−$' : '$') + Math.abs(v).toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-const fmtK = v => v == null ? '–' : '$' + (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? Math.round(v / 1e3) + 'k' : Math.round(v));
+const fmtK = v => { if (v == null) return '–'; const a = Math.abs(v);
+  return (v < 0 ? '−$' : '$') + (a >= 1e6 ? (a / 1e6).toFixed(1) + 'M' : a >= 1e3 ? Math.round(a / 1e3) + 'k' : Math.round(a)); };
 const fmtPct = v => v == null ? '–' : (v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(1) + '%';
 const fmtC = v => v == null ? '–' : (v * 100).toFixed(1) + '¢';
 const cls = v => v == null ? '' : v > 0 ? 'pos' : v < 0 ? 'neg' : '';
@@ -117,19 +123,34 @@ const fmtDate = s => s ? new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + 'T12:00:00
 const fmtDT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
 const link = b => `https://polymarket.com/event/${b.eventSlug || b.slug}`;
 
+// Pestañas: Fire Score + un copiador por archivo de copiers/
+const COPIER_ICONS = { 'NFL': '🏈', 'Fútbol': '⚽', 'Economía / Fed': '🏦' };
+const icon = c => COPIER_ICONS[c.category] || '📋';
+function renderTabs() {
+  $('tabs').innerHTML = `<a href="dashboard.html">🔥 Fire Score</a>` + (window.COPIERS || []).map(c =>
+    `<a href="copy.html?c=${encodeURIComponent(c.id)}" class="${c.id === window.COPIER_SEL ? 'active' : ''}">${icon(c)} ${esc(c.title || c.id)}</a>`).join('');
+}
+
 function render() {
   const s = C.strategy;
+  const catName = s ? (s.category || s.eventPrefix) : '';
+  renderTabs();
+  if (s) {
+    $('pageTitle').textContent = `Copiar ${s.title || s.id}`;
+    document.title = `Copiar ${s.title || s.id}`;
+    $('cfgFile').textContent = `copiers/${s.id}.json`;
+  }
   const ageH = C.generatedAt ? (Date.now() - Date.parse(C.generatedAt)) / 36e5 : Infinity;
   $('updated').textContent = C.generatedAt ? `Última actualización: ${new Date(C.generatedAt).toLocaleString('es')}` : 'Sin datos todavía';
   $('stale').style.display = ageH > 1 ? '' : 'none';
   $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? (ageH < 2 ? Math.round(ageH * 60) + ' minutos' : Math.floor(ageH) + ' horas') : 'nunca'}</b>
-    <div class="sub" style="margin:4px 0 0">El copiador corre cada 5 minutos en tu PC: revisa que esté encendida y con internet. Detalles en <code>local-run.log</code> (en la PC) y <code>data/log.txt</code> (líneas con [copia]).</div>`;
+    <div class="sub" style="margin:4px 0 0">El copiador corre cada 5 minutos en tu PC: revisa que esté encendida y con internet. Detalles en <code>local-run.log</code> (en la PC) y <code>data/log.txt</code> (líneas con [copia:${esc(window.COPIER_SEL)}]).</div>`;
 
   if (s) {
     $('ver').textContent = `(v${s.version}${s.nota ? ' · ' + s.nota : ''})`;
     $('rules').innerHTML = [
       `Apostador: <a href="https://polymarket.com/profile/${esc(s.traderWallet)}" target="_blank" rel="noopener">${esc(s.traderName)}</a>`,
-      `Solo mercados de NFL (eventos que empiezan con <code>${esc(s.eventPrefix)}</code>)`,
+      s.category ? `Solo mercados de la categoría <b>${esc(s.category)}</b>` : `Solo eventos que empiezan con <code>${esc(s.eventPrefix)}</code>`,
       `Copia cada posición nueva suya de al menos ${fmtK(s.minTraderUsd)}, con $${s.stake} al precio de compra del momento`,
       'Si apuesta a ambos lados de un mercado, se copia solo el lado donde tiene más dinero',
       s.mirrorExits ? 'Si él vende antes del final, la copia se vende también (precio de venta del momento)' : 'Las copias se mantienen hasta el resultado final',
@@ -175,10 +196,11 @@ function render() {
       : `<tr><td colspan="10" class="small">Todavía no hay copias.</td></tr>`);
 
   const T = (C.traderPositions || []).slice().sort((a, b) => b.value - a.value);
-  $('traderNote').textContent = s ? `Lado principal de cada mercado NFL donde ${s.traderName} tiene dinero ahora. Se copian las de ${fmtK(s.minTraderUsd)} o más.` : '';
+  $('traderTitle').textContent = s ? `Posiciones de ${s.traderName} en ${catName} abiertas ahora` : 'Posiciones abiertas del apostador ahora';
+  $('traderNote').textContent = s ? `Lado principal de cada mercado de ${catName} donde ${s.traderName} tiene dinero ahora. Se copian las de ${fmtK(s.minTraderUsd)} o más.` : '';
   $('trader').innerHTML = `<tr><th>Mercado</th><th>Apuesta a</th><th class="num">Su entrada</th><th class="num">Precio actual</th><th class="num">Valor</th><th class="num">Su P&amp;L</th><th>Partido</th></tr>` +
     (T.length ? T.map(t => `<tr><td class="title"><a href="${link(t)}" target="_blank" rel="noopener">${esc(t.title)}</a></td><td>${esc(t.outcome)}</td><td class="num">${fmtC(t.avgPrice)}</td><td class="num">${fmtC(t.curPrice)}</td><td class="num">${fmtK(t.value)}</td><td class="num ${cls(t.pnl)}">${fmtK(t.pnl)}</td><td>${fmtDate(t.endDate)}</td></tr>`).join('')
-      : `<tr><td colspan="7" class="small">No tiene posiciones NFL abiertas ahora.</td></tr>`);
+      : `<tr><td colspan="7" class="small">No tiene posiciones de ${esc(catName)} abiertas ahora. Se copiarán cuando abra alguna.</td></tr>`);
 }
 render();
 setTimeout(() => location.reload(), 5 * 60 * 1000);

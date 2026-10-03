@@ -1,0 +1,12 @@
+{
+    "id":  "fed",
+    "title":  "Fed · MysticFind",
+    "version":  1,
+    "nota":  "Copiar Economia / Fed de MysticFind",
+    "traderName":  "MysticFind",
+    "traderWallet":  "0x7cf93583951552553bc0d243a8582a3410ed2798",
+    "category":  "Economía / Fed",
+    "stake":  5,
+    "minTraderUsd":  1000,
+    "mirrorExits":  true
+}
