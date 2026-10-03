@@ -229,3 +229,7 @@
 2026-10-03 13:15:46  Apuesta: $5 a FURIA en Counter-Strike: FURIA vs BetBoom Team (BO3) - ESL Pro League Group Stage @ 88c (consenso 7/10)
 2026-10-03 13:15:48  OK: 22 mercados >= 60, 7 >= 70, 4 senales nuevas, 2 de control nuevas, 1 apuestas nuevas (14 en el historial), 0 alertas de venta, 0 resueltas, 33 senales + 202 de control
 2026-10-03 13:15:50  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 13:18:06  --- inicio ---
+2026-10-03 13:18:20  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T18:15:13.927Z)
+2026-10-03 13:18:34  OK: 22 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (14 en el historial), 0 alertas de venta, 0 resueltas, 33 senales + 202 de control
+2026-10-03 13:18:36  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
