@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fire Score Tracker</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  // Evita que el navegador (o GitHub Pages) muestre datos en caché
+  document.write('<script src="data/data.js?v=' + Date.now() + '"><\/script>');
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
+  --good: #006300; --bad: #d03b3b; --warn-bg: #fff6e0; --accent: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    --good: #0ca30c; --bad: #e66767; --warn-bg: #2a2410; --accent: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+  --good: #0ca30c; --bad: #e66767; --warn-bg: #2a2410; --accent: #3987e5;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1180px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 0 0 4px; }
+.sub { color: var(--ink-2); margin: 0 0 12px; }
+.small { font-size: 12px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 16px; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; }
+.controls label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--ink-2); }
+select, input { font: inherit; color: var(--ink); background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; min-width: 110px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+.tile .k { font-size: 12px; color: var(--ink-2); }
+.tile .v { font-size: 24px; font-weight: 600; margin-top: 2px; }
+.tile .d { font-size: 12px; color: var(--muted); }
+.verdict { border-radius: 12px; padding: 14px 16px; margin-top: 16px; border: 1px solid var(--border); background: var(--surface); }
+.verdict b { font-size: 15px; }
+.pos { color: var(--good); } .neg { color: var(--bad); }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+th { font-size: 12px; color: var(--ink-2); font-weight: 600; }
+td.num, th.num { text-align: right; }
+td.title { white-space: normal; min-width: 240px; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; border: 1px solid var(--border); }
+.badge.won { color: var(--good); } .badge.lost { color: var(--bad); } .badge.open { color: var(--ink-2); }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.card, .tile { min-width: 0; }
+@media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+.chartbox { position: relative; height: 280px; }
+tr.sel td { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.note { background: var(--warn-bg); border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Fire Score Tracker</h1>
+  <p class="sub">Registra las recomendaciones de firepolymarket.com y simula si apostar en ellas da ganancias. <span id="updated" class="small"></span></p>
+
+  <div class="card controls">
+    <label>Umbral de Fire Score <select id="th"></select></label>
+    <label>Regla de apuesta <select id="rule">
+      <option value="consensus">$5 con consenso de ballenas, si no $1</option><option value="flat">$1 fija en todas</option></select></label>
+    <label>Consenso: mínimo de acuerdo <select id="minAgree"></select></label>
+    <label>…de las N mejor rankeadas del mercado <select id="topN"></select></label>
+    <label>Solo cuentan ballenas del ranking <select id="maxRank">
+      <option value="0">Cualquier puesto</option><option value="100">Top 100</option><option value="250">Top 250</option>
+      <option value="500">Top 500</option><option value="1000">Top 1.000</option></select></label>
+    <label>Precio de entrada <select id="priceMode">
+      <option value="ask">Compra real (mejor oferta de venta)</option><option value="mid">Precio medio del mercado</option></select></label>
+    <label>Deslizamiento extra (¢) <input id="slip" type="number" min="0" max="10" step="0.5" value="0"></label>
+    <label>Liquidez mínima <select id="minLiq">
+      <option value="0">Cualquiera</option><option value="10000">≥ $10.000</option><option value="50000">≥ $50.000</option><option value="100000">≥ $100.000</option></select></label>
+    <label>Máx. capital de ballenas cubierto <select id="maxHedge">
+      <option value="1">Sin límite</option><option value="0.5">≤ 50%</option><option value="0.2">≤ 20%</option><option value="0.05">≤ 5%</option></select></label>
+    <label>Ballenas cubiertas en el consenso <select id="exclHedged">
+      <option value="0">Cuentan</option><option value="1">No cuentan</option></select></label>
+    <label>Cierre máximo al entrar <select id="maxDays">
+      <option value="">Cualquiera</option><option value="2">≤ 2 días</option><option value="7">≤ 7 días</option>
+      <option value="30">≤ 30 días</option><option value="90">≤ 90 días</option></select></label>
+    <label>Categoría <select id="cat">
+      <option value="all">Todas</option><option>Deportes / eSports</option><option>Cripto</option><option>Política / otros</option></select></label>
+  </div>
+
+  <div id="stale" class="verdict" style="display:none; border-color: var(--bad)"></div>
+  <div id="verdict" class="verdict"></div>
+  <div class="tiles" style="margin-top:16px" id="tiles"></div>
+
+  <div class="card">
+    <h2>¿El Fire Score aporta algo? (grupo de control)</h2>
+    <p class="sub">El control son mercados que el sitio sigue pero con Fire Score bajo (&lt; 60), apostando $1 del mismo lado que las ballenas, con los mismos filtros. Si las señales no tienen más <b>ventaja</b> que el control, el puntaje no agrega nada a "comprar lo que compran las ballenas".</p>
+    <div class="tablewrap"><table id="control"></table></div>
+    <p class="small" id="ctlNote"></p>
+  </div>
+
+  <div class="card">
+    <h2>¿Sirve el consenso de ballenas?</h2>
+    <p class="sub">Separa las señales del umbral elegido según si cumplen el consenso. Si las de consenso no tienen más <b>ventaja</b> que el resto, subir a $5 solo aumenta el riesgo. Ranking = ganancia total de cada ballena en Polymarket.</p>
+    <div class="tablewrap"><table id="consensus"></table></div>
+    <p class="small" id="consNote"></p>
+  </div>
+
+  <div class="card">
+    <h2>Comparación de umbrales</h2>
+    <p class="sub">Misma apuesta fija, distintos umbrales. <b>Ventaja</b> = tasa de acierto real − probabilidad implícita del precio pagado. Si es ~0, la señal no aporta nada que el mercado no supiera ya.</p>
+    <div class="tablewrap"><table id="cmp"></table></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Ganancia acumulada (señales resueltas)</h2>
+      <p class="small">Una línea por umbral, ordenado por fecha de resolución.</p>
+      <div class="chartbox"><canvas id="equity"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Monte Carlo: ¿habilidad o suerte?</h2>
+      <p class="small">Histograma: ganancia de 5.000 simulaciones donde cada apuesta gana con la probabilidad de su precio (mercado eficiente). Línea: resultado real.</p>
+      <div class="chartbox"><canvas id="mc"></canvas></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Simulación hacia adelante (bootstrap, 100 apuestas)</h2>
+    <p class="sub">Remuestrea las señales ya resueltas para estimar qué pasaría en las próximas 100 apuestas del mismo tipo.</p>
+    <div class="tiles" id="boot"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Calibración por precio de entrada</h2>
+      <p class="small">¿Las señales ganan más seguido de lo que su precio promete?</p>
+      <div class="tablewrap"><table id="buckets"></table></div>
+    </div>
+    <div class="card">
+      <h2>Por categoría</h2>
+      <p class="small">Ignora el filtro de categoría de arriba.</p>
+      <div class="tablewrap"><table id="cats"></table></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Recomendaciones actuales <span class="small" id="curN"></span></h2>
+    <div class="tablewrap"><table id="current"></table></div>
+  </div>
+
+  <div class="card">
+    <h2>Todas las señales del umbral <span class="small" id="sigN"></span></h2>
+    <div class="tablewrap"><table id="signals"></table></div>
+    <p class="small" id="sigNote"></p>
+  </div>
+  <p class="small">La página se recarga sola cada 10 minutos. Los datos los actualiza <code>tracker.ps1</code> cada hora en GitHub Actions. Esto no es asesoría financiera.</p>
+</main>
+
+<script>
+const D = window.TRACKER_DATA || { signals: [], runs: [], current: [], thresholds: [60,65,70,75,80] };
+const $ = id => document.getElementById(id);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const BASE_STAKE = 1, CONSENSUS_STAKE = 5; // $1 por señal; $5 cuando hay consenso de ballenas
+const state = { th: 70, slip: 0, maxDays: null, cat: 'all', rule: 'consensus', minAgree: 6, topN: 10, maxRank: 0,
+                priceMode: 'ask', minLiq: 0, maxHedge: 1, exclHedged: 0 };
+try {
+  const saved = JSON.parse(localStorage.getItem('fst-state') || '{}');
+  if (!saved.priceMode) saved.slip = 0; // antes el deslizamiento suplía al precio de compra real
+  Object.assign(state, saved);
+} catch (e) {}
+delete state.stake;
+
+// Consenso: de las N ballenas mejor rankeadas del mercado (opcionalmente solo del top X global), cuántas apuestan igual que la señal
+function consensus(top) {
+  if (!top) return null;
+  const pool = top.filter(([r, , h]) => (!state.maxRank || r <= state.maxRank) && !(state.exclHedged && h)).slice(0, state.topN);
+  const agree = pool.filter(([, a]) => a).length;
+  return { agree, n: pool.length, ok: agree >= state.minAgree };
+}
+const consLabel = c => c ? `${c.agree}/${c.n}` : '–';
+const fmtK = v => v == null ? '–' : '$' + (v >= 1e6 ? (v / 1e6).toFixed(1) + 'M' : v >= 1e3 ? Math.round(v / 1e3) + 'k' : Math.round(v));
+
+const fmt$ = v => v == null ? '–' : (v < 0 ? '−$' : '$') + Math.abs(v).toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtPct = (v, d = 1) => v == null ? '–' : (v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(d) + '%';
+const fmtPp = v => v == null ? '–' : (v >= 0 ? '+' : '−') + Math.abs(v * 100).toFixed(1) + ' pp';
+const fmtC = v => v == null ? '–' : (v * 100).toFixed(1) + '¢';
+const cls = v => v == null ? '' : v > 0 ? 'pos' : v < 0 ? 'neg' : '';
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const link = s => s.eventSlug && s.questionID ? `https://polymarket.com/event/${s.eventSlug}?tid=${s.questionID}` : `https://polymarket.com/event/${s.slug}`;
+const fmtDate = s => s ? new Date(s).toLocaleDateString('es', { day: 'numeric', month: 'short', year: '2-digit' }) : '–';
+
+function category(slug) {
+  if (/bitcoin|btc|ethereum|eth-|solana|crypto|fdv|token|airdrop|xrp|doge/i.test(slug)) return 'Cripto';
+  if (/^(nfl|nba|mlb|nhl|cfb|cbb|wnba|epl|ucl|uel|mls|unl|lal|sea|bun|fl1|ser|atp|wta|ufc|val|cs2|lol|dota2?|ow|r6)-/.test(slug) || /-\d{4}-\d{2}-\d{2}/.test(slug)) return 'Deportes / eSports';
+  return 'Política / otros';
+}
+
+// th = umbral ('ctl' para el grupo de control, que siempre apuesta $1)
+function bets(th, opts = state) {
+  const out = [];
+  for (const s of D.signals) {
+    if ((th === 'ctl') !== (s.kind === 'control')) continue;
+    const e = s.entries && s.entries[th];
+    if (!e) continue;
+    const days = s.endDate ? (Date.parse(s.endDate) - Date.parse(e.t)) / 864e5 : null;
+    if (opts.maxDays && (days == null || days > opts.maxDays)) continue;
+    const cat = category(s.slug);
+    if (opts.cat !== 'all' && cat !== opts.cat) continue;
+    if (opts.minLiq && !(e.liq >= opts.minLiq)) continue;
+    if (opts.maxHedge < 1 && e.hedgeCap != null && e.hedgeCap > opts.maxHedge) continue;
+    const realAsk = opts.priceMode === 'ask' && e.ask != null && e.ask > 0;
+    const price = Math.min(0.99, (realAsk ? e.ask : e.price) + opts.slip / 100);
+    const cons = consensus(e.top);
+    const stake = th !== 'ctl' && opts.rule === 'consensus' && cons && cons.ok ? CONSENSUS_STAKE : BASE_STAKE;
+    let pnl = null, mtm = null;
+    if (s.status === 'won') pnl = stake * (1 / price - 1);
+    else if (s.status === 'lost') pnl = -stake;
+    else if (s.status === 'void') pnl = 0;
+    else if (s.curPrice != null) mtm = stake * (s.curPrice / price - 1);
+    out.push({ s, e, price, stake, cons, pnl, mtm, days, cat, realAsk });
+  }
+  return out;
+}
+
+// Ganancia de cada simulación si cada apuesta gana con prob = su precio (mercado eficiente)
+function nullSim(res, runs) {
+  const sums = new Float64Array(runs);
+  for (let r = 0; r < runs; r++) {
+    let t = 0;
+    for (const b of res) t += Math.random() < b.price ? b.stake * (1 / b.price - 1) : -b.stake;
+    sums[r] = t;
+  }
+  return sums;
+}
+
+function stats(bs, runs = 3000) {
+  const res = bs.filter(b => b.s.status === 'won' || b.s.status === 'lost');
+  const n = res.length, wins = res.filter(b => b.s.status === 'won').length;
+  const pnl = res.reduce((a, b) => a + b.pnl, 0);
+  const staked = res.reduce((a, b) => a + b.stake, 0);
+  const implied = n ? res.reduce((a, b) => a + b.price, 0) / n : null;
+  const open = bs.filter(b => b.s.status === 'open');
+  const mtm = open.reduce((a, b) => a + (b.mtm || 0), 0);
+  let pValue = null, sims = null;
+  if (n) { sims = nullSim(res, runs); pValue = sims.filter(x => x >= pnl - 1e-9).length / runs; }
+  return { total: bs.length, n, wins, res, open: open.length, winRate: n ? wins / n : null, implied, staked,
+           edge: n ? wins / n - implied : null, pnl, roi: n ? pnl / staked : null, mtm, pValue, sims };
+}
+
+function verdictOf(st) {
+  if (st.n < 30) return { tone: '', title: `Aún no hay datos suficientes (${st.n} resueltas, se necesitan ≥ 30)`,
+    text: 'Las señales se van registrando cada hora; los partidos y eSports se resuelven en días, los mercados políticos pueden tardar meses. Mientras tanto, mira la ganancia "a precio de mercado" de las abiertas, pero no saques conclusiones.' };
+  if (st.roi > 0 && st.pValue < 0.05) return { tone: 'pos', title: 'Las señales muestran ventaja estadística',
+    text: `Ganan ${fmtPp(st.edge)} más de lo que el precio implica; solo un ${fmtPct(st.pValue)} de las simulaciones "por suerte" llegan a este resultado.` };
+  if (st.roi > 0) return { tone: '', title: 'Hay ganancia, pero no se distingue de la suerte',
+    text: `Un ${fmtPct(st.pValue)} de las simulaciones con mercado eficiente lo igualan o superan. Sigue acumulando datos antes de poner dinero real.` };
+  return { tone: 'neg', title: 'Seguir estas señales pierde dinero',
+    text: `El ROI es ${fmtPct(st.roi)} y la ventaja es ${fmtPp(st.edge)}: el precio ya refleja (o sobreestima) lo que saben las ballenas.` };
+}
+
+let charts = {};
+function chart(id, cfg) { if (charts[id]) charts[id].destroy(); charts[id] = new Chart($(id), cfg); }
+const series = () => ['--s1', '--s2', '--s3', '--s4', '--s5'].map(css);
+
+function render() {
+  try { localStorage.setItem('fst-state', JSON.stringify(state)); } catch (e) {}
+  Chart.defaults.color = css('--muted'); Chart.defaults.borderColor = css('--grid');
+  Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", sans-serif';
+
+  // Aviso si los datos no se actualizan
+  const ageH = D.generatedAt ? (Date.now() - Date.parse(D.generatedAt)) / 36e5 : Infinity;
+  $('stale').style.display = ageH > 2 ? '' : 'none';
+  $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? Math.floor(ageH) + ' horas' : 'nunca'}</b>
+    <div class="sub" style="margin:4px 0 0">La actualización corre cada hora en GitHub Actions (workflow "Tracker cada hora"). Revisa la pestaña Actions del repositorio y <code>data/log.txt</code> para ver el error.</div>`;
+
+  const bs = bets(state.th), st = stats(bs, 5000);
+  const v = verdictOf(st);
+  $('verdict').innerHTML = `<b class="${v.tone}">Umbral ≥ ${state.th}: ${v.title}</b><div class="sub" style="margin:4px 0 0">${v.text}</div>`;
+
+  $('tiles').innerHTML = [
+    ['Señales registradas', st.total, `${st.open} abiertas · ${st.n} resueltas`],
+    ['Tasa de acierto', fmtPct(st.winRate), `${st.wins} de ${st.n}`],
+    ['Prob. implícita media', fmtPct(st.implied), 'lo que el precio prometía'],
+    ['Ventaja', `<span class="${cls(st.edge)}">${fmtPp(st.edge)}</span>`, 'acierto − implícita'],
+    ['Ganancia realizada', `<span class="${cls(st.pnl)}">${fmt$(st.pnl)}</span>`, `ROI ${fmtPct(st.roi)} sobre ${fmt$(st.staked)} apostados`],
+    ['Abiertas a precio actual', `<span class="${cls(st.mtm)}">${fmt$(st.mtm)}</span>`, 'si vendieras ahora'],
+    ['p-valor vs suerte', st.pValue == null ? '–' : st.pValue.toFixed(3), '< 0,05 = significativo'],
+  ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
+
+  // Grupo de control: señales del umbral ($1 fija) frente a mercados de Fire Score bajo, con los mismos filtros
+  const flatOpts = { ...state, rule: 'flat' };
+  const sigFlat = bets(state.th, flatOpts), ctl = bets('ctl', flatOpts);
+  const ps = sigFlat.map(b => b.price).sort((a, b) => a - b);
+  const ctlMatched = ps.length ? ctl.filter(b => b.price >= ps[0] && b.price <= ps[ps.length - 1]) : [];
+  const rowHead = `<tr><th>Grupo</th><th class="num">Señales</th><th class="num">Resueltas</th><th class="num">Acierto</th><th class="num">Implícita</th><th class="num">Ventaja</th><th class="num">Apostado</th><th class="num">Ganancia</th><th class="num">ROI</th><th class="num">p-valor</th></tr>`;
+  const statRow = (name, s) => `<tr><td>${name}</td><td class="num">${s.total}</td><td class="num">${s.n}</td><td class="num">${fmtPct(s.winRate)}</td><td class="num">${fmtPct(s.implied)}</td><td class="num ${cls(s.edge)}">${fmtPp(s.edge)}</td><td class="num">${fmt$(s.staked)}</td><td class="num ${cls(s.pnl)}">${fmt$(s.pnl)}</td><td class="num ${cls(s.roi)}">${fmtPct(s.roi)}</td><td class="num">${s.pValue == null ? '–' : s.pValue.toFixed(3)}</td></tr>`;
+  $('control').innerHTML = rowHead + statRow(`Señales Fire ≥ ${state.th}`, stats(sigFlat, 2000)) +
+    statRow('Control: Fire &lt; 60, todos', stats(ctl, 2000)) +
+    statRow(ps.length ? `Control: mismo rango de precio (${fmtC(ps[0])}–${fmtC(ps[ps.length - 1])})` : 'Control: mismo rango de precio', stats(ctlMatched, 2000));
+  $('ctlNote').textContent = `${ctl.length} mercados de control registrados con los filtros actuales. Se registran desde el 3 oct 2026.`;
+
+  // ¿Sirve el consenso? Mismas señales, separadas por consenso, y regla $5/$1 contra $1 fija
+  const withC = bs.filter(b => b.cons && b.cons.ok), withoutC = bs.filter(b => !(b.cons && b.cons.ok));
+  const flatSt = stats(bets(state.th, { ...state, rule: 'flat' }), 2000), ruleSt = stats(bets(state.th, { ...state, rule: 'consensus' }), 2000);
+  const cRow = (name, s, extra = '') => `<tr><td>${name}</td><td class="num">${s.total}</td><td class="num">${s.n}</td><td class="num">${fmtPct(s.winRate)}</td><td class="num">${fmtPct(s.implied)}</td><td class="num ${cls(s.edge)}">${fmtPp(s.edge)}</td><td class="num">${fmt$(s.staked)}</td><td class="num ${cls(s.pnl)}">${fmt$(s.pnl)}</td><td class="num ${cls(s.roi)}">${fmtPct(s.roi)}</td><td class="num">${s.pValue == null ? '–' : s.pValue.toFixed(3)}</td></tr>${extra}`;
+  $('consensus').innerHTML = `<tr><th>Grupo</th><th class="num">Señales</th><th class="num">Resueltas</th><th class="num">Acierto</th><th class="num">Implícita</th><th class="num">Ventaja</th><th class="num">Apostado</th><th class="num">Ganancia</th><th class="num">ROI</th><th class="num">p-valor</th></tr>` +
+    cRow(`Con consenso (≥ ${state.minAgree}/${state.topN})`, stats(withC, 2000)) +
+    cRow('Sin consenso', stats(withoutC, 2000)) +
+    `<tr><td colspan="10" class="small" style="padding-top:14px">Estrategia completa</td></tr>` +
+    cRow(`Regla: $${CONSENSUS_STAKE} con consenso, $${BASE_STAKE} sin`, ruleSt) +
+    cRow(`$${BASE_STAKE} fija en todas`, flatSt);
+  const late = bs.filter(b => b.e.topLate).length, missing = bs.filter(b => !b.cons).length;
+  $('consNote').textContent = `${withC.length} de ${bs.length} señales cumplen el consenso.` +
+    (late ? ` ${late} señales anteriores a esta función tienen el consenso medido después de su detección.` : '') +
+    (missing ? ` ${missing} sin datos de consenso (se apuestan a $${BASE_STAKE}).` : '');
+
+  // Comparación de umbrales
+  const rows = D.thresholds.map(t => ({ t, st: stats(bets(t), 2000) }));
+  $('cmp').innerHTML = `<tr><th>Umbral</th><th class="num">Señales</th><th class="num">Resueltas</th><th class="num">Acierto</th><th class="num">Implícita</th><th class="num">Ventaja</th><th class="num">Ganancia</th><th class="num">ROI</th><th class="num">Abiertas (precio actual)</th><th class="num">p-valor</th></tr>` +
+    rows.map(({ t, st }) => `<tr class="${t == state.th ? 'sel' : ''}"><td>≥ ${t}</td><td class="num">${st.total}</td><td class="num">${st.n}</td><td class="num">${fmtPct(st.winRate)}</td><td class="num">${fmtPct(st.implied)}</td><td class="num ${cls(st.edge)}">${fmtPp(st.edge)}</td><td class="num ${cls(st.pnl)}">${fmt$(st.pnl)}</td><td class="num ${cls(st.roi)}">${fmtPct(st.roi)}</td><td class="num ${cls(st.mtm)}">${fmt$(st.mtm)}</td><td class="num">${st.pValue == null ? '–' : st.pValue.toFixed(3)}</td></tr>`).join('');
+
+  // Curva de ganancia por umbral
+  const cols = series();
+  chart('equity', {
+    type: 'line',
+    data: { datasets: rows.map(({ t, st }, i) => {
+      let acc = 0;
+      const pts = st.res.slice().sort((a, b) => Date.parse(a.s.resolvedAt) - Date.parse(b.s.resolvedAt))
+        .map(b => ({ x: Date.parse(b.s.resolvedAt), y: (acc += b.pnl), title: b.s.title }));
+      return { label: `≥ ${t}`, data: pts, borderColor: cols[i], backgroundColor: cols[i], borderWidth: t == state.th ? 3 : 2,
+               pointRadius: 0, pointHoverRadius: 5, stepped: true };
+    }) },
+    options: { maintainAspectRatio: false, parsing: false, interaction: { mode: 'nearest', intersect: false },
+      scales: { x: { type: 'linear', ticks: { callback: v => fmtDate(v), maxTicksLimit: 6 }, grid: { display: false } },
+                y: { ticks: { callback: v => fmt$(v) } } },
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, boxHeight: 2 } },
+        tooltip: { callbacks: { title: it => fmtDate(it[0].raw.x), label: it => `${it.dataset.label}: ${fmt$(it.raw.y)} — ${it.raw.title}` } } } }
+  });
+
+  // Histograma Monte Carlo
+  if (st.sims) {
+    const sims = Array.from(st.sims), lo = Math.min(...sims, st.pnl), hi = Math.max(...sims, st.pnl);
+    const nb = 30, w = (hi - lo) / nb || 1, counts = new Array(nb).fill(0);
+    sims.forEach(x => counts[Math.min(nb - 1, Math.floor((x - lo) / w))]++);
+    const actualX = st.pnl;
+    chart('mc', {
+      type: 'bar',
+      data: { datasets: [{ label: 'Simulaciones (mercado eficiente)', data: counts.map((c, i) => ({ x: lo + w * (i + 0.5), y: c })),
+        backgroundColor: cols[0], barPercentage: 1, categoryPercentage: 1, borderColor: css('--surface'), borderWidth: 1, borderRadius: 2 }] },
+      options: { maintainAspectRatio: false, parsing: false,
+        scales: { x: { type: 'linear', min: lo, max: hi, ticks: { callback: v => fmt$(v), maxTicksLimit: 6 }, grid: { display: false } },
+                  y: { ticks: { maxTicksLimit: 5 } } },
+        plugins: { legend: { display: false }, tooltip: { callbacks: { title: it => `≈ ${fmt$(it[0].raw.x)}`, label: it => `${it.raw.y} simulaciones` } } } },
+      plugins: [{ id: 'actual', afterDatasetsDraw(c) {
+        const x = c.scales.x.getPixelForValue(actualX), { top, bottom } = c.chartArea, ctx = c.ctx;
+        ctx.save(); ctx.strokeStyle = css('--ink'); ctx.lineWidth = 2; ctx.setLineDash([4, 3]);
+        ctx.beginPath(); ctx.moveTo(x, top); ctx.lineTo(x, bottom); ctx.stroke();
+        ctx.setLineDash([]); ctx.fillStyle = css('--ink'); ctx.font = '12px system-ui';
+        ctx.textAlign = x > (c.chartArea.left + c.chartArea.right) / 2 ? 'right' : 'left';
+        ctx.fillText(`Real: ${fmt$(actualX)}`, x + (ctx.textAlign === 'left' ? 6 : -6), top + 12); ctx.restore();
+      } }]
+    });
+  } else chart('mc', { type: 'bar', data: { datasets: [] }, options: { maintainAspectRatio: false, plugins: { legend: { display: false },
+      title: { display: true, text: 'Sin señales resueltas todavía' } } } });
+
+  // Bootstrap
+  if (st.n >= 5) {
+    const R = 5000, out = [];
+    for (let r = 0; r < R; r++) {
+      let p = 0, k = 0;
+      for (let j = 0; j < 100; j++) { const b = st.res[(Math.random() * st.res.length) | 0]; p += b.pnl; k += b.stake; }
+      out.push({ roi: p / k, pnl: p });
+    }
+    out.sort((a, b) => a.roi - b.roi);
+    const q = p => out[Math.floor(p * (R - 1))];
+    const pProfit = out.filter(x => x.pnl > 0).length / R;
+    $('boot').innerHTML = [
+      ['Prob. de terminar en ganancia', fmtPct(pProfit, 0), 'tras 100 apuestas'],
+      ['ROI pesimista (p5)', `<span class="${cls(q(0.05).roi)}">${fmtPct(q(0.05).roi)}</span>`, fmt$(q(0.05).pnl)],
+      ['ROI típico (mediana)', `<span class="${cls(q(0.5).roi)}">${fmtPct(q(0.5).roi)}</span>`, fmt$(q(0.5).pnl)],
+      ['ROI optimista (p95)', `<span class="${cls(q(0.95).roi)}">${fmtPct(q(0.95).roi)}</span>`, fmt$(q(0.95).pnl)],
+    ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('') +
+    (st.n < 30 ? `<div class="note" style="grid-column:1/-1">Con solo ${st.n} resueltas este rango es muy poco fiable.</div>` : '');
+  } else $('boot').innerHTML = `<div class="small">Se necesitan al menos 5 señales resueltas (hay ${st.n}).</div>`;
+
+  // Calibración por precio
+  const groupTable = (groups) => `<tr><th>Grupo</th><th class="num">Resueltas</th><th class="num">Acierto</th><th class="num">Implícita</th><th class="num">Ventaja</th><th class="num">ROI</th><th class="num">Abiertas</th></tr>` +
+    groups.map(([name, g]) => { const s = stats(g, 1); return `<tr><td>${name}</td><td class="num">${s.n}</td><td class="num">${fmtPct(s.winRate)}</td><td class="num">${fmtPct(s.implied)}</td><td class="num ${cls(s.edge)}">${fmtPp(s.edge)}</td><td class="num ${cls(s.roi)}">${fmtPct(s.roi)}</td><td class="num">${s.open}</td></tr>`; }).join('');
+  const buckets = [['< 50¢', 0, 0.5], ['50–70¢', 0.5, 0.7], ['70–85¢', 0.7, 0.85], ['≥ 85¢', 0.85, 1.01]];
+  $('buckets').innerHTML = groupTable(buckets.map(([n, a, b]) => [n, bs.filter(x => x.price >= a && x.price < b)]));
+  const allCats = bets(state.th, { ...state, cat: 'all' });
+  $('cats').innerHTML = groupTable(['Deportes / eSports', 'Cripto', 'Política / otros'].map(c => [c, allCats.filter(x => x.cat === c)]));
+
+  // Recomendaciones actuales
+  const cur = (D.current || []).filter(c => c.score >= state.th).sort((a, b) => b.score - a.score);
+  $('curN').textContent = `(${cur.length} con score ≥ ${state.th})`;
+  $('current').innerHTML = `<tr><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio medio</th><th class="num">Compra real</th><th class="num">Entrada ballenas</th><th class="num">Consenso</th><th class="num">Cubierto</th><th class="num">Apuesta</th><th class="num">Liquidez</th><th class="num">Capital</th><th>Cierra</th></tr>` +
+    (cur.length ? cur.map(c => { const k = consensus(c.top); const stake = state.rule === 'consensus' && k && k.ok ? CONSENSUS_STAKE : BASE_STAKE;
+      return `<tr><td class="title"><a href="${link(c)}" target="_blank" rel="noopener">${esc(c.title)}</a></td><td>${esc(c.position)}</td><td class="num">${c.score}</td><td class="num">${fmtC(c.price)}</td><td class="num">${fmtC(c.ask)}</td><td class="num">${fmtC(c.whaleAvgEntry)}</td><td class="num">${consLabel(k)}</td><td class="num">${fmtPct(c.hedgeCap, 0)}</td><td class="num"><b>$${stake}</b></td><td class="num">${fmtK(c.liq)}</td><td class="num">${fmtK(c.capital)}</td><td>${fmtDate(c.endDate)}</td></tr>`; }).join('')
+      : `<tr><td colspan="13" class="small">Ninguna en este momento.</td></tr>`);
+
+  // Todas las señales
+  const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', void: 'Anulada' };
+  const list = bs.slice().sort((a, b) => Date.parse(b.e.t) - Date.parse(a.e.t));
+  $('sigN').textContent = `(${list.length})`;
+  $('signals').innerHTML = `<tr><th>Detectada</th><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Entrada</th><th class="num">Consenso</th><th class="num">Cubierto</th><th class="num">Apuesta</th><th class="num">Actual / final</th><th>Cierra</th><th>Estado</th><th class="num">P&amp;L</th></tr>` +
+    list.map(b => { const p = b.pnl ?? b.mtm; return `<tr><td>${fmtDate(b.e.t)}</td><td class="title"><a href="${link(b.s)}" target="_blank" rel="noopener">${esc(b.s.title)}</a></td><td>${esc(b.s.position)}</td><td class="num">${b.s.maxScore}</td><td class="num">${fmtC(b.price)}${state.priceMode === 'ask' && !b.realAsk ? '†' : ''}</td><td class="num">${consLabel(b.cons)}</td><td class="num">${fmtPct(b.e.hedgeCap, 0)}</td><td class="num">$${b.stake}</td><td class="num">${fmtC(b.s.status === 'open' ? b.s.curPrice : b.s.finalPrice)}</td><td>${fmtDate(b.s.endDate)}</td><td><span class="badge ${b.s.status}">${label[b.s.status] || b.s.status}</span></td><td class="num ${cls(p)}">${fmt$(p)}${b.pnl == null && p != null ? '*' : ''}</td></tr>`; }).join('') ||
+    `<tr><td colspan="12" class="small">Sin señales todavía.</td></tr>`;
+  const lateQ = list.filter(b => b.e.quoteLate).length;
+  $('sigNote').textContent = (lateQ ? `${lateQ} señales anteriores al 3 oct tienen precio de compra, liquidez y cobertura medidos minutos después de detectarse. ` : '') +
+    '† sin precio de compra real disponible: se usa el precio medio.';
+}
+
+// Controles
+$('th').innerHTML = D.thresholds.map(t => `<option value="${t}">≥ ${t}</option>`).join('');
+$('topN').innerHTML = [5, 10, 15, 20].map(n => `<option value="${n}">${n}</option>`).join('');
+const fillAgree = () => { $('minAgree').innerHTML = Array.from({ length: state.topN }, (_, i) => i + 1).map(k => `<option value="${k}">${k} de ${state.topN}</option>`).join('');
+  state.minAgree = Math.min(state.minAgree, state.topN); $('minAgree').value = state.minAgree; };
+$('th').value = state.th; $('slip').value = state.slip; $('rule').value = state.rule; $('topN').value = state.topN; $('maxRank').value = state.maxRank;
+fillAgree();
+$('maxDays').value = state.maxDays || ''; $('cat').value = state.cat;
+$('priceMode').value = state.priceMode; $('minLiq').value = state.minLiq; $('maxHedge').value = state.maxHedge; $('exclHedged').value = state.exclHedged;
+for (const id of ['th', 'slip', 'maxDays', 'cat', 'rule', 'minAgree', 'topN', 'maxRank', 'priceMode', 'minLiq', 'maxHedge', 'exclHedged']) $(id).addEventListener('change', () => {
+  state.priceMode = $('priceMode').value; state.minLiq = +$('minLiq').value; state.maxHedge = +$('maxHedge').value; state.exclHedged = +$('exclHedged').value;
+  state.rule = $('rule').value; state.minAgree = +$('minAgree').value; state.maxRank = +$('maxRank').value;
+  if (+$('topN').value !== state.topN) { state.topN = +$('topN').value; fillAgree(); }
+  state.th = +$('th').value; state.slip = Math.max(0, +$('slip').value || 0);
+  state.maxDays = +$('maxDays').value || null; state.cat = $('cat').value; render();
+});
+const runs = D.runs || [];
+$('updated').textContent = D.generatedAt ? `Última actualización: ${new Date(D.generatedAt).toLocaleString('es')} · ${runs.length} ejecuciones · * = valor a precio actual` : 'Sin datos: ejecuta tracker.ps1';
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
+render();
+setTimeout(() => location.reload(), 10 * 60 * 1000);
+</script>
+</body>
+</html>
