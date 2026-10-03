@@ -1,0 +1,1 @@
+window.COPIERS = [{"title":"Fed · MysticFind","category":"Economía / Fed","id":"fed","traderName":"MysticFind"},{"title":"Fútbol · Elaran1993","category":"Fútbol","id":"futbol","traderName":"Elaran1993"},{"title":"NFL · Elaran1993","category":"NFL","id":"nfl","traderName":"Elaran1993"}];

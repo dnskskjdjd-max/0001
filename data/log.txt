@@ -257,3 +257,17 @@
 2026-10-03 13:36:33  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T18:30:57.283Z)
 2026-10-03 13:36:48  OK: 22 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (14 en el historial), 0 alertas de venta, 0 resueltas, 34 senales + 203 de control
 2026-10-03 13:36:51  [copia] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 13:40:20  [copia:fed] Copia: $5 a Yes en Will the Fed increase interest rates by 25 bps after the October 2026 meeting? @ 18c (el entro a 33.3c con $75572)
+2026-10-03 13:40:20  [copia:fed] Copia: $5 a Yes en Will there be no change in Fed interest rates after the October 2026 meeting? @ 83c (el entro a 54.5c con $82169)
+2026-10-03 13:40:20  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 2 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 13:40:20  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 13:40:21  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 13:40:23  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 13:40:23  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 13:40:23  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 13:40:30  --- inicio ---
+2026-10-03 13:40:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T18:30:57.283Z)
+2026-10-03 13:41:05  OK: 22 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (14 en el historial), 0 alertas de venta, 0 resueltas, 34 senales + 203 de control
+2026-10-03 13:41:08  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 13:41:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 13:41:09  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
