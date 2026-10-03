@@ -39,6 +39,27 @@ jobs:
             }
           }
 
+      - name: Cerrar alertas resueltas
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [Console]::OutputEncoding = [Text.Encoding]::UTF8
+          if (Test-Path data\alerts-close.json) {
+            $items = (Get-Content data\alerts-close.json -Raw -Encoding UTF8 | ConvertFrom-Json) | ForEach-Object { $_ }
+            if ($items) {
+              $open = (gh issue list --repo "${{ github.repository }}" --state open --limit 200 --json number,title | Out-String | ConvertFrom-Json) | ForEach-Object { $_ }
+              foreach ($x in $items) {
+                $iss = $open | Where-Object { $_.title -eq $x.title } | Select-Object -First 1
+                if (-not $iss) { Write-Host "Sin issue abierto para: $($x.title)"; continue }
+                $f = New-TemporaryFile
+                [IO.File]::WriteAllText($f.FullName, $x.body, (New-Object System.Text.UTF8Encoding $false))
+                gh issue comment $iss.number --repo "${{ github.repository }}" --body-file $f.FullName
+                gh issue close $iss.number --repo "${{ github.repository }}" --reason completed
+              }
+            }
+          }
+
       - name: Ejecutar copiador NFL
         if: always()
         shell: powershell
