@@ -5,8 +5,11 @@ Set-Location $PSScriptRoot
 $LogFile = Join-Path $PSScriptRoot 'local-run.log'   # registro local (no se sube; esta en .gitignore)
 
 function L($msg) { Add-Content -Path $LogFile -Value "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')  $msg" -Encoding UTF8 }
-function Git([string[]]$a) {
-    $out = & git @a 2>&1 | ForEach-Object { "$_" }
+# Ruta completa: la tarea de Windows puede no tener git en el PATH
+$GitExe = 'C:\Program Files\Git\cmd\git.exe'
+if (-not (Test-Path $GitExe)) { $GitExe = (Get-Command git.exe -ErrorAction SilentlyContinue).Source }
+function Invoke-Git([string[]]$a) {
+    $out = & $GitExe @a 2>&1 | ForEach-Object { "$_" }
     if ($out) { L "git $($a[0]): $($out -join ' | ')" }
     return $LASTEXITCODE
 }
@@ -16,19 +19,19 @@ $mutex = New-Object System.Threading.Mutex($false, 'FirePolymarketTrackerLocal')
 if (-not $mutex.WaitOne(0)) { L 'Ya hay una ejecucion en curso; se omite esta'; exit 0 }
 try {
     # Trae cambios hechos en GitHub (por ejemplo, strategy.json editado en la web)
-    if ((Git @('pull', '--rebase', '--autostash', '-q')) -ne 0) { L 'Fallo git pull; se sigue con los datos locales' }
+    if ((Invoke-Git @('pull', '--rebase', '--autostash', '-q')) -ne 0) { L 'Fallo git pull; se sigue con los datos locales' }
 
     & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'tracker.ps1') | Out-Null
     & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'copier.ps1') | Out-Null
 
-    & git add data 2>&1 | Out-Null
-    & git diff --cached --quiet 2>&1 | Out-Null
+    & $GitExe add data 2>&1 | Out-Null
+    & $GitExe diff --cached --quiet 2>&1 | Out-Null
     if ($LASTEXITCODE -ne 0) {
-        Git @('commit', '-q', '-m', "Datos $((Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm')) UTC (PC)") | Out-Null
+        Invoke-Git @('commit', '-q', '-m', "Datos $((Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm')) UTC (PC)") | Out-Null
         for ($i = 1; $i -le 3; $i++) {
-            if ((Git @('push', '-q')) -eq 0) { break }
+            if ((Invoke-Git @('push', '-q')) -eq 0) { break }
             L "Fallo git push (intento $i); se reintenta tras pull"
-            Git @('pull', '--rebase', '-q') | Out-Null
+            Invoke-Git @('pull', '--rebase', '-q') | Out-Null
             Start-Sleep -Seconds 5
         }
     }

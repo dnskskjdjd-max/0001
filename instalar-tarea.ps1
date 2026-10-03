@@ -2,9 +2,11 @@
 # Ejecutalo desde la carpeta donde esta clonado el repositorio. Para quitarla:
 #   Unregister-ScheduledTask -TaskName 'FirePolymarket Tracker' -Confirm:$false
 $TaskName = 'FirePolymarket Tracker'
-$Vbs = Join-Path $PSScriptRoot 'run-hidden.vbs'
+$Script = Join-Path $PSScriptRoot 'run-local.ps1'
 
-$action   = New-ScheduledTaskAction -Execute 'wscript.exe' -Argument "`"$Vbs`"" -WorkingDirectory $PSScriptRoot
+# PowerShell directo con ventana oculta (la variante con wscript + .vbs era eliminada por Windows al ejecutarse)
+$action   = New-ScheduledTaskAction -Execute 'powershell.exe' `
+            -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$Script`"" -WorkingDirectory $PSScriptRoot
 $trigger  = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1) -RepetitionInterval (New-TimeSpan -Minutes 5)
 $settings = New-ScheduledTaskSettingsSet -StartWhenAvailable -MultipleInstances IgnoreNew `
             -ExecutionTimeLimit (New-TimeSpan -Minutes 10) -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
