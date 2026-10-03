@@ -535,3 +535,12 @@
 2026-10-03 18:21:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-03 18:21:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-03 18:21:02  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 18:25:30  --- inicio ---
+2026-10-03 18:25:44  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-03T23:20:56.379Z)
+2026-10-03 18:25:55  Resuelta: Florida vs. Missouri [FLORIDA] -> lost
+2026-10-03 18:25:55  Resuelta: Florida vs. Missouri [MISSOURI] -> won
+2026-10-03 18:25:55  Resuelta: Florida vs. Missouri [MISSOURI] -> won
+2026-10-03 18:25:58  OK: 20 mercados >= 60, 6 >= 70, 1 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (13 en el historial), 0 alertas de venta, 3 resueltas, 41 senales + 212 de control
+2026-10-03 18:26:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 18:26:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 18:26:01  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
