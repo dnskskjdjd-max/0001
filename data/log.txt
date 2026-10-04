@@ -1406,3 +1406,10 @@
 2026-10-04 13:36:02  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 13:36:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 13:36:03  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 13:40:30  --- inicio ---
+2026-10-04 13:40:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T18:35:56.021Z)
+2026-10-04 13:40:55  Apuesta: $5 a 49ERS en Spread: 49ers (-2.5) @ 54c (score 71, consenso 7/10)
+2026-10-04 13:40:58  OK: 28 mercados >= 60, 12 >= 70, 1 senales nuevas, 0 de control nuevas, 1 apuestas nuevas (30 en el historial), 0 alertas de venta, 0 resueltas, 64 senales + 260 de control
+2026-10-04 13:41:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 13:41:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 13:41:01  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
