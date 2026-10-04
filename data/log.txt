@@ -1121,3 +1121,10 @@
 2026-10-04 07:24:13  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 07:24:14  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 07:24:14  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 07:25:29  --- inicio ---
+2026-10-04 07:25:47  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T12:24:08.206Z)
+2026-10-04 07:25:53  Apuesta: $5 a BILLS en Patriots vs. Bills @ 74c (consenso 6/10)
+2026-10-04 07:25:56  OK: 22 mercados >= 60, 6 >= 70, 1 senales nuevas, 0 de control nuevas, 1 apuestas nuevas (16 en el historial), 0 alertas de venta, 0 resueltas, 49 senales + 234 de control
+2026-10-04 07:25:58  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 07:25:58  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 07:25:58  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
