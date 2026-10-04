@@ -1285,3 +1285,10 @@
 2026-10-04 09:26:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 09:26:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 09:26:05  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 09:30:32  --- inicio ---
+2026-10-04 09:30:47  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T14:30:11.429Z)
+2026-10-04 09:30:59  Apuesta conservadora: $3 a BEARS en Spread: Bears (-3.5) @ 50c (score 61, consenso 8/10)
+2026-10-04 09:31:06  OK: 22 mercados >= 60, 9 >= 70, 0 senales nuevas, 3 de control nuevas, 1 apuestas nuevas (24 en el historial), 0 alertas de venta, 0 resueltas, 53 senales + 244 de control
+2026-10-04 09:31:09  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 09:31:10  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 09:31:11  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
