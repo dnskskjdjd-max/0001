@@ -1360,3 +1360,12 @@
 2026-10-04 12:36:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 12:36:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 12:36:04  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 12:40:30  --- inicio ---
+2026-10-04 12:40:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T17:35:55.448Z)
+2026-10-04 12:40:55  Apuesta conservadora: $3 a RAMS en Rams vs. Eagles @ 60c (score 60, consenso 8/10)
+2026-10-04 12:40:55  Apuesta: $5 a JAGUARS en Jaguars vs. Bengals @ 43c (score 70, consenso 6/10)
+2026-10-04 12:40:58  ALERTA DE VENTA: Spread: Packers (-3.5) [BUCCANEERS] - solo 3 de las 10 ballenas mejor rankeadas siguen en BUCCANEERS (al apostar eran 5)
+2026-10-04 12:41:00  OK: 25 mercados >= 60, 10 >= 70, 1 senales nuevas, 1 de control nuevas, 2 apuestas nuevas (29 en el historial), 1 alertas de venta, 0 resueltas, 59 senales + 256 de control
+2026-10-04 12:41:02  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 12:41:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 12:41:02  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
