@@ -1589,3 +1589,13 @@
 2026-10-04 16:15:58  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 16:15:58  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 16:15:58  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 16:20:30  --- inicio ---
+2026-10-04 16:20:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T21:15:56.616Z)
+2026-10-04 16:20:54  Apuesta: $5 a NO en Will Luiz Inácio Lula da Silva win the 2026 Brazilian presidential election? @ 82c (score 83, consenso 9/10)
+2026-10-04 16:20:54  Apuesta: $5 a RAIDERS en Chiefs vs. Raiders @ 48c (score 71, consenso 6/10)
+2026-10-04 16:20:54  Apuesta: $1 a VIKINGS en Dolphins vs. Vikings @ 87c (score 70, consenso 5/10)
+2026-10-04 16:20:56  ALERTA DE VENTA: Spread: 49ers (-2.5) [49ERS] - FirePolymarket ahora recomienda BRONCOS (score 55); solo 3 de las 10 ballenas mejor rankeadas siguen en 49ERS (al apostar eran 7)
+2026-10-04 16:20:58  OK: 23 mercados >= 60, 11 >= 70, 2 senales nuevas, 0 de control nuevas, 3 apuestas nuevas (39 en el historial), 1 alertas de venta, 0 resueltas, 75 senales + 278 de control
+2026-10-04 16:21:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 16:21:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 16:21:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
