@@ -1529,3 +1529,10 @@
 2026-10-04 15:06:02  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 15:06:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 15:06:02  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 15:10:33  --- inicio ---
+2026-10-04 15:10:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T20:08:30.325Z)
+2026-10-04 15:10:57  Apuesta conservadora: $3 a GIANTS en Cardinals vs. Giants @ 48c (score 60, consenso 9/10)
+2026-10-04 15:11:01  OK: 32 mercados >= 60, 13 >= 70, 2 senales nuevas, 1 de control nuevas, 1 apuestas nuevas (34 en el historial), 0 alertas de venta, 0 resueltas, 70 senales + 269 de control
+2026-10-04 15:11:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 15:11:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 15:11:06  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
