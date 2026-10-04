@@ -1738,3 +1738,12 @@
 2026-10-04 17:45:58  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 17:45:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 17:45:59  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 17:50:30  --- inicio ---
+2026-10-04 17:50:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T22:35:56.730Z)
+2026-10-04 17:50:52  Resuelta: Will Portugal win on 2026-10-04? [NO] -> lost
+2026-10-04 17:50:52  Resuelta: Will Portugal win on 2026-10-04? [NO] -> lost
+2026-10-04 17:50:52  Apuesta resuelta: Will Portugal win on 2026-10-04? [NO] -> lost (-1)
+2026-10-04 17:50:56  OK: 23 mercados >= 60, 11 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (40 en el historial), 0 alertas de venta, 2 resueltas, 77 senales + 283 de control
+2026-10-04 17:50:59  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 17:50:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 17:50:59  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
