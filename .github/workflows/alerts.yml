@@ -31,10 +31,17 @@ jobs:
         run: |
           if (Test-Path data/alerts-new.json) {
             $alerts = Get-Content data/alerts-new.json -Raw | ConvertFrom-Json
+            $open = $null
             foreach ($a in @($alerts)) {
               if (-not $a.title) { continue }
               $f = New-TemporaryFile
               Set-Content -Path $f -Value $a.body -Encoding utf8NoBOM
+              # Recordatorios: se comentan en el issue de la alerta (si ya no esta abierto, se crea uno nuevo)
+              if ($a.mode -eq 'comment') {
+                if ($null -eq $open) { $open = gh issue list --repo "${{ github.repository }}" --state open --limit 200 --json number,title | ConvertFrom-Json }
+                $iss = $open | Where-Object { $_.title -eq $a.title } | Select-Object -First 1
+                if ($iss) { gh issue comment $iss.number --repo "${{ github.repository }}" --body-file $f; continue }
+              }
               gh issue create --repo "${{ github.repository }}" --title $a.title --body-file $f
             }
           }

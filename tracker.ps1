@@ -426,9 +426,46 @@ try {
     Write-FileAtomic $DecisionsFile (ConvertTo-Json -InputObject @($decisions) -Depth 4 -Compress)
     Write-FileAtomic $DecisionsNewFile (ConvertTo-Json -InputObject @($decisionsNew) -Depth 4)
 
+    # 4a-bis. Alertas que el usuario decidio MANTENER: no se vuelve a preguntar salvo (una vez cada caso)
+    #   'start': falta 1 hora o menos para que empiece el partido (gameStartTime); sin partido, para el cierre del mercado
+    #   'half' : la apuesta vale la mitad o menos de lo pagado (precio actual <= 50% del de entrada)
+    # Al dispararse, la alerta vuelve a quedar sin decision (activa en el panel) y se comenta en su issue con los botones.
+    $alertsNew = @()
+    $nowUtc = (Get-Date).ToUniversalTime()
+    foreach ($b in @($bets.Values | Where-Object { $_.status -eq 'open' -and $_.alert -and $_.alert.decision -eq 'keep' })) {
+        $g = $gamma[$b.slug]
+        $fired = @($b.alert.reminders | Where-Object { $_ })
+        $start = $null; $isClose = $false
+        $startRaw = if ($g -and $g.gameStartTime) { "$($g.gameStartTime)" } elseif ($g -and $g.eventStartTime) { "$($g.eventStartTime)" } else { $null }
+        if ($startRaw) { try { $start = [DateTimeOffset]::Parse($startRaw).UtcDateTime } catch {} }
+        if (-not $start -and $b.endDate) { try { $start = [DateTimeOffset]::Parse("$($b.endDate)").UtcDateTime; $isClose = $true } catch {} }
+        $kind = $null; $why = $null
+        if ($fired -notcontains 'start' -and $start -and ($start - $nowUtc).TotalMinutes -le 60) {
+            $kind = 'start'
+            $why = if ($isClose) { "falta 1 hora o menos para el cierre del mercado ($($start.ToString('yyyy-MM-dd HH:mm')) UTC)" } else { "falta 1 hora o menos para que empiece ($($start.ToString('yyyy-MM-dd HH:mm')) UTC)" }
+        } elseif ($fired -notcontains 'half' -and $null -ne $b.curPrice -and $b.curPrice -le $b.price / 2) {
+            $kind = 'half'
+            $why = "la apuesta vale la mitad o menos: entro a $([Math]::Round($b.price * 100, 1))c y ahora esta a $([Math]::Round($b.curPrice * 100, 1))c"
+        }
+        if (-not $kind) { continue }
+        $b.alert.reminders = @($fired + $kind)
+        $b.alert.decision = $null; $b.alert.reaskedAt = $now; $b.alert.reaskReason = $why
+        $pnlNow = if ($null -ne $b.curPrice) { [Math]::Round($b.stake * ($b.curPrice / $b.price - 1), 2) } else { $null }
+        $alertsNew += @{
+            mode  = 'comment'
+            title = "Alerta de venta: $($b.title) [$($b.position)]"
+            body  = "**Recordatorio: decidiste mantener esta apuesta, pero $why.**`n`n" +
+                    "- Apuesta: `$$($b.stake) a **$($b.position)** a $([Math]::Round($b.price * 100, 1))c`n" +
+                    "- Precio actual: $(if ($null -ne $b.curPrice) { "$([Math]::Round($b.curPrice * 100, 1))c" } else { 'desconocido' })`n" +
+                    "- Si se vende ahora: $(if ($null -ne $pnlNow) { "$pnlNow USD" } else { '-' })`n`n" +
+                    "### Decide de nuevo: [⭕ Vender ahora]($(Get-DecisionUrl $b 'VENDER'))  |  [❌ Mantener]($(Get-DecisionUrl $b 'MANTENER'))`n`n" +
+                    "[Panel]($PagesUrl)`n`n_Recordatorio automatico del tracker. No es asesoria financiera._"
+        }
+        Log "RECORDATORIO de alerta mantenida: $($b.title) [$($b.position)] - $why"
+    }
+
     # 4b. Alertas de venta: en apuestas abiertas, si el sitio cambia de bando o las ballenas abandonan nuestro lado.
     # La apuesta no se modifica; se registra la alerta y lo que se habria obtenido vendiendo en ese momento.
-    $alertsNew = @()
     $marketBySlug = @{}; foreach ($m in $markets) { $marketBySlug[$m.slug] = $m }
     foreach ($b in @($bets.Values | Where-Object { $_.status -eq 'open' -and -not $_.alert })) {
         $m = $marketBySlug[$b.slug]

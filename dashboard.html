@@ -408,9 +408,9 @@ function renderLedger() {
   const ifSold = closedA.reduce((a, b) => a + (b.alert.pnlIfSold || 0), 0), held = closedA.reduce((a, b) => a + b.pnl, 0);
   $('alerts').innerHTML = (activeA.length ? `<div class="verdict" style="border-color: var(--bad); margin: 0 0 16px">
       <b class="neg">⚠ ${activeA.length} alerta${activeA.length > 1 ? 's' : ''} de venta activa${activeA.length > 1 ? 's' : ''}</b>
-      <ul class="strat alerts" style="margin-top:6px">${activeA.map(b => `<li><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a> [${esc(b.position)}] — ${esc((b.alert.reasons || []).join('; '))}. Alerta ${fmtDT(b.alert.t)} a ${fmtC(b.alert.price)} (vender entonces: <span class="${cls(b.alert.pnlIfSold)}">${fmt$(b.alert.pnlIfSold)}</span>; ahora: <span class="${cls(mtmOf(b))}">${fmt$(mtmOf(b))}</span>)
+      <ul class="strat alerts" style="margin-top:6px">${activeA.map(b => `<li><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a> [${esc(b.position)}] — ${b.alert.reaskReason ? `<b>🔔 Recordatorio (${fmtDT(b.alert.reaskedAt)}): ${esc(b.alert.reaskReason)}.</b> Alerta original: ` : ''}${esc((b.alert.reasons || []).join('; '))}. Alerta ${fmtDT(b.alert.t)} a ${fmtC(b.alert.price)} (vender entonces: <span class="${cls(b.alert.pnlIfSold)}">${fmt$(b.alert.pnlIfSold)}</span>; ahora: <span class="${cls(mtmOf(b))}">${fmt$(mtmOf(b))}</span>)
         <div class="decide">${decisionButtons(b)}</div></li>`).join('')}</ul>
-      <div class="small">⭕ acepta la alerta y vende al precio de venta del momento · ❌ la rechaza y mantiene la apuesta hasta el final. Se abre GitHub con la decisión lista: pulsa <b>Create</b>.</div></div>` : '') +
+      <div class="small">⭕ acepta la alerta y vende al precio de venta del momento · ❌ la rechaza y mantiene la apuesta; no se vuelve a preguntar hasta 1 h antes de que empiece (o del cierre) o si vale la mitad. Se abre GitHub con la decisión lista: pulsa <b>Create</b>.</div></div>` : '') +
     (closedA.length ? `<p class="small" style="margin:0 0 12px">Alertas ya resueltas (${closedA.length}): vendiendo en la alerta habrías obtenido <b class="${cls(ifSold)}">${fmt$(ifSold)}</b>; manteniendo hasta el final, <b class="${cls(held)}">${fmt$(held)}</b>.</p>` : '');
 
   let acc = 0;
@@ -435,7 +435,7 @@ function renderLedger() {
       const why = esc((b.alert && b.alert.reasons || []).join('; '));
       const al = !b.alert ? ''
         : b.alert.decision === 'sell' ? `<span title="${why}">⭕ Vendida por alerta (${fmtDT(b.alert.decidedAt)})</span>`
-        : b.alert.decision === 'keep' ? `<span title="${why}">❌ Alerta rechazada (${fmtDT(b.alert.decidedAt)})</span>`
+        : b.alert.decision === 'keep' ? `<span title="${why}. Se vuelve a preguntar 1 h antes de que empiece (o del cierre) o si vale la mitad.">❌ Mantenida (${fmtDT(b.alert.decidedAt)})</span>`
         : `<span class="neg" title="${why}">⚠ Vender (${fmtDT(b.alert.t)})</span>`;
       return `<tr><td>${fmtDT(b.placedAt)}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.position)}</td><td class="num">${b.score}</td><td class="num">${fmtC(b.price)}</td><td class="num">${esc(b.consensus)}</td><td class="num"><b>$${b.stake}</b></td><td class="num">v${b.strategy ? b.strategy.version : '?'}</td><td class="num">${fmtC(b.status === 'open' ? b.curPrice : b.finalPrice)}</td><td>${fmtDate(b.endDate)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td>${al}</td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
       : `<tr><td colspan="13" class="small">Todavía no hay apuestas. Se registran en la próxima ejecución del tracker.</td></tr>`);
