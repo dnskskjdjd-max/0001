@@ -1136,3 +1136,10 @@
 2026-10-04 07:27:37  Apuesta conservadora: $3 a PACKERS en Packers vs. Buccaneers @ 61c (score 69, consenso 8/10)
 2026-10-04 07:27:37  Apuesta conservadora: $3 a NO en US announces end of Iranian blockade by October 15, 2026? @ 92c (score 62, consenso 9/10)
 2026-10-04 07:27:39  OK: 22 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 5 apuestas nuevas (21 en el historial), 0 alertas de venta, 0 resueltas, 49 senales + 234 de control
+2026-10-04 07:30:30  --- inicio ---
+2026-10-04 07:30:43  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T12:24:08.206Z)
+2026-10-04 07:30:49  RECORDATORIO de alerta mantenida: Colts vs. Commanders [COLTS] - falta 1 hora o menos para que empiece (2026-10-04 13:30 UTC)
+2026-10-04 07:30:51  OK: 22 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (21 en el historial), 1 alertas de venta, 0 resueltas, 49 senales + 234 de control
+2026-10-04 07:30:53  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 07:30:54  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 07:30:54  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
