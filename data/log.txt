@@ -1536,3 +1536,12 @@
 2026-10-04 15:11:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 15:11:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 15:11:06  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 15:15:32  --- inicio ---
+2026-10-04 15:15:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T20:08:30.325Z)
+2026-10-04 15:15:55  Resuelta: Spread: Bears (-3.5) [BEARS] -> won
+2026-10-04 15:15:55  Resuelta: Jets vs. Bears [BEARS] -> won
+2026-10-04 15:15:55  Apuesta resuelta: Spread: Bears (-3.5) [BEARS] -> won (3)
+2026-10-04 15:15:59  OK: 32 mercados >= 60, 13 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (34 en el historial), 0 alertas de venta, 2 resueltas, 70 senales + 269 de control
+2026-10-04 15:16:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 15:16:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 15:16:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
