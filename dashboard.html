@@ -243,6 +243,8 @@ const link = s => s.eventSlug && s.questionID ? `https://polymarket.com/event/${
 // Fechas solo-día ("2026-10-04") se leen al mediodía para que la zona horaria no las corra al día anterior
 const fmtDate = s => s ? new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + 'T12:00:00' : s).toLocaleDateString('es', { day: 'numeric', month: 'short', year: '2-digit' }) : '–';
 const fmtDT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
+// Probabilidad de Vegas y su diferencia con el precio de Polymarket (+ = Polymarket más barato que Vegas)
+const vegasCell = (v, px) => v == null ? '–' : `${Math.round(v * 100)}% <span class="${cls(px != null ? v - px : null)}">(${px != null ? ((v - px) >= 0 ? '+' : '−') + Math.abs(Math.round((v - px) * 100)) : ''})</span>`;
 
 // Categorías: se prueba en orden contra "slug eventSlug título"; la primera regla que coincide gana.
 // IDÉNTICAS a $CategoryRules en tracker.ps1: si cambias una, cambia la otra.
@@ -434,15 +436,15 @@ function renderLedger() {
   $('stratList').innerHTML = describeStrategy(s).map(x => `<li>${esc(x)}</li>`).join('');
 
   const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', void: 'Anulada', sold: 'Vendida' };
-  $('ledger').innerHTML = `<tr><th>Apostada</th><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio</th><th class="num">Consenso</th><th class="num">Apuesta</th><th class="num">Estrategia</th><th class="num">Actual / final</th><th>Cierra</th><th>Estado</th><th>Alerta</th><th class="num">P&amp;L</th></tr>` +
+  $('ledger').innerHTML = `<tr><th>Apostada</th><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio</th><th class="num" title="Probabilidad justa según las casas de apuestas (Vegas) al momento de apostar; entre paréntesis, la diferencia con el precio pagado">Vegas</th><th class="num">Consenso</th><th class="num">Apuesta</th><th class="num">Estrategia</th><th class="num">Actual / final</th><th>Cierra</th><th>Estado</th><th>Alerta</th><th class="num">P&amp;L</th></tr>` +
     (B.length ? B.map(b => { const p = b.status === 'open' ? mtmOf(b) : b.pnl;
       const why = esc((b.alert && b.alert.reasons || []).join('; '));
       const al = !b.alert ? ''
         : b.alert.decision === 'sell' ? `<span title="${why}">⭕ Vendida por alerta (${fmtDT(b.alert.decidedAt)})</span>`
         : b.alert.decision === 'keep' ? `<span title="${why}. Se vuelve a preguntar 1 h antes de que empiece (o del cierre) o si vale la mitad.">❌ Mantenida (${fmtDT(b.alert.decidedAt)})</span>`
         : `<span class="neg" title="${why}">⚠ Vender (${fmtDT(b.alert.t)})</span>`;
-      return `<tr><td>${fmtDT(b.placedAt)}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.position)}</td><td class="num">${b.score}</td><td class="num">${fmtC(b.price)}</td><td class="num">${esc(b.consensus)}</td><td class="num"><b>$${b.stake}</b></td><td class="num">v${b.strategy ? b.strategy.version : '?'}</td><td class="num">${fmtC(b.status === 'open' ? b.curPrice : b.finalPrice)}</td><td>${fmtDate(b.endDate)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td>${al}</td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
-      : `<tr><td colspan="13" class="small">Todavía no hay apuestas. Se registran en la próxima ejecución del tracker.</td></tr>`);
+      return `<tr><td>${fmtDT(b.placedAt)}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.position)}</td><td class="num">${b.score}</td><td class="num">${fmtC(b.price)}</td><td class="num">${vegasCell(b.vegasProb, b.price)}</td><td class="num">${esc(b.consensus)}</td><td class="num"><b>$${b.stake}</b></td><td class="num">v${b.strategy ? b.strategy.version : '?'}</td><td class="num">${fmtC(b.status === 'open' ? b.curPrice : b.finalPrice)}</td><td>${fmtDate(b.endDate)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td>${al}</td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
+      : `<tr><td colspan="14" class="small">Todavía no hay apuestas. Se registran en la próxima ejecución del tracker.</td></tr>`);
 }
 
 // Convierte los filtros del simulador en una nueva estrategia y abre el editor de GitHub
@@ -604,10 +606,10 @@ function render() {
   // Recomendaciones actuales
   const cur = (D.current || []).filter(c => c.score >= state.th).sort((a, b) => b.score - a.score);
   $('curN').textContent = `(${cur.length} con score ≥ ${state.th})`;
-  $('current').innerHTML = `<tr><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio medio</th><th class="num">Compra real</th><th class="num">Entrada ballenas</th><th class="num">Consenso</th><th class="num">Cubierto</th><th class="num">Apuesta</th><th class="num">Liquidez</th><th class="num">Capital</th><th>Cierra</th></tr>` +
+  $('current').innerHTML = `<tr><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio medio</th><th class="num">Compra real</th><th class="num" title="Probabilidad justa según las casas de apuestas (Vegas); entre paréntesis, la diferencia con el precio de compra">Vegas</th><th class="num">Entrada ballenas</th><th class="num">Consenso</th><th class="num">Cubierto</th><th class="num">Apuesta</th><th class="num">Liquidez</th><th class="num">Capital</th><th>Cierra</th></tr>` +
     (cur.length ? cur.map(c => { const k = consensus(c.top); const stake = state.rule === 'consensus' && k && k.ok ? CONSENSUS_STAKE : BASE_STAKE;
-      return `<tr><td class="title"><a href="${link(c)}" target="_blank" rel="noopener">${esc(c.title)}</a></td><td>${esc(c.position)}</td><td class="num">${c.score}</td><td class="num">${fmtC(c.price)}</td><td class="num">${fmtC(c.ask)}</td><td class="num">${fmtC(c.whaleAvgEntry)}</td><td class="num">${consLabel(k)}</td><td class="num">${fmtPct(c.hedgeCap, 0)}</td><td class="num"><b>$${stake}</b></td><td class="num">${fmtK(c.liq)}</td><td class="num">${fmtK(c.capital)}</td><td>${fmtDate(c.endDate)}</td></tr>`; }).join('')
-      : `<tr><td colspan="13" class="small">Ninguna en este momento.</td></tr>`);
+      return `<tr><td class="title"><a href="${link(c)}" target="_blank" rel="noopener">${esc(c.title)}</a></td><td>${esc(c.position)}</td><td class="num">${c.score}</td><td class="num">${fmtC(c.price)}</td><td class="num">${fmtC(c.ask)}</td><td class="num">${vegasCell(c.vegas, c.ask || c.price)}</td><td class="num">${fmtC(c.whaleAvgEntry)}</td><td class="num">${consLabel(k)}</td><td class="num">${fmtPct(c.hedgeCap, 0)}</td><td class="num"><b>$${stake}</b></td><td class="num">${fmtK(c.liq)}</td><td class="num">${fmtK(c.capital)}</td><td>${fmtDate(c.endDate)}</td></tr>`; }).join('')
+      : `<tr><td colspan="14" class="small">Ninguna en este momento.</td></tr>`);
 
   // Todas las señales
   const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', void: 'Anulada' };

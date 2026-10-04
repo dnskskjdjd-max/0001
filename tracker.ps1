@@ -129,8 +129,9 @@ function Get-GammaQuote($g, $position) {
 # Datos guardados en el momento de cada entrada (sirven para simular despues sin mirar el futuro)
 function New-Entry($now, $price, $m, $g, $position, $top) {
     $q = Get-GammaQuote $g $position
+    $vg = Get-VegasProb $m $g $position
     return @{ t = $now; price = [Math]::Round($price, 4); ask = $q.ask; spread = $q.spread; liq = $q.liq
-              score = $m.fireScore; top = $top
+              score = $m.fireScore; top = $top; vegas = $(if ($vg) { $vg.p } else { $null })
               hedgeCap = $(if ($null -ne $m.hedgeCapitalRatio) { [Math]::Round([double]$m.hedgeCapitalRatio, 3) } else { $null })
               hedgeWallets = $(if ($null -ne $m.hedgingRatio) { [Math]::Round([double]$m.hedgingRatio, 3) } else { $null }) }
 }
@@ -194,6 +195,7 @@ function Get-TopWhales($m, $position, $rank) {
 }
 
 . (Join-Path $PSScriptRoot 'categories.ps1')   # reglas de categorias (identicas a CATEGORY_RULES en dashboard.html)
+. (Join-Path $PSScriptRoot 'odds.ps1')         # cuotas de Vegas (The Odds API); sin clave local, no hace nada
 
 # Resumen semanal (markdown): resultados de la semana y que rangos de precio/consenso/score/categoria funcionan.
 # Se basa en las senales resueltas (entrada al primer umbral, precio de compra real) y en los historiales fijos.
@@ -236,7 +238,8 @@ function Get-WeeklyReport($signals, $bets, $strategy) {
         $px = if ($e.ask) { [double]$e.ask } else { [double]$e.price }
         $agree = if ($e.top) { @(@($e.top) | Select-Object -First 10 | Where-Object { $_[1] }).Count } else { $null }
         [pscustomobject]@{ ctl = ($s.kind -eq 'control'); won = [int]($s.status -eq 'won'); px = $px; score = [int]$e.score; agree = $agree
-            cat = (Get-Category "$($s.slug) $($s.eventSlug) $($s.title)"); roi = $(if ($s.status -eq 'won') { 1 / $px - 1 } else { -1 }) }
+            cat = (Get-Category "$($s.slug) $($s.eventSlug) $($s.title)"); roi = $(if ($s.status -eq 'won') { 1 / $px - 1 } else { -1 })
+            vg = $(if ($null -ne $e.vegas) { [double]$e.vegas - $px } else { $null }) }
     }
     $row = { param($name, $g)
         $n = @($g).Count; if (-not $n) { return "| $name | 0 | - | - | - | - |" }
@@ -251,6 +254,13 @@ function Get-WeeklyReport($signals, $bets, $strategy) {
     foreach ($b in @(@(0, 4), @(5, 6), @(7, 8), @(9, 10))) { $out += & $row "Consenso $($b[0])-$($b[1])/10" @($sig | ? { $null -ne $_.agree -and $_.agree -ge $b[0] -and $_.agree -le $b[1] }) }
     foreach ($b in @(@(60, 64), @(65, 69), @(70, 79), @(80, 100))) { $out += & $row "Score $($b[0])-$($b[1])" @($sig | ? { $_.score -ge $b[0] -and $_.score -le $b[1] }) }
     foreach ($g in @($sig | Group-Object cat | Sort-Object Count -Descending | Select-Object -First 8)) { $out += & $row $g.Name $g.Group }
+    # Comparacion con Vegas (desde el 4 oct): ventaja = probabilidad justa de las casas - precio pagado en Polymarket
+    $withVg = @($sig | Where-Object { $null -ne $_.vg })
+    if ($withVg.Count) {
+        $out += & $row 'Vegas: Polymarket más barato (≥ +3 pp)' @($withVg | ? { $_.vg -ge 0.03 })
+        $out += & $row 'Vegas: precio parecido (±3 pp)' @($withVg | ? { $_.vg -gt -0.03 -and $_.vg -lt 0.03 })
+        $out += & $row 'Vegas: Polymarket más caro (≤ -3 pp)' @($withVg | ? { $_.vg -le -0.03 })
+    }
     $out += '', "[Panel]($PagesUrl) | _Resumen automatico del tracker. No es asesoria financiera._"
     return ($out -join "`n")
 }
@@ -346,6 +356,9 @@ try {
     $openBetSlugs = @($bets.Values | Where-Object { $_.status -eq 'open' } | ForEach-Object { $_.slug })
     $gamma = Get-GammaMarkets (@($candidates | ForEach-Object { $_.slug }) + $newCtlSlugs + $openSlugs + $openBetSlugs)
 
+    # Cuotas de Vegas para los mercados de ganador que se juegan pronto (informativo; si falla, se sigue sin cuotas)
+    try { Update-OddsCache (Get-OddsNeededSports $candidates $gamma) } catch { Log "Cuotas: $($_.Exception.Message -replace 'apiKey=[^&\s]+', 'apiKey=***')" }
+
     # 3. Registrar / actualizar senales
     $newCount = 0
     $current = @()
@@ -387,10 +400,11 @@ try {
             }
         }
         $q = Get-GammaQuote $g $position
+        $vg = Get-VegasProb $m $g $position
         $current += @{ key = $key; title = $m.title; slug = $m.slug; eventSlug = $m.eventSlug; questionID = $m.questionID
                        position = $position; score = $m.fireScore; price = [Math]::Round($price, 4); ask = $q.ask; spread = $q.spread; liq = $q.liq
                        hedgeCap = $m.hedgeCapitalRatio; endDate = $m.endDate; wallets = $ws.wallets; capital = $ws.capital
-                       whaleAvgEntry = $ws.avgEntry; top = $top }
+                       whaleAvgEntry = $ws.avgEntry; top = $top; vegas = $(if ($vg) { $vg.p } else { $null }); vegasBooks = $(if ($vg) { $vg.books } else { $null }) }
     }
 
     # 3b. Grupo de control (se registra una sola vez, al verlo por primera vez)
@@ -443,7 +457,7 @@ try {
                 key = $c.key; placedAt = $now; slug = $c.slug; title = $c.title; position = $c.position
                 eventSlug = $c.eventSlug; questionID = $c.questionID; endDate = $c.endDate
                 score = $c.score; price = $price; stake = $stake; consensus = "$($cons.agree)/$($cons.n)"; tier = $(if ($lowTier) { 'conservadora' } else { 'normal' })
-                hedgeCap = $c.hedgeCap; liq = $c.liq; strategy = $strategy.Clone()
+                hedgeCap = $c.hedgeCap; liq = $c.liq; vegasProb = $c.vegas; strategy = $strategy.Clone()
                 status = 'open'; curPrice = $c.price; curPriceAt = $now
             }
             $betSlugs[$c.slug] = $true
