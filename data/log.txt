@@ -1264,3 +1264,11 @@
 2026-10-04 09:10:54  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 09:10:55  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 09:10:55  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 09:15:31  --- inicio ---
+2026-10-04 09:15:45  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T14:10:56.729Z)
+2026-10-04 09:15:50  Apuesta: $5 a COMMANDERS en Spread: Colts (-4.5) @ 64c (score 70, consenso 8/10)
+2026-10-04 09:15:50  Apuesta: $1 a YES en Will Germany win on 2026-10-04? @ 54c (score 70, consenso 5/10)
+2026-10-04 09:15:54  OK: 23 mercados >= 60, 8 >= 70, 1 senales nuevas, 0 de control nuevas, 2 apuestas nuevas (23 en el historial), 0 alertas de venta, 0 resueltas, 53 senales + 241 de control
+2026-10-04 09:15:57  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 09:15:57  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 09:15:58  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
