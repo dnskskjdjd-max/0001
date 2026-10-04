@@ -216,6 +216,7 @@ $DefaultStrategy = [ordered]@{
     priceMode = 'ask'; slip = 0; minLiq = 0; maxHedge = 1; maxDays = $null; cat = 'all'
     # Apuesta conservadora: score por debajo de th pero >= lowScoreMin, si >= lowScoreAgree de las topN ballenas coinciden
     lowScoreMin = 0; lowScoreAgree = 0; lowScoreStake = 0   # 0 = desactivada
+    lowScoreMaxPrice = 0   # precio maximo de compra para la conservadora (0 = sin limite)
 }
 
 function Get-WhaleStats($m, $position) {
@@ -362,6 +363,7 @@ try {
             $price = [Math]::Round([Math]::Min(0.99, $base + $strategy.slip / 100), 4)
             $cons = Get-Consensus $c.top $strategy
             if ($lowTier -and $cons.agree -lt $strategy.lowScoreAgree) { continue }
+            if ($lowTier -and $strategy.lowScoreMaxPrice -gt 0 -and $price -gt $strategy.lowScoreMaxPrice) { continue }
             $stake = if ($lowTier) { $strategy.lowScoreStake }
                      elseif ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
             $bets[$c.key] = @{

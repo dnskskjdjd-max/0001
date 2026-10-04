@@ -1318,3 +1318,20 @@
 2026-10-04 09:50:59  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 09:50:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 09:51:00  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 12:19:33  --- inicio ---
+2026-10-04 12:19:41  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T17:00:16.740Z)
+2026-10-04 12:19:45  Apuesta: $1 a BUCCANEERS en Spread: Packers (-3.5) @ 52c (score 70, consenso 5/10)
+2026-10-04 12:19:45  Resuelta: Colts vs. Commanders [COMMANDERS] -> lost
+2026-10-04 12:19:45  Resuelta: Spread: Colts (-5.5) [COMMANDERS] -> lost
+2026-10-04 12:19:45  Resuelta: Colts vs. Commanders [COMMANDERS] -> lost
+2026-10-04 12:19:45  Resuelta: LoL: Team WE vs HANJIN BRION (BO3) - Demacia Cup Global Invitational Group Stage [HANJIN BRION] -> lost
+2026-10-04 12:19:45  Resuelta: Colts vs. Commanders [COLTS] -> won
+2026-10-04 12:19:45  Apuesta resuelta: Colts vs. Commanders [COLTS] -> won (0.5152)
+2026-10-04 12:19:46  ALERTA DE VENTA: Patriots vs. Bills [BILLS] - solo 2 de las 10 ballenas mejor rankeadas siguen en BILLS (al apostar eran 6)
+2026-10-04 12:19:46  ALERTA DE VENTA: Spread: Colts (-4.5) [COMMANDERS] - FirePolymarket ahora recomienda COLTS (score 73)
+2026-10-04 12:19:46  OK: 24 mercados >= 60, 10 >= 70, 4 senales nuevas, 8 de control nuevas, 1 apuestas nuevas (26 en el historial), 2 alertas de venta, 5 resueltas, 57 senales + 253 de control
+2026-10-04 12:19:48  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 12:19:49  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 12:19:49  [copia:nfl] Copia: $5 a Texans en Cowboys vs. Texans @ 64c (el entro a 58.0c con $112660)
+2026-10-04 12:19:49  [copia:nfl] Resuelta: Colts vs. Commanders [Colts] -> won (2.5758)
+2026-10-04 12:19:49  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 1 copias nuevas, 1 cerradas, 3 en el historial

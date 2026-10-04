@@ -1,6 +1,6 @@
 {
-    "version":  3,
-    "nota":  "Sin eSports + conservadora $3 (score 60-69 con 8/10 ballenas)",
+    "version":  4,
+    "nota":  "Sin eSports + conservadora $3 (score 60-69, 8/10 ballenas, max 90c)",
     "th":  70,
     "rule":  "consensus",
     "baseStake":  1,
@@ -17,5 +17,6 @@
     "cat":  "no-esports",
     "lowScoreMin":  60,
     "lowScoreAgree":  8,
-    "lowScoreStake":  3
+    "lowScoreStake":  3,
+    "lowScoreMaxPrice":  0.9
 }
