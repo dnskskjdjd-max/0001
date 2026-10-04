@@ -353,6 +353,8 @@ function describeStrategy(s) {
     s.maxHedge < 1 ? `Capital de ballenas cubierto ≤ ${Math.round(s.maxHedge * 100)}%` : null,
     s.maxDays ? `Cierra en ≤ ${s.maxDays} días` : null,
     s.cat && s.cat !== 'all' ? catLabel(s.cat) : null,
+    s.minAgreeAll > 0 ? `Toda apuesta exige al menos ${s.minAgreeAll} de las ${s.topN} ballenas mejor rankeadas de acuerdo` : null,
+    s.minPrice > 0 || s.maxPrice > 0 ? `Precio de compra entre ${Math.round((s.minPrice || 0) * 100)}¢ y ${Math.round((s.maxPrice || 1) * 100)}¢` : null,
     s.lowScoreStake > 0 ? `Conservadora: $${s.lowScoreStake} si el score está entre ${s.lowScoreMin} y ${s.th - 1} y ≥ ${s.lowScoreAgree} de las ${s.topN} ballenas mejor rankeadas coinciden${s.lowScoreMaxPrice > 0 ? ` (precio máximo ${Math.round(s.lowScoreMaxPrice * 100)}¢)` : ''}` : null,
     'Una sola apuesta por mercado: si Fire Score cambia de bando, se ignora (desde el 3 oct, 11:30 UTC)',
     'Cripto intradía excluido',

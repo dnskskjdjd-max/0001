@@ -195,6 +195,66 @@ function Get-TopWhales($m, $position, $rank) {
 
 . (Join-Path $PSScriptRoot 'categories.ps1')   # reglas de categorias (identicas a CATEGORY_RULES en dashboard.html)
 
+# Resumen semanal (markdown): resultados de la semana y que rangos de precio/consenso/score/categoria funcionan.
+# Se basa en las senales resueltas (entrada al primer umbral, precio de compra real) y en los historiales fijos.
+function Get-WeeklyReport($signals, $bets, $strategy) {
+    $since = (Get-Date).ToUniversalTime().AddDays(-7).ToString('yyyy-MM-ddTHH:mm:ssZ')
+    $money = { param($v) if ($null -eq $v) { '-' } else { '{0}${1:N2}' -f $(if ($v -lt 0) { '-' } else { '+' }), [Math]::Abs($v) } }
+    $out = @("**Resumen semanal del tracker** (estrategia v$($strategy.version): $($strategy.nota))", '')
+
+    # 1. Mis apuestas
+    # Measure-Object/Where-Object de PowerShell 5.1 no leen claves de hashtables: se convierten a objetos
+    $all = @($bets.Values | ForEach-Object { [pscustomobject]$_ }); $closed = @($all | Where-Object { $_.status -in 'won', 'lost', 'sold' })
+    $week = @($closed | Where-Object { $_.resolvedAt -ge $since }); $open = @($all | Where-Object { $_.status -eq 'open' })
+    $mtm = ($open | ForEach-Object { if ($null -ne $_.curPrice) { $_.stake * ($_.curPrice / $_.price - 1) } } | Measure-Object -Sum).Sum
+    $out += '### Mis apuestas'
+    $out += "- **Esta semana:** $($week.Count) resueltas ($(@($week | ? status -eq 'won').Count) ganadas, $(@($week | ? status -eq 'lost').Count) perdidas$(if (@($week | ? status -eq 'sold').Count) { ", $(@($week | ? status -eq 'sold').Count) vendidas" })): **$(& $money ($week | Measure-Object pnl -Sum).Sum)**"
+    $out += "- **Desde el inicio:** $($closed.Count) resueltas, $(& $money ($closed | Measure-Object pnl -Sum).Sum) realizados sobre `$$(($closed | Measure-Object stake -Sum).Sum) apostados"
+    $out += "- **Abiertas:** $($open.Count) (`$$(($open | Measure-Object stake -Sum).Sum) apostados), a precio actual $(& $money $mtm)"
+    foreach ($tier in 'normal', 'conservadora') {
+        $g = @($closed | Where-Object { ($(if ($_.tier) { $_.tier } else { 'normal' })) -eq $tier })
+        if ($g.Count) { $out += "- Tipo **$tier**: $($g.Count) resueltas, $(@($g | ? status -eq 'won').Count) ganadas, $(& $money ($g | Measure-Object pnl -Sum).Sum)" }
+    }
+
+    # 2. Copiadores
+    $out += '', '### Copiadores'
+    foreach ($f in @(Get-ChildItem (Join-Path $DataDir 'copy-*-bets.json') -ErrorAction SilentlyContinue)) {
+        $c = @((Get-Content $f.FullName -Raw -Encoding UTF8 | ConvertFrom-Json) | ForEach-Object { $_ } | Where-Object { $_ })
+        $cc = @($c | Where-Object { $_.status -ne 'open' }); $cw = @($cc | Where-Object { $_.resolvedAt -ge $since })
+        $id = $f.Name -replace '^copy-|-bets\.json$', ''
+        $open = @($c | Where-Object { $_.status -eq 'open' })
+        $omtm = ($open | ForEach-Object { if ($null -ne $_.curPrice) { $_.stake * ($_.curPrice / $_.price - 1) } } | Measure-Object -Sum).Sum
+        $res = if ($cc.Count) { "$(& $money ($cc | Measure-Object pnl -Sum).Sum) realizados ($(& $money $(if ($cw.Count) { ($cw | Measure-Object pnl -Sum).Sum } else { 0 })) esta semana)" } else { 'ninguna cerrada todavía' }
+        $out += "- **$id**: $($c.Count) copias; $res$(if ($open.Count) { "; $($open.Count) abiertas a precio actual $(& $money $omtm)" })"
+    }
+
+    # 3. Que funciona (senales resueltas)
+    $rows = foreach ($s in $signals.Values) {
+        if ($s.status -notin 'won', 'lost') { continue }
+        $e = if ($s.kind -eq 'control') { $s.entries.ctl } else { $s.entries[($s.entries.Keys | Sort-Object { [int]$_ } | Select-Object -First 1)] }
+        if (-not $e) { continue }
+        $px = if ($e.ask) { [double]$e.ask } else { [double]$e.price }
+        $agree = if ($e.top) { @(@($e.top) | Select-Object -First 10 | Where-Object { $_[1] }).Count } else { $null }
+        [pscustomobject]@{ ctl = ($s.kind -eq 'control'); won = [int]($s.status -eq 'won'); px = $px; score = [int]$e.score; agree = $agree
+            cat = (Get-Category "$($s.slug) $($s.eventSlug) $($s.title)"); roi = $(if ($s.status -eq 'won') { 1 / $px - 1 } else { -1 }) }
+    }
+    $row = { param($name, $g)
+        $n = @($g).Count; if (-not $n) { return "| $name | 0 | - | - | - | - |" }
+        $w = ($g | Measure-Object won -Sum).Sum / $n; $imp = ($g | Measure-Object px -Average).Average
+        '| {0} | {1} | {2:P0} | {3:P0} | {4:+0;-0} pp | {5:P0} |' -f $name, $n, $w, $imp, (($w - $imp) * 100), ($g | Measure-Object roi -Average).Average }
+    $sig = @($rows | Where-Object { -not $_.ctl })
+    $out += '', "### Qué funciona ($($sig.Count) recomendaciones resueltas; con menos de ~30 por grupo, son tendencias)", ''
+    $out += '| Grupo | Resueltas | Acierto | Prob. implícita | Ventaja | Rentabilidad |', '|---|---|---|---|---|---|'
+    $out += & $row 'Señales (score >= 60)' $sig
+    $out += & $row 'Control (score < 60)' @($rows | Where-Object { $_.ctl })
+    foreach ($b in @(@(0, 0.45), @(0.45, 0.7), @(0.7, 0.85), @(0.85, 1.01))) { $out += & $row "Precio $([int]($b[0]*100))-$([int]($b[1]*100))c" @($sig | ? { $_.px -ge $b[0] -and $_.px -lt $b[1] }) }
+    foreach ($b in @(@(0, 4), @(5, 6), @(7, 8), @(9, 10))) { $out += & $row "Consenso $($b[0])-$($b[1])/10" @($sig | ? { $null -ne $_.agree -and $_.agree -ge $b[0] -and $_.agree -le $b[1] }) }
+    foreach ($b in @(@(60, 64), @(65, 69), @(70, 79), @(80, 100))) { $out += & $row "Score $($b[0])-$($b[1])" @($sig | ? { $_.score -ge $b[0] -and $_.score -le $b[1] }) }
+    foreach ($g in @($sig | Group-Object cat | Sort-Object Count -Descending | Select-Object -First 8)) { $out += & $row $g.Name $g.Group }
+    $out += '', "[Panel]($PagesUrl) | _Resumen automatico del tracker. No es asesoria financiera._"
+    return ($out -join "`n")
+}
+
 # Mismo calculo que el panel: de las N mejor rankeadas (filtradas), cuantas apuestan igual que la senal
 function Get-Consensus($top, $st) {
     $pool = @($top | Where-Object { (-not $st.maxRank -or $_[0] -le $st.maxRank) -and -not ($st.exclHedged -and $_[2]) } | Select-Object -First $st.topN)
@@ -223,6 +283,8 @@ $DefaultStrategy = [ordered]@{
     # Apuesta conservadora: score por debajo de th pero >= lowScoreMin, si >= lowScoreAgree de las topN ballenas coinciden
     lowScoreMin = 0; lowScoreAgree = 0; lowScoreStake = 0   # 0 = desactivada
     lowScoreMaxPrice = 0   # precio maximo de compra para la conservadora (0 = sin limite)
+    minAgreeAll = 0        # consenso minimo (de topN) para cualquier apuesta (0 = sin minimo)
+    minPrice = 0; maxPrice = 0   # rango de precio de compra para cualquier apuesta (0 = sin limite)
 }
 
 function Get-WhaleStats($m, $position) {
@@ -371,6 +433,9 @@ try {
             $price = [Math]::Round([Math]::Min(0.99, $base + $strategy.slip / 100), 4)
             $cons = Get-Consensus $c.top $strategy
             if ($lowTier -and $cons.agree -lt $strategy.lowScoreAgree) { continue }
+            if ($strategy.minAgreeAll -gt 0 -and $cons.agree -lt $strategy.minAgreeAll) { continue }
+            if ($strategy.minPrice -gt 0 -and $price -lt $strategy.minPrice) { continue }
+            if ($strategy.maxPrice -gt 0 -and $price -gt $strategy.maxPrice) { continue }
             if ($lowTier -and $strategy.lowScoreMaxPrice -gt 0 -and $price -gt $strategy.lowScoreMaxPrice) { continue }
             $stake = if ($lowTier) { $strategy.lowScoreStake }
                      elseif ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
@@ -519,6 +584,19 @@ try {
         }
         Log "ALERTA DE VENTA: $($b.title) [$($b.position)] - $($reasons -join '; ')"
     }
+    # 4d. Resumen semanal: cada lunes desde las 8:00 (hora local), una vez por semana; se envia como issue con las alertas
+    $WeeklyStateFile = Join-Path $DataDir 'weekly-state.json'
+    $localNow = Get-Date
+    $weekId = '{0}-W{1:00}' -f $localNow.Year, [Globalization.CultureInfo]::InvariantCulture.Calendar.GetWeekOfYear($localNow, 'FirstFourDayWeek', 'Monday')
+    $lastWeek = if (Test-Path $WeeklyStateFile) { (Get-Content $WeeklyStateFile -Raw | ConvertFrom-Json).lastWeek } else { $null }
+    if (-not $lastWeek) {
+        Write-FileAtomic $WeeklyStateFile (ConvertTo-Json @{ lastWeek = $weekId })   # primera vez: el primer resumen sale el proximo lunes
+    } elseif ($env:FST_FORCE_WEEKLY -or ($lastWeek -ne $weekId -and -not ($localNow.DayOfWeek -eq 'Monday' -and $localNow.Hour -lt 8))) {
+        $alertsNew += @{ title = "Resumen semanal: $($localNow.AddDays(-7).ToString('dd/MM')) al $($localNow.ToString('dd/MM/yyyy'))"; body = (Get-WeeklyReport $signals $bets $strategy) }
+        if (-not $env:FST_FORCE_WEEKLY) { Write-FileAtomic $WeeklyStateFile (ConvertTo-Json @{ lastWeek = $weekId }) }
+        Log "Resumen semanal generado ($weekId)"
+    }
+
     Write-FileAtomic $AlertsNewFile (ConvertTo-Json -InputObject @($alertsNew) -Depth 4)
 
     # 4c. Alertas resueltas: el workflow busca el issue por titulo, deja el resultado como comentario y lo cierra (una sola vez)
