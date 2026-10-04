@@ -1654,3 +1654,10 @@
 2026-10-04 16:56:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 16:56:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 16:56:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 17:00:30  --- inicio ---
+2026-10-04 17:00:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T21:55:58.506Z)
+2026-10-04 17:00:58  Apuesta conservadora: $3 a NO en NATO x Russia military clash by December 31, 2026? @ 80c (score 62, consenso 8/10)
+2026-10-04 17:01:03  OK: 23 mercados >= 60, 13 >= 70, 0 senales nuevas, 0 de control nuevas, 1 apuestas nuevas (40 en el historial), 0 alertas de venta, 0 resueltas, 75 senales + 280 de control
+2026-10-04 17:01:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 17:01:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 17:01:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
