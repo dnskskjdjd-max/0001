@@ -1545,3 +1545,41 @@
 2026-10-04 15:16:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 15:16:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 15:16:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 16:14:28  --- inicio ---
+2026-10-04 16:14:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T21:00:13.396Z)
+2026-10-04 16:14:53  Apuesta: $5 a 49ERS en Broncos vs. 49ers @ 52c (score 73, consenso 7/10)
+2026-10-04 16:14:53  Apuesta: $5 a RAIDERS en Spread: Chiefs (-4.5) @ 58c (score 73, consenso 8/10)
+2026-10-04 16:14:53  Resuelta: Cardinals vs. Giants [GIANTS] -> won
+2026-10-04 16:14:53  Resuelta: Patriots vs. Bills [BILLS] -> lost
+2026-10-04 16:14:53  Resuelta: Patriots vs. Bills [PATRIOTS] -> won
+2026-10-04 16:14:53  Resuelta: Cardinals vs. Giants [GIANTS] -> won
+2026-10-04 16:14:53  Resuelta: Titans vs. Ravens [RAVENS] -> won
+2026-10-04 16:14:53  Resuelta: Titans vs. Ravens [RAVENS] -> won
+2026-10-04 16:14:53  Resuelta: Cowboys vs. Texans [TEXANS] -> lost
+2026-10-04 16:14:53  Resuelta: Cardinals vs. Giants [CARDINALS] -> lost
+2026-10-04 16:14:53  Resuelta: Counter-Strike: Nemiga vs Astralis (BO5) - Stake Ranked Episode 4 Playoffs [NEMIGA] -> lost
+2026-10-04 16:14:53  Resuelta: Spread: Cardinals (-2.5) [GIANTS] -> won
+2026-10-04 16:14:53  Resuelta: Cowboys vs. Texans [COWBOYS] -> won
+2026-10-04 16:14:53  Resuelta: Cowboys vs. Texans [COWBOYS] -> won
+2026-10-04 16:14:53  Resuelta: Rams vs. Eagles [EAGLES] -> lost
+2026-10-04 16:14:53  Resuelta: Counter-Strike: Nemiga vs Astralis (BO5) - Stake Ranked Episode 4 Playoffs [NEMIGA] -> lost
+2026-10-04 16:14:53  Resuelta: Jaguars vs. Bengals [JAGUARS] -> won
+2026-10-04 16:14:53  Resuelta: Rams vs. Eagles [RAMS] -> won
+2026-10-04 16:14:53  Resuelta: Rams vs. Eagles [RAMS] -> won
+2026-10-04 16:14:53  Resuelta: Spread: Cardinals (-2.5) [CARDINALS] -> lost
+2026-10-04 16:14:53  Resuelta: Cowboys vs. Texans [TEXANS] -> lost
+2026-10-04 16:14:53  Resuelta: Packers vs. Buccaneers [PACKERS] -> won
+2026-10-04 16:14:53  Resuelta: Cardinals vs. Giants [CARDINALS] -> lost
+2026-10-04 16:14:54  Resuelta: Packers vs. Buccaneers [PACKERS] -> won
+2026-10-04 16:14:54  Resuelta: Patriots vs. Bills [BILLS] -> lost
+2026-10-04 16:14:54  Apuesta resuelta: Patriots vs. Bills [BILLS] -> lost (-5)
+2026-10-04 16:14:54  Apuesta resuelta: Packers vs. Buccaneers [PACKERS] -> won (1.9180)
+2026-10-04 16:14:54  Apuesta resuelta: Rams vs. Eagles [RAMS] -> won (2.0000)
+2026-10-04 16:14:54  Apuesta resuelta: Jaguars vs. Bengals [JAGUARS] -> won (6.6279)
+2026-10-04 16:14:54  Apuesta resuelta: Cardinals vs. Giants [GIANTS] -> won (3.2500)
+2026-10-04 16:14:55  RECORDATORIO de alerta mantenida: Will Lula win the most votes in the first round of the 2026 Brazil presidential election? [YES] - la apuesta vale la mitad o menos: entro a 60.0c y ahora esta a 12.5c
+2026-10-04 16:14:58  OK: 21 mercados >= 60, 10 >= 70, 3 senales nuevas, 9 de control nuevas, 2 apuestas nuevas (36 en el historial), 1 alertas de venta, 23 resueltas, 73 senales + 278 de control
+2026-10-04 16:15:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 16:15:00  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 16:15:01  [copia:nfl] Resuelta: Cowboys vs. Texans [Texans] -> lost (-5)
+2026-10-04 16:15:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 1 cerradas, 3 en el historial
