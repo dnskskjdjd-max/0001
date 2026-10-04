@@ -1311,3 +1311,10 @@
 2026-10-04 09:46:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 09:46:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 09:46:05  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 09:50:32  --- inicio ---
+2026-10-04 09:50:47  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T14:46:00.823Z)
+2026-10-04 09:50:53  Apuesta conservadora: $3 a UNDER en Colts vs. Commanders: O/U 46.5 @ 87c (score 67, consenso 9/10)
+2026-10-04 09:50:56  OK: 22 mercados >= 60, 8 >= 70, 0 senales nuevas, 1 de control nuevas, 1 apuestas nuevas (25 en el historial), 0 alertas de venta, 0 resueltas, 53 senales + 245 de control
+2026-10-04 09:50:59  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 09:50:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 09:51:00  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
