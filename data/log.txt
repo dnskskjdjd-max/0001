@@ -1335,3 +1335,10 @@
 2026-10-04 12:19:49  [copia:nfl] Copia: $5 a Texans en Cowboys vs. Texans @ 64c (el entro a 58.0c con $112660)
 2026-10-04 12:19:49  [copia:nfl] Resuelta: Colts vs. Commanders [Colts] -> won (2.5758)
 2026-10-04 12:19:49  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 1 copias nuevas, 1 cerradas, 3 en el historial
+2026-10-04 12:23:39  --- inicio ---
+2026-10-04 12:23:56  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T17:19:56.110Z)
+2026-10-04 12:24:02  Apuesta conservadora: $3 a NO en Will Manchester City win the 2026-27 English Premier League (EPL) Championship? @ 80c (score 65, consenso 8/10)
+2026-10-04 12:24:06  OK: 23 mercados >= 60, 9 >= 70, 1 senales nuevas, 2 de control nuevas, 1 apuestas nuevas (27 en el historial), 0 alertas de venta, 0 resueltas, 58 senales + 255 de control
+2026-10-04 12:24:08  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 12:24:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 12:24:09  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
