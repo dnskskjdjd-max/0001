@@ -1690,3 +1690,11 @@
 2026-10-04 17:15:57  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 17:15:58  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 17:15:58  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 17:20:30  --- inicio ---
+2026-10-04 17:20:42  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T22:15:55.530Z)
+2026-10-04 17:20:48  Resuelta: Spread: Bengals (-2.5) [BENGALS] -> lost
+2026-10-04 17:20:49  Resuelta: Spread: Bengals (-2.5) [JAGUARS] -> won
+2026-10-04 17:20:52  OK: 24 mercados >= 60, 12 >= 70, 1 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (40 en el historial), 0 alertas de venta, 2 resueltas, 76 senales + 281 de control
+2026-10-04 17:20:54  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 17:20:55  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 17:20:55  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
