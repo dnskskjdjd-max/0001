@@ -265,7 +265,12 @@ try {
     $candidates = @($markets | Where-Object { $_.fireScore -ge $MinTrack -and -not (Test-ShortCrypto $_) })
     # Grupo de control: mercados que el sitio sigue pero con Fire Score bajo, apostando del mismo lado que las ballenas
     $controls   = @($markets | Where-Object { $_.fireScore -lt $MinTrack -and -not (Test-ShortCrypto $_) })
-    $openSlugs  = @($signals.Values | Where-Object { $_.status -eq 'open' } | ForEach-Object { $_.slug })
+    # Los mercados de control se actualizan una vez por hora (o siempre si cierran en menos de 2 dias): son ~200
+    # y casi todos de largo plazo; las senales y apuestas se actualizan en cada ejecucion
+    $refreshCtl = (Get-Date).Minute -lt 5
+    $soonCut = (Get-Date).ToUniversalTime().AddDays(2)
+    $openSlugs  = @($signals.Values | Where-Object { $_.status -eq 'open' -and ($_.kind -ne 'control' -or $refreshCtl -or
+        ($_.endDate -and $(try { [DateTimeOffset]::Parse("$($_.endDate)").UtcDateTime -lt $soonCut } catch { $true }))) } | ForEach-Object { $_.slug })
     $newCtlSlugs = @($controls | Where-Object { -not $signals.ContainsKey("ctl|$($_.slug)|$("$($_.position)".ToUpper())") } | ForEach-Object { $_.slug })
     $openBetSlugs = @($bets.Values | Where-Object { $_.status -eq 'open' } | ForEach-Object { $_.slug })
     $gamma = Get-GammaMarkets (@($candidates | ForEach-Object { $_.slug }) + $newCtlSlugs + $openSlugs + $openBetSlugs)
@@ -476,7 +481,9 @@ try {
         $agree = @($top10 | Where-Object { $_[1] }).Count
         $reasons = @()
         if ($sitePos -ne $b.position) { $reasons += "FirePolymarket ahora recomienda $sitePos (score $($m.fireScore))" }
-        if ($top10.Count -ge 5 -and $agree -le 3) { $reasons += "solo $agree de las $($top10.Count) ballenas mejor rankeadas siguen en $($b.position)" }
+        # Solo si el consenso EMPEORO desde la apuesta (una apuesta hecha con 3/10 no alerta por seguir en 3/10)
+        $entryAgree = if ("$($b.consensus)" -match '^(\d+)/') { [int]$Matches[1] } else { $null }
+        if ($top10.Count -ge 5 -and $agree -le 3 -and ($null -eq $entryAgree -or $agree -lt $entryAgree)) { $reasons += "solo $agree de las $($top10.Count) ballenas mejor rankeadas siguen en $($b.position) (al apostar eran $(if ($null -ne $entryAgree) { $entryAgree } else { '?' }))" }
         if (-not $reasons) { continue }
         $px = $b.curPrice
         $pnlIfSold = if ($null -ne $px) { [Math]::Round($b.stake * ($px / $b.price - 1), 4) } else { $null }
