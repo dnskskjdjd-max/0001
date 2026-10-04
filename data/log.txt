@@ -741,3 +741,10 @@
 2026-10-03 21:06:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-03 21:06:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-03 21:06:06  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 21:10:30  --- inicio ---
+2026-10-03 21:10:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T01:55:56.564Z)
+2026-10-03 21:11:04  Resuelta: Senators vs. Maple Leafs [SENATORS] -> won
+2026-10-03 21:11:08  OK: 20 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (14 en el historial), 0 alertas de venta, 1 resueltas, 43 senales + 221 de control
+2026-10-03 21:11:10  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 21:11:10  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 21:11:11  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
