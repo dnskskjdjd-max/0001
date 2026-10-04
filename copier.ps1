@@ -128,6 +128,8 @@ function Invoke-Copier($ConfigFile) {
         if ($copiedSlugs.ContainsKey($p.slug)) { continue }
         $g = $gamma[$p.slug]
         if ($g -and $g.closed -eq $true) { continue }
+        # No se copia en partidos ya empezados (precios en vivo); si el apostador entro antes, ya se habra copiado
+        if ($g -and $g.gameStartTime) { try { if ([DateTimeOffset]::Parse("$($g.gameStartTime)").UtcDateTime -le (Get-Date).ToUniversalTime()) { continue } } catch {} }
         $q = Get-Quote $g $p.outcome
         $price = if ($q.ask) { $q.ask } elseif ($q.mid) { $q.mid } else { [double]$p.curPrice }
         $price = [Math]::Round([Math]::Min(0.99, $price), 4)

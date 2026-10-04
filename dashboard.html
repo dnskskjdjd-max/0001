@@ -356,6 +356,7 @@ function describeStrategy(s) {
     s.lowScoreStake > 0 ? `Conservadora: $${s.lowScoreStake} si el score está entre ${s.lowScoreMin} y ${s.th - 1} y ≥ ${s.lowScoreAgree} de las ${s.topN} ballenas mejor rankeadas coinciden${s.lowScoreMaxPrice > 0 ? ` (precio máximo ${Math.round(s.lowScoreMaxPrice * 100)}¢)` : ''}` : null,
     'Una sola apuesta por mercado: si Fire Score cambia de bando, se ignora (desde el 3 oct, 11:30 UTC)',
     'Cripto intradía excluido',
+    'No se apuesta en partidos ya empezados (desde el 4 oct, 12:30)',
     'Alerta de venta (por correo, como issue de GitHub) si Fire Score cambia de bando o ≤ 3 de las 10 mejores ballenas siguen en tu lado; la apuesta no se vende sola',
   ].filter(Boolean);
 }

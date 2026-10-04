@@ -135,6 +135,12 @@ function New-Entry($now, $price, $m, $g, $position, $top) {
               hedgeWallets = $(if ($null -ne $m.hedgingRatio) { [Math]::Round([double]$m.hedgingRatio, 3) } else { $null }) }
 }
 
+# $true si el mercado tiene hora de inicio de partido (gameStartTime) y ya paso
+function Test-Started($g) {
+    if (-not $g -or -not $g.gameStartTime) { return $false }
+    try { return [DateTimeOffset]::Parse("$($g.gameStartTime)").UtcDateTime -le (Get-Date).ToUniversalTime() } catch { return $false }
+}
+
 function Get-GammaMarkets($slugs) {
     $res = @{}
     $list = @($slugs | Where-Object { $_ } | Select-Object -Unique)
@@ -350,6 +356,8 @@ try {
         $betSlugs = @{}; foreach ($b in $bets.Values) { $betSlugs[$b.slug] = $true }
         foreach ($c in $current) {
             if ($betSlugs.ContainsKey($c.slug)) { continue }
+            # No se apuesta en partidos ya empezados: en vivo los precios y las recomendaciones se distorsionan
+            if (Test-Started $gamma[$c.slug]) { continue }
             # Score bajo el umbral: solo entra como apuesta conservadora si las ballenas estan muy de acuerdo
             $lowTier = $c.score -lt $strategy.th
             if ($lowTier -and -not ($strategy.lowScoreStake -gt 0 -and $c.score -ge $strategy.lowScoreMin)) { continue }
