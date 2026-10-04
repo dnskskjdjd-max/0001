@@ -1810,3 +1810,8 @@
 2026-10-04 18:31:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 18:31:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 18:31:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 18:31:08  [ligas] Cuotas: soccer_spain_la_liga actualizado (20 partidos; creditos restantes 497)
+2026-10-04 18:31:08  [ligas] Cuotas: soccer_uefa_champs_league actualizado (18 partidos; creditos restantes 496)
+2026-10-04 18:31:21  [ligas] OK: 28 partidos en 10 dias, 27 con Vegas, 0 apuestas en el historial
+2026-10-04 18:31:48  [ligas] OK: 28 partidos en 10 dias, 27 con Vegas, 0 apuestas en el historial
+2026-10-04 18:32:12  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial

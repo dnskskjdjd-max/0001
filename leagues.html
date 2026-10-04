@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LaLiga y Champions</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  // El ?v= evita que el navegador o GitHub Pages muestren datos en caché
+  document.write('<script src="data/copiers.js?v=' + Date.now() + '"><\/script>');
+  document.write('<script src="data/leagues.js?v=' + Date.now() + '"><\/script>');
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --border: rgba(11,11,11,0.10); --s1: #2a78d6;
+  --good: #006300; --bad: #d03b3b; --accent: #2a78d6; --hl: rgba(42,120,214,0.10);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --border: rgba(255,255,255,0.10); --s1: #3987e5;
+    --good: #0ca30c; --bad: #e66767; --accent: #3987e5; --hl: rgba(57,135,229,0.16);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --border: rgba(255,255,255,0.10); --s1: #3987e5;
+  --good: #0ca30c; --bad: #e66767; --accent: #3987e5; --hl: rgba(57,135,229,0.16);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1180px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 0 0 4px; }
+.sub { color: var(--ink-2); margin: 0 0 12px; }
+.small { font-size: 12px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 16px; min-width: 0; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.tile .k { font-size: 12px; color: var(--ink-2); }
+.tile .v { font-size: 24px; font-weight: 600; margin-top: 2px; }
+.tile .d { font-size: 12px; color: var(--muted); }
+.verdict { border-radius: 12px; padding: 14px 16px; margin-top: 16px; border: 1px solid var(--bad); background: var(--surface); }
+.pos { color: var(--good); } .neg { color: var(--bad); }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; vertical-align: top; }
+th { font-size: 12px; color: var(--ink-2); font-weight: 600; }
+td.num, th.num { text-align: right; }
+td.title { white-space: normal; min-width: 200px; }
+td.out { min-width: 120px; }
+td.out.best { background: var(--hl); border-radius: 6px; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; border: 1px solid var(--border); }
+.badge.won { color: var(--good); } .badge.lost { color: var(--bad); } .badge.open { color: var(--ink-2); }
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+nav.tabs a { padding: 8px 14px; color: var(--ink-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav.tabs a:hover { color: var(--ink); text-decoration: none; }
+nav.tabs a.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+ul.strat { margin: 0; padding-left: 18px; color: var(--ink-2); }
+ul.strat li { margin: 2px 0; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.filters button { font: inherit; color: var(--ink); background: var(--page); border: 1px solid var(--border); border-radius: 99px; padding: 4px 12px; cursor: pointer; }
+.filters button.on { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="tabs" id="tabs"></nav>
+  <h1>⚽ LaLiga y Champions League</h1>
+  <p class="sub">Partidos de los próximos días en Polymarket, comparados con las casas de apuestas (Vegas) y con lo que hacen las ballenas. FirePolymarket no cubre estos partidos: los datos vienen directo de Polymarket. <span id="updated" class="small"></span></p>
+
+  <div id="stale" class="verdict" style="display:none"></div>
+  <div class="tiles" style="margin-top:16px" id="tiles"></div>
+
+  <div class="card">
+    <h2>Reglas del historial simulado</h2>
+    <ul class="strat" id="rules"></ul>
+  </div>
+
+  <div class="card">
+    <h2>Historial de apuestas <span class="small" id="nBets"></span></h2>
+    <div class="tablewrap"><table id="bets"></table></div>
+    <p class="small">* valor a precio actual (apuesta abierta).</p>
+  </div>
+
+  <div class="card">
+    <h2>Próximos partidos</h2>
+    <div class="filters" id="filters"></div>
+    <p class="small">En cada resultado: <b>precio de compra</b> en Polymarket · <b>V</b> = probabilidad según Vegas (entre paréntesis, diferencia: <span class="pos">verde</span> = Polymarket más barato) · 🐋 = ballenas del top 1000 de deportes de ese lado (solo en las 48 h previas). Resaltado: el resultado con más ventaja frente a Vegas.</p>
+    <div class="tablewrap"><table id="matches"></table></div>
+  </div>
+  <p class="small">Se actualiza cada 15 minutos desde tu PC; la página se recarga sola cada 5 minutos. Esto no es asesoría financiera.</p>
+</main>
+
+<script>
+const L = window.LEAGUES_DATA || { matches: [], bets: [], rules: null, leagues: [] };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt$ = v => v == null ? '–' : (v < 0 ? '−$' : '$') + Math.abs(v).toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtPct = v => v == null ? '–' : (v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(1) + '%';
+const fmtC = v => v == null ? '–' : (v * 100).toFixed(1) + '¢';
+const cls = v => v == null ? '' : v > 0 ? 'pos' : v < 0 ? 'neg' : '';
+const fmtDT = s => s ? new Date(s).toLocaleString('es', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
+const link = slug => `https://polymarket.com/event/${slug}`;
+let filter = 'all';
+
+function renderTabs() {
+  const icons = { 'NFL': '🏈', 'Fútbol': '⚽', 'Economía / Fed': '🏦' };
+  $('tabs').innerHTML = `<a href="dashboard.html">🔥 Fire Score</a>` + (window.COPIERS || []).map(c =>
+    `<a href="copy.html?c=${encodeURIComponent(c.id)}">${icons[c.category] || '📋'} ${esc(c.title || c.id)}</a>`).join('') +
+    `<a class="active" href="leagues.html">🏆 LaLiga · Champions</a>`;
+}
+
+function render() {
+  renderTabs();
+  const r = L.rules;
+  const ageH = L.generatedAt ? (Date.now() - Date.parse(L.generatedAt)) / 36e5 : Infinity;
+  $('updated').textContent = L.generatedAt ? `Última actualización: ${new Date(L.generatedAt).toLocaleString('es')}` : 'Sin datos todavía';
+  $('stale').style.display = ageH > 1 ? '' : 'none';
+  $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? Math.round(ageH * 60) + ' minutos' : 'nunca'}</b><div class="sub" style="margin:4px 0 0">El seguimiento de ligas corre en tu PC: revisa que esté encendida y con internet. Detalles en <code>data/log.txt</code> (líneas con [ligas]).</div>`;
+
+  if (r) $('rules').innerHTML = [
+    `$${r.stake} por partido, al resultado (local, empate o visitante) donde Polymarket esté al menos ${Math.round(r.minEdge * 100)} pp más barato que Vegas`,
+    `Al menos ${r.minAgree} de las ${r.topN} ballenas mejor rankeadas en deportes (con ≥ $${r.minWhaleUsd}) de ese lado, y al menos ${r.minRanked} rankeadas en el partido`,
+    `Solo en las ${r.betWindowHours} h previas al partido, nunca empezado; precio entre ${Math.round(r.minPrice * 100)}¢ y ${Math.round(r.maxPrice * 100)}¢; al menos ${r.minBooks} casas de apuestas`,
+    'Una apuesta por partido; historial fijo (solo cambia el resultado). Separado de la estrategia principal.',
+  ].map(x => `<li>${x}</li>`).join('');
+
+  const B = (L.bets || []).slice().sort((a, b) => Date.parse(b.placedAt) - Date.parse(a.placedAt));
+  const closed = B.filter(b => b.status === 'won' || b.status === 'lost'), open = B.filter(b => b.status === 'open');
+  const mtmOf = b => b.curPrice != null ? b.stake * (b.curPrice / b.price - 1) : 0;
+  const pnl = closed.reduce((a, b) => a + b.pnl, 0), staked = closed.reduce((a, b) => a + b.stake, 0);
+  const wins = closed.filter(b => b.status === 'won').length;
+  $('tiles').innerHTML = [
+    ['Partidos seguidos', (L.matches || []).length, `próximos ${r ? r.lookaheadDays : 10} días`],
+    ['Apuestas', B.length, `${open.length} abiertas · ${closed.length} resueltas`],
+    ['Ganancia realizada', `<span class="${cls(pnl)}">${fmt$(pnl)}</span>`, `ROI ${fmtPct(staked ? pnl / staked : null)}`],
+    ['Abiertas a precio actual', `<span class="${cls(open.reduce((a, b) => a + mtmOf(b), 0))}">${fmt$(open.reduce((a, b) => a + mtmOf(b), 0))}</span>`, 'si vendieras ahora'],
+    ['Acierto', closed.length ? fmtPct(wins / closed.length) : '–', `${wins} de ${closed.length}`],
+  ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
+
+  const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió' };
+  $('nBets').textContent = `(${B.length})`;
+  $('bets').innerHTML = `<tr><th>Apostada</th><th>Liga</th><th>Partido</th><th>Apuesta a</th><th class="num">Precio</th><th class="num">Vegas</th><th class="num">Ballenas</th><th class="num">Monto</th><th>Partido</th><th>Estado</th><th class="num">P&amp;L</th></tr>` +
+    (B.length ? B.map(b => { const p = b.status === 'open' ? mtmOf(b) : b.pnl;
+      return `<tr><td>${fmtDT(b.placedAt)}</td><td>${esc(b.league)}</td><td class="title"><a href="${link(b.key)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.outcome)}</td><td class="num">${fmtC(b.price)}</td><td class="num">${Math.round(b.vegas * 100)}% <span class="pos">(+${Math.round(b.edge * 100)})</span></td><td class="num">${esc(b.consensus)}</td><td class="num"><b>$${b.stake}</b></td><td>${fmtDT(b.start)}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
+      : `<tr><td colspan="11" class="small">Todavía no hay apuestas: se registran solas cuando un partido cumple las reglas (en las 48 h previas).</td></tr>`);
+
+  const leagues = [{ id: 'all', name: 'Todas' }, ...(L.leagues || [])];
+  $('filters').innerHTML = leagues.map(l => `<button type="button" data-f="${esc(l.name === 'Todas' ? 'all' : l.name)}" class="${(l.name === 'Todas' ? 'all' : l.name) === filter ? 'on' : ''}">${esc(l.name)}</button>`).join('');
+  const bet = new Map(B.map(b => [b.key, b]));
+  const M = (L.matches || []).filter(m => filter === 'all' || m.league === filter);
+  const cell = (o, best) => {
+    const edge = o.vegas != null ? o.vegas - o.ask : null;
+    const e = edge == null ? null : Math.round(edge * 100);
+    return `<td class="out ${best ? 'best' : ''}"><div><b>${fmtC(o.ask)}</b> ${o.vegas != null ? `· V ${Math.round(o.vegas * 100)}% <span class="${cls(e)}">(${e > 0 ? '+' + e : e < 0 ? '−' + -e : '±0'})</span>` : ''}${o.agree ? ` · 🐋${o.agree}` : ''}</div><div class="small">${esc(o.name)}</div></td>`;
+  };
+  $('matches').innerHTML = `<tr><th>Fecha</th><th>Liga</th><th>Partido</th><th>Local</th><th>Empate</th><th>Visitante</th><th class="num">Ballenas</th><th>Apuesta</th></tr>` +
+    (M.length ? M.map(m => {
+      const outs = m.outs || []; const teams = outs.filter(o => !o.draw), draw = outs.find(o => o.draw);
+      const ordered = [teams[0], draw, teams[1]].filter(Boolean);
+      const edges = ordered.map(o => o.vegas != null ? o.vegas - o.ask : -1); const bi = edges.indexOf(Math.max(...edges));
+      const b = bet.get(m.slug);
+      return `<tr><td>${fmtDT(m.start)}</td><td>${esc(m.league)}</td><td class="title"><a href="${link(m.slug)}" target="_blank" rel="noopener">${esc(m.title)}</a></td>${ordered.map((o, i) => cell(o, i === bi && edges[i] > 0)).join('')}<td class="num">${m.ranked != null ? m.ranked + ' rankeadas' : '<span class="small">después</span>'}</td><td>${b ? `<span class="badge ${b.status}">$${b.stake} a ${esc(b.outcome)}</span>` : ''}</td></tr>`;
+    }).join('') : `<tr><td colspan="8" class="small">No hay partidos en los próximos días.</td></tr>`);
+}
+document.addEventListener('click', e => { const bt = e.target.closest('#filters button'); if (bt) { filter = bt.dataset.f; render(); } });
+render();
+setTimeout(() => location.reload(), 5 * 60 * 1000);
+</script>
+</body>
+</html>

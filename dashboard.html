@@ -244,7 +244,8 @@ const link = s => s.eventSlug && s.questionID ? `https://polymarket.com/event/${
 const fmtDate = s => s ? new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + 'T12:00:00' : s).toLocaleDateString('es', { day: 'numeric', month: 'short', year: '2-digit' }) : '–';
 const fmtDT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
 // Probabilidad de Vegas y su diferencia con el precio de Polymarket (+ = Polymarket más barato que Vegas)
-const vegasCell = (v, px) => v == null ? '–' : `${Math.round(v * 100)}% <span class="${cls(px != null ? v - px : null)}">(${px != null ? ((v - px) >= 0 ? '+' : '−') + Math.abs(Math.round((v - px) * 100)) : ''})</span>`;
+const vegasCell = (v, px) => { if (v == null) return '–'; if (px == null) return `${Math.round(v * 100)}%`;
+  const e = Math.round((v - px) * 100); return `${Math.round(v * 100)}% <span class="${cls(e)}">(${e > 0 ? '+' + e : e < 0 ? '−' + -e : '±0'})</span>`; };
 
 // Categorías: se prueba en orden contra "slug eventSlug título"; la primera regla que coincide gana.
 // IDÉNTICAS a $CategoryRules en tracker.ps1: si cambias una, cambia la otra.
@@ -649,7 +650,8 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
 // Pestañas de los copiadores (copiers/*.json)
 const COPIER_ICONS = { 'NFL': '🏈', 'Fútbol': '⚽', 'Economía / Fed': '🏦' };
 $('tabs').innerHTML += (window.COPIERS || []).map(c =>
-  `<a href="copy.html?c=${encodeURIComponent(c.id)}">${COPIER_ICONS[c.category] || '📋'} ${esc(c.title || c.id)}</a>`).join('');
+  `<a href="copy.html?c=${encodeURIComponent(c.id)}">${COPIER_ICONS[c.category] || '📋'} ${esc(c.title || c.id)}</a>`).join('') +
+  `<a href="leagues.html">🏆 LaLiga · Champions</a>`;
 render();
 setTimeout(() => location.reload(), 5 * 60 * 1000);
 </script>

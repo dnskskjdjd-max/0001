@@ -128,7 +128,8 @@ const COPIER_ICONS = { 'NFL': '🏈', 'Fútbol': '⚽', 'Economía / Fed': '🏦
 const icon = c => COPIER_ICONS[c.category] || '📋';
 function renderTabs() {
   $('tabs').innerHTML = `<a href="dashboard.html">🔥 Fire Score</a>` + (window.COPIERS || []).map(c =>
-    `<a href="copy.html?c=${encodeURIComponent(c.id)}" class="${c.id === window.COPIER_SEL ? 'active' : ''}">${icon(c)} ${esc(c.title || c.id)}</a>`).join('');
+    `<a href="copy.html?c=${encodeURIComponent(c.id)}" class="${c.id === window.COPIER_SEL ? 'active' : ''}">${icon(c)} ${esc(c.title || c.id)}</a>`).join('') +
+    `<a href="leagues.html">🏆 LaLiga · Champions</a>`;
 }
 
 function render() {
