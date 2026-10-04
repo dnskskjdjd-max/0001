@@ -1840,3 +1840,14 @@
 2026-10-04 18:51:07  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 18:51:07  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 18:51:07  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 18:55:30  --- inicio ---
+2026-10-04 18:55:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T23:50:58.035Z)
+2026-10-04 18:55:56  Resuelta: Broncos vs. 49ers [49ERS] -> won
+2026-10-04 18:55:56  Resuelta: Broncos vs. 49ers: O/U 48.5 [UNDER] -> won
+2026-10-04 18:55:56  Resuelta: Broncos vs. 49ers [49ERS] -> won
+2026-10-04 18:55:56  Resuelta: Broncos vs. 49ers: O/U 48.5 [UNDER] -> won
+2026-10-04 18:55:56  Apuesta resuelta: Broncos vs. 49ers [49ERS] -> won (4.6154)
+2026-10-04 18:56:00  OK: 23 mercados >= 60, 11 >= 70, 1 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (40 en el historial), 0 alertas de venta, 4 resueltas, 81 senales + 285 de control
+2026-10-04 18:56:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 18:56:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 18:56:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
