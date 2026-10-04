@@ -1485,3 +1485,10 @@
 2026-10-04 14:31:09  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 14:31:10  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 14:31:10  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 14:35:32  --- inicio ---
+2026-10-04 14:35:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T19:31:04.469Z)
+2026-10-04 14:35:55  Resuelta: Counter-Strike: Vitality vs Natus Vincere (BO3) - ESL Pro League Group Stage [VITALITY] -> won
+2026-10-04 14:35:59  OK: 27 mercados >= 60, 8 >= 70, 1 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (32 en el historial), 0 alertas de venta, 1 resueltas, 68 senales + 265 de control
+2026-10-04 14:36:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 14:36:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 14:36:04  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
