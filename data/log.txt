@@ -1721,3 +1721,11 @@
 2026-10-04 17:35:57  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 17:35:57  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 17:35:57  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 17:40:30  --- inicio ---
+2026-10-04 17:40:45  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T22:35:56.730Z)
+2026-10-04 17:40:51  Resuelta: Will Republic of Ireland win on 2026-10-04? [NO] -> won
+2026-10-04 17:40:51  Resuelta: Will Republic of Ireland win on 2026-10-04? [YES] -> lost
+2026-10-04 17:40:55  OK: 23 mercados >= 60, 11 >= 70, 1 senales nuevas, 2 de control nuevas, 0 apuestas nuevas (40 en el historial), 0 alertas de venta, 2 resueltas, 77 senales + 283 de control
+2026-10-04 17:40:57  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 17:40:58  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 17:40:58  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
