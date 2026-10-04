@@ -1698,3 +1698,14 @@
 2026-10-04 17:20:54  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 17:20:55  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 17:20:55  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 17:25:30  --- inicio ---
+2026-10-04 17:25:42  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T22:15:55.530Z)
+2026-10-04 17:25:49  Resuelta: Spread: Rams (-2.5) [EAGLES] -> lost
+2026-10-04 17:25:49  Resuelta: Spread: Rams (-2.5) [RAMS] -> won
+2026-10-04 17:25:49  Resuelta: Spread: Rams (-3.5) [RAMS] -> won
+2026-10-04 17:25:49  Resuelta: Spread: Rams (-3.5) [EAGLES] -> lost
+2026-10-04 17:25:49  Apuesta resuelta: Spread: Rams (-3.5) [EAGLES] -> lost (-5)
+2026-10-04 17:25:54  OK: 24 mercados >= 60, 12 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (40 en el historial), 0 alertas de venta, 4 resueltas, 76 senales + 281 de control
+2026-10-04 17:25:56  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 17:25:56  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 17:25:56  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
