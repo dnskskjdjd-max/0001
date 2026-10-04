@@ -622,3 +622,12 @@
 2026-10-03 19:31:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-03 19:31:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-03 19:31:06  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 19:35:30  --- inicio ---
+2026-10-03 19:35:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T00:20:58.934Z)
+2026-10-03 19:36:02  Resuelta: Kentucky vs. South Carolina [SOUTH CAROLINA] -> lost
+2026-10-03 19:36:03  Resuelta: Kentucky vs. South Carolina [SOUTH CAROLINA] -> lost
+2026-10-03 19:36:03  Resuelta: Kentucky vs. South Carolina [KENTUCKY] -> won
+2026-10-03 19:36:06  OK: 19 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (13 en el historial), 0 alertas de venta, 3 resueltas, 42 senales + 216 de control
+2026-10-03 19:36:08  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 19:36:09  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 19:36:09  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
