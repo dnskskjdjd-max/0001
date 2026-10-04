@@ -1128,3 +1128,11 @@
 2026-10-04 07:25:58  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 07:25:58  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 07:25:58  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 07:27:29  --- inicio ---
+2026-10-04 07:27:35  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T12:24:08.206Z)
+2026-10-04 07:27:37  Apuesta conservadora: $3 a NO en Billionaire one-time wealth tax passes in California election 2026? @ 70c (score 60, consenso 9/10)
+2026-10-04 07:27:37  Apuesta conservadora: $3 a NO en US announces end of Iranian blockade by October 31, 2026? @ 81c (score 66, consenso 10/10)
+2026-10-04 07:27:37  Apuesta conservadora: $3 a NO en NATO x Russia military clash by October 31, 2026? @ 92c (score 61, consenso 8/10)
+2026-10-04 07:27:37  Apuesta conservadora: $3 a PACKERS en Packers vs. Buccaneers @ 61c (score 69, consenso 8/10)
+2026-10-04 07:27:37  Apuesta conservadora: $3 a NO en US announces end of Iranian blockade by October 15, 2026? @ 92c (score 62, consenso 9/10)
+2026-10-04 07:27:39  OK: 22 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 5 apuestas nuevas (21 en el historial), 0 alertas de venta, 0 resueltas, 49 senales + 234 de control

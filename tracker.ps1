@@ -214,6 +214,8 @@ $DefaultStrategy = [ordered]@{
     version = 1; nota = 'Estrategia inicial'
     th = 70; rule = 'consensus'; baseStake = 1; consensusStake = 5; minAgree = 6; topN = 10; maxRank = 0; exclHedged = 0
     priceMode = 'ask'; slip = 0; minLiq = 0; maxHedge = 1; maxDays = $null; cat = 'all'
+    # Apuesta conservadora: score por debajo de th pero >= lowScoreMin, si >= lowScoreAgree de las topN ballenas coinciden
+    lowScoreMin = 0; lowScoreAgree = 0; lowScoreStake = 0   # 0 = desactivada
 }
 
 function Get-WhaleStats($m, $position) {
@@ -346,7 +348,10 @@ try {
         $nowUtc = (Get-Date).ToUniversalTime()
         $betSlugs = @{}; foreach ($b in $bets.Values) { $betSlugs[$b.slug] = $true }
         foreach ($c in $current) {
-            if ($c.score -lt $strategy.th -or $betSlugs.ContainsKey($c.slug)) { continue }
+            if ($betSlugs.ContainsKey($c.slug)) { continue }
+            # Score bajo el umbral: solo entra como apuesta conservadora si las ballenas estan muy de acuerdo
+            $lowTier = $c.score -lt $strategy.th
+            if ($lowTier -and -not ($strategy.lowScoreStake -gt 0 -and $c.score -ge $strategy.lowScoreMin)) { continue }
             $days = $null
             if ($c.endDate) { try { $days = ([DateTimeOffset]::Parse("$($c.endDate)").UtcDateTime - $nowUtc).TotalDays } catch {} }
             if ($strategy.maxDays -and ($null -eq $days -or $days -gt $strategy.maxDays)) { continue }
@@ -356,17 +361,19 @@ try {
             $base = if ($strategy.priceMode -eq 'ask' -and $c.ask) { $c.ask } else { $c.price }
             $price = [Math]::Round([Math]::Min(0.99, $base + $strategy.slip / 100), 4)
             $cons = Get-Consensus $c.top $strategy
-            $stake = if ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
+            if ($lowTier -and $cons.agree -lt $strategy.lowScoreAgree) { continue }
+            $stake = if ($lowTier) { $strategy.lowScoreStake }
+                     elseif ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
             $bets[$c.key] = @{
                 key = $c.key; placedAt = $now; slug = $c.slug; title = $c.title; position = $c.position
                 eventSlug = $c.eventSlug; questionID = $c.questionID; endDate = $c.endDate
-                score = $c.score; price = $price; stake = $stake; consensus = "$($cons.agree)/$($cons.n)"
+                score = $c.score; price = $price; stake = $stake; consensus = "$($cons.agree)/$($cons.n)"; tier = $(if ($lowTier) { 'conservadora' } else { 'normal' })
                 hedgeCap = $c.hedgeCap; liq = $c.liq; strategy = $strategy.Clone()
                 status = 'open'; curPrice = $c.price; curPriceAt = $now
             }
             $betSlugs[$c.slug] = $true
             $newBets++
-            Log "Apuesta: `$$stake a $($c.position) en $($c.title) @ $([Math]::Round($price * 100, 1))c (consenso $($cons.agree)/$($cons.n))"
+            Log "Apuesta$(if ($lowTier) { ' conservadora' }): `$$stake a $($c.position) en $($c.title) @ $([Math]::Round($price * 100, 1))c (score $($c.score), consenso $($cons.agree)/$($cons.n))"
         }
     }
 
