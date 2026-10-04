@@ -1441,3 +1441,11 @@
 2026-10-04 13:56:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 13:56:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 13:56:03  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 14:00:30  --- inicio ---
+2026-10-04 14:00:45  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T18:55:57.023Z)
+2026-10-04 14:00:59  Apuesta: $5 a EAGLES en Spread: Rams (-3.5) @ 85c (score 70, consenso 7/10)
+2026-10-04 14:00:59  Apuesta: $5 a LOS ANGELES DODGERS en Atlanta Braves vs. Los Angeles Dodgers @ 68c (score 70, consenso 9/10)
+2026-10-04 14:01:03  OK: 28 mercados >= 60, 13 >= 70, 2 senales nuevas, 4 de control nuevas, 2 apuestas nuevas (32 en el historial), 0 alertas de venta, 0 resueltas, 66 senales + 264 de control
+2026-10-04 14:01:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 14:01:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 14:01:07  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
