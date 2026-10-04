@@ -1661,3 +1661,14 @@
 2026-10-04 17:01:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 17:01:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 17:01:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 17:05:30  --- inicio ---
+2026-10-04 17:05:44  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T21:55:58.506Z)
+2026-10-04 17:05:50  Resuelta: Spread: Packers (-3.5) [PACKERS] -> lost
+2026-10-04 17:05:50  Resuelta: Spread: Packers (-3.5) [PACKERS] -> lost
+2026-10-04 17:05:50  Resuelta: Spread: Packers (-3.5) [BUCCANEERS] -> won
+2026-10-04 17:05:50  Resuelta: Spread: Packers (-3.5) [BUCCANEERS] -> won
+2026-10-04 17:05:50  Apuesta resuelta: Spread: Packers (-3.5) [BUCCANEERS] -> won (0.9231)
+2026-10-04 17:05:54  OK: 23 mercados >= 60, 13 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (40 en el historial), 0 alertas de venta, 4 resueltas, 75 senales + 280 de control
+2026-10-04 17:05:56  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 17:05:57  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 17:05:57  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
