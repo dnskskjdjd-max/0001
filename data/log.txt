@@ -891,3 +891,10 @@
 2026-10-03 23:01:08  --- inicio ---
 2026-10-03 23:01:17  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T03:45:55.767Z)
 2026-10-03 23:01:23  OK: 22 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (14 en el historial), 0 alertas de venta, 0 resueltas, 44 senales + 224 de control
+2026-10-03 23:05:30  --- inicio ---
+2026-10-03 23:05:47  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-04T04:01:35.260Z)
+2026-10-03 23:06:01  Resuelta: Spread: Burkina Faso (-5.5) [ARGENTINA] -> won
+2026-10-03 23:06:05  OK: 21 mercados >= 60, 5 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (14 en el historial), 0 alertas de venta, 1 resueltas, 44 senales + 225 de control
+2026-10-03 23:06:07  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-03 23:06:07  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-03 23:06:08  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
