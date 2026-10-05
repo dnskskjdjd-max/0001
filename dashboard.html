@@ -653,7 +653,7 @@ $('tabs').innerHTML += (window.COPIERS || []).map(c =>
   `<a href="copy.html?c=${encodeURIComponent(c.id)}">${COPIER_ICONS[c.category] || '📋'} ${esc(c.title || c.id)}</a>`).join('') +
   `<a href="leagues.html">🏆 LaLiga · Champions</a>`;
 render();
-setTimeout(() => location.reload(), 5 * 60 * 1000);
 </script>
+<script src="refresh.js?v=1"></script>
 </body>
 </html>
