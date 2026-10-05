@@ -2751,3 +2751,18 @@
 2026-10-05 15:41:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-05 18:14:58  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-05 18:15:28  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
+2026-10-05 18:15:34  --- inicio ---
+2026-10-05 18:15:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-05T23:15:17.596Z)
+2026-10-05 18:15:55  Cuotas: americanfootball_nfl actualizado (16 partidos; creditos restantes 491)
+2026-10-05 18:15:56  Resuelta: Will Sweden win on 2026-10-05? [NO] -> lost
+2026-10-05 18:15:56  Resuelta: Will Italy win on 2026-10-05? [YES] -> won
+2026-10-05 18:15:56  Resuelta: France vs. Belgium: O/U 3.5 [UNDER] -> lost
+2026-10-05 18:15:56  Resuelta: Will Italy win on 2026-10-05? [YES] -> won
+2026-10-05 18:15:56  Resuelta: Will Türkiye win on 2026-10-05? [NO] -> won
+2026-10-05 18:15:56  Resuelta: Will Türkiye win on 2026-10-05? [NO] -> won
+2026-10-05 18:15:56  Resuelta: Will Sweden win on 2026-10-05? [NO] -> lost
+2026-10-05 18:15:58  ALERTA DE VENTA: Falcons vs. Saints [SAINTS] - FirePolymarket ahora recomienda FALCONS (score 68)
+2026-10-05 18:15:58  OK: 19 mercados >= 60, 5 >= 70, 2 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (44 en el historial), 0 alertas de venta, 7 resueltas, 100 senales + 301 de control
+2026-10-05 18:16:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-05 18:16:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-05 18:16:01  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
