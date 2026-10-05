@@ -17,6 +17,11 @@ $StrategyFile = Join-Path $Root 'strategy.json'    # reglas con que se apuesta c
 $AlertsNewFile = Join-Path $DataDir 'alerts-new.json'  # alertas de venta nuevas de esta ejecucion (el workflow las envia como issues)
 $AlertsCloseFile = Join-Path $DataDir 'alerts-close.json'  # alertas cuyo mercado ya se resolvio (el workflow comenta y cierra el issue)
 $PagesUrl = 'https://dnskskjdjd-max.github.io/0001/'
+# Ajustes del usuario (settings.json): alertEmails = enviar las alertas de venta y recordatorios como issues (correo).
+# Con false, las alertas solo se ven en el panel; el resumen semanal se envia igual.
+$SettingsFile = Join-Path $Root 'settings.json'
+$AlertEmails = $true
+if (Test-Path $SettingsFile) { $st = Get-Content $SettingsFile -Raw | ConvertFrom-Json; if ($null -ne $st.alertEmails) { $AlertEmails = [bool]$st.alertEmails } }
 $Repo = 'dnskskjdjd-max/0001'
 $RepoOwner = 'dnskskjdjd-max'   # solo se aceptan decisiones (issues) creadas por esta cuenta: el repositorio es publico
 $DecisionsFile    = Join-Path $DataDir 'decisions.json'      # historial de decisiones aplicadas (vender / mantener)
@@ -552,7 +557,7 @@ try {
         $b.alert.reminders = @($fired + $kind)
         $b.alert.decision = $null; $b.alert.reaskedAt = $now; $b.alert.reaskReason = $why
         $pnlNow = if ($null -ne $b.curPrice) { [Math]::Round($b.stake * ($b.curPrice / $b.price - 1), 2) } else { $null }
-        $alertsNew += @{
+        if ($AlertEmails) { $alertsNew += @{
             mode  = 'comment'
             title = "Alerta de venta: $($b.title) [$($b.position)]"
             body  = "**Recordatorio: decidiste mantener esta apuesta, pero $why.**`n`n" +
@@ -561,7 +566,7 @@ try {
                     "- Si se vende ahora: $(if ($null -ne $pnlNow) { "$pnlNow USD" } else { '-' })`n`n" +
                     "### Decide de nuevo: [⭕ Vender ahora]($(Get-DecisionUrl $b 'VENDER'))  |  [❌ Mantener]($(Get-DecisionUrl $b 'MANTENER'))`n`n" +
                     "[Panel]($PagesUrl)`n`n_Recordatorio automatico del tracker. No es asesoria financiera._"
-        }
+        } }
         Log "RECORDATORIO de alerta mantenida: $($b.title) [$($b.position)] - $why"
     }
 
@@ -585,7 +590,7 @@ try {
         $pnlIfSold = if ($null -ne $px) { [Math]::Round($b.stake * ($px / $b.price - 1), 4) } else { $null }
         $b.alert = @{ t = $now; reasons = $reasons; newPosition = $sitePos; newScore = $m.fireScore; agree = "$agree/$($top10.Count)"; price = $px; pnlIfSold = $pnlIfSold }
         $link = if ($b.eventSlug -and $b.questionID) { "https://polymarket.com/event/$($b.eventSlug)?tid=$($b.questionID)" } else { "https://polymarket.com/event/$($b.slug)" }
-        $alertsNew += @{
+        if ($AlertEmails) { $alertsNew += @{
             title = "Alerta de venta: $($b.title) [$($b.position)]"
             body  = "**Las ballenas cambiaron de opinion en un mercado donde hay una apuesta abierta.**`n`n" +
                     "- Apuesta: `$$($b.stake) a **$($b.position)** a $([Math]::Round($b.price * 100, 1))c (registrada $($b.placedAt))`n" +
@@ -595,7 +600,7 @@ try {
                     "- Cierra: $($b.endDate)`n`n" +
                     "### Decide: [⭕ Vender ahora]($(Get-DecisionUrl $b 'VENDER'))  |  [❌ Mantener]($(Get-DecisionUrl $b 'MANTENER'))`n`n" +
                     "[Ver mercado en Polymarket]($link) | [Panel]($PagesUrl)`n`n_Alerta automatica del tracker. No es asesoria financiera._"
-        }
+        } }
         Log "ALERTA DE VENTA: $($b.title) [$($b.position)] - $($reasons -join '; ')"
     }
     # 4d. Resumen semanal: cada lunes desde las 8:00 (hora local), una vez por semana; se envia como issue con las alertas
@@ -615,6 +620,13 @@ try {
 
     # 4c. Alertas resueltas: el workflow busca el issue por titulo, deja el resultado como comentario y lo cierra (una sola vez)
     $alertsClose = @()
+    # Con los correos de alertas desactivados: los issues de alerta abiertos se cierran sin comentario (una sola vez)
+    if (-not $AlertEmails) {
+        foreach ($b in @($bets.Values | Where-Object { $_.alert -and -not $_.alert.closedNotified })) {
+            $alertsClose += @{ title = "Alerta de venta: $($b.title) [$($b.position)]"; silent = $true }
+            $b.alert.closedNotified = $now
+        }
+    }
     foreach ($b in @($bets.Values | Where-Object { $_.alert -and $_.status -ne 'open' -and -not $_.alert.closedNotified })) {
         $label = switch ($b.status) { 'won' { 'GANO' } 'lost' { 'PERDIO' } default { 'ANULADA' } }
         $sold = $b.alert.pnlIfSold

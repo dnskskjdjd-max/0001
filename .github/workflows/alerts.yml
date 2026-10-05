@@ -58,6 +58,8 @@ jobs:
               foreach ($x in $items) {
                 $iss = $open | Where-Object { $_.title -eq $x.title } | Select-Object -First 1
                 if (-not $iss) { Write-Host "Sin issue abierto para: $($x.title)"; continue }
+                # Alertas desactivadas (settings.json): se cierra sin comentario
+                if ($x.silent) { gh issue close $iss.number --repo "${{ github.repository }}" --reason "not planned"; continue }
                 $f = New-TemporaryFile
                 Set-Content -Path $f -Value $x.body -Encoding utf8NoBOM
                 gh issue comment $iss.number --repo "${{ github.repository }}" --body-file $f
