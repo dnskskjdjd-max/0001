@@ -1870,3 +1870,19 @@
 2026-10-04 19:11:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-04 19:11:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 19:11:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 19:15:30  --- inicio ---
+2026-10-04 19:15:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-05T00:10:57.067Z)
+2026-10-04 19:15:56  Apuesta conservadora: $3 a LIONS en Spread: Panthers (-3.5) @ 78c (score 66, consenso 10/10)
+2026-10-04 19:15:56  Resuelta: Chiefs vs. Raiders [RAIDERS] -> lost
+2026-10-04 19:15:56  Resuelta: Spread: Seahawks (-7.5) [SEAHAWKS] -> lost
+2026-10-04 19:15:56  Resuelta: Chiefs vs. Raiders [CHIEFS] -> won
+2026-10-04 19:15:56  Resuelta: Chiefs vs. Raiders [CHIEFS] -> won
+2026-10-04 19:15:57  Resuelta: Chargers vs. Seahawks [SEAHAWKS] -> won
+2026-10-04 19:15:57  Resuelta: Chargers vs. Seahawks [SEAHAWKS] -> won
+2026-10-04 19:15:57  Resuelta: Spread: Seahawks (-7.5) [CHARGERS] -> won
+2026-10-04 19:15:57  Apuesta resuelta: Chiefs vs. Raiders [RAIDERS] -> lost (-5)
+2026-10-04 19:16:01  OK: 18 mercados >= 60, 7 >= 70, 2 senales nuevas, 2 de control nuevas, 1 apuestas nuevas (41 en el historial), 0 alertas de venta, 7 resueltas, 83 senales + 287 de control
+2026-10-04 19:16:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 19:16:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 19:16:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-04 19:16:44  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
