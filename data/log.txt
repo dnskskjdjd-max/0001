@@ -2213,3 +2213,26 @@
 2026-10-05 00:25:58  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-05 00:25:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-05 00:26:00  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-05 09:00:14  --- inicio ---
+2026-10-05 09:00:23  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-05T13:45:15.981Z)
+2026-10-05 09:00:31  Cuotas: americanfootball_nfl actualizado (16 partidos; creditos restantes 495)
+2026-10-05 09:00:33  Apuesta conservadora: $3 a NO en Will Bitcoin dip to $70,000 by December 31, 2026? @ 77c (score 60, consenso 9/10)
+2026-10-05 09:00:33  Apuesta conservadora: $3 a SAINTS en Falcons vs. Saints @ 53c (score 66, consenso 8/10)
+2026-10-05 09:00:33  Resuelta: Spread: Lions (-4.5) [PANTHERS] -> won
+2026-10-05 09:00:33  Resuelta: Spread: Lions (-3.5) [LIONS] -> lost
+2026-10-05 09:00:33  Resuelta: Will Renan Santos finish in third place in the first round of the 2026 Brazilian presidential election? [YES] -> lost
+2026-10-05 09:00:33  Resuelta: Spread: Lions (-3.5) [LIONS] -> lost
+2026-10-05 09:00:33  Resuelta: Will Flávio Bolsonaro finish in second place in the first round of the 2026 Brazilian presidential election? [YES] -> lost
+2026-10-05 09:00:33  Resuelta: Will Flávio Bolsonaro finish in second place in the first round of the 2026 Brazilian presidential election? [YES] -> lost
+2026-10-05 09:00:33  Resuelta: Will Renan Santos finish in third place in the first round of the 2026 Brazilian presidential election? [NO] -> won
+2026-10-05 09:00:33  Resuelta: Spread: Lions (-3.5) [PANTHERS] -> won
+2026-10-05 09:00:33  Resuelta: Lions vs. Panthers: O/U 51.5 [UNDER] -> lost
+2026-10-05 09:00:33  Resuelta: Lions vs. Panthers: O/U 51.5 [OVER] -> won
+2026-10-05 09:00:33  Resuelta: Lions vs. Panthers: O/U 51.5 [OVER] -> won
+2026-10-05 09:00:33  Resuelta: Will Flávio Bolsonaro finish in second place in the first round of the 2026 Brazilian presidential election? [NO] -> won
+2026-10-05 09:00:35  Resumen semanal generado (2026-W41)
+2026-10-05 09:00:36  OK: 19 mercados >= 60, 5 >= 70, 4 senales nuevas, 0 de control nuevas, 2 apuestas nuevas (43 en el historial), 1 alertas de venta, 12 resueltas, 90 senales + 295 de control
+2026-10-05 09:00:38  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-05 09:00:39  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-05 09:00:39  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-05 09:00:53  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
