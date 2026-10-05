@@ -2691,3 +2691,10 @@
 2026-10-05 14:56:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-05 14:56:00  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-05 14:56:00  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-05 15:00:30  --- inicio ---
+2026-10-05 15:00:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-05T20:00:14.914Z)
+2026-10-05 15:00:57  Apuesta: $5 a SAINTS en Spread: Saints (-1.5) @ 50c (score 72, consenso 7/10)
+2026-10-05 15:01:01  OK: 18 mercados >= 60, 6 >= 70, 1 senales nuevas, 1 de control nuevas, 1 apuestas nuevas (44 en el historial), 0 alertas de venta, 0 resueltas, 98 senales + 300 de control
+2026-10-05 15:01:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-05 15:01:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-05 15:01:04  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
