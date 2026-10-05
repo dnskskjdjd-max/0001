@@ -351,9 +351,9 @@ try {
     $candidates = @($markets | Where-Object { $_.fireScore -ge $MinTrack -and -not (Test-ShortCrypto $_) })
     # Grupo de control: mercados que el sitio sigue pero con Fire Score bajo, apostando del mismo lado que las ballenas
     $controls   = @($markets | Where-Object { $_.fireScore -lt $MinTrack -and -not (Test-ShortCrypto $_) })
-    # Los mercados de control se actualizan una vez por hora (o siempre si cierran en menos de 2 dias): son ~200
+    # Los mercados de control se actualizan cada 30 min (o siempre si cierran en menos de 2 dias): son ~200
     # y casi todos de largo plazo; las senales y apuestas se actualizan en cada ejecucion
-    $refreshCtl = (Get-Date).Minute -lt 5
+    $refreshCtl = (Get-Date).Minute % 30 -lt 5
     $soonCut = (Get-Date).ToUniversalTime().AddDays(2)
     $openSlugs  = @($signals.Values | Where-Object { $_.status -eq 'open' -and ($_.kind -ne 'control' -or $refreshCtl -or
         ($_.endDate -and $(try { [DateTimeOffset]::Parse("$($_.endDate)").UtcDateTime -lt $soonCut } catch { $true }))) } | ForEach-Object { $_.slug })
