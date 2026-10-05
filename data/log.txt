@@ -2097,3 +2097,31 @@
 2026-10-04 21:46:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-04 21:46:05  [copia:nfl] OK: 2 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-04 21:46:41  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
+2026-10-04 23:18:06  --- inicio ---
+2026-10-04 23:18:14  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-05T04:15:14.111Z)
+2026-10-04 23:18:18  Resuelta: Will Luiz Inácio Lula da Silva finish in second place in the first round of the 2026 Brazilian presidential election? [NO] -> lost
+2026-10-04 23:18:18  Resuelta: Lions vs. Panthers [LIONS] -> lost
+2026-10-04 23:18:18  Resuelta: Atlanta Braves vs. Los Angeles Dodgers [ATLANTA BRAVES] -> won
+2026-10-04 23:18:18  Resuelta: Will Flavio Bolsonaro win the most votes in the first round of the 2026 Brazil presidential election? [YES] -> won
+2026-10-04 23:18:18  Resuelta: Will Lula win the most votes in the first round of the 2026 Brazil presidential election? [NO] -> won
+2026-10-04 23:18:18  Resuelta: Spread: Panthers (-3.5) [LIONS] -> lost
+2026-10-04 23:18:18  Resuelta: Will Flavio Bolsonaro win the most votes in the first round of the 2026 Brazil presidential election? [NO] -> lost
+2026-10-04 23:18:18  Resuelta: Will any presidential candidate win outright in the first round of the Brazil election? [NO] -> won
+2026-10-04 23:18:18  Resuelta: Lions vs. Panthers [PANTHERS] -> won
+2026-10-04 23:18:18  Resuelta: Will Bitcoin reach $92,000 September 28-October 4? [NO] -> won
+2026-10-04 23:18:18  Resuelta: Will Lula win the most votes in the first round of the 2026 Brazil presidential election? [NO] -> won
+2026-10-04 23:18:18  Resuelta: Will Luiz Inácio Lula da Silva qualify for Brazil's presidential runoff? [YES] -> won
+2026-10-04 23:18:18  Resuelta: Will Luiz Inácio Lula da Silva finish in second place in the first round of the 2026 Brazilian presidential election? [YES] -> won
+2026-10-04 23:18:18  Resuelta: Atlanta Braves vs. Los Angeles Dodgers [LOS ANGELES DODGERS] -> lost
+2026-10-04 23:18:18  Resuelta: Spread: Panthers (-3.5) [LIONS] -> lost
+2026-10-04 23:18:18  Resuelta: Will Lula win the most votes in the first round of the 2026 Brazil presidential election? [YES] -> lost
+2026-10-04 23:18:18  Resuelta: Lions vs. Panthers [LIONS] -> lost
+2026-10-04 23:18:18  Resuelta: Lions vs. Panthers [PANTHERS] -> won
+2026-10-04 23:18:18  Apuesta resuelta: Will Lula win the most votes in the first round of the 2026 Brazil presidential election? [YES] -> lost (-1)
+2026-10-04 23:18:18  Apuesta resuelta: Atlanta Braves vs. Los Angeles Dodgers [LOS ANGELES DODGERS] -> lost (-5)
+2026-10-04 23:18:18  Apuesta resuelta: Spread: Panthers (-3.5) [LIONS] -> lost (-3)
+2026-10-04 23:18:20  OK: 14 mercados >= 60, 5 >= 70, 0 senales nuevas, 5 de control nuevas, 0 apuestas nuevas (41 en el historial), 0 alertas de venta, 18 resueltas, 86 senales + 295 de control
+2026-10-04 23:18:22  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-04 23:18:23  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-04 23:18:23  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-04 23:18:39  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
