@@ -2350,3 +2350,9 @@
 2026-10-05 10:33:51  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-05 10:33:51  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-05 10:34:27  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
+2026-10-05 10:35:30  --- inicio ---
+2026-10-05 10:35:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-05T15:16:03.296Z)
+2026-10-05 10:35:59  OK: 18 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (43 en el historial), 0 alertas de venta, 0 resueltas, 92 senales + 297 de control
+2026-10-05 10:36:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-05 10:36:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-05 10:36:02  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
