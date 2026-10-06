@@ -2854,3 +2854,12 @@
 2026-10-05 19:26:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-05 19:26:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-05 19:26:04  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-05 19:50:12  --- inicio ---
+2026-10-05 19:50:22  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-06T00:30:14.336Z)
+2026-10-05 19:50:26  Resuelta: Chicago White Sox vs. Cleveland Guardians [CLEVELAND GUARDIANS] -> lost
+2026-10-05 19:50:26  Resuelta: Chicago White Sox vs. Cleveland Guardians [CHICAGO WHITE SOX] -> won
+2026-10-05 19:50:28  OK: 19 mercados >= 60, 5 >= 70, 1 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (44 en el historial), 0 alertas de venta, 2 resueltas, 103 senales + 302 de control
+2026-10-05 19:50:31  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-05 19:50:31  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-05 19:50:31  [copia:nfl] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-05 19:50:47  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
