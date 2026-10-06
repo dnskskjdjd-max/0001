@@ -3016,3 +3016,11 @@
 2026-10-05 22:25:58  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-05 22:26:28  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
 2026-10-05 22:26:32  [cripto] OK diario: BTC 85520, vol 36.2%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (0 en el historial), 0 resueltas; rapido: 0 apuestas
+2026-10-05 22:30:30  --- inicio ---
+2026-10-05 22:30:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-06T03:25:58.488Z)
+2026-10-05 22:31:04  Resuelta: New York Yankees vs. Tampa Bay Rays [TAMPA BAY RAYS] -> won
+2026-10-05 22:31:07  OK: 17 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (44 en el historial), 0 alertas de venta, 1 resueltas, 103 senales + 305 de control
+2026-10-05 22:31:09  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-05 22:31:10  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-05 22:31:10  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-05 22:31:15  [cripto] OK diario: BTC 85422, vol 36.2%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (0 en el historial), 0 resueltas; rapido: 0 apuestas
