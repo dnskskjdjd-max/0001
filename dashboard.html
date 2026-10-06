@@ -238,6 +238,10 @@ const fmtPct = (v, d = 1) => v == null ? '–' : (v < 0 ? '−' : '') + Math.abs
 const fmtPp = v => v == null ? '–' : (v >= 0 ? '+' : '−') + Math.abs(v * 100).toFixed(1) + ' pp';
 const fmtC = v => v == null ? '–' : (v * 100).toFixed(1) + '¢';
 const cls = v => v == null ? '' : v > 0 ? 'pos' : v < 0 ? 'neg' : '';
+// Comisión de Polymarket (solo taker): acciones × tasa × p × (1 − p) = usd × tasa × (1 − p); tasa de cada mercado (NFL y geopolítica: 0)
+const feeOf = (usd, p, rate) => rate && p > 0 && p < 1 ? usd * rate * (1 - p) : 0;
+// Ganancia si se vendiera ahora a precio px, con la comisión de compra (b.fee) y la de venta
+const valueNow = (b, px) => { const usd = b.stake * px / b.price; return usd - b.stake - (b.fee || 0) - feeOf(usd, px, b.feeRate); };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const link = s => s.eventSlug && s.questionID ? `https://polymarket.com/event/${s.eventSlug}?tid=${s.questionID}` : `https://polymarket.com/event/${s.slug}`;
 // Fechas solo-día ("2026-10-04") se leen al mediodía para que la zona horaria no las corra al día anterior
@@ -297,12 +301,14 @@ function bets(th, opts = state) {
     const price = Math.min(0.99, (realAsk ? e.ask : e.price) + opts.slip / 100);
     const cons = consensus(e.top);
     const stake = th !== 'ctl' && opts.rule === 'consensus' && cons && cons.ok ? CONSENSUS_STAKE : BASE_STAKE;
+    // Comisión de Polymarket al comprar (y al vender, en el valor a precio actual); la tasa es la del mercado
+    const fee = feeOf(stake, price, s.feeRate);
     let pnl = null, mtm = null;
-    if (s.status === 'won') pnl = stake * (1 / price - 1);
-    else if (s.status === 'lost') pnl = -stake;
-    else if (s.status === 'void') pnl = 0;
-    else if (s.curPrice != null) mtm = stake * (s.curPrice / price - 1);
-    out.push({ s, e, price, stake, cons, pnl, mtm, days, cat, realAsk });
+    if (s.status === 'won') pnl = stake * (1 / price - 1) - fee;
+    else if (s.status === 'lost') pnl = -stake - fee;
+    else if (s.status === 'void') pnl = -fee;
+    else if (s.curPrice != null) mtm = valueNow({ stake, price, fee, feeRate: s.feeRate }, s.curPrice);
+    out.push({ s, e, price, stake, fee, cons, pnl, mtm, days, cat, realAsk });
   }
   return out;
 }
@@ -312,7 +318,7 @@ function nullSim(res, runs) {
   const sums = new Float64Array(runs);
   for (let r = 0; r < runs; r++) {
     let t = 0;
-    for (const b of res) t += Math.random() < b.price ? b.stake * (1 / b.price - 1) : -b.stake;
+    for (const b of res) t += (Math.random() < b.price ? b.stake * (1 / b.price - 1) : -b.stake) - (b.fee || 0);
     sums[r] = t;
   }
   return sums;
@@ -396,14 +402,15 @@ function renderLedger() {
   const settled = res.filter(b => b.status !== 'sold'), wins = settled.filter(b => b.status === 'won').length;
   const staked = B.reduce((a, b) => a + b.stake, 0), stakedRes = res.reduce((a, b) => a + b.stake, 0);
   const pnl = B.reduce((a, b) => a + (b.pnl || 0), 0);
-  const mtmOf = b => b.curPrice != null ? b.stake * (b.curPrice / b.price - 1) : 0;
+  const mtmOf = b => b.curPrice != null ? valueNow(b, b.curPrice) : 0;
   const mtm = open.reduce((a, b) => a + mtmOf(b), 0);
+  const fees = B.reduce((a, b) => a + (b.fee || 0), 0);
   const winRate = settled.length ? wins / settled.length : null, implied = settled.length ? settled.reduce((a, b) => a + b.price, 0) / settled.length : null;
   const soldN = res.length - settled.length;
   $('ledgerTiles').innerHTML = [
     ['Apuestas realizadas', B.length, `${open.length} abiertas · ${settled.length} resueltas${soldN ? ` · ${soldN} vendidas` : ''}`],
     ['Invertido total', fmt$(staked), `${fmt$(open.reduce((a, b) => a + b.stake, 0))} en apuestas abiertas`],
-    ['Ganancia realizada', `<span class="${cls(pnl)}">${fmt$(pnl)}</span>`, `ROI ${fmtPct(stakedRes ? pnl / stakedRes : null)} sobre lo resuelto`],
+    ['Ganancia realizada', `<span class="${cls(pnl)}">${fmt$(pnl)}</span>`, `ROI ${fmtPct(stakedRes ? pnl / stakedRes : null)} sobre lo resuelto · comisiones ${fmt$(fees)}`],
     ['Abiertas a precio actual', `<span class="${cls(mtm)}">${fmt$(mtm)}</span>`, 'si vendieras ahora'],
     ['Acierto vs implícita', `${fmtPct(winRate)} / ${fmtPct(implied)}`, `ventaja ${fmtPp(winRate == null ? null : winRate - implied)}`],
   ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');

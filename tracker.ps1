@@ -213,7 +213,7 @@ function Get-WeeklyReport($signals, $bets, $strategy) {
     # Measure-Object/Where-Object de PowerShell 5.1 no leen claves de hashtables: se convierten a objetos
     $all = @($bets.Values | ForEach-Object { [pscustomobject]$_ }); $closed = @($all | Where-Object { $_.status -in 'won', 'lost', 'sold' })
     $week = @($closed | Where-Object { $_.resolvedAt -ge $since }); $open = @($all | Where-Object { $_.status -eq 'open' })
-    $mtm = ($open | ForEach-Object { if ($null -ne $_.curPrice) { $_.stake * ($_.curPrice / $_.price - 1) } } | Measure-Object -Sum).Sum
+    $mtm = ($open | ForEach-Object { if ($null -ne $_.curPrice) { Get-BetValueNow $_ $_.curPrice } } | Measure-Object -Sum).Sum
     $out += '### Mis apuestas'
     $out += "- **Esta semana:** $($week.Count) resueltas ($(@($week | ? status -eq 'won').Count) ganadas, $(@($week | ? status -eq 'lost').Count) perdidas$(if (@($week | ? status -eq 'sold').Count) { ", $(@($week | ? status -eq 'sold').Count) vendidas" })): **$(& $money ($week | Measure-Object pnl -Sum).Sum)**"
     $out += "- **Desde el inicio:** $($closed.Count) resueltas, $(& $money ($closed | Measure-Object pnl -Sum).Sum) realizados sobre `$$(($closed | Measure-Object stake -Sum).Sum) apostados"
@@ -243,7 +243,7 @@ function Get-WeeklyReport($signals, $bets, $strategy) {
         $px = if ($e.ask) { [double]$e.ask } else { [double]$e.price }
         $agree = if ($e.top) { @(@($e.top) | Select-Object -First 10 | Where-Object { $_[1] }).Count } else { $null }
         [pscustomobject]@{ ctl = ($s.kind -eq 'control'); won = [int]($s.status -eq 'won'); px = $px; score = [int]$e.score; agree = $agree
-            cat = (Get-Category "$($s.slug) $($s.eventSlug) $($s.title)"); roi = $(if ($s.status -eq 'won') { 1 / $px - 1 } else { -1 })
+            cat = (Get-Category "$($s.slug) $($s.eventSlug) $($s.title)"); roi = $(if ($s.status -eq 'won') { 1 / $px - 1 } else { -1 }) - $(if ($s.feeRate) { [double]$s.feeRate * (1 - $px) } else { 0 })
             vg = $(if ($null -ne $e.vegas) { [double]$e.vegas - $px } else { $null }) }
     }
     $row = { param($name, $g)
@@ -289,6 +289,38 @@ function Update-FromGamma($s, $g, $now) {
     elseif ($g.umaResolutionStatus -eq 'resolved') { $status = 'void' }
     if ($status) { $s.status = $status; $s.resolvedAt = $now; $s.finalPrice = $p }
     return $status
+}
+
+# Comisiones de Polymarket: solo paga quien toma liquidez (taker), al comprar o vender: acciones x tasa x p x (1 - p).
+# La tasa viene de cada mercado (feeSchedule.rate): NFL y geopolitica 0, politica 0.04, MLB/futbol 0.05, cripto 0.07...
+function Get-FeeRate($g) {
+    if ($g -and $g.feesEnabled -eq $true -and $g.feeSchedule -and $null -ne $g.feeSchedule.rate) { return [double]$g.feeSchedule.rate }
+    return 0.0
+}
+# Comision al operar $usd a precio p (acciones = usd / p)
+function Get-TradeFee($usd, $p, $rate) {
+    if (-not $rate -or $null -eq $p -or $p -le 0 -or $p -ge 1) { return 0.0 }
+    return [Math]::Round([double]$usd * [double]$rate * (1 - [double]$p), 4)
+}
+# Resultado de una apuesta cerrada, descontando la comision de compra (y la de venta si se vendio por una alerta)
+function Get-BetPnl($b) {
+    $fee = if ($null -ne $b.fee) { [double]$b.fee } else { 0.0 }
+    switch ($b.status) {
+        'won' { return [Math]::Round($b.stake * (1 / $b.price - 1) - $fee, 4) }
+        'lost' { return [Math]::Round(- $b.stake - $fee, 4) }
+        'sold' {
+            $x = [double]$b.finalPrice; $usd = $b.stake * $x / $b.price
+            return [Math]::Round($usd - $b.stake - $fee - (Get-TradeFee $usd $x $b.feeRate), 4)
+        }
+        default { return [Math]::Round(- $fee, 4) }   # anulada: se devuelve lo apostado, no la comision
+    }
+}
+# Ganancia si se vendiera ahora a precio $px (con las dos comisiones)
+function Get-BetValueNow($b, $px) {
+    if ($null -eq $px) { return $null }
+    $fee = if ($null -ne $b.fee) { [double]$b.fee } else { 0.0 }
+    $usd = $b.stake * [double]$px / $b.price
+    return [Math]::Round($usd - $b.stake - $fee - (Get-TradeFee $usd $px $b.feeRate), 4)
 }
 
 $DefaultStrategy = [ordered]@{
@@ -360,6 +392,18 @@ try {
     $newCtlSlugs = @($controls | Where-Object { -not $signals.ContainsKey("ctl|$($_.slug)|$("$($_.position)".ToUpper())") } | ForEach-Object { $_.slug })
     $openBetSlugs = @($bets.Values | Where-Object { $_.status -eq 'open' } | ForEach-Object { $_.slug })
     $gamma = Get-GammaMarkets (@($candidates | ForEach-Object { $_.slug }) + $newCtlSlugs + $openSlugs + $openBetSlugs)
+
+    # Tasa de comision de cada mercado: se guarda una vez en senales y apuestas (las antiguas se completan aqui)
+    $noFee = @(@($signals.Values) + @($bets.Values) | Where-Object { $null -eq $_.feeRate })
+    if ($noFee.Count) {
+        $gFee = Get-GammaMarkets @($noFee | ForEach-Object { $_.slug } | Where-Object { -not $gamma.ContainsKey($_) })
+        foreach ($x in $noFee) { $g = if ($gamma.ContainsKey($x.slug)) { $gamma[$x.slug] } else { $gFee[$x.slug] }; if ($g) { $x.feeRate = Get-FeeRate $g } }
+    }
+    # Apuestas sin comision calculada (anteriores al 6 oct 2026): se calcula y se rehace el resultado de las ya cerradas
+    foreach ($b in @($bets.Values | Where-Object { $null -eq $_.fee -and $null -ne $_.feeRate })) {
+        $b.fee = Get-TradeFee $b.stake $b.price $b.feeRate
+        if ($b.status -ne 'open') { $old = $b.pnl; $b.pnl = Get-BetPnl $b; Log "Comision aplicada: $($b.title) [$($b.position)] $old -> $($b.pnl)" }
+    }
 
     # Cuotas de Vegas para los mercados de ganador que se juegan pronto (informativo; si falla, se sigue sin cuotas)
     try { Update-OddsCache (Get-OddsNeededSports $candidates $gamma) } catch { Log "Cuotas: $($_.Exception.Message -replace 'apiKey=[^&\s]+', 'apiKey=***')" }
@@ -458,10 +502,11 @@ try {
             if ($lowTier -and $strategy.lowScoreMaxPrice -gt 0 -and $price -gt $strategy.lowScoreMaxPrice) { continue }
             $stake = if ($lowTier) { $strategy.lowScoreStake }
                      elseif ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
+            $feeRate = Get-FeeRate $gamma[$c.slug]
             $bets[$c.key] = @{
                 key = $c.key; placedAt = $now; slug = $c.slug; title = $c.title; position = $c.position
                 eventSlug = $c.eventSlug; questionID = $c.questionID; endDate = $c.endDate
-                score = $c.score; price = $price; stake = $stake; consensus = "$($cons.agree)/$($cons.n)"; tier = $(if ($lowTier) { 'conservadora' } else { 'normal' })
+                score = $c.score; price = $price; stake = $stake; feeRate = $feeRate; fee = (Get-TradeFee $stake $price $feeRate); consensus = "$($cons.agree)/$($cons.n)"; tier = $(if ($lowTier) { 'conservadora' } else { 'normal' })
                 hedgeCap = $c.hedgeCap; liq = $c.liq; vegasProb = $c.vegas; strategy = $strategy.Clone()
                 status = 'open'; curPrice = $c.price; curPriceAt = $now
             }
@@ -485,7 +530,7 @@ try {
         $g = $gamma[$b.slug]
         if (-not $g) { continue }
         if ($status = Update-FromGamma $b $g $now) {
-            $b.pnl = switch ($status) { 'won' { [Math]::Round($b.stake * (1 / $b.price - 1), 4) } 'lost' { -$b.stake } default { 0 } }
+            $b.pnl = Get-BetPnl $b
             Log "Apuesta resuelta: $($b.title) [$($b.position)] -> $status ($($b.pnl))"
         }
     }
@@ -515,7 +560,7 @@ try {
             if ($null -eq $exit) { $result = 'No hay precio de venta disponible ahora; vuelve a intentarlo mas tarde.' }
             else {
                 $b.status = 'sold'; $b.soldByAlert = $true; $b.resolvedAt = $now; $b.finalPrice = [Math]::Round($exit, 4)
-                $b.pnl = [Math]::Round($b.stake * ($exit / $b.price - 1), 4)
+                $b.pnl = Get-BetPnl $b
                 if ($b.alert) { $b.alert.decision = 'sell'; $b.alert.decidedAt = $now; $b.alert.closedNotified = $now }
                 $result = "Vendida a $([Math]::Round($exit * 100, 1))c. Resultado: $([Math]::Round($b.pnl, 2)) USD."
             }
@@ -556,7 +601,7 @@ try {
         if (-not $kind) { continue }
         $b.alert.reminders = @($fired + $kind)
         $b.alert.decision = $null; $b.alert.reaskedAt = $now; $b.alert.reaskReason = $why
-        $pnlNow = if ($null -ne $b.curPrice) { [Math]::Round($b.stake * ($b.curPrice / $b.price - 1), 2) } else { $null }
+        $pnlNow = if ($null -ne $b.curPrice) { [Math]::Round((Get-BetValueNow $b $b.curPrice), 2) } else { $null }
         if ($AlertEmails) { $alertsNew += @{
             mode  = 'comment'
             title = "Alerta de venta: $($b.title) [$($b.position)]"
@@ -587,7 +632,7 @@ try {
         if ($top10.Count -ge 5 -and $agree -le 3 -and ($null -eq $entryAgree -or $agree -lt $entryAgree)) { $reasons += "solo $agree de las $($top10.Count) ballenas mejor rankeadas siguen en $($b.position) (al apostar eran $(if ($null -ne $entryAgree) { $entryAgree } else { '?' }))" }
         if (-not $reasons) { continue }
         $px = $b.curPrice
-        $pnlIfSold = if ($null -ne $px) { [Math]::Round($b.stake * ($px / $b.price - 1), 4) } else { $null }
+        $pnlIfSold = Get-BetValueNow $b $px
         $b.alert = @{ t = $now; reasons = $reasons; newPosition = $sitePos; newScore = $m.fireScore; agree = "$agree/$($top10.Count)"; price = $px; pnlIfSold = $pnlIfSold }
         $link = if ($b.eventSlug -and $b.questionID) { "https://polymarket.com/event/$($b.eventSlug)?tid=$($b.questionID)" } else { "https://polymarket.com/event/$($b.slug)" }
         if ($AlertEmails) { $alertsNew += @{
