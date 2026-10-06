@@ -1,12 +1,12 @@
 {
     "id":  "futbol",
     "title":  "Fútbol · Elaran1993",
-    "version":  1,
-    "nota":  "Copiar futbol de Elaran1993",
+    "version":  2,
+    "nota":  "Solo apuestas de alta convicción (≥ $20k)",
     "traderName":  "Elaran1993",
     "traderWallet":  "0xb7271c112cbd83eb4c1ef1b554ff963604ae2a9d",
     "category":  "Fútbol",
     "stake":  5,
-    "minTraderUsd":  1000,
+    "minTraderUsd":  20000,
     "mirrorExits":  true
 }
