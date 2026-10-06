@@ -3159,3 +3159,42 @@
 2026-10-05 23:50:22  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-05 23:50:22  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-05 23:50:26  [cripto] OK diario: BTC 85584, vol 36.1%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (0 en el historial), 0 resueltas; rapido: 0 apuestas
+2026-10-05 23:53:11  --- inicio ---
+2026-10-05 23:53:20  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-06T04:41:00.156Z)
+2026-10-05 23:53:29  Comision aplicada: Colts vs. Commanders [COLTS] 0.5152 -> 0.5152
+2026-10-05 23:53:29  Comision aplicada: Will England win on 2026-10-03? [YES] 3.7719 -> 3.6644
+2026-10-05 23:53:29  Comision aplicada: Chicago White Sox vs. Cleveland Guardians [CHICAGO WHITE SOX] 0.1628 -> 0.1558
+2026-10-05 23:53:29  Comision aplicada: Atlanta Braves vs. Los Angeles Dodgers [LOS ANGELES DODGERS] 0.1813 -> 0.1725
+2026-10-05 23:53:29  Comision aplicada: Will Lula win the most votes in the first round of the 2026 Brazil presidential election? [YES] -1 -> -1.016
+2026-10-05 23:53:29  Comision aplicada: UFC 332: Natalia Silva vs. Wang Cong (Women's Flyweight, Main Card) [NATALIA SILVA] 0.5152 -> 0.4982
+2026-10-05 23:53:29  Comision aplicada: San Jose State vs. Hawai'i [HAWAI'I] -1 -> -1
+2026-10-05 23:53:29  Comision aplicada: Patriots vs. Bills [BILLS] -5 -> -5
+2026-10-05 23:53:29  Comision aplicada: Packers vs. Buccaneers [PACKERS] 1.9180 -> 1.9180
+2026-10-05 23:53:29  Comision aplicada: Spread: Colts (-4.5) [COMMANDERS] -5 -> -5
+2026-10-05 23:53:29  Comision aplicada: Will Germany win on 2026-10-04? [YES] -1 -> -1.023
+2026-10-05 23:53:29  Comision aplicada: Spread: Bears (-3.5) [BEARS] 3 -> 3
+2026-10-05 23:53:29  Comision aplicada: Colts vs. Commanders: O/U 46.5 [UNDER] 0.4483 -> 0.4483
+2026-10-05 23:53:29  Comision aplicada: Spread: Packers (-3.5) [BUCCANEERS] 0.9231 -> 0.9231
+2026-10-05 23:53:29  Comision aplicada: Rams vs. Eagles [RAMS] 2.0000 -> 2.0000
+2026-10-05 23:53:29  Comision aplicada: Jaguars vs. Bengals [JAGUARS] 6.6279 -> 6.6279
+2026-10-05 23:53:29  Comision aplicada: Spread: 49ers (-2.5) [49ERS] 4.2593 -> 4.2593
+2026-10-05 23:53:29  Comision aplicada: Spread: Rams (-3.5) [EAGLES] -5 -> -5
+2026-10-05 23:53:29  Comision aplicada: Atlanta Braves vs. Los Angeles Dodgers [LOS ANGELES DODGERS] -5 -> -5.08
+2026-10-05 23:53:29  Comision aplicada: Will Portugal win on 2026-10-04? [NO] -1 -> -1.025
+2026-10-05 23:53:29  Comision aplicada: Cardinals vs. Giants [GIANTS] 3.2500 -> 3.2500
+2026-10-05 23:53:29  Comision aplicada: Broncos vs. 49ers [49ERS] 4.6154 -> 4.6154
+2026-10-05 23:53:29  Comision aplicada: Spread: Chiefs (-4.5) [RAIDERS] 3.6207 -> 3.6207
+2026-10-05 23:53:29  Comision aplicada: Chiefs vs. Raiders [RAIDERS] -5 -> -5
+2026-10-05 23:53:29  Comision aplicada: Dolphins vs. Vikings [VIKINGS] 0.1494 -> 0.1494
+2026-10-05 23:53:29  Comision aplicada: Spread: Panthers (-3.5) [LIONS] -3 -> -3
+2026-10-05 23:53:29  Comision aplicada: Falcons vs. Saints [SAINTS] -3 -> -3
+2026-10-05 23:53:31  OK: 17 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (44 en el historial), 0 alertas de venta, 0 resueltas, 104 senales + 305 de control
+2026-10-05 23:55:30  --- inicio ---
+2026-10-05 23:55:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-06T04:41:00.156Z)
+2026-10-05 23:55:52  Resuelta: Falcons vs. Saints: O/U 47.5 [OVER] -> won
+2026-10-05 23:55:55  OK: 17 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (44 en el historial), 0 alertas de venta, 1 resueltas, 104 senales + 305 de control
+2026-10-05 23:55:57  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-05 23:55:57  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-05 23:55:58  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-05 23:56:26  [ligas] OK: 28 partidos en 10 dias, 28 con Vegas, 0 apuestas en el historial
+2026-10-05 23:56:29  [cripto] OK diario: BTC 85603, vol 36.1%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (0 en el historial), 0 resueltas; rapido: 0 apuestas
