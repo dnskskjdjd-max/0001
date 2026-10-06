@@ -1,10 +1,13 @@
 # Bot de cripto, estrategia RAPIDA (simulada): mercados "Bitcoin Up or Down" de 15 minutos de Polymarket.
-# Se resuelven "Up" si el precio promedio (TWAP, Chainlink BTC/USD) de la ventana es >= al precio del inicio.
+# Se resuelven "Up" si el precio de Chainlink BTC/USD (flujo "TWAP 60s": promedio de 60 s) al final de la ventana es
+# >= al del inicio. (La primera ventana observada confirmo que NO es el promedio de toda la ventana.)
 # Corre sin parar (tarea de Windows "FirePolymarket Cripto rapido"); cada ~2 s:
-#   1. Trae de Binance las velas de 1 segundo de la ventana actual (precio de inicio S0, promedio hasta ahora A, ultimo precio S)
-#   2. Modelo 'twap': el promedio final = (n*A + suma de los segundos que faltan)/900. Con un paseo aleatorio la suma futura
-#      tiene media r*S y desviacion S*s*raiz(r(r+1)(2r+1)/6), r = segundos que faltan, s = volatilidad por segundo
-#      -> P(Up) = N((promedio esperado - S0) / desviacion).  Modelo 'end': P(Up) = N(ln(S/S0) / (s raiz(r))).
+#   1. Trae de Binance las velas de 1 segundo de la ventana actual y del minuto previo (precio de inicio, ultimo precio S)
+#   2. Tres modelos (se usa el de crypto-strategy.json; los tres se guardan para compararlos):
+#      'end60': promedio del ultimo minuto vs promedio del minuto previo al inicio: P(Up) = N(ln(S/base) / (s raiz(r - 40)))
+#      'end'  : precio final vs precio de inicio S0: P(Up) = N(ln(S/S0) / (s raiz(r)))
+#      'twap' : promedio de toda la ventana vs S0 (descartado, se guarda solo como referencia)
+#      r = segundos que faltan, s = volatilidad por segundo (realizada de las ultimas 2 h en Binance)
 #   3. En los ultimos 10 minutos lee el libro de ordenes de Up y Down; si el modelo supera al precio de compra
 #      (con 1 c de deslizamiento y la comision) en 5 / 8 / 12 puntos, apuesta $1 / $2 / $3. Maximo una apuesta por ventana.
 #      Solo despues de la fase de observacion: la regla del modelo debe coincidir con la resolucion real de Polymarket
@@ -84,7 +87,21 @@ function Get-Model($w, [double]$sigS) {
     $sd = $S * $sigS * [Math]::Sqrt($r * ($r + 1) * (2 * $r + 1) / 6.0) / $T
     $pT = if ($sd -gt 0) { Get-NormCdf (($M - $w.S0) / $sd) } else { [double]($M -ge $w.S0) }
     $pE = if ($r -gt 0) { Get-NormCdf ([Math]::Log($S / $w.S0) / ($sigS * [Math]::Sqrt($r))) } else { [double]($S -ge $w.S0) }
-    return @{ n = $n; A = $A; S = $S; r = $r; pTwap = $pT; pEnd = $pE }
+    # 'end60': promedio de los ultimos 60 s de la ventana vs promedio de los 60 s previos al inicio (TWAP de 60 s de Chainlink)
+    $pE60 = $null
+    if ($w.pre.Count -ge 30) {
+        $base = 0.0; foreach ($x in $w.pre) { $base += $x }; $base /= $w.pre.Count
+        if ($r -ge 60) {
+            $sd60 = $sigS * [Math]::Sqrt($r - 40)   # varianza del promedio del ultimo minuto: s^2 (r - 60 + 60/3)
+            $pE60 = Get-NormCdf ([Math]::Log($S / $base) / $sd60)
+        } else {
+            $k = [Math]::Min($n, 60 - $r); $sk = 0.0; for ($i = $n - $k; $i -lt $n; $i++) { $sk += $w.closes[$i] }
+            $M60 = ($sk + $r * $S) / 60
+            $sdM = $S * $sigS * [Math]::Sqrt($r * ($r + 1) * (2 * $r + 1) / 6.0) / 60
+            $pE60 = if ($sdM -gt 0) { Get-NormCdf (($M60 - $base) / $sdM) } else { [double]($M60 -ge $base) }
+        }
+    }
+    return @{ n = $n; A = $A; S = $S; r = $r; pTwap = $pT; pEnd = $pE; pEnd60 = $pE60 }
 }
 function Close-Window($w) {
     try { Update-Window $w } catch {}
@@ -108,7 +125,7 @@ function Close-Window($w) {
 # Fase de observacion: solo se apuesta cuando la regla del modelo coincidio con la resolucion real de Polymarket
 # en al menos minRuleMatch de minObserved ventanas (si no, el modelo estaria midiendo otra cosa)
 function Get-RuleMatch {
-    $field = if ($F.model -eq 'end') { 'endUp' } else { 'twapUp' }
+    $field = switch ("$($F.model)") { 'end' { 'endUp' } 'end60' { 'end60Up' } default { 'twapUp' } }
     $r = @($wins | Where-Object { ($_.upWon -eq 0 -or $_.upWon -eq 1) -and $null -ne $_.$field })
     $ok = @($r | Where-Object { $_.$field -eq $_.upWon }).Count
     return @{ n = $r.Count; rate = $(if ($r.Count) { [Math]::Round($ok / $r.Count, 4) } else { $null }); field = $field
@@ -159,8 +176,9 @@ try {
             $secLeft = $cur.W + $T - (Get-UnixNow)
             $view = @{ W = $cur.W; secLeft = $secLeft; S0 = $cur.S0 }
             if ($md) {
-                $p = if ($F.model -eq 'end') { $md.pEnd } else { $md.pTwap }
+                $p = switch ("$($F.model)") { 'end' { $md.pEnd } 'end60' { $md.pEnd60 } default { $md.pTwap } }
                 $view.S = $md.S; $view.twap = [Math]::Round($md.A, 2); $view.pTwap = [Math]::Round($md.pTwap, 4); $view.pEnd = [Math]::Round($md.pEnd, 4)
+                $view.pEnd60 = $(if ($null -ne $md.pEnd60) { [Math]::Round($md.pEnd60, 4) } else { $null })
                 if ($cur.up -and $secLeft -le [int]$F.maxSecLeft -and $secLeft -gt 0) {
                     $books = Get-Books @($cur.up, $cur.down)
                     $bu = $books[$cur.up]; $bd = $books[$cur.down]
@@ -172,11 +190,13 @@ try {
                     # Fotos a 10/5/2/1 min y 30 s del cierre: modelo vs mercado
                     foreach ($cp in $Checkpoints) {
                         if ($secLeft -le $cp -and $secLeft -gt $cp - 20 -and -not $cur.checks.Contains("$cp")) {
-                            $cur.checks["$cp"] = @([Math]::Round($md.pTwap, 4), [Math]::Round($md.pEnd, 4), $(if ($null -ne $mid) { [Math]::Round($mid, 4) }))
+                            # [modelo twap, modelo end, precio medio del mercado, modelo end60]
+                            $cur.checks["$cp"] = @([Math]::Round($md.pTwap, 4), [Math]::Round($md.pEnd, 4), $(if ($null -ne $mid) { [Math]::Round($mid, 4) } else { $null }),
+                                $(if ($null -ne $md.pEnd60) { [Math]::Round($md.pEnd60, 4) } else { $null }))
                         }
                     }
                     $already = $bets | Where-Object { $_.W -eq $cur.W } | Select-Object -First 1
-                    if (-not $already -and $rule.canBet -and $secLeft -ge [int]$F.minSecLeft) {
+                    if (-not $already -and $null -ne $p -and $rule.canBet -and $secLeft -ge [int]$F.minSecLeft) {
                         $best = $null
                         foreach ($side in 'UP', 'DOWN') {
                             $bk = if ($side -eq 'UP') { $bu } else { $bd }
@@ -200,7 +220,7 @@ try {
                             $bet = [pscustomobject]@{ id = "$($cur.slug)|$($best.side)"; W = $cur.W; slug = $cur.slug; side = $best.side; token = $best.tok
                                 stake = $best.stake; price = [Math]::Round($best.fill, 4); fee = [Math]::Round($shares * (Get-CryptoFee $best.fill), 4)
                                 p = [Math]::Round($best.pS, 4); edge = [Math]::Round($best.edge, 4); model = "$($F.model)"; secLeft = $secLeft
-                                S0 = $cur.S0; S = $md.S; twapSoFar = [Math]::Round($md.A, 2); pTwap = [Math]::Round($md.pTwap, 4); pEnd = [Math]::Round($md.pEnd, 4)
+                                S0 = $cur.S0; S = $md.S; twapSoFar = [Math]::Round($md.A, 2); pTwap = [Math]::Round($md.pTwap, 4); pEnd = [Math]::Round($md.pEnd, 4); pEnd60 = $view.pEnd60
                                 askUp = $askUp; askDown = $askDn; placedAt = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); status = 'open'; pnl = $null; version = $cfgVersion }
                             [void]$bets.Add($bet)
                             Write-CFileAtomic $BetsFile (ConvertTo-Json -InputObject @($bets) -Depth 5)

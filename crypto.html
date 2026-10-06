@@ -89,7 +89,7 @@ ul.strat li { margin: 2px 0; }
     <p class="small">Se mide con el <b>error de Brier</b> (promedio de (probabilidad − resultado)²): <b>más bajo = mejor</b>. Si el modelo no le gana al precio de Polymarket, las ventajas que encuentra son espejismos.</p>
     <div class="tablewrap"><table id="calib"></table></div>
     <h3>Mercado de 15 min: ¿cómo se resuelve en la práctica?</h3>
-    <p class="small">Polymarket dice que usa el promedio (TWAP) de Chainlink. Con los precios de Binance se calculan tres reglas posibles y se compara con el resultado real; el bot debe usar la que más coincida.</p>
+    <p class="small">Polymarket usa el flujo “TWAP 60 s” de Chainlink. Con los precios de Binance se calculan tres reglas posibles y se compara con el resultado real; el bot usa la que más coincida y solo apuesta si coincide en ≥ 90%.</p>
     <div class="tablewrap"><table id="rulecheck"></table></div>
   </div>
 
@@ -116,6 +116,8 @@ const fmtT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió' };
 const cfg = C.cfg || {}; const D = cfg.daily || {}; const F = cfg.fast || {};
+const MODEL_NAMES = { end60: 'último minuto vs minuto previo al inicio', end: 'precio final vs inicio', twap: 'promedio de toda la ventana' };
+const MODEL_IDX = { twap: 0, end: 1, end60: 3 };   // posición en checks: [twap, end, precio del mercado, end60]
 const minEdge = t => Math.min(...(t || [{ edge: 0.05 }]).map(x => x.edge));
 const tiersTxt = t => (t || []).slice().sort((a, b) => a.edge - b.edge).map(x => `$${x.stake} con ventaja ≥ ${Math.round(x.edge * 100)} pp`).join(' · ');
 
@@ -192,8 +194,8 @@ function render() {
     'Todavía no hay apuestas: el modelo y Polymarket coinciden casi siempre. Se registra una sola cuando la diferencia supera el mínimo.');
 
   strategyCard($('fastCard'), '⚡ 15 minutos: velocidad', [
-    'Mercados “Bitcoin sube o baja” de 15 min, resueltos con el promedio del precio en la ventana',
-    `Cada ~${F.pollSec || 2} s calcula con Binance la probabilidad de “sube” (modelo ${F.model === 'end' ? 'precio final' : 'promedio TWAP'}) y la compara con el libro de órdenes`,
+    'Mercados “Bitcoin sube o baja” de 15 min: “sube” si el precio de Chainlink (promedio de 60 s) al final es ≥ al del inicio',
+    `Cada ~${F.pollSec || 2} s calcula con Binance la probabilidad de “sube” (modelo: ${MODEL_NAMES[F.model] || F.model}) y la compara con el libro de órdenes`,
     `${tiersTxt(F.tiers)} · solo en los últimos ${Math.round((F.maxSecLeft || 600) / 60)} min (y no en los últimos ${F.minSecLeft || 15} s) · +${Math.round((F.slip || 0) * 100)}¢ de deslizamiento simulado`,
     'Una apuesta por ventana. Con internet de casa el bot es lento frente a los profesionales: si gana aquí, en real ganaría menos',
     (() => { const r = (st && st.rule) || {}; const ok = r.canBet;
@@ -212,8 +214,9 @@ function render() {
   const wins = ((C.fast || {}).windows || []).filter(w => w.upWon === 0 || w.upWon === 1);
   let html = '<tr><th>Momento</th><th class="num">Casos</th><th class="num">Brier modelo</th><th class="num">Brier mercado</th><th>Acierta más</th></tr>';
   html += [24, 12, 6, 3, 1].map(h => crow(`Diaria, ${h} h antes del cierre`, snaps.filter(s => s.h === h), s => s.p, s => s.mid)).join('');
-  const wr = cp => wins.filter(w => w.checks && w.checks[cp]).map(w => ({ y: w.upWon, pt: w.checks[cp][0], pe: w.checks[cp][1], mid: w.checks[cp][2] }));
-  html += [600, 300, 120, 60, 30].map(cp => crow(`15 min, faltando ${cp >= 60 ? cp / 60 + ' min' : cp + ' s'}`, wr(cp), x => (F.model === 'end' ? x.pe : x.pt), x => x.mid)).join('');
+  const mi = MODEL_IDX[F.model] ?? 3;
+  const wr = cp => wins.filter(w => w.checks && w.checks[cp]).map(w => ({ y: w.upWon, pm: w.checks[cp][mi] ?? null, mid: w.checks[cp][2] ?? null }));
+  html += [600, 300, 120, 60, 30].map(cp => crow(`15 min, faltando ${cp >= 60 ? cp / 60 + ' min' : cp + ' s'}`, wr(cp), x => x.pm, x => x.mid)).join('');
   $('calib').innerHTML = html;
 
   const rc = (name, f) => { const r = wins.filter(w => f(w) != null); const ok = r.filter(w => f(w) === w.upWon).length;

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "nota": "Bitcoin, simulado. Diario: valor justo vs Binance + volatilidad Deribit. Rapido: ventanas de 15 min (TWAP).",
+  "nota": "Bitcoin, simulado. Diario: valor justo vs Binance + volatilidad Deribit. Rapido: ventanas de 15 min, modelo end60 (TWAP 60 s de Chainlink al final vs al inicio), con fase de observacion.",
   "daily": {
     "volSource": "dvol",
     "minHours": 1,
@@ -12,7 +12,7 @@
     "tiers": [ { "edge": 0.12, "stake": 3 }, { "edge": 0.08, "stake": 2 }, { "edge": 0.05, "stake": 1 } ]
   },
   "fast": {
-    "model": "twap",
+    "model": "end60",
     "pollSec": 2,
     "maxSecLeft": 600,
     "minSecLeft": 15,
