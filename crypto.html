@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bot de Bitcoin</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  // El ?v= evita que el navegador o GitHub Pages muestren datos en caché
+  document.write('<script src="data/copiers.js?v=' + Date.now() + '"><\/script>');
+  document.write('<script src="data/crypto.js?v=' + Date.now() + '"><\/script>');
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --border: rgba(11,11,11,0.10); --s1: #2a78d6; --s2: #e08a1e;
+  --good: #006300; --bad: #d03b3b; --accent: #2a78d6; --hl: rgba(42,120,214,0.10); --goodbg: rgba(0,99,0,0.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --border: rgba(255,255,255,0.10); --s1: #3987e5; --s2: #f0a040;
+    --good: #0ca30c; --bad: #e66767; --accent: #3987e5; --hl: rgba(57,135,229,0.16); --goodbg: rgba(12,163,12,0.14);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --border: rgba(255,255,255,0.10); --s1: #3987e5; --s2: #f0a040;
+  --good: #0ca30c; --bad: #e66767; --accent: #3987e5; --hl: rgba(57,135,229,0.16); --goodbg: rgba(12,163,12,0.14);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1180px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 22px; margin: 0 0 4px; }
+h2 { font-size: 16px; margin: 0 0 4px; }
+h3 { font-size: 14px; margin: 14px 0 6px; }
+.sub { color: var(--ink-2); margin: 0 0 12px; }
+.small { font-size: 12px; color: var(--muted); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-top: 16px; min-width: 0; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 16px; }
+.cols > .card { margin-top: 16px; }
+@media (max-width: 480px) { .cols { grid-template-columns: 1fr; } }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; min-width: 0; }
+.tile .k { font-size: 12px; color: var(--ink-2); }
+.tile .v { font-size: 24px; font-weight: 600; margin-top: 2px; }
+.tile .d { font-size: 12px; color: var(--muted); }
+.card .tiles .tile { padding: 8px 10px; } .card .tiles .tile .v { font-size: 18px; }
+.verdict { border-radius: 12px; padding: 14px 16px; margin-top: 16px; border: 1px solid var(--bad); background: var(--surface); }
+.pos { color: var(--good); } .neg { color: var(--bad); }
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+th { font-size: 12px; color: var(--ink-2); font-weight: 600; }
+td.num, th.num { text-align: right; }
+td.edge { background: var(--goodbg); border-radius: 6px; font-weight: 600; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; border: 1px solid var(--border); }
+.badge.won { color: var(--good); } .badge.lost { color: var(--bad); } .badge.open { color: var(--ink-2); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+nav.tabs a { padding: 8px 14px; color: var(--ink-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+nav.tabs a:hover { color: var(--ink); text-decoration: none; }
+nav.tabs a.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+ul.strat { margin: 0 0 8px; padding-left: 18px; color: var(--ink-2); }
+ul.strat li { margin: 2px 0; }
+.chartbox { position: relative; height: 220px; margin-top: 10px; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="tabs" id="tabs"></nav>
+  <h1>₿ Bot de Bitcoin (simulado)</h1>
+  <p class="sub">Dos estrategias propias sobre los mercados de Bitcoin de Polymarket, con dinero simulado y comisiones incluidas. Cada apuesta queda fija en el historial; solo cambia su resultado. <span id="updated" class="small"></span></p>
+
+  <div id="stale" class="verdict" style="display:none"></div>
+  <div class="tiles" style="margin-top:16px" id="tiles"></div>
+
+  <div class="cols">
+    <div class="card" id="dailyCard"></div>
+    <div class="card" id="fastCard"></div>
+  </div>
+
+  <div class="card">
+    <h2>¿Quién acierta más: el modelo o el mercado?</h2>
+    <p class="small">Se mide con el <b>error de Brier</b> (promedio de (probabilidad − resultado)²): <b>más bajo = mejor</b>. Si el modelo no le gana al precio de Polymarket, las ventajas que encuentra son espejismos.</p>
+    <div class="tablewrap"><table id="calib"></table></div>
+    <h3>Mercado de 15 min: ¿cómo se resuelve en la práctica?</h3>
+    <p class="small">Polymarket dice que usa el promedio (TWAP) de Chainlink. Con los precios de Binance se calculan tres reglas posibles y se compara con el resultado real; el bot debe usar la que más coincida.</p>
+    <div class="tablewrap"><table id="rulecheck"></table></div>
+  </div>
+
+  <div class="card">
+    <h2>Mercados diarios ahora: modelo vs Polymarket</h2>
+    <p class="small">Por cada precio: probabilidad del modelo de que Bitcoin cierre por encima a las 12:00 (hora de Nueva York) y precio de compra del Sí y del No. <b>Ventaja</b> = modelo − precio − comisión; en verde las que llegan al mínimo para apostar.</p>
+    <div id="ladder"></div>
+  </div>
+  <p class="small">Precios de Binance, volatilidad de Deribit, mercados de Polymarket. Comisión de Polymarket en cripto: 0.07 × p × (1 − p) por acción. Esto no es asesoría financiera.</p>
+</main>
+
+<script>
+const C = window.CRYPTO || {};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt$ = v => v == null ? '–' : (v < 0 ? '−$' : '$') + Math.abs(v).toLocaleString('es', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtPct = (v, d = 1) => v == null || !isFinite(v) ? '–' : (v < 0 ? '−' : '') + Math.abs(v * 100).toFixed(d) + '%';
+const fmtC = v => v == null ? '–' : (v * 100).toFixed(1) + '¢';
+const fmtUsd = v => v == null ? '–' : '$' + Math.round(v).toLocaleString('es');
+const fmtPP = v => v == null ? '–' : (v > 0 ? '+' : v < 0 ? '−' : '±') + Math.abs(v * 100).toFixed(1);
+const cls = v => v == null ? '' : v > 0 ? 'pos' : v < 0 ? 'neg' : '';
+const fmtDT = s => s ? new Date(s).toLocaleString('es', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
+const fmtT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió' };
+const cfg = C.cfg || {}; const D = cfg.daily || {}; const F = cfg.fast || {};
+const minEdge = t => Math.min(...(t || [{ edge: 0.05 }]).map(x => x.edge));
+const tiersTxt = t => (t || []).slice().sort((a, b) => a.edge - b.edge).map(x => `$${x.stake} con ventaja ≥ ${Math.round(x.edge * 100)} pp`).join(' · ');
+
+function renderTabs() {
+  const icons = { 'NFL': '🏈', 'Fútbol': '⚽', 'Economía / Fed': '🏦' };
+  $('tabs').innerHTML = `<a href="dashboard.html">🔥 Fire Score</a>` + (window.COPIERS || []).map(c =>
+    `<a href="copy.html?c=${encodeURIComponent(c.id)}">${icons[c.category] || '📋'} ${esc(c.title || c.id)}</a>`).join('') +
+    `<a href="leagues.html">🏆 LaLiga · Champions</a><a class="active" href="crypto.html">₿ Bitcoin</a>`;
+}
+
+function stats(B) {
+  const closed = B.filter(b => b.status === 'won' || b.status === 'lost'), open = B.filter(b => b.status === 'open');
+  const pnl = closed.reduce((a, b) => a + b.pnl, 0), staked = closed.reduce((a, b) => a + b.stake, 0);
+  const fees = B.reduce((a, b) => a + (b.fee || 0), 0), wins = closed.filter(b => b.status === 'won').length;
+  const expWin = closed.reduce((a, b) => a + (b.p || 0), 0);
+  return { closed, open, pnl, staked, fees, wins, expWin };
+}
+const charts = {};
+function drawChart(id, B) {
+  const pts = B.filter(b => b.status === 'won' || b.status === 'lost').sort((a, b) => Date.parse(a.resolvedAt) - Date.parse(b.resolvedAt));
+  let cum = 0; const data = pts.map(b => ({ x: Date.parse(b.resolvedAt), y: +(cum += b.pnl).toFixed(2) }));
+  if (charts[id]) charts[id].destroy();
+  if (!window.Chart || !data.length) return;
+  charts[id] = new Chart($(id), { type: 'line', data: { datasets: [{ data, borderColor: css('--s1'), backgroundColor: css('--s1'), pointRadius: data.length > 60 ? 0 : 2, stepped: true, borderWidth: 2 }] },
+    options: { maintainAspectRatio: false, animation: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'Acumulado ' + fmt$(c.parsed.y), title: c => fmtT(c[0].parsed.x) } } },
+      scales: { x: { type: 'linear', ticks: { color: css('--muted'), maxTicksLimit: 6, callback: v => new Date(v).toLocaleDateString('es', { day: 'numeric', month: 'short' }) }, grid: { color: css('--grid') } },
+        y: { ticks: { color: css('--muted'), callback: v => fmt$(v) }, grid: { color: css('--grid') } } } } });
+}
+function strategyCard(el, title, rules, B, chartId, rowFn, head, empty) {
+  const s = stats(B);
+  const tiles = [
+    ['Apuestas', B.length, `${s.open.length} abiertas · ${s.closed.length} resueltas`],
+    ['Ganancia (con comisión)', `<span class="${cls(s.pnl)}">${fmt$(s.pnl)}</span>`, `ROI ${fmtPct(s.staked ? s.pnl / s.staked : null)} · comisiones ${fmt$(s.fees)}`],
+    ['Acierto', s.closed.length ? fmtPct(s.wins / s.closed.length, 0) : '–', s.closed.length ? `el modelo esperaba ${fmtPct(s.expWin / s.closed.length, 0)}` : 'sin resueltas'],
+  ];
+  const rows = B.slice().sort((a, b) => Date.parse(b.placedAt) - Date.parse(a.placedAt)).slice(0, 40);
+  el.innerHTML = `<h2>${title}</h2><ul class="strat">${rules.map(r => `<li>${r}</li>`).join('')}</ul>
+    <div class="tiles">${tiles.map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('')}</div>
+    <div class="chartbox"><canvas id="${chartId}"></canvas></div>
+    <div class="tablewrap" style="margin-top:10px"><table><tr>${head}</tr>${rows.length ? rows.map(rowFn).join('') : `<tr><td colspan="9" class="small">${empty}</td></tr>`}</table></div>
+    ${B.length > 40 ? `<p class="small">Se muestran las 40 más recientes de ${B.length}.</p>` : ''}`;
+  drawChart(chartId, B);
+}
+
+function render() {
+  renderTabs();
+  const ageH = C.generatedAt ? (Date.now() - Date.parse(C.generatedAt)) / 36e5 : Infinity;
+  $('updated').textContent = C.generatedAt ? `Última actualización: ${new Date(C.generatedAt).toLocaleString('es')}` : 'Sin datos todavía';
+  $('stale').style.display = ageH > 1 ? '' : 'none';
+  $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? Math.round(ageH * 60) + ' minutos' : 'nunca'}</b><div class="sub" style="margin:4px 0 0">Los bots corren en tu PC: revisa que esté encendida y con internet. Detalles en <code>data/log.txt</code> (líneas con [cripto] y [cripto-rapido]).</div>`;
+
+  const db = (C.daily || {}).bets || [], fb = (C.fast || {}).bets || [];
+  const sd = stats(db), sf = stats(fb);
+  const st = (C.fast || {}).state;
+  const lagMin = st && st.lastLoop && C.generatedAt ? (Date.parse(C.generatedAt) - Date.parse(st.lastLoop)) / 6e4 : null;
+  const alive = lagMin != null && lagMin < 10;
+  $('tiles').innerHTML = [
+    ['Bitcoin (Binance)', fmtUsd(C.spot), `volatilidad ${fmtPct(C.sigma, 0)} anual${C.rv ? ` · realizada ${fmtPct(C.rv, 0)}` : ''}`],
+    ['Ganancia total', `<span class="${cls(sd.pnl + sf.pnl)}">${fmt$(sd.pnl + sf.pnl)}</span>`, `${sd.closed.length + sf.closed.length} apuestas resueltas`],
+    ['Diaria', `<span class="${cls(sd.pnl)}">${fmt$(sd.pnl)}</span>`, `${db.length} apuestas`],
+    ['15 minutos', `<span class="${cls(sf.pnl)}">${fmt$(sf.pnl)}</span>`, `${fb.length} apuestas`],
+    ['Bot rápido', `<span class="dot" style="background:${alive ? css('--good') : css('--bad')}"></span>${alive ? 'Activo' : 'Detenido'}`,
+      st ? `último ciclo ${fmtT(st.lastLoop)} · ${(st.loops || 0).toLocaleString('es')} ciclos${st.errors ? ` · ${st.errors} errores` : ''}` : 'todavía no arrancó'],
+  ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
+
+  strategyCard($('dailyCard'), '📅 Diaria: valor justo', [
+    'Mercados “Bitcoin por encima de $X” que se resuelven con Binance a las 12:00 (hora de Nueva York)',
+    `Modelo: precio actual de Binance + volatilidad ${D.volSource === 'dvol' ? 'implícita de Deribit (DVOL)' : 'realizada'}; apuesta si Polymarket está más barato`,
+    `${tiersTxt(D.tiers)} · entre ${D.minHours} y ${D.maxHours} h del cierre · precio ${Math.round((D.minPrice || 0) * 100)}–${Math.round((D.maxPrice || 1) * 100)}¢`,
+    `Máximo ${D.maxPerEvent || 1} apuesta por fecha (todos los precios de una fecha se mueven juntos)`,
+  ], db, 'chDaily', b => { const p = b.status === 'open' ? (b.curPrice != null ? (b.stake / b.price) * b.curPrice - b.stake - b.fee : null) : b.pnl;
+    return `<tr><td>${fmtT(b.placedAt)}</td><td><a href="https://polymarket.com/event/${esc(b.ev)}" target="_blank" rel="noopener">${b.side === 'YES' ? 'Sí' : 'No'} &gt; ${fmtUsd(b.k)}</a></td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtPct(b.p, 0)}</td><td class="num pos">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; },
+    '<th>Apostada</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
+    'Todavía no hay apuestas: el modelo y Polymarket coinciden casi siempre. Se registra una sola cuando la diferencia supera el mínimo.');
+
+  strategyCard($('fastCard'), '⚡ 15 minutos: velocidad', [
+    'Mercados “Bitcoin sube o baja” de 15 min, resueltos con el promedio del precio en la ventana',
+    `Cada ~${F.pollSec || 2} s calcula con Binance la probabilidad de “sube” (modelo ${F.model === 'end' ? 'precio final' : 'promedio TWAP'}) y la compara con el libro de órdenes`,
+    `${tiersTxt(F.tiers)} · solo en los últimos ${Math.round((F.maxSecLeft || 600) / 60)} min (y no en los últimos ${F.minSecLeft || 15} s) · +${Math.round((F.slip || 0) * 100)}¢ de deslizamiento simulado`,
+    'Una apuesta por ventana. Con internet de casa el bot es lento frente a los profesionales: si gana aquí, en real ganaría menos',
+    (() => { const r = (st && st.rule) || {}; const ok = r.canBet;
+      return `${ok ? '<b class="pos">Apostando</b>' : '<b>Fase de observación (no apuesta todavía)</b>'}: la regla del modelo coincidió con la resolución real en ${r.rate != null ? fmtPct(r.rate, 0) : '–'} de ${r.n || 0} ventanas; necesita ≥ ${Math.round((F.minRuleMatch || 0.9) * 100)}% en al menos ${F.minObserved || 40}`; })(),
+  ], fb, 'chFast', b => `<tr><td>${fmtT(b.placedAt)}</td><td><a href="https://polymarket.com/event/${esc(b.slug)}" target="_blank" rel="noopener">${b.side === 'UP' ? '⬆ Sube' : '⬇ Baja'}</a> <span class="small">faltaban ${b.secLeft}s</span></td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtPct(b.p, 0)}</td><td class="num pos">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(b.pnl)}">${b.status === 'open' ? '–' : fmt$(b.pnl)}</td></tr>`,
+    '<th>Apostada</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
+    !alive ? 'El bot rápido no está corriendo.' : st && st.rule && st.rule.canBet ? 'Todavía no hay apuestas: el bot mira cada ventana y apuesta solo cuando encuentra ventaja.'
+      : 'En fase de observación: registra cada ventana de 15 minutos sin apostar, hasta comprobar que su regla coincide con la resolución real.');
+
+  // Calibracion: Brier modelo vs mercado
+  const brier = (rows, f) => { const r = rows.filter(x => f(x) != null); return r.length ? r.reduce((a, x) => a + (f(x) - x.y) ** 2, 0) / r.length : null; };
+  const crow = (name, rows, fm, fk, extra = '') => { const bm = brier(rows, fm), bk = brier(rows, fk), n = rows.filter(x => fm(x) != null && fk(x) != null).length;
+    const win = bm != null && bk != null ? (bm < bk ? '<span class="pos">Modelo</span>' : bm > bk ? '<span class="neg">Mercado</span>' : 'Empate') : '–';
+    return `<tr><td>${name}${extra}</td><td class="num">${n}</td><td class="num">${bm != null ? bm.toFixed(4) : '–'}</td><td class="num">${bk != null ? bk.toFixed(4) : '–'}</td><td>${n ? win : '<span class="small">sin datos aún</span>'}</td></tr>`; };
+  const snaps = ((C.daily || {}).snaps || []).filter(s => s.won != null).map(s => ({ ...s, y: s.won }));
+  const wins = ((C.fast || {}).windows || []).filter(w => w.upWon === 0 || w.upWon === 1);
+  let html = '<tr><th>Momento</th><th class="num">Casos</th><th class="num">Brier modelo</th><th class="num">Brier mercado</th><th>Acierta más</th></tr>';
+  html += [24, 12, 6, 3, 1].map(h => crow(`Diaria, ${h} h antes del cierre`, snaps.filter(s => s.h === h), s => s.p, s => s.mid)).join('');
+  const wr = cp => wins.filter(w => w.checks && w.checks[cp]).map(w => ({ y: w.upWon, pt: w.checks[cp][0], pe: w.checks[cp][1], mid: w.checks[cp][2] }));
+  html += [600, 300, 120, 60, 30].map(cp => crow(`15 min, faltando ${cp >= 60 ? cp / 60 + ' min' : cp + ' s'}`, wr(cp), x => (F.model === 'end' ? x.pe : x.pt), x => x.mid)).join('');
+  $('calib').innerHTML = html;
+
+  const rc = (name, f) => { const r = wins.filter(w => f(w) != null); const ok = r.filter(w => f(w) === w.upWon).length;
+    return `<tr><td>${name}</td><td class="num">${r.length}</td><td class="num">${r.length ? fmtPct(ok / r.length, 1) : '–'}</td></tr>`; };
+  $('rulecheck').innerHTML = '<tr><th>Regla calculada con Binance</th><th class="num">Ventanas</th><th class="num">Coincide con Polymarket</th></tr>' +
+    rc('Promedio de la ventana ≥ precio de inicio (TWAP)', w => w.twapUp) + rc('Precio final ≥ precio de inicio', w => w.endUp) + rc('Promedio del último minuto ≥ promedio del minuto previo al inicio', w => w.end60Up);
+
+  // Escalera de mercados diarios
+  const me = minEdge(D.tiers);
+  $('ladder').innerHTML = (C.ladder || []).length ? C.ladder.map(l => `<h3><a href="https://polymarket.com/event/${esc(l.ev)}" target="_blank" rel="noopener">${esc(l.title)}</a> <span class="small">· cierra ${fmtDT(l.end)} · faltan ${l.tauH} h${l.tauH < D.minHours || l.tauH > D.maxHours ? ' (fuera de la ventana para apostar)' : ''}</span></h3>
+    <div class="tablewrap"><table><tr><th class="num">Precio BTC</th><th class="num">Modelo (Sí)</th><th class="num">Compra Sí</th><th class="num">Ventaja Sí</th><th class="num">Compra No</th><th class="num">Ventaja No</th></tr>
+    ${l.strikes.filter(s => (s.yesAsk ?? 1) < 0.995 && (s.noAsk ?? 1) < 0.995 || Math.abs(s.k - C.spot) < 6000).map(s => `<tr${Math.abs(s.k - C.spot) < 1000 ? ' style="font-weight:600"' : ''}><td class="num">${fmtUsd(s.k)}</td><td class="num">${fmtPct(s.p, 1)}</td><td class="num">${fmtC(s.yesAsk)}</td><td class="num ${s.eYes >= me && s.yesAsk >= D.minPrice && s.yesAsk <= D.maxPrice ? 'edge' : cls(s.eYes)}">${fmtPP(s.eYes)}</td><td class="num">${fmtC(s.noAsk)}</td><td class="num ${s.eNo >= me && s.noAsk >= D.minPrice && s.noAsk <= D.maxPrice ? 'edge' : cls(s.eNo)}">${fmtPP(s.eNo)}</td></tr>`).join('')}</table></div>`).join('')
+    : '<p class="small">Sin mercados diarios abiertos ahora.</p>';
+}
+render();
+</script>
+<script src="refresh.js?v=1"></script>
+</body>
+</html>

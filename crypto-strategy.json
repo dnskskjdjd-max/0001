@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "nota": "Bitcoin, simulado. Diario: valor justo vs Binance + volatilidad Deribit. Rapido: ventanas de 15 min (TWAP).",
+  "daily": {
+    "volSource": "dvol",
+    "minHours": 1,
+    "maxHours": 30,
+    "minPrice": 0.05,
+    "maxPrice": 0.95,
+    "maxPerEvent": 1,
+    "slip": 0,
+    "tiers": [ { "edge": 0.12, "stake": 3 }, { "edge": 0.08, "stake": 2 }, { "edge": 0.05, "stake": 1 } ]
+  },
+  "fast": {
+    "model": "twap",
+    "pollSec": 2,
+    "maxSecLeft": 600,
+    "minSecLeft": 15,
+    "minPrice": 0.05,
+    "maxPrice": 0.95,
+    "slip": 0.01,
+    "volMinutes": 120,
+    "minObserved": 40,
+    "minRuleMatch": 0.9,
+    "tiers": [ { "edge": 0.12, "stake": 3 }, { "edge": 0.08, "stake": 2 }, { "edge": 0.05, "stake": 1 } ]
+  }
+}
