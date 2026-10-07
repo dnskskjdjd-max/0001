@@ -1,3 +1,24 @@
 [
-
+    {
+        "id":  "bitcoin-above-82k-on-october-8-2026|NO",
+        "ev":  "bitcoin-above-on-october-8-2026",
+        "slug":  "bitcoin-above-82k-on-october-8-2026",
+        "k":  82000,
+        "side":  "NO",
+        "token":  "110480365890506686295986233351849109908200178576030840215519628357060401712336",
+        "stake":  1,
+        "price":  0.141,
+        "fee":  0.0601,
+        "p":  0.1831,
+        "edge":  0.0336,
+        "S":  83235.99,
+        "sig":  0.3655,
+        "tauH":  17.65,
+        "placedAt":  "2026-10-07T22:21:16Z",
+        "end":  "2026-10-08T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.141,
+        "pnl":  null,
+        "version":  3
+    }
 ]
