@@ -1,0 +1,11 @@
+{
+  "title": "Filtrada",
+  "version": 1,
+  "desde": "2026-10-07T05:22:35Z",
+  "nota": "v5 sin los grupos que mas pierden: sin precios de 60-85c, sin consenso 9-10/10, sin futbol ni politica",
+  "th": 70, "rule": "flat", "baseStake": 2, "consensusStake": 2, "minAgree": 6, "topN": 10, "maxRank": 0, "exclHedged": 0,
+  "priceMode": "ask", "slip": 0, "minLiq": 0, "maxHedge": 1, "maxDays": null, "cat": "no-esports",
+  "lowScoreMin": 60, "lowScoreAgree": 8, "lowScoreStake": 2, "lowScoreMaxPrice": 0,
+  "minAgreeAll": 5, "maxAgree": 8, "minPrice": 0.45, "maxPrice": 0.60,
+  "maxOverWhale": -1, "excludeCats": ["F\u00fatbol", "Pol\u00edtica / elecciones"], "onePerEvent": 1
+}

@@ -9,6 +9,7 @@
   // Evita que el navegador (o GitHub Pages) muestre datos en caché
   document.write('<script src="data/data.js?v=' + Date.now() + '"><\/script>');
   document.write('<script src="data/copiers.js?v=' + Date.now() + '"><\/script>');
+  document.write('<script src="data/tests.js?v=' + Date.now() + '"><\/script>');
 </script>
 <style>
 :root {
@@ -83,6 +84,8 @@ a.btn.sell { border-color: var(--bad); }
 .badge.sold { color: var(--ink-2); }
 pre.json { background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 8px; overflow-x: auto; font-size: 12px; }
 .note { background: var(--warn-bg); border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 13px; }
+details { margin-top: 8px; }
+details > summary { cursor: pointer; padding: 6px 0; color: var(--ink-2); }
 </style>
 </head>
 <body>
@@ -111,6 +114,14 @@ pre.json { background: var(--page); border: 1px solid var(--border); border-radi
       </div>
     </div>
     <div class="tablewrap" style="margin-top:16px"><table id="ledger"></table></div>
+  </div>
+
+  <div class="card" id="testsCard" style="display:none">
+    <h2>🧪 Pruebas de estrategias (en paralelo)</h2>
+    <p class="sub">Cada estrategia apuesta con las mismas recomendaciones en su propio historial simulado, con una sola apuesta por partido, $2 fijos y la comisión de Polymarket descontada. La principal (v5) se cuenta desde la misma fecha para comparar en igualdad de condiciones. Con menos de ~30 resueltas por estrategia, las diferencias pueden ser suerte.</p>
+    <div class="tablewrap"><table id="testsTable"></table></div>
+    <div class="chartbox" style="margin-top:16px"><canvas id="testsChart"></canvas></div>
+    <div id="testsBets" style="margin-top:12px"></div>
   </div>
 
   <h2 style="margin:32px 0 4px; font-size:18px">Simulador (hipotético)</h2>
@@ -455,6 +466,62 @@ function renderLedger() {
       : `<tr><td colspan="14" class="small">Todavía no hay apuestas. Se registran en la próxima ejecución del tracker.</td></tr>`);
 }
 
+// Pruebas de estrategias en paralelo (data/tests.js): cada una con su historial; la principal se cuenta desde la misma fecha
+function describeTest(s) {
+  return [
+    s.lowScoreStake > 0 ? `Fire Score ≥ ${s.th} (o ${s.lowScoreMin}–${s.th - 1} con ≥ ${s.lowScoreAgree}/10 ballenas)` : `Fire Score ≥ ${s.th}`,
+    `$${s.baseStake} fijos`,
+    s.minAgreeAll > 0 || s.maxAgree > 0 ? `${s.minAgreeAll || 0}–${s.maxAgree || s.topN} de las ${s.topN} mejores ballenas de acuerdo` : null,
+    s.minPrice > 0 || s.maxPrice > 0 ? `precio ${Math.round((s.minPrice || 0) * 100)}–${Math.round((s.maxPrice || 1) * 100)}¢` : null,
+    s.maxOverWhale >= 0 ? `pagando como mucho ${Math.round(s.maxOverWhale * 100)}¢ más que la entrada media de las ballenas` : null,
+    (s.excludeCats || []).length ? `sin ${s.excludeCats.join(', ')}` : null,
+    s.cat === 'no-esports' ? 'sin eSports' : null,
+    s.onePerEvent ? '1 apuesta por partido o evento' : null,
+  ].filter(Boolean).join(' · ');
+}
+function laneStats(B) {
+  const res = B.filter(b => ['won', 'lost', 'sold'].includes(b.status)), open = B.filter(b => b.status === 'open');
+  const settled = res.filter(b => b.status !== 'sold'), wins = settled.filter(b => b.status === 'won').length;
+  const stakedRes = res.reduce((a, b) => a + b.stake, 0), pnl = res.reduce((a, b) => a + (b.pnl || 0), 0);
+  const mtm = open.reduce((a, b) => a + (b.curPrice != null ? valueNow(b, b.curPrice) : 0), 0);
+  const implied = settled.length ? settled.reduce((a, b) => a + b.price, 0) / settled.length : null;
+  return { n: B.length, open: open.length, res: res.length, wins, settled: settled.length, stakedRes, pnl, mtm,
+    winRate: settled.length ? wins / settled.length : null, implied, roi: stakedRes ? pnl / stakedRes : null };
+}
+function renderTests() {
+  const T = (window.TESTS_DATA || {}).tests || [];
+  $('testsCard').style.display = T.length ? '' : 'none';
+  if (!T.length) return;
+  const since = T.map(t => t.strategy.desde).filter(Boolean).sort()[0];
+  const main = (D.bets || []).filter(b => !since || b.placedAt >= since);
+  const lanes = [{ id: 'principal', title: `Principal (v${D.strategy ? D.strategy.version : '?'})`, rules: 'La estrategia actual, sin cambios (montos $1/$3/$5)', bets: main }]
+    .concat(T.map(t => ({ id: t.id, title: t.strategy.title || t.id, rules: describeTest(t.strategy), bets: t.bets || [] })));
+  const L = lanes.map(l => Object.assign(l, laneStats(l.bets)));
+  $('testsTable').innerHTML = `<tr><th>Estrategia</th><th>Reglas</th><th class="num">Apuestas</th><th class="num">Resueltas</th><th class="num">Acierto / implícita</th><th class="num">Apostado (resueltas)</th><th class="num">Ganancia</th><th class="num">Rentabilidad</th><th class="num">Abiertas a precio actual</th></tr>` +
+    L.map(l => `<tr><td><b>${esc(l.title)}</b></td><td class="small">${esc(l.rules)}</td><td class="num">${l.n}${l.open ? ` <span class="small">(${l.open} abiertas)</span>` : ''}</td><td class="num">${l.res}${l.settled ? ` <span class="small">(${l.wins} ganadas)</span>` : ''}</td><td class="num">${fmtPct(l.winRate, 0)} / ${fmtPct(l.implied, 0)}</td><td class="num">${fmt$(l.stakedRes)}</td><td class="num ${cls(l.pnl)}">${fmt$(l.pnl)}</td><td class="num ${cls(l.roi)}">${fmtPct(l.roi)}</td><td class="num ${cls(l.mtm)}">${fmt$(l.mtm)}</td></tr>`).join('') +
+    `<tr><td colspan="9" class="small">Desde ${fmtDT(since)}. Ganancia y rentabilidad, sobre apuestas resueltas y con comisiones.</td></tr>`;
+  const cols = series();
+  chart('testsChart', {
+    type: 'line',
+    data: { datasets: L.map((l, i) => { let acc = 0; return { label: l.title, borderColor: cols[i % cols.length], backgroundColor: cols[i % cols.length], borderWidth: 2, pointRadius: 0, pointHoverRadius: 5, stepped: true,
+      data: [{ x: Date.parse(since), y: 0, title: 'inicio' }].concat(l.bets.filter(b => ['won', 'lost', 'sold'].includes(b.status)).sort((a, b) => Date.parse(a.resolvedAt) - Date.parse(b.resolvedAt))
+        .map(b => ({ x: Date.parse(b.resolvedAt), y: (acc += b.pnl), title: b.title }))) }; }) },
+    options: { maintainAspectRatio: false, parsing: false, interaction: { mode: 'nearest', intersect: false },
+      scales: { x: { type: 'linear', ticks: { callback: v => fmtDate(v), maxTicksLimit: 6 }, grid: { display: false } }, y: { ticks: { callback: v => fmt$(v) } } },
+      plugins: { title: { display: true, text: 'Ganancia acumulada desde el inicio de las pruebas' },
+        tooltip: { callbacks: { title: it => fmtDate(it[0].raw.x), label: it => `${it.dataset.label}: ${fmt$(it.raw.y)} — ${it.raw.title}` } } } }
+  });
+  const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió', void: 'Anulada', sold: 'Vendida' };
+  $('testsBets').innerHTML = L.filter(l => l.id !== 'principal').map(l => {
+    const B = l.bets.slice().sort((a, b) => Date.parse(b.placedAt) - Date.parse(a.placedAt));
+    return `<details><summary><b>${esc(l.title)}</b>: ${B.length} apuesta${B.length === 1 ? '' : 's'}</summary><div class="tablewrap"><table>
+      <tr><th>Apostada</th><th>Mercado</th><th>Posición</th><th class="num">Score</th><th class="num">Precio</th><th class="num" title="Precio medio al que entraron las ballenas">Ballenas</th><th class="num">Consenso</th><th class="num">Apuesta</th><th>Estado</th><th class="num">P&amp;L</th></tr>` +
+      (B.length ? B.map(b => { const p = b.status === 'open' ? (b.curPrice != null ? valueNow(b, b.curPrice) : null) : b.pnl;
+        return `<tr><td>${fmtDT(b.placedAt)}</td><td class="title"><a href="${link(b)}" target="_blank" rel="noopener">${esc(b.title)}</a></td><td>${esc(b.position)}</td><td class="num">${b.score}</td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtC(b.whaleAvgEntry)}</td><td class="num">${esc(b.consensus)}</td><td class="num">$${b.stake}</td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; }).join('')
+        : `<tr><td colspan="10" class="small">Todavía no hay apuestas: ninguna recomendación cumplió estas reglas.</td></tr>`) + `</table></div></details>`;
+  }).join('');
+}
+
 // Convierte los filtros del simulador en una nueva estrategia y abre el editor de GitHub
 $('useFilters').addEventListener('click', async () => {
   const next = {
@@ -490,6 +557,7 @@ function render() {
     <div class="sub" style="margin:4px 0 0">La actualización corre cada 5 minutos en tu PC (tarea de Windows "FirePolymarket Tracker"). Revisa que la PC esté encendida, con tu sesión iniciada y con internet. Los detalles están en <code>local-run.log</code> (en la carpeta de la PC) y <code>data/log.txt</code>. Como respaldo, puedes ejecutar a mano el workflow "Tracker" en GitHub.</div>`;
 
   renderLedger();
+  try { renderTests(); } catch (e) { console.error(e); }
 
   const bs = bets(state.th), st = stats(bs, 5000);
   const v = verdictOf(st);

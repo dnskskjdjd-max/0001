@@ -14,6 +14,10 @@ $DataJsFile  = Join-Path $DataDir 'data.js'
 $LogFile     = Join-Path $DataDir 'log.txt'
 $BetsFile    = Join-Path $DataDir 'bets.json'      # historial de apuestas: una vez registrada, la apuesta no cambia (solo su resultado)
 $StrategyFile = Join-Path $Root 'strategy.json'    # reglas con que se apuesta cada hora; cambiarlas solo afecta a apuestas futuras
+# Estrategias de prueba en paralelo: cada strategies/<id>.json apuesta con las mismas senales en su propio historial
+# (data/bets-<id>.json), sin alertas ni correos. El panel las compara con la principal desde la misma fecha (data/tests.js).
+$TestsDir    = Join-Path $Root 'strategies'
+$TestsJsFile = Join-Path $DataDir 'tests.js'
 $AlertsNewFile = Join-Path $DataDir 'alerts-new.json'  # alertas de venta nuevas de esta ejecucion (el workflow las envia como issues)
 $AlertsCloseFile = Join-Path $DataDir 'alerts-close.json'  # alertas cuyo mercado ya se resolvio (el workflow comenta y cierra el issue)
 $PagesUrl = 'https://dnskskjdjd-max.github.io/0001/'
@@ -332,6 +336,11 @@ $DefaultStrategy = [ordered]@{
     lowScoreMaxPrice = 0   # precio maximo de compra para la conservadora (0 = sin limite)
     minAgreeAll = 0        # consenso minimo (de topN) para cualquier apuesta (0 = sin minimo)
     minPrice = 0; maxPrice = 0   # rango de precio de compra para cualquier apuesta (0 = sin limite)
+    # Filtros extra (los usan las estrategias de prueba; con estos valores no hacen nada)
+    maxAgree = 0                # consenso maximo (0 = sin maximo): con 9-10/10 el precio suele ya descontarlo
+    maxOverWhale = -1           # no comprar si el precio supera la entrada media de las ballenas en mas de esto (-1 = desactivado)
+    excludeCats = @()           # categorias excluidas (nombres de categories.ps1)
+    onePerEvent = 0             # 1 = una sola apuesta por evento o partido (eventSlug) en el historial
 }
 
 function Get-WhaleStats($m, $position) {
@@ -339,6 +348,69 @@ function Get-WhaleStats($m, $position) {
     $tot = ($ps | Measure-Object value -Sum).Sum
     $avg = if ($tot -gt 0) { (($ps | ForEach-Object { $_.avgPrice * $_.value } | Measure-Object -Sum).Sum / $tot) } else { $null }
     return @{ wallets = $ps.Count; capital = [Math]::Round([double]$tot); avgEntry = $avg }
+}
+
+# Lee una estrategia (JSON) y completa los campos que falten con los valores por defecto
+function Read-Strategy($path) {
+    $st = ConvertTo-Hash (Get-Content $path -Raw -Encoding UTF8 | ConvertFrom-Json)
+    foreach ($k in $DefaultStrategy.Keys) { if (-not $st.ContainsKey($k)) { $st[$k] = $DefaultStrategy[$k] } }
+    if ($st.th -lt $MinTrack) { throw "th debe ser >= $MinTrack" }
+    return $st
+}
+
+# Apuestas nuevas de una estrategia en su historial ($ledger: key -> apuesta), una sola por mercado (si el sitio
+# cambia de bando, se ignora), con una copia de la estrategia vigente. Devuelve cuantas agrego.
+# La usan la estrategia principal (strategy.json -> bets.json) y las de prueba (strategies/*.json -> bets-<id>.json).
+function Add-StrategyBets($ledger, $strategy, $current, $gamma, $now, $tag) {
+    $added = 0
+    $nowUtc = (Get-Date).ToUniversalTime()
+    $betSlugs = @{}; $betEvents = @{}
+    foreach ($b in $ledger.Values) { $betSlugs[$b.slug] = $true; if ($b.eventSlug) { $betEvents[$b.eventSlug] = $true } }
+    # Con una apuesta por evento, entre mercados del mismo partido se queda el de mayor score
+    $list = if ($strategy.onePerEvent) { @($current | Sort-Object { - [double]$_.score }) } else { @($current) }
+    foreach ($c in $list) {
+        if ($betSlugs.ContainsKey($c.slug)) { continue }
+        if ($strategy.onePerEvent -and $c.eventSlug -and $betEvents.ContainsKey($c.eventSlug)) { continue }
+        # No se apuesta en partidos ya empezados: en vivo los precios y las recomendaciones se distorsionan
+        if (Test-Started $gamma[$c.slug]) { continue }
+        # Score bajo el umbral: solo entra como apuesta conservadora si las ballenas estan muy de acuerdo
+        $lowTier = $c.score -lt $strategy.th
+        if ($lowTier -and -not ($strategy.lowScoreStake -gt 0 -and $c.score -ge $strategy.lowScoreMin)) { continue }
+        $days = $null
+        if ($c.endDate) { try { $days = ([DateTimeOffset]::Parse("$($c.endDate)").UtcDateTime - $nowUtc).TotalDays } catch {} }
+        if ($strategy.maxDays -and ($null -eq $days -or $days -gt $strategy.maxDays)) { continue }
+        $cat = Get-Category "$($c.slug) $($c.eventSlug) $($c.title)"
+        if (-not (Test-CategoryAllowed $cat $strategy.cat)) { continue }
+        if (@($strategy.excludeCats) -contains $cat) { continue }
+        if ($strategy.minLiq -and -not ($c.liq -ge $strategy.minLiq)) { continue }
+        if ($strategy.maxHedge -lt 1 -and $null -ne $c.hedgeCap -and $c.hedgeCap -gt $strategy.maxHedge) { continue }
+        $base = if ($strategy.priceMode -eq 'ask' -and $c.ask) { $c.ask } else { $c.price }
+        $price = [Math]::Round([Math]::Min(0.99, $base + $strategy.slip / 100), 4)
+        $cons = Get-Consensus $c.top $strategy
+        if ($lowTier -and $cons.agree -lt $strategy.lowScoreAgree) { continue }
+        if ($strategy.minAgreeAll -gt 0 -and $cons.agree -lt $strategy.minAgreeAll) { continue }
+        if ($strategy.maxAgree -gt 0 -and $cons.agree -gt $strategy.maxAgree) { continue }
+        if ($strategy.minPrice -gt 0 -and $price -lt $strategy.minPrice) { continue }
+        if ($strategy.maxPrice -gt 0 -and $price -gt $strategy.maxPrice) { continue }
+        if ($lowTier -and $strategy.lowScoreMaxPrice -gt 0 -and $price -gt $strategy.lowScoreMaxPrice) { continue }
+        # No perseguir: si el precio ya subio sobre la entrada media de las ballenas, su informacion ya esta en el precio
+        if ($strategy.maxOverWhale -ge 0 -and ($null -eq $c.whaleAvgEntry -or $price -gt [double]$c.whaleAvgEntry + $strategy.maxOverWhale)) { continue }
+        $stake = if ($lowTier) { $strategy.lowScoreStake }
+                 elseif ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
+        $feeRate = Get-FeeRate $gamma[$c.slug]
+        $ledger[$c.key] = @{
+            key = $c.key; placedAt = $now; slug = $c.slug; title = $c.title; position = $c.position
+            eventSlug = $c.eventSlug; questionID = $c.questionID; endDate = $c.endDate
+            score = $c.score; price = $price; stake = $stake; feeRate = $feeRate; fee = (Get-TradeFee $stake $price $feeRate); consensus = "$($cons.agree)/$($cons.n)"; tier = $(if ($lowTier) { 'conservadora' } else { 'normal' })
+            hedgeCap = $c.hedgeCap; liq = $c.liq; vegasProb = $c.vegas; whaleAvgEntry = $c.whaleAvgEntry; strategy = $strategy.Clone()
+            status = 'open'; curPrice = $c.price; curPriceAt = $now
+        }
+        $betSlugs[$c.slug] = $true
+        if ($c.eventSlug) { $betEvents[$c.eventSlug] = $true }
+        $added++
+        Log "$(if ($tag) { "[prueba:$tag] " })Apuesta$(if ($lowTier) { ' conservadora' }): `$$stake a $($c.position) en $($c.title) @ $([Math]::Round($price * 100, 1))c (score $($c.score), consenso $($cons.agree)/$($cons.n))"
+    }
+    return $added
 }
 
 try {
@@ -361,11 +433,18 @@ try {
     # Estrategia: si falta se crea la inicial; si es invalida no se apuesta esta hora (el resto sigue funcionando)
     if (-not (Test-Path $StrategyFile)) { Write-FileAtomic $StrategyFile (ConvertTo-Json -InputObject $DefaultStrategy -Depth 3) }
     $strategy = $null
-    try {
-        $strategy = ConvertTo-Hash (Get-Content $StrategyFile -Raw -Encoding UTF8 | ConvertFrom-Json)
-        foreach ($k in $DefaultStrategy.Keys) { if (-not $strategy.ContainsKey($k)) { $strategy[$k] = $DefaultStrategy[$k] } }
-        if ($strategy.th -lt $MinTrack) { throw "th debe ser >= $MinTrack" }
-    } catch { Log "strategy.json invalido, no se apuesta esta hora: $($_.Exception.Message)"; $strategy = $null }
+    try { $strategy = Read-Strategy $StrategyFile } catch { Log "strategy.json invalido, no se apuesta esta hora: $($_.Exception.Message)"; $strategy = $null }
+    # Estrategias de prueba (cada una con su historial); una invalida se salta sin afectar a las demas
+    $tests = @()
+    foreach ($f in @(Get-ChildItem (Join-Path $TestsDir '*.json') -ErrorAction SilentlyContinue | Sort-Object Name)) {
+        $id = $f.BaseName -replace '[^a-z0-9-]', ''
+        $tst = $null
+        try { $tst = Read-Strategy $f.FullName } catch { Log "[prueba:$id] estrategia invalida, no apuesta esta vez: $($_.Exception.Message)" }
+        $ledger = [ordered]@{}
+        $lf = Join-Path $DataDir "bets-$id.json"
+        if (Test-Path $lf) { foreach ($b in (ConvertTo-Hash (Get-Content $lf -Raw -Encoding UTF8 | ConvertFrom-Json))) { if ($b -and $b.key) { $ledger[$b.key] = $b } } }
+        $tests += @{ id = $id; strategy = $tst; ledger = $ledger; file = $lf; newBets = 0 }
+    }
 
     # 2. Datos del sitio
     $headers = @{ apikey = $AnonKey; Authorization = "Bearer $AnonKey" }
@@ -390,7 +469,7 @@ try {
     $openSlugs  = @($signals.Values | Where-Object { $_.status -eq 'open' -and ($_.kind -ne 'control' -or $refreshCtl -or
         ($_.endDate -and $(try { [DateTimeOffset]::Parse("$($_.endDate)").UtcDateTime -lt $soonCut } catch { $true }))) } | ForEach-Object { $_.slug })
     $newCtlSlugs = @($controls | Where-Object { -not $signals.ContainsKey("ctl|$($_.slug)|$("$($_.position)".ToUpper())") } | ForEach-Object { $_.slug })
-    $openBetSlugs = @($bets.Values | Where-Object { $_.status -eq 'open' } | ForEach-Object { $_.slug })
+    $openBetSlugs = @(@($bets.Values) + @($tests | ForEach-Object { $_.ledger.Values }) | Where-Object { $_ -and $_.status -eq 'open' } | ForEach-Object { $_.slug })
     $gamma = Get-GammaMarkets (@($candidates | ForEach-Object { $_.slug }) + $newCtlSlugs + $openSlugs + $openBetSlugs)
 
     # Tasa de comision de cada mercado: se guarda una vez en senales y apuestas (las antiguas se completan aqui)
@@ -474,47 +553,9 @@ try {
         $newCtl++
     }
 
-    # 3c. Apuestas: una sola por mercado (si el sitio cambia de bando, se ignora), con una copia de la estrategia vigente
-    $newBets = 0
-    if ($strategy) {
-        $nowUtc = (Get-Date).ToUniversalTime()
-        $betSlugs = @{}; foreach ($b in $bets.Values) { $betSlugs[$b.slug] = $true }
-        foreach ($c in $current) {
-            if ($betSlugs.ContainsKey($c.slug)) { continue }
-            # No se apuesta en partidos ya empezados: en vivo los precios y las recomendaciones se distorsionan
-            if (Test-Started $gamma[$c.slug]) { continue }
-            # Score bajo el umbral: solo entra como apuesta conservadora si las ballenas estan muy de acuerdo
-            $lowTier = $c.score -lt $strategy.th
-            if ($lowTier -and -not ($strategy.lowScoreStake -gt 0 -and $c.score -ge $strategy.lowScoreMin)) { continue }
-            $days = $null
-            if ($c.endDate) { try { $days = ([DateTimeOffset]::Parse("$($c.endDate)").UtcDateTime - $nowUtc).TotalDays } catch {} }
-            if ($strategy.maxDays -and ($null -eq $days -or $days -gt $strategy.maxDays)) { continue }
-            if (-not (Test-CategoryAllowed (Get-Category "$($c.slug) $($c.eventSlug) $($c.title)") $strategy.cat)) { continue }
-            if ($strategy.minLiq -and -not ($c.liq -ge $strategy.minLiq)) { continue }
-            if ($strategy.maxHedge -lt 1 -and $null -ne $c.hedgeCap -and $c.hedgeCap -gt $strategy.maxHedge) { continue }
-            $base = if ($strategy.priceMode -eq 'ask' -and $c.ask) { $c.ask } else { $c.price }
-            $price = [Math]::Round([Math]::Min(0.99, $base + $strategy.slip / 100), 4)
-            $cons = Get-Consensus $c.top $strategy
-            if ($lowTier -and $cons.agree -lt $strategy.lowScoreAgree) { continue }
-            if ($strategy.minAgreeAll -gt 0 -and $cons.agree -lt $strategy.minAgreeAll) { continue }
-            if ($strategy.minPrice -gt 0 -and $price -lt $strategy.minPrice) { continue }
-            if ($strategy.maxPrice -gt 0 -and $price -gt $strategy.maxPrice) { continue }
-            if ($lowTier -and $strategy.lowScoreMaxPrice -gt 0 -and $price -gt $strategy.lowScoreMaxPrice) { continue }
-            $stake = if ($lowTier) { $strategy.lowScoreStake }
-                     elseif ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
-            $feeRate = Get-FeeRate $gamma[$c.slug]
-            $bets[$c.key] = @{
-                key = $c.key; placedAt = $now; slug = $c.slug; title = $c.title; position = $c.position
-                eventSlug = $c.eventSlug; questionID = $c.questionID; endDate = $c.endDate
-                score = $c.score; price = $price; stake = $stake; feeRate = $feeRate; fee = (Get-TradeFee $stake $price $feeRate); consensus = "$($cons.agree)/$($cons.n)"; tier = $(if ($lowTier) { 'conservadora' } else { 'normal' })
-                hedgeCap = $c.hedgeCap; liq = $c.liq; vegasProb = $c.vegas; strategy = $strategy.Clone()
-                status = 'open'; curPrice = $c.price; curPriceAt = $now
-            }
-            $betSlugs[$c.slug] = $true
-            $newBets++
-            Log "Apuesta$(if ($lowTier) { ' conservadora' }): `$$stake a $($c.position) en $($c.title) @ $([Math]::Round($price * 100, 1))c (score $($c.score), consenso $($cons.agree)/$($cons.n))"
-        }
-    }
+    # 3c. Apuestas de la estrategia principal y de las de prueba (mismas senales, historiales separados)
+    $newBets = if ($strategy) { Add-StrategyBets $bets $strategy $current $gamma $now '' } else { 0 }
+    foreach ($t in $tests) { if ($t.strategy) { $t.newBets = Add-StrategyBets $t.ledger $t.strategy $current $gamma $now $t.id } }
 
     # 4. Precio actual y resolucion de senales y apuestas abiertas
     $resolvedCount = 0
@@ -532,6 +573,16 @@ try {
         if ($status = Update-FromGamma $b $g $now) {
             $b.pnl = Get-BetPnl $b
             Log "Apuesta resuelta: $($b.title) [$($b.position)] -> $status ($($b.pnl))"
+        }
+    }
+    foreach ($t in $tests) {
+        foreach ($b in @($t.ledger.Values | Where-Object { $_.status -eq 'open' })) {
+            $g = $gamma[$b.slug]
+            if (-not $g) { continue }
+            if ($status = Update-FromGamma $b $g $now) {
+                $b.pnl = Get-BetPnl $b
+                Log "[prueba:$($t.id)] Apuesta resuelta: $($b.title) [$($b.position)] -> $status ($($b.pnl))"
+            }
         }
     }
 
@@ -727,8 +778,16 @@ try {
     $js = "window.TRACKER_DATA = {`"generatedAt`":`"$now`",`"siteUpdatedAt`":`"$($site.lastUpdated)`",`"thresholds`":[$($Thresholds -join ',')],`"signals`":$sigJson,`"runs`":$runsJson,`"current`":$curJson,`"bets`":$betsJson,`"strategy`":$stratJson};"
     Write-FileAtomic $DataJsFile $js
 
+    # Estrategias de prueba: su historial y un resumen para el panel (pestana Fire Score, "Pruebas de estrategias")
+    $testsOut = foreach ($t in $tests) {
+        Write-FileAtomic $t.file (ConvertTo-Json -InputObject @($t.ledger.Values) -Depth 6 -Compress)
+        $meta = if ($t.strategy) { $t.strategy } else { @{ title = $t.id; nota = 'Estrategia invalida: no apuesta' } }
+        @{ id = $t.id; strategy = $meta; bets = @($t.ledger.Values) }
+    }
+    Write-FileAtomic $TestsJsFile "window.TESTS_DATA = {`"generatedAt`":`"$now`",`"tests`":$(ConvertTo-Json -InputObject @($testsOut) -Depth 8 -Compress)};"
+
     $ctlTotal = @($signals.Values | Where-Object { $_.kind -eq 'control' }).Count
-    Log "OK: $($candidates.Count) mercados >= $MinTrack, $above70 >= 70, $newCount senales nuevas, $newCtl de control nuevas, $newBets apuestas nuevas ($($bets.Count) en el historial), $($alertsNew.Count) alertas de venta, $resolvedCount resueltas, $($signals.Count - $ctlTotal) senales + $ctlTotal de control"
+    Log "OK: $($candidates.Count) mercados >= $MinTrack, $above70 >= 70, $newCount senales nuevas, $newCtl de control nuevas, $newBets apuestas nuevas ($($bets.Count) en el historial), $($alertsNew.Count) alertas de venta, $resolvedCount resueltas, $($signals.Count - $ctlTotal) senales + $ctlTotal de control$(foreach ($t in $tests) { "; prueba $($t.id): $($t.newBets) nuevas ($($t.ledger.Count) en total)" })"
     exit 0
 } catch {
     Log "ERROR: $($_.Exception.Message) $($_.InvocationInfo.PositionMessage)"

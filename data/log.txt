@@ -3675,3 +3675,19 @@
 2026-10-07 00:16:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-07 00:16:02  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-07 00:16:06  [cripto] OK diario: BTC 84186, vol 35.9%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (0 en el historial), 0 resueltas; rapido: 0 apuestas
+2026-10-07 00:20:07  [cripto-rapido] Apuesta rapida btc-updown-15m-1791350100: DOWN $1 a 34c, modelo 41.6%, ventaja 6 pp, faltan 594 s
+2026-10-07 00:20:30  --- inicio ---
+2026-10-07 00:20:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-07T05:15:59.212Z)
+2026-10-07 00:20:52  Resuelta: Milwaukee Brewers vs. San Diego Padres [SAN DIEGO PADRES] -> won
+2026-10-07 00:20:57  OK: 15 mercados >= 60, 4 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (44 en el historial), 0 alertas de venta, 1 resueltas, 105 senales + 312 de control
+2026-10-07 00:20:59  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-07 00:20:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-07 00:20:59  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-07 00:21:05  [cripto] OK diario: BTC 84208, vol 35.9%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (0 en el historial), 0 resueltas; rapido: 1 apuestas
+2026-10-07 00:22:49  --- inicio ---
+2026-10-07 00:22:57  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-07T05:15:59.212Z)
+2026-10-07 00:23:00  [prueba:no-perseguir] Apuesta: $2 a NO en Extended FDV above $300M one day after launch? @ 61c (score 71, consenso 7/10)
+2026-10-07 00:23:02  OK: 15 mercados >= 60, 4 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (44 en el historial), 0 alertas de venta, 0 resueltas, 105 senales + 312 de control; prueba filtrada: 0 nuevas (0 en total) ; prueba no-perseguir: 1 nuevas (1 en total)
+2026-10-07 00:23:58  --- inicio ---
+2026-10-07 00:24:06  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-07T05:15:59.212Z)
+2026-10-07 00:24:10  OK: 15 mercados >= 60, 4 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (44 en el historial), 0 alertas de venta, 0 resueltas, 105 senales + 312 de control; prueba filtrada: 0 nuevas (0 en total) ; prueba no-perseguir: 0 nuevas (1 en total)
