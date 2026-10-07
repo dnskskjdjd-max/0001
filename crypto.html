@@ -197,7 +197,8 @@ function render() {
     'Mercados “Bitcoin por encima de $X” que se resuelven con Binance a las 12:00 (hora de Nueva York)',
     `Modelo: precio actual de Binance + volatilidad ${D.volSource === 'dvol' ? 'implícita de Deribit (DVOL)' : 'realizada'}; apuesta si Polymarket está más barato`,
     `${tiersTxt(D.tiers)} · entre ${D.minHours} y ${D.maxHours} h del cierre · precio ${Math.round((D.minPrice || 0) * 100)}–${Math.round((D.maxPrice || 1) * 100)}¢`,
-    `Máximo ${D.maxPerEvent || 1} apuesta por fecha (todos los precios de una fecha se mueven juntos)`,
+    (D.maxPerEvent || 1) > 1 ? `Máximo ${D.maxPerEvent} apuestas por fecha, una por precio (ojo: los precios de una misma fecha se mueven juntos)`
+      : 'Máximo 1 apuesta por fecha (todos los precios de una fecha se mueven juntos)',
   ], db, 'chDaily', b => { const p = b.status === 'open' ? (b.curPrice != null ? (b.stake / b.price) * b.curPrice - b.stake - b.fee : null) : b.pnl;
     return `<tr><td>${fmtT(b.placedAt)}</td><td><a href="https://polymarket.com/event/${esc(b.ev)}" target="_blank" rel="noopener">${b.side === 'YES' ? 'Sí' : 'No'} &gt; ${fmtUsd(b.k)}</a></td><td class="num">${fmtC(b.price)}</td>${curPriceCell(b)}<td class="num">${fmtPct(b.p, 0)}</td><td class="num pos">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(p)}">${fmt$(p)}${b.status === 'open' ? '*' : ''}</td></tr>`; },
     '<th>Apostada</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Precio actual</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',

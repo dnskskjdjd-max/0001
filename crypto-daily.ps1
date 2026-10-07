@@ -116,6 +116,8 @@ try {
         if ($cands.Count -and $placedHere -lt $D.maxPerEvent) {
             # Se confirma con el libro de ordenes real (precio medio para el monto) la mejor oportunidad que siga valiendo
             foreach ($c in @($cands | Sort-Object { - $_.edge })) {
+                # Una sola apuesta por precio (mercado): nunca el mismo precio dos veces ni los dos lados
+                if ($bets | Where-Object { $_.slug -eq $c.r.slug }) { continue }
                 $tokB = if ($c.side -eq 'YES') { $c.r.tokYes } else { $c.r.tokNo }
                 $books = Get-Books @($tokB)
                 $asks = $books["$tokB"].asks
