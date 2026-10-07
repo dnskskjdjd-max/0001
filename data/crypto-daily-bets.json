@@ -20,9 +20,9 @@
         "curPrice":  0.137,
         "pnl":  null,
         "version":  3,
-        "curPriceAt":  "2026-10-07T22:53:21Z",
+        "curPriceAt":  "2026-10-07T22:53:31Z",
         "curP":  0.1823,
-        "curSpot":  83226,
+        "curSpot":  83226.01,
         "hist":  [
                      {
                          "t":  "2026-10-07T22:53:21Z",

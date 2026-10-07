@@ -141,10 +141,22 @@ try {
             }
         }
 
-        # 2c. Valor actual de las apuestas abiertas de esta fecha (precio de venta)
+        # 2c. Valor actual de las apuestas abiertas de esta fecha (precio de venta), modelo y BTC ahora;
+        #     ademas un punto por hora en hist para ver como evoluciona cada apuesta
         foreach ($b in @($bets | Where-Object { $_.ev -eq $evSlug -and $_.status -eq 'open' })) {
             $r = $rows | Where-Object { $_.slug -eq $b.slug } | Select-Object -First 1
-            if ($r) { $b.curPrice = if ($b.side -eq 'YES') { $r.yesBid } else { $r.noBid } }
+            if (-not $r) { continue }
+            $b.curPrice = if ($b.side -eq 'YES') { $r.yesBid } else { $r.noBid }
+            $pNow = if ($b.side -eq 'YES') { $r.p } else { 1 - $r.p }
+            $b | Add-Member -NotePropertyName curPriceAt -NotePropertyValue $now -Force
+            $b | Add-Member -NotePropertyName curP -NotePropertyValue ([Math]::Round($pNow, 4)) -Force
+            $b | Add-Member -NotePropertyName curSpot -NotePropertyValue ([Math]::Round($spot, 2)) -Force
+            $hist = @($b.hist | Where-Object { $_ })
+            $lastT = if ($hist.Count) { [DateTimeOffset]::Parse("$($hist[$hist.Count - 1].t)").UtcDateTime } else { [datetime]::MinValue }
+            if (($nowUtc - $lastT).TotalMinutes -ge 60) {
+                $hist += [pscustomobject]@{ t = $now; px = $b.curPrice; p = [Math]::Round($pNow, 4); S = [Math]::Round($spot, 0) }
+            }
+            $b | Add-Member -NotePropertyName hist -NotePropertyValue @($hist) -Force
         }
     }
 
