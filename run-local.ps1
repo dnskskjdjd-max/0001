@@ -14,9 +14,12 @@ function Invoke-Git([string[]]$a) {
     return $LASTEXITCODE
 }
 
-# Evita dos ejecuciones a la vez (si una tarda mas de 5 minutos)
+# Evita dos ejecuciones a la vez. La publicacion de Bitcoin (crypto-publish.ps1, cada minuto) usa el mismo bloqueo unos
+# segundos: se espera hasta 4 minutos en vez de saltarse la corrida (antes chocaban casi siempre y Fire Score no corria)
 $mutex = New-Object System.Threading.Mutex($false, 'FirePolymarketTrackerLocal')
-if (-not $mutex.WaitOne(0)) { L 'Ya hay una ejecucion en curso; se omite esta'; exit 0 }
+$got = $false
+try { $got = $mutex.WaitOne(240000) } catch [System.Threading.AbandonedMutexException] { $got = $true }
+if (-not $got) { L 'Ya hay una ejecucion en curso; se omite esta'; exit 0 }
 try {
     # Trae cambios hechos en GitHub (por ejemplo, strategy.json editado en la web)
     if ((Invoke-Git @('pull', '--rebase', '--autostash', '-q')) -ne 0) { L 'Fallo git pull; se sigue con los datos locales' }

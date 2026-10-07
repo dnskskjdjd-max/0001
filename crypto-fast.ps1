@@ -133,6 +133,13 @@ function Get-RuleMatch {
 }
 function Resolve-Windows {
     $nowS = Get-UnixNow; $changed = $false
+    # Si el bot se cerro (o lo cerraron) antes de terminar la ventana de una apuesta, esa ventana no quedo registrada y la
+    # apuesta no se resolveria nunca: se reconstruye con el historial de 1 s de Binance (sin las fotos de modelo vs mercado)
+    foreach ($b in @($bets | Where-Object { $_.status -eq 'open' -and $_.W + $T -lt $nowS - 30 })) {
+        if ($wins | Where-Object { $_.W -eq $b.W }) { continue }
+        if ($cur -and $cur.W -eq $b.W) { continue }
+        try { Close-Window (New-Window ([long]$b.W)); Log "Ventana $($b.slug) reconstruida (el bot no estaba corriendo al cerrarse)" } catch {}
+    }
     foreach ($rec in @($wins | Where-Object { $null -eq $_.upWon -and $_.W + $T -lt $nowS - 60 })) {
         if ($rec.W + $T -lt $nowS - 172800) { $rec.upWon = -1; $changed = $true; continue }   # sin resolver tras 2 dias: se descarta
         try {
