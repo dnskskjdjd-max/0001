@@ -1,9 +1,11 @@
 // Barra de actualización compartida por todas las pestañas.
 // - Botón "Actualizar ahora": recarga la página y sus datos saltándose la caché.
-// - Interruptor "Auto": recarga cada 5 min y, sobre todo, al volver a la pestaña o al despertar la PC
+// - Interruptor "Auto": recarga cada 5 min (o los minutos de data-every) y, sobre todo, al volver a la pestaña o al despertar la PC
 //   (los navegadores congelan los temporizadores de pestañas inactivas, por eso un simple setTimeout no basta).
 (function () {
-  const EVERY_MS = 5 * 60 * 1000;
+  // Cada cuanto recargar: data-every="N" (minutos) en la etiqueta script; 5 por defecto
+  const EVERY_MIN = +((document.currentScript && document.currentScript.dataset.every) || 5);
+  const EVERY_MS = EVERY_MIN * 60 * 1000;
   const KEY = 'fst-autorefresh';
   const loadedAt = Date.now();
   let auto = true;
@@ -32,7 +34,7 @@
   const bar = document.createElement('div');
   bar.className = 'fst-refresh';
   bar.innerHTML = `<button type="button" id="fstNow">🔄 Actualizar ahora</button>
-    <label title="Recarga cada 5 min y al volver a esta pestaña"><input type="checkbox" id="fstAuto"><span class="fst-switch"></span>Auto-actualizar</label>
+    <label title="Recarga cada ${EVERY_MIN} min y al volver a esta pestaña"><input type="checkbox" id="fstAuto"><span class="fst-switch"></span>Auto-actualizar</label>
     <span class="fst-age" id="fstAge"></span>`;
   const nav = document.getElementById('tabs');
   if (nav) nav.insertAdjacentElement('afterend', bar); else document.body.prepend(bar);

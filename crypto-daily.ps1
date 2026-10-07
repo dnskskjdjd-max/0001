@@ -8,7 +8,7 @@
 #   - senales: cada mercado+lado que alguna vez supero la ventaja minima (lo que se habria apostado sin el tope por fecha)
 #   - fotos: modelo vs mercado de cada precio a 24/12/6/3/1 h del cierre, para medir quien acierta mas (Brier)
 # Al final arma data/crypto.js para la pestana Cripto (incluye los datos del bot rapido, crypto-fast.ps1).
-# Lo llama run-local.ps1 cada 5 minutos.
+# Lo llama crypto-publish.ps1 cada minuto (tarea "FirePolymarket Bitcoin 1 min"), que sube solo los datos de Bitcoin.
 $ErrorActionPreference = 'Stop'
 $Root = $PSScriptRoot
 $DataDir = Join-Path $Root 'data'
@@ -195,4 +195,5 @@ $out = [ordered]@{
     fast = [ordered]@{ bets = @($fastBets); windows = @($fastWin | Select-Object -Last 700); state = $fastState }
 }
 Write-CFileAtomic $JsFile ("window.CRYPTO = " + (ConvertTo-Json -InputObject $out -Depth 8 -Compress) + ";")
-Log "OK diario: BTC $([Math]::Round([double]$spot, 0)), vol $([Math]::Round([double]$sigma * 100, 1))%, $($ladder.Count) fechas, $newSigs senales nuevas, $newBets apuestas nuevas ($($bets.Count) en el historial), $resolvedCount resueltas; rapido: $($fastBets.Count) apuestas"
+# Corre cada minuto (crypto-publish.ps1): la linea de estado va al registro cada 5 minutos o si hubo novedades
+if ($newBets -or $newSigs -or $resolvedCount -or $nowUtc.Minute % 5 -eq 0) { Log "OK diario: BTC $([Math]::Round([double]$spot, 0)), vol $([Math]::Round([double]$sigma * 100, 1))%, $($ladder.Count) fechas, $newSigs senales nuevas, $newBets apuestas nuevas ($($bets.Count) en el historial), $resolvedCount resueltas; rapido: $($fastBets.Count) apuestas" }

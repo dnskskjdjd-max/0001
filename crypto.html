@@ -166,7 +166,7 @@ function render() {
   renderTabs();
   const ageH = C.generatedAt ? (Date.now() - Date.parse(C.generatedAt)) / 36e5 : Infinity;
   $('updated').textContent = C.generatedAt ? `Última actualización: ${new Date(C.generatedAt).toLocaleString('es')}` : 'Sin datos todavía';
-  $('stale').style.display = ageH > 1 ? '' : 'none';
+  $('stale').style.display = ageH > 10 / 60 ? '' : 'none';
   $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? Math.round(ageH * 60) + ' minutos' : 'nunca'}</b><div class="sub" style="margin:4px 0 0">Los bots corren en tu PC: revisa que esté encendida y con internet. Detalles en <code>data/log.txt</code> (líneas con [cripto] y [cripto-rapido]).</div>`;
 
   const db = (C.daily || {}).bets || [], fb = (C.fast || {}).bets || [];
@@ -233,6 +233,6 @@ function render() {
 }
 render();
 </script>
-<script src="refresh.js?v=1"></script>
+<script src="refresh.js?v=2" data-every="1"></script>
 </body>
 </html>
