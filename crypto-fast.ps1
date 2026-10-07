@@ -11,7 +11,7 @@
 #   3. En los ultimos 10 minutos lee el libro de ordenes de Up y Down; si el modelo supera al precio de compra
 #      (con 1 c de deslizamiento y la comision) en 5 / 8 / 12 puntos, apuesta $1 / $2 / $3. Maximo una apuesta por ventana.
 #      Solo despues de la fase de observacion: la regla del modelo debe coincidir con la resolucion real de Polymarket
-#      en >= 90% de al menos 40 ventanas (minRuleMatch / minObserved en crypto-strategy.json).
+#      en >= 90% de al menos 25 ventanas (minRuleMatch / minObserved en crypto-strategy.json).
 # Guarda cada ventana (para saber que modelo describe mejor la resolucion real y medir modelo vs mercado) y las apuestas.
 # Los datos los sube run-local.ps1 (cada 5 min) y los muestra la pestana Cripto (crypto.html).
 param([int]$RunMinutes = 0)   # 0 = sin fin; para probar: -RunMinutes 3
