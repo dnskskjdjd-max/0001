@@ -47,8 +47,9 @@ try {
     $etNow = [TimeZoneInfo]::ConvertTimeFromUtc($nowUtc, $et)
     $inv = [Globalization.CultureInfo]::InvariantCulture
     foreach ($dd in 0..3) {
-        $d = $etNow.Date.AddDays($dd)
-        $evSlug = "bitcoin-above-on-$($d.ToString('MMMM', $inv).ToLower())-$($d.Day)-$($d.Year)"
+        # (ojo: en PowerShell $day no puede llamarse $d: pisaria $D, la configuracion diaria)
+        $day = $etNow.Date.AddDays($dd)
+        $evSlug = "bitcoin-above-on-$($day.ToString('MMMM', $inv).ToLower())-$($day.Day)-$($day.Year)"
         $ev = @(Get-CJson "https://gamma-api.polymarket.com/events?slug=$evSlug" | ForEach-Object { $_ }) | Select-Object -First 1
         if (-not $ev) { continue }
         $rows = @()
