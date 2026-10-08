@@ -6365,3 +6365,13 @@
 2026-10-08 10:51:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-08 10:51:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-08 10:51:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 10:52:16  [cripto-rapido] Resuelta rapida btc-updown-15m-1791473400: DOWN -> won (0.27 USD)
+2026-10-08 10:55:26  [cripto] OK diario: BTC 81279, vol 38.8%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (4 en el historial), 0 resueltas; rapido: 95 apuestas
+2026-10-08 10:55:32  --- inicio ---
+2026-10-08 10:55:47  [cripto-rapido] Apuesta rapida btc-updown-15m-1791474300: UP $1 a 39c, modelo 45.8%, ventaja 5.1 pp, faltan 253 s
+2026-10-08 10:55:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-08T15:41:01.976Z)
+2026-10-08 10:55:58  Resuelta: LoL: Natus Vincere vs JD Gaming (BO3) - Demacia Cup Global Invitational Group Stage [NATUS VINCERE] -> lost
+2026-10-08 10:56:03  OK: 16 mercados >= 60, 4 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 1 resueltas, 113 senales + 327 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (6 en total)
+2026-10-08 10:56:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-08 10:56:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-08 10:56:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
