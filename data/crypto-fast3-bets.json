@@ -753,5 +753,32 @@
         "pnl":  null,
         "version":  5,
         "tramo":  6
+    },
+    {
+        "id":  "btc-updown-15m-1791487800|3",
+        "W":  1791487800,
+        "slug":  "btc-updown-15m-1791487800",
+        "side":  "DOWN",
+        "token":  "41489816625060568581716213865248398122414352121635994893775008356986992931224",
+        "stake":  1,
+        "price":  0.05,
+        "fee":  0.0665,
+        "p":  0.1068,
+        "edge":  0.0534,
+        "model":  "end60",
+        "secLeft":  180,
+        "S0":  81696,
+        "S":  81794,
+        "twapSoFar":  81790.76,
+        "pTwap":  1,
+        "pEnd":  0.8639,
+        "pEnd60":  0.8932,
+        "askUp":  0.97,
+        "askDown":  0.04,
+        "placedAt":  "2026-10-08T19:42:01Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  5,
+        "tramo":  3
     }
 ]
