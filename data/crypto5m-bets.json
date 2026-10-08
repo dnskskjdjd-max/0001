@@ -51,5 +51,31 @@
         "status":  "open",
         "pnl":  null,
         "version":  6
+    },
+    {
+        "id":  "btc-updown-5m-1791499200|UP",
+        "W":  1791499200,
+        "slug":  "btc-updown-5m-1791499200",
+        "side":  "UP",
+        "token":  "92712965295580989807998625818105948250808710246064154082087402491609510584439",
+        "stake":  3,
+        "price":  0.36,
+        "fee":  0.1344,
+        "p":  0.7055,
+        "edge":  0.3294,
+        "model":  "end60",
+        "secLeft":  173,
+        "S0":  81924.31,
+        "S":  81930,
+        "twapSoFar":  81918.51,
+        "pTwap":  0.5229,
+        "pEnd":  0.5601,
+        "pEnd60":  0.7055,
+        "askUp":  0.35,
+        "askDown":  0.66,
+        "placedAt":  "2026-10-08T22:42:07Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  6
     }
 ]
