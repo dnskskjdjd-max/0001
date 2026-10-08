@@ -212,5 +212,15 @@ $out = [ordered]@{
     fast4 = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto-fast4-bets.json')) }   # estrategia "al contrario"
 }
 Write-CFileAtomic $JsFile ("window.CRYPTO = " + (ConvertTo-Json -InputObject $out -Depth 8 -Compress) + ";")
+
+# 5. Datos para la pestana "Bitcoin 5 min" (crypto5.html): bot de 5 min (crypto-fast.ps1 -Market 5m)
+$st5File = Join-Path $DataDir 'crypto5m-state.json'
+$out5 = [ordered]@{
+    generatedAt = $now; spot = $spot; cfg = $Cfg
+    fast = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto5m-bets.json')); windows = @(Read-CJsonArray (Join-Path $DataDir 'crypto5m-windows.json') | Select-Object -Last 1500)
+        state = $(if (Test-Path $st5File) { try { Get-Content $st5File -Raw | ConvertFrom-Json } catch { $null } } else { $null }) }
+    fast4 = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto5m4-bets.json')) }
+}
+Write-CFileAtomic (Join-Path $DataDir 'crypto5.js') ("window.CRYPTO5 = " + (ConvertTo-Json -InputObject $out5 -Depth 8 -Compress) + ";")
 # Corre cada minuto (crypto-publish.ps1): la linea de estado va al registro cada 5 minutos o si hubo novedades
 if ($newBets -or $newSigs -or $resolvedCount -or $nowUtc.Minute % 5 -eq 0) { Log "OK diario: BTC $([Math]::Round([double]$spot, 0)), vol $([Math]::Round([double]$sigma * 100, 1))%, $($ladder.Count) fechas, $newSigs senales nuevas, $newBets apuestas nuevas ($($bets.Count) en el historial), $resolvedCount resueltas; rapido: $($fastBets.Count) apuestas" }

@@ -726,7 +726,7 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
 const COPIER_ICONS = { 'NFL': '🏈', 'Fútbol': '⚽', 'Economía / Fed': '🏦' };
 $('tabs').innerHTML += (window.COPIERS || []).map(c =>
   `<a href="copy.html?c=${encodeURIComponent(c.id)}">${COPIER_ICONS[c.category] || '📋'} ${esc(c.title || c.id)}</a>`).join('') +
-  `<a href="leagues.html">🏆 LaLiga · Champions</a><a href="crypto.html">₿ Bitcoin</a>`;
+  `<a href="leagues.html">🏆 LaLiga · Champions</a><a href="crypto.html">₿ Bitcoin</a><a href="crypto5.html">⚡ BTC 5 min</a>`;
 render();
 </script>
 <script src="refresh.js?v=1"></script>

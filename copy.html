@@ -129,7 +129,7 @@ const icon = c => COPIER_ICONS[c.category] || '📋';
 function renderTabs() {
   $('tabs').innerHTML = `<a href="dashboard.html">🔥 Fire Score</a>` + (window.COPIERS || []).map(c =>
     `<a href="copy.html?c=${encodeURIComponent(c.id)}" class="${c.id === window.COPIER_SEL ? 'active' : ''}">${icon(c)} ${esc(c.title || c.id)}</a>`).join('') +
-    `<a href="leagues.html">🏆 LaLiga · Champions</a><a href="crypto.html">₿ Bitcoin</a>`;
+    `<a href="leagues.html">🏆 LaLiga · Champions</a><a href="crypto.html">₿ Bitcoin</a><a href="crypto5.html">⚡ BTC 5 min</a>`;
 }
 
 function render() {

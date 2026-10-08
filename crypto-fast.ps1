@@ -18,24 +18,34 @@
 #      apuesta a un lado al que el modelo da < 30%: ahi compra el lado opuesto por el mismo monto.
 # Guarda cada ventana (para saber que modelo describe mejor la resolucion real y medir modelo vs mercado) y las apuestas.
 # Los datos los sube run-local.ps1 (cada 5 min) y los muestra la pestana Cripto (crypto.html).
-param([int]$RunMinutes = 0)   # 0 = sin fin; para probar: -RunMinutes 3
+# -Market 15m (por defecto) o 5m: el mismo bot corre como procesos separados para los mercados de 15 y de 5 minutos,
+# cada uno con sus archivos, su seccion de crypto-strategy.json y su tarea de Windows.
+param([int]$RunMinutes = 0,   # 0 = sin fin; para probar: -RunMinutes 3
+      [ValidateSet('15m', '5m')][string]$Market = '15m')
 $ErrorActionPreference = 'Stop'
 $Root = $PSScriptRoot
 $DataDir = Join-Path $Root 'data'
 . (Join-Path $Root 'crypto-common.ps1')
 $LogFile = Join-Path $DataDir 'log.txt'
-$BetsFile = Join-Path $DataDir 'crypto-fast-bets.json'
-$WinFile = Join-Path $DataDir 'crypto-fast-windows.json'
-$StateFile = Join-Path $DataDir 'crypto-fast-state.json'
 $CfgFile = Join-Path $Root 'crypto-strategy.json'
-$T = 900
-$Checkpoints = @(600, 360, 300, 180, 120, 60, 30)
-$Bets3File = Join-Path $DataDir 'crypto-fast3-bets.json'   # estrategia "3 tramos"
-$Bets4File = Join-Path $DataDir 'crypto-fast4-bets.json'   # estrategia "al contrario"
-function Log($m) { Write-CLog $LogFile 'cripto-rapido' $m }
+$Prof = if ($Market -eq '5m') {
+    @{ T = 300; slug = 'btc-updown-5m-'; files = 'crypto5m'; cfg = 'fast5'; cfg3 = 'fast5t'; cfg4 = 'fast5c'; mutex = 'FirePolymarketCrypto5m'; tag = 'cripto-5m'
+       checks = @(240, 180, 120, 60, 30) }
+} else {
+    @{ T = 900; slug = 'btc-updown-15m-'; files = 'crypto-fast'; cfg = 'fast'; cfg3 = 'fast3'; cfg4 = 'fast4'; mutex = 'FirePolymarketCryptoFast'; tag = 'cripto-rapido'
+       checks = @(600, 360, 300, 180, 120, 60, 30) }
+}
+$T = $Prof.T
+$Checkpoints = $Prof.checks
+$BetsFile = Join-Path $DataDir "$($Prof.files)-bets.json"
+$WinFile = Join-Path $DataDir "$($Prof.files)-windows.json"
+$StateFile = Join-Path $DataDir "$($Prof.files)-state.json"
+$Bets3File = Join-Path $DataDir "$($Prof.files)3-bets.json"   # estrategia "3 tramos" (solo 15 min)
+$Bets4File = Join-Path $DataDir "$($Prof.files)4-bets.json"   # estrategia "al contrario"
+function Log($m) { Write-CLog $LogFile $Prof.tag $m }
 
 # Una sola copia a la vez (la tarea intenta arrancarlo cada 5 minutos por si se cerro)
-$mutex = New-Object System.Threading.Mutex($false, 'FirePolymarketCryptoFast')
+$mutex = New-Object System.Threading.Mutex($false, $Prof.mutex)
 if (-not $mutex.WaitOne(0)) { exit 0 }
 
 $bets = [System.Collections.ArrayList]@(Read-CJsonArray $BetsFile)
@@ -55,7 +65,7 @@ $synced4 = $false
 function Get-UnixNow { return [DateTimeOffset]::UtcNow.ToUnixTimeSeconds() }
 function New-Window([long]$winStart) {
     # (ojo: en PowerShell $w y $W son la misma variable)
-    $slug = "btc-updown-15m-$winStart"
+    $slug = "$($Prof.slug)$winStart"
     $m = @(Get-CJson "https://gamma-api.polymarket.com/markets?slug=$slug" | ForEach-Object { $_ }) | Select-Object -First 1
     $nw = @{ W = $winStart; slug = $slug; up = $null; down = $null; pre = New-Object System.Collections.Generic.List[double]
         closes = New-Object System.Collections.Generic.List[double]; lastMs = $null; S0 = $null; checks = [ordered]@{}; slotsDone = [ordered]@{} }
@@ -272,7 +282,7 @@ try {
         $loopStart = Get-Date
         if ($RunMinutes -gt 0 -and ($loopStart - $startedAt).TotalMinutes -ge $RunMinutes) { break }
         try {
-            if (($loopStart - $cfgAt).TotalMinutes -ge 5) { $c = Get-Content $CfgFile -Raw | ConvertFrom-Json; $F = $c.fast; $F3 = $c.fast3; $F4 = $c.fast4; $cfgVersion = $c.version; $cfgAt = $loopStart }
+            if (($loopStart - $cfgAt).TotalMinutes -ge 5) { $c = Get-Content $CfgFile -Raw | ConvertFrom-Json; $F = $c.($Prof.cfg); $F3 = $c.($Prof.cfg3); $F4 = $c.($Prof.cfg4); $cfgVersion = $c.version; $cfgAt = $loopStart }
             if (-not $synced4) { Sync-Fast4; $synced4 = $true }
             if (-not $volSec -or ($loopStart - $volAt).TotalMinutes -ge 5) {
                 $v = Get-RealizedVol ([int]$F.volMinutes)
