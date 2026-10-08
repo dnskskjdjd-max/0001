@@ -48,9 +48,10 @@
         "askUp":  0.72,
         "askDown":  0.29,
         "placedAt":  "2026-10-08T22:37:09Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  6
+        "status":  "lost",
+        "pnl":  -1.049,
+        "version":  6,
+        "resolvedAt":  "2026-10-08T22:45:35Z"
     },
     {
         "id":  "btc-updown-5m-1791499200|UP",
