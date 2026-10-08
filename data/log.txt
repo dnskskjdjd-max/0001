@@ -6935,3 +6935,14 @@
 2026-10-08 16:26:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-08 16:26:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-08 16:26:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 16:29:25  [cripto] ERROR diario: La operación sobrepasó el tiempo de espera. (linea 13)
+2026-10-08 16:29:38  [cripto-rapido] ERROR: No se puede resolver el nombre remoto: 'clob.polymarket.com' (linea 82)
+2026-10-08 16:29:38  [cripto-5m] ERROR: No se puede resolver el nombre remoto: 'clob.polymarket.com' (linea 82)
+2026-10-08 16:30:29  [cripto] OK diario: BTC 81650, vol 37.9%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (5 en el historial), 0 resueltas; rapido: 5 apuestas
+2026-10-08 16:30:35  --- inicio ---
+2026-10-08 16:31:11  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-08T21:16:17.515Z)
+2026-10-08 16:31:28  OK: 14 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 113 senales + 330 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (6 en total)
+2026-10-08 16:31:31  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-08 16:31:32  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-08 16:31:32  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 16:33:11  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
