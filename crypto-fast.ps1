@@ -302,7 +302,9 @@ try {
                 $p = switch ("$($F.model)") { 'end' { $md.pEnd } 'end60' { $md.pEnd60 } default { $md.pTwap } }
                 $view.S = $md.S; $view.twap = [Math]::Round($md.A, 2); $view.pTwap = [Math]::Round($md.pTwap, 4); $view.pEnd = [Math]::Round($md.pEnd, 4)
                 $view.pEnd60 = $(if ($null -ne $md.pEnd60) { [Math]::Round($md.pEnd60, 4) } else { $null })
-                $maxLeft = [Math]::Max([int]$F.maxSecLeft, $(if ($F3 -and $F3.enabled) { (@($F3.slots) | Measure-Object -Maximum).Maximum } else { 0 }))
+                # El libro se lee desde la primera foto (modelo vs mercado) aunque la apuesta empiece mas tarde
+                $maxLeft = [Math]::Max([Math]::Max([int]$F.maxSecLeft, (@($Checkpoints) | Measure-Object -Maximum).Maximum),
+                    $(if ($F3 -and $F3.enabled) { (@($F3.slots) | Measure-Object -Maximum).Maximum } else { 0 }))
                 if ($cur.up -and $secLeft -le $maxLeft -and $secLeft -gt 0) {
                     $books = Get-Books @($cur.up, $cur.down)
                     $bu = $books[$cur.up]; $bd = $books[$cur.down]

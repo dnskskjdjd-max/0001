@@ -41,10 +41,10 @@
     "slip": 0.01
   },
   "fast5": {
-    "nota": "Mercados de 5 min (btc-updown-5m): mismo modelo end60 y reglas que fast, apuesta en los ultimos 4 min (no en los ultimos 15 s); fase de observacion propia",
+    "nota": "Mercados de 5 min (btc-updown-5m): mismo modelo end60 y reglas que fast, apuesta en los ultimos 3 min (no en los ultimos 15 s; antes 4 min, cambiado el 8 oct); fase de observacion propia",
     "model": "end60",
     "pollSec": 2,
-    "maxSecLeft": 240,
+    "maxSecLeft": 180,
     "minSecLeft": 15,
     "minPrice": 0.05,
     "maxPrice": 0.95,
