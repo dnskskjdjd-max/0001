@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "nota": "Bitcoin, simulado. Diario: valor justo vs Binance + volatilidad Deribit; desde el 7 oct ventaja minima 2 pp ($1 con 2-5, $2 con 5-8, $3 con 8+) y hasta 3 apuestas por fecha (una por precio). Rapido: ventanas de 15 min, modelo end60 (TWAP 60 s de Chainlink al final vs al inicio), fase de observacion superada (28/28 ventanas), apuestas simuladas activas desde el 7 oct.",
   "daily": {
     "volSource": "dvol",
@@ -22,6 +22,16 @@
     "volMinutes": 120,
     "minObserved": 25,
     "minRuleMatch": 0.9,
+    "tiers": [ { "edge": 0.12, "stake": 3 }, { "edge": 0.08, "stake": 2 }, { "edge": 0.05, "stake": 1 } ]
+  },
+  "fast3": {
+    "enabled": true,
+    "nota": "3 tramos: mismo modelo que fast; mira la ventaja una vez faltando 10, 6 y 3 min y apuesta en cada tramo si la hay (hasta 3 por ventana)",
+    "slots": [ 600, 360, 180 ],
+    "slotToleranceSec": 30,
+    "minPrice": 0.05,
+    "maxPrice": 0.95,
+    "slip": 0.01,
     "tiers": [ { "edge": 0.12, "stake": 3 }, { "edge": 0.08, "stake": 2 }, { "edge": 0.05, "stake": 1 } ]
   }
 }

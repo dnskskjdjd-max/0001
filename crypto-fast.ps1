@@ -12,6 +12,8 @@
 #      (con 1 c de deslizamiento y la comision) en 5 / 8 / 12 puntos, apuesta $1 / $2 / $3. Maximo una apuesta por ventana.
 #      Solo despues de la fase de observacion: la regla del modelo debe coincidir con la resolucion real de Polymarket
 #      en >= 90% de al menos 25 ventanas (minRuleMatch / minObserved en crypto-strategy.json).
+#   4. Estrategia paralela "3 tramos" (fast3 en crypto-strategy.json, historial data/crypto-fast3-bets.json): mismo modelo,
+#      pero mira la ventaja una sola vez en cada momento fijo (faltando 10, 6 y 3 min) y apuesta en cada uno si la hay.
 # Guarda cada ventana (para saber que modelo describe mejor la resolucion real y medir modelo vs mercado) y las apuestas.
 # Los datos los sube run-local.ps1 (cada 5 min) y los muestra la pestana Cripto (crypto.html).
 param([int]$RunMinutes = 0)   # 0 = sin fin; para probar: -RunMinutes 3
@@ -25,7 +27,8 @@ $WinFile = Join-Path $DataDir 'crypto-fast-windows.json'
 $StateFile = Join-Path $DataDir 'crypto-fast-state.json'
 $CfgFile = Join-Path $Root 'crypto-strategy.json'
 $T = 900
-$Checkpoints = @(600, 300, 120, 60, 30)
+$Checkpoints = @(600, 360, 300, 180, 120, 60, 30)
+$Bets3File = Join-Path $DataDir 'crypto-fast3-bets.json'   # estrategia "3 tramos"
 function Log($m) { Write-CLog $LogFile 'cripto-rapido' $m }
 
 # Una sola copia a la vez (la tarea intenta arrancarlo cada 5 minutos por si se cerro)
@@ -34,10 +37,11 @@ if (-not $mutex.WaitOne(0)) { exit 0 }
 
 $bets = [System.Collections.ArrayList]@(Read-CJsonArray $BetsFile)
 $wins = [System.Collections.ArrayList]@(Read-CJsonArray $WinFile)
+$bets3 = [System.Collections.ArrayList]@(Read-CJsonArray $Bets3File)
 $startedAt = Get-Date
 $cur = $null
 $volSec = $null; $volAt = [datetime]::MinValue
-$cfgAt = [datetime]::MinValue; $F = $null; $cfgVersion = $null
+$cfgAt = [datetime]::MinValue; $F = $null; $F3 = $null; $cfgVersion = $null
 $lastState = [datetime]::MinValue; $lastResolve = [datetime]::MinValue; $lastErrLog = [datetime]::MinValue
 $loops = 0; $errors = 0; $lastErr = $null
 $view = @{}
@@ -49,7 +53,7 @@ function New-Window([long]$winStart) {
     $slug = "btc-updown-15m-$winStart"
     $m = @(Get-CJson "https://gamma-api.polymarket.com/markets?slug=$slug" | ForEach-Object { $_ }) | Select-Object -First 1
     $nw = @{ W = $winStart; slug = $slug; up = $null; down = $null; pre = New-Object System.Collections.Generic.List[double]
-        closes = New-Object System.Collections.Generic.List[double]; lastMs = $null; S0 = $null; checks = [ordered]@{} }
+        closes = New-Object System.Collections.Generic.List[double]; lastMs = $null; S0 = $null; checks = [ordered]@{}; slotsDone = [ordered]@{} }
     if ($m) {
         $tok = (Get-JArr $m.clobTokenIds); $outs = (Get-JArr $m.outcomes)
         $iu = [array]::IndexOf($outs, 'Up'); if ($iu -lt 0) { $iu = 0 }
@@ -122,6 +126,38 @@ function Close-Window($w) {
     while ($wins.Count -gt 3000) { $wins.RemoveAt(0) }
     Write-CFileAtomic $WinFile (ConvertTo-Json -InputObject @($wins) -Depth 6 -Compress)
 }
+# Mejor apuesta posible ahora segun la configuracion $cfg (tiers, slip, minPrice, maxPrice): el lado (Up o Down) con mas
+# ventaja = modelo - precio medio de compra (+ deslizamiento) - comision. $null si ninguno llega a la ventaja minima.
+function Find-BestBet($bu, $bd, $p, $cfg) {
+    $best = $null
+    $maxStake = (@($cfg.tiers) | Measure-Object -Property stake -Maximum).Maximum
+    foreach ($side in 'UP', 'DOWN') {
+        $bk = if ($side -eq 'UP') { $bu } else { $bd }
+        if (-not $bk -or -not $bk.asks.Count) { continue }
+        $pS = if ($side -eq 'UP') { $p } else { 1 - $p }
+        $fill = Get-FillPrice $bk.asks $maxStake
+        if ($null -eq $fill) { continue }
+        $fill = [Math]::Min(0.999, $fill + [double]$cfg.slip)
+        $edge = $pS - $fill - (Get-CryptoFee $fill)
+        $stake = Get-StakeForEdge $edge $cfg.tiers
+        if ($stake -le 0 -or $fill -lt $cfg.minPrice -or $fill -gt $cfg.maxPrice) { continue }
+        $f2 = Get-FillPrice $bk.asks $stake
+        if ($null -eq $f2) { continue }
+        $f2 = [Math]::Min(0.999, $f2 + [double]$cfg.slip)
+        $e2 = $pS - $f2 - (Get-CryptoFee $f2)
+        if (-not $best -or $e2 -gt $best.edge) { $best = @{ side = $side; pS = $pS; fill = $f2; edge = $e2; stake = $stake; tok = $(if ($side -eq 'UP') { $cur.up } else { $cur.down }) } }
+    }
+    if ($best -and $best.edge -ge (@($cfg.tiers) | Measure-Object -Property edge -Minimum).Minimum) { return $best }
+    return $null
+}
+function New-FastBet($best, $md, $secLeft, $askUp, $askDn, $id) {
+    $shares = $best.stake / $best.fill
+    return [pscustomobject]@{ id = $id; W = $cur.W; slug = $cur.slug; side = $best.side; token = $best.tok
+        stake = $best.stake; price = [Math]::Round($best.fill, 4); fee = [Math]::Round($shares * (Get-CryptoFee $best.fill), 4)
+        p = [Math]::Round($best.pS, 4); edge = [Math]::Round($best.edge, 4); model = "$($F.model)"; secLeft = $secLeft
+        S0 = $cur.S0; S = $md.S; twapSoFar = [Math]::Round($md.A, 2); pTwap = [Math]::Round($md.pTwap, 4); pEnd = [Math]::Round($md.pEnd, 4); pEnd60 = $view.pEnd60
+        askUp = $askUp; askDown = $askDn; placedAt = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); status = 'open'; pnl = $null; version = $cfgVersion }
+}
 # Fase de observacion: solo se apuesta cuando la regla del modelo coincidio con la resolucion real de Polymarket
 # en al menos minRuleMatch de minObserved ventanas (si no, el modelo estaria midiendo otra cosa)
 function Get-RuleMatch {
@@ -135,7 +171,7 @@ function Resolve-Windows {
     $nowS = Get-UnixNow; $changed = $false
     # Si el bot se cerro (o lo cerraron) antes de terminar la ventana de una apuesta, esa ventana no quedo registrada y la
     # apuesta no se resolveria nunca: se reconstruye con el historial de 1 s de Binance (sin las fotos de modelo vs mercado)
-    foreach ($b in @($bets | Where-Object { $_.status -eq 'open' -and $_.W + $T -lt $nowS - 30 })) {
+    foreach ($b in @(@($bets) + @($bets3) | Where-Object { $_.status -eq 'open' -and $_.W + $T -lt $nowS - 30 })) {
         if ($wins | Where-Object { $_.W -eq $b.W }) { continue }
         if ($cur -and $cur.W -eq $b.W) { continue }
         try { Close-Window (New-Window ([long]$b.W)); Log "Ventana $($b.slug) reconstruida (el bot no estaba corriendo al cerrarse)" } catch {}
@@ -156,6 +192,16 @@ function Resolve-Windows {
                 Log "Resuelta rapida $($rec.slug): $($b.side) -> $($b.status) ($([Math]::Round($b.pnl, 2)) USD)"
                 Write-CFileAtomic $BetsFile (ConvertTo-Json -InputObject @($bets) -Depth 5)
             }
+            $res3 = @($bets3 | Where-Object { $_.W -eq $rec.W -and $_.status -eq 'open' })
+            foreach ($b in $res3) {
+                $won = ($b.side -eq 'UP') -eq ($rec.upWon -eq 1)
+                $b.status = if ($won) { 'won' } else { 'lost' }; $b.pnl = Get-CryptoPnl $b $won
+                $b | Add-Member -NotePropertyName resolvedAt -NotePropertyValue ((Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')) -Force
+            }
+            if ($res3.Count) {
+                Log "Resueltas 3 tramos $($rec.slug): $(($res3 | ForEach-Object { "$($_.tramo) min $($_.side) $($_.status)" }) -join ', ') ($([Math]::Round(($res3 | Measure-Object pnl -Sum).Sum, 2)) USD)"
+                Write-CFileAtomic $Bets3File (ConvertTo-Json -InputObject @($bets3) -Depth 5)
+            }
         } catch {}
     }
     if ($changed) { Write-CFileAtomic $WinFile (ConvertTo-Json -InputObject @($wins) -Depth 6 -Compress) }
@@ -167,7 +213,7 @@ try {
         $loopStart = Get-Date
         if ($RunMinutes -gt 0 -and ($loopStart - $startedAt).TotalMinutes -ge $RunMinutes) { break }
         try {
-            if (($loopStart - $cfgAt).TotalMinutes -ge 5) { $c = Get-Content $CfgFile -Raw | ConvertFrom-Json; $F = $c.fast; $cfgVersion = $c.version; $cfgAt = $loopStart }
+            if (($loopStart - $cfgAt).TotalMinutes -ge 5) { $c = Get-Content $CfgFile -Raw | ConvertFrom-Json; $F = $c.fast; $F3 = $c.fast3; $cfgVersion = $c.version; $cfgAt = $loopStart }
             if (-not $volSec -or ($loopStart - $volAt).TotalMinutes -ge 5) {
                 $v = Get-RealizedVol ([int]$F.volMinutes)
                 if ($v) { $volSec = $v / [Math]::Sqrt($CSecPerYear); $volAt = $loopStart }
@@ -186,7 +232,8 @@ try {
                 $p = switch ("$($F.model)") { 'end' { $md.pEnd } 'end60' { $md.pEnd60 } default { $md.pTwap } }
                 $view.S = $md.S; $view.twap = [Math]::Round($md.A, 2); $view.pTwap = [Math]::Round($md.pTwap, 4); $view.pEnd = [Math]::Round($md.pEnd, 4)
                 $view.pEnd60 = $(if ($null -ne $md.pEnd60) { [Math]::Round($md.pEnd60, 4) } else { $null })
-                if ($cur.up -and $secLeft -le [int]$F.maxSecLeft -and $secLeft -gt 0) {
+                $maxLeft = [Math]::Max([int]$F.maxSecLeft, $(if ($F3 -and $F3.enabled) { (@($F3.slots) | Measure-Object -Maximum).Maximum } else { 0 }))
+                if ($cur.up -and $secLeft -le $maxLeft -and $secLeft -gt 0) {
                     $books = Get-Books @($cur.up, $cur.down)
                     $bu = $books[$cur.up]; $bd = $books[$cur.down]
                     $askUp = if ($bu -and $bu.asks.Count) { [double]$bu.asks[0].price } else { $null }
@@ -202,36 +249,32 @@ try {
                                 $(if ($null -ne $md.pEnd60) { [Math]::Round($md.pEnd60, 4) } else { $null }))
                         }
                     }
+                    # Estrategia 1 (original): una apuesta por ventana, en cualquier momento de los ultimos 10 min
                     $already = $bets | Where-Object { $_.W -eq $cur.W } | Select-Object -First 1
-                    if (-not $already -and $null -ne $p -and $rule.canBet -and $secLeft -ge [int]$F.minSecLeft) {
-                        $best = $null
-                        foreach ($side in 'UP', 'DOWN') {
-                            $bk = if ($side -eq 'UP') { $bu } else { $bd }
-                            if (-not $bk -or -not $bk.asks.Count) { continue }
-                            $pS = if ($side -eq 'UP') { $p } else { 1 - $p }
-                            $maxStake = (@($F.tiers) | Measure-Object -Property stake -Maximum).Maximum
-                            $fill = Get-FillPrice $bk.asks $maxStake
-                            if ($null -eq $fill) { continue }
-                            $fill = [Math]::Min(0.999, $fill + [double]$F.slip)
-                            $edge = $pS - $fill - (Get-CryptoFee $fill)
-                            $stake = Get-StakeForEdge $edge $F.tiers
-                            if ($stake -le 0 -or $fill -lt $F.minPrice -or $fill -gt $F.maxPrice) { continue }
-                            $f2 = Get-FillPrice $bk.asks $stake
-                            if ($null -eq $f2) { continue }
-                            $f2 = [Math]::Min(0.999, $f2 + [double]$F.slip)
-                            $e2 = $pS - $f2 - (Get-CryptoFee $f2)
-                            if (-not $best -or $e2 -gt $best.edge) { $best = @{ side = $side; pS = $pS; fill = $f2; edge = $e2; stake = $stake; tok = $(if ($side -eq 'UP') { $cur.up } else { $cur.down }) } }
-                        }
-                        if ($best -and $best.edge -ge (@($F.tiers) | Measure-Object -Property edge -Minimum).Minimum) {
-                            $shares = $best.stake / $best.fill
-                            $bet = [pscustomobject]@{ id = "$($cur.slug)|$($best.side)"; W = $cur.W; slug = $cur.slug; side = $best.side; token = $best.tok
-                                stake = $best.stake; price = [Math]::Round($best.fill, 4); fee = [Math]::Round($shares * (Get-CryptoFee $best.fill), 4)
-                                p = [Math]::Round($best.pS, 4); edge = [Math]::Round($best.edge, 4); model = "$($F.model)"; secLeft = $secLeft
-                                S0 = $cur.S0; S = $md.S; twapSoFar = [Math]::Round($md.A, 2); pTwap = [Math]::Round($md.pTwap, 4); pEnd = [Math]::Round($md.pEnd, 4); pEnd60 = $view.pEnd60
-                                askUp = $askUp; askDown = $askDn; placedAt = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); status = 'open'; pnl = $null; version = $cfgVersion }
+                    if (-not $already -and $null -ne $p -and $rule.canBet -and $secLeft -le [int]$F.maxSecLeft -and $secLeft -ge [int]$F.minSecLeft) {
+                        $best = Find-BestBet $bu $bd $p $F
+                        if ($best) {
+                            $bet = New-FastBet $best $md $secLeft $askUp $askDn "$($cur.slug)|$($best.side)"
                             [void]$bets.Add($bet)
                             Write-CFileAtomic $BetsFile (ConvertTo-Json -InputObject @($bets) -Depth 5)
                             Log "Apuesta rapida $($cur.slug): $($best.side) `$$($best.stake) a $([Math]::Round($best.fill * 100, 1))c, modelo $([Math]::Round($best.pS * 100, 1))%, ventaja $([Math]::Round($best.edge * 100, 1)) pp, faltan $secLeft s"
+                        }
+                    }
+                    # Estrategia 2 ("3 tramos"): se mira la ventaja una vez en cada momento fijo (faltando 10, 6 y 3 min);
+                    # si hay ventaja se apuesta, si no ese tramo se salta. Hasta 3 apuestas por ventana, historial aparte.
+                    if ($F3 -and $F3.enabled -and $null -ne $p -and $rule.canBet) {
+                        foreach ($slot in @($F3.slots)) {
+                            $sl = [int]$slot
+                            if ($secLeft -gt $sl -or $secLeft -le $sl - [int]$F3.slotToleranceSec -or $cur.slotsDone.Contains("$sl")) { continue }
+                            $cur.slotsDone["$sl"] = $true
+                            if ($bets3 | Where-Object { $_.W -eq $cur.W -and $_.tramo -eq [int]($sl / 60) }) { continue }
+                            $best = Find-BestBet $bu $bd $p $F3
+                            if (-not $best) { continue }
+                            $bet = New-FastBet $best $md $secLeft $askUp $askDn "$($cur.slug)|$([int]($sl / 60))"
+                            $bet | Add-Member -NotePropertyName tramo -NotePropertyValue ([int]($sl / 60))
+                            [void]$bets3.Add($bet)
+                            Write-CFileAtomic $Bets3File (ConvertTo-Json -InputObject @($bets3) -Depth 5)
+                            Log "Apuesta 3 tramos ($([int]($sl / 60)) min) $($cur.slug): $($best.side) `$$($best.stake) a $([Math]::Round($best.fill * 100, 1))c, modelo $([Math]::Round($best.pS * 100, 1))%, ventaja $([Math]::Round($best.edge * 100, 1)) pp"
                         }
                     }
                 }

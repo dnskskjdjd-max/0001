@@ -82,6 +82,7 @@ ul.strat li { margin: 2px 0; }
   <div class="cols">
     <div class="card" id="dailyCard"></div>
     <div class="card" id="fastCard"></div>
+    <div class="card" id="fast3Card"></div>
   </div>
 
   <div class="card">
@@ -115,7 +116,7 @@ const fmtDT = s => s ? new Date(s).toLocaleString('es', { weekday: 'short', day:
 const fmtT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió' };
-const cfg = C.cfg || {}; const D = cfg.daily || {}; const F = cfg.fast || {};
+const cfg = C.cfg || {}; const D = cfg.daily || {}; const F = cfg.fast || {}; const F3 = cfg.fast3 || {};
 const MODEL_NAMES = { end60: 'último minuto vs minuto previo al inicio', end: 'precio final vs inicio', twap: 'promedio de toda la ventana' };
 const MODEL_IDX = { twap: 0, end: 1, end60: 3 };   // posición en checks: [twap, end, precio del mercado, end60]
 // Precio actual de una apuesta diaria: precio de venta ahora (y diferencia con lo pagado), modelo y BTC ahora;
@@ -179,16 +180,17 @@ function render() {
   $('stale').style.display = ageH > 10 / 60 ? '' : 'none';
   $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? Math.round(ageH * 60) + ' minutos' : 'nunca'}</b><div class="sub" style="margin:4px 0 0">Los bots corren en tu PC: revisa que esté encendida y con internet. Detalles en <code>data/log.txt</code> (líneas con [cripto] y [cripto-rapido]).</div>`;
 
-  const db = (C.daily || {}).bets || [], fb = (C.fast || {}).bets || [];
-  const sd = stats(db), sf = stats(fb);
+  const db = (C.daily || {}).bets || [], fb = (C.fast || {}).bets || [], fb3 = (C.fast3 || {}).bets || [];
+  const sd = stats(db), sf = stats(fb), sf3 = stats(fb3);
   const st = (C.fast || {}).state;
   const lagMin = st && st.lastLoop && C.generatedAt ? (Date.parse(C.generatedAt) - Date.parse(st.lastLoop)) / 6e4 : null;
   const alive = lagMin != null && lagMin < 10;
   $('tiles').innerHTML = [
     ['Bitcoin (Binance)', fmtUsd(C.spot), `volatilidad ${fmtPct(C.sigma, 0)} anual${C.rv ? ` · realizada ${fmtPct(C.rv, 0)}` : ''}`],
-    ['Ganancia total', `<span class="${cls(sd.pnl + sf.pnl)}">${fmt$(sd.pnl + sf.pnl)}</span>`, `${sd.closed.length + sf.closed.length} apuestas resueltas`],
+    ['Ganancia total', `<span class="${cls(sd.pnl + sf.pnl + sf3.pnl)}">${fmt$(sd.pnl + sf.pnl + sf3.pnl)}</span>`, `${sd.closed.length + sf.closed.length + sf3.closed.length} apuestas resueltas`],
     ['Diaria', `<span class="${cls(sd.pnl)}">${fmt$(sd.pnl)}</span>`, `${db.length} apuestas`],
     ['15 minutos', `<span class="${cls(sf.pnl)}">${fmt$(sf.pnl)}</span>`, `${fb.length} apuestas`],
+    ['15 min en 3 tramos', `<span class="${cls(sf3.pnl)}">${fmt$(sf3.pnl)}</span>`, `${fb3.length} apuestas`],
     ['Bot rápido', `<span class="dot" style="background:${alive ? css('--good') : css('--bad')}"></span>${alive ? 'Activo' : 'Detenido'}`,
       st ? `último ciclo ${fmtT(st.lastLoop)} · ${(st.loops || 0).toLocaleString('es')} ciclos${st.errors ? ` · ${st.errors} errores` : ''}` : 'todavía no arrancó'],
   ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
@@ -215,6 +217,19 @@ function render() {
     '<th>Apostada</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
     !alive ? 'El bot rápido no está corriendo.' : st && st.rule && st.rule.canBet ? 'Todavía no hay apuestas: el bot mira cada ventana y apuesta solo cuando encuentra ventaja.'
       : 'En fase de observación: registra cada ventana de 15 minutos sin apostar, hasta comprobar que su regla coincide con la resolución real.');
+
+  // Estrategia "3 tramos": mismo modelo, ventaja mirada una vez faltando 10, 6 y 3 min; resultado por tramo
+  const slots = (F3.slots || [600, 360, 180]).map(s => Math.round(s / 60));
+  const byTramo = slots.map(m => { const s = stats(fb3.filter(b => b.tramo === m));
+    return `${m} min: ${fb3.filter(b => b.tramo === m).length} apuestas, ${s.closed.length ? `${s.wins}/${s.closed.length} ganadas, <span class="${cls(s.pnl)}">${fmt$(s.pnl)}</span>` : 'sin resueltas'}`; }).join(' · ');
+  strategyCard($('fast3Card'), '⚡⚡⚡ 15 minutos en 3 tramos', [
+    `Mismo mercado y modelo que “15 minutos”, pero mira la ventaja <b>una sola vez</b> en tres momentos fijos: faltando ${slots.join(', ')} min`,
+    `En cada tramo apuesta si hay ventaja (${tiersTxt(F3.tiers)}); si no, ese tramo se salta. Hasta 3 apuestas por ventana, que pueden ir a lados distintos`,
+    `Por tramo: ${byTramo}`,
+    F3.enabled === false ? '<b class="neg">Desactivada</b>' : 'Historial aparte, para compararla con la estrategia de una apuesta por ventana',
+  ], fb3, 'chFast3', b => `<tr><td>${fmtT(b.placedAt)}</td><td><b>${b.tramo} min</b></td><td><a href="https://polymarket.com/event/${esc(b.slug)}" target="_blank" rel="noopener">${b.side === 'UP' ? '⬆ Sube' : '⬇ Baja'}</a></td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtPct(b.p, 0)}</td><td class="num pos">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(b.pnl)}">${b.status === 'open' ? '–' : fmt$(b.pnl)}</td></tr>`,
+    '<th>Apostada</th><th>Tramo</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
+    alive ? 'Todavía no hay apuestas: empieza a registrar en el próximo tramo con ventaja.' : 'El bot rápido no está corriendo.');
 
   // Calibracion: Brier modelo vs mercado
   const brier = (rows, f) => { const r = rows.filter(x => f(x) != null); return r.length ? r.reduce((a, x) => a + (f(x) - x.y) ** 2, 0) / r.length : null; };
