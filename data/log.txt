@@ -5536,3 +5536,22 @@
 2026-10-07 23:01:07  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-07 23:01:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-07 23:01:08  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-07 23:05:01  [cripto-rapido] Apuesta rapida btc-updown-15m-1791432000: DOWN $3 a 66c, modelo 80.3%, ventaja 12.7 pp, faltan 600 s
+2026-10-07 23:05:01  [cripto-rapido] Apuesta 3 tramos (10 min) btc-updown-15m-1791432000: DOWN $3 a 66c, modelo 80.3%, ventaja 12.7 pp
+2026-10-07 23:05:52  [cripto] OK diario: BTC 82681, vol 37.7%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (1 en el historial), 0 resueltas; rapido: 71 apuestas
+2026-10-07 23:06:07  --- inicio ---
+2026-10-08 00:59:49  [cripto-rapido] Resuelta rapida btc-updown-15m-1791431100: UP -> lost (-1.05 USD)
+2026-10-08 00:59:49  [cripto-rapido] Resuelta rapida btc-updown-15m-1791432000: DOWN -> won (1.47 USD)
+2026-10-08 00:59:49  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791432000: 10 min DOWN won (1.47 USD)
+2026-10-08 01:03:01  FirePolymarket fallo (intento 1): Se excedió el tiempo de espera de la operación.
+2026-10-08 01:03:27  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-08T06:00:14.725Z)
+2026-10-08 01:03:43  [prueba:no-perseguir] Apuesta: $2 a NO en NATO x Russia military clash by December 31, 2026? @ 78c (score 63, consenso 8/10)
+2026-10-08 01:03:43  Resuelta: Las Vegas Aces vs. Golden State Valkyries [GOLDEN STATE VALKYRIES] -> won
+2026-10-08 01:03:49  OK: 14 mercados >= 60, 5 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 1 resueltas, 111 senales + 326 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 1 nuevas (5 en total)
+2026-10-08 01:03:55  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-08 01:03:56  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-08 01:03:56  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 01:05:02  [cripto-rapido] Apuesta rapida btc-updown-15m-1791439200: DOWN $2 a 15c, modelo 24.5%, ventaja 8.6 pp, faltan 600 s
+2026-10-08 01:05:02  [cripto-rapido] Apuesta 3 tramos (10 min) btc-updown-15m-1791439200: DOWN $2 a 15c, modelo 24.5%, ventaja 8.6 pp
+2026-10-08 01:05:56  [ligas] Cuotas: soccer_spain_la_liga actualizado (20 partidos; creditos restantes 487)
+2026-10-08 01:06:02  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
