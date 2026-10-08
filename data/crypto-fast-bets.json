@@ -1833,5 +1833,31 @@
         "status":  "open",
         "pnl":  null,
         "version":  5
+    },
+    {
+        "id":  "btc-updown-15m-1791430200|DOWN",
+        "W":  1791430200,
+        "slug":  "btc-updown-15m-1791430200",
+        "side":  "DOWN",
+        "token":  "83418597950677861201885431334260411854128480662102368141500549810015164265531",
+        "stake":  1,
+        "price":  0.81,
+        "fee":  0.0133,
+        "p":  0.8749,
+        "edge":  0.0541,
+        "model":  "end60",
+        "secLeft":  595,
+        "S0":  82964.01,
+        "S":  82859,
+        "twapSoFar":  82926.18,
+        "pTwap":  0.0139,
+        "pEnd":  0.1417,
+        "pEnd60":  0.1251,
+        "askUp":  0.21,
+        "askDown":  0.8,
+        "placedAt":  "2026-10-08T03:35:05Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  5
     }
 ]
