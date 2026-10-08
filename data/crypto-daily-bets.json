@@ -17,12 +17,12 @@
         "placedAt":  "2026-10-07T22:21:16Z",
         "end":  "2026-10-08T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.131,
+        "curPrice":  0.127,
         "pnl":  null,
         "version":  3,
-        "curPriceAt":  "2026-10-08T00:17:20Z",
-        "curP":  0.1572,
-        "curSpot":  83303.68,
+        "curPriceAt":  "2026-10-08T00:18:20Z",
+        "curP":  0.1477,
+        "curSpot":  83355.21,
         "hist":  [
                      {
                          "t":  "2026-10-07T22:53:21Z",
