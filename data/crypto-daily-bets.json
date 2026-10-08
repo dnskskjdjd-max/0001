@@ -20,9 +20,9 @@
         "curPrice":  0.227,
         "pnl":  null,
         "version":  3,
-        "curPriceAt":  "2026-10-08T14:09:23Z",
-        "curP":  0.2344,
-        "curSpot":  82332.87,
+        "curPriceAt":  "2026-10-08T14:10:21Z",
+        "curP":  0.1553,
+        "curSpot":  82463.59,
         "hist":  [
                      {
                          "t":  "2026-10-07T22:53:21Z",
@@ -131,9 +131,9 @@
         "curPrice":  0.98,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-08T14:09:23Z",
-        "curP":  0.9998,
-        "curSpot":  82332.87,
+        "curPriceAt":  "2026-10-08T14:10:21Z",
+        "curP":  0.9996,
+        "curSpot":  82463.59,
         "hist":  [
                      {
                          "t":  "2026-10-08T07:24:41Z",
@@ -194,9 +194,9 @@
         "curPrice":  0.39,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-08T14:09:23Z",
-        "curP":  0.4271,
-        "curSpot":  82332.87,
+        "curPriceAt":  "2026-10-08T14:10:21Z",
+        "curP":  0.3974,
+        "curSpot":  82463.59,
         "hist":  [
                      {
                          "t":  "2026-10-08T11:11:20Z",
