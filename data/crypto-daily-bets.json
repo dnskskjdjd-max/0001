@@ -20,9 +20,9 @@
         "curPrice":  0.256,
         "pnl":  null,
         "version":  3,
-        "curPriceAt":  "2026-10-08T11:10:21Z",
-        "curP":  0.2486,
-        "curSpot":  82510.61,
+        "curPriceAt":  "2026-10-08T11:11:20Z",
+        "curP":  0.321,
+        "curSpot":  82350,
         "hist":  [
                      {
                          "t":  "2026-10-07T22:53:21Z",
@@ -113,9 +113,9 @@
         "curPrice":  0.93,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-08T11:10:21Z",
-        "curP":  0.9758,
-        "curSpot":  82510.61,
+        "curPriceAt":  "2026-10-08T11:11:20Z",
+        "curP":  0.9858,
+        "curSpot":  82350,
         "hist":  [
                      {
                          "t":  "2026-10-08T07:24:41Z",
@@ -134,6 +134,39 @@
                          "px":  0.91,
                          "p":  0.953,
                          "S":  82717
+                     }
+                 ]
+    },
+    {
+        "id":  "bitcoin-above-82k-on-october-9-2026|NO",
+        "ev":  "bitcoin-above-on-october-9-2026",
+        "slug":  "bitcoin-above-82k-on-october-9-2026",
+        "k":  82000,
+        "side":  "NO",
+        "token":  "108082883404059740358158280426412241943168347279841724118483048088071392041003",
+        "stake":  1,
+        "price":  0.39,
+        "fee":  0.0427,
+        "p":  0.4283,
+        "edge":  0.0216,
+        "S":  82350,
+        "sig":  0.3871,
+        "tauH":  28.81,
+        "placedAt":  "2026-10-08T11:11:20Z",
+        "end":  "2026-10-09T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.34,
+        "pnl":  null,
+        "version":  5,
+        "curPriceAt":  "2026-10-08T11:11:20Z",
+        "curP":  0.4283,
+        "curSpot":  82350,
+        "hist":  [
+                     {
+                         "t":  "2026-10-08T11:11:20Z",
+                         "px":  0.34,
+                         "p":  0.4283,
+                         "S":  82350
                      }
                  ]
     }
