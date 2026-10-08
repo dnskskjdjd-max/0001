@@ -234,15 +234,16 @@ function render() {
     alive ? 'Todavía no hay apuestas: empieza a registrar en el próximo tramo con ventaja.' : 'El bot rápido no está corriendo.');
 
   // Estrategia "al contrario": cuando la original apuesta a un lado al que el modelo da < 30%, se compra el otro lado
-  const s4 = stats(fb4);
+  const s4f = stats(fb4.filter(b => b.flipped)), s4c = stats(fb4.filter(b => !b.flipped));
+  const part = (n, s) => `${n}: ${s.closed.length ? `${s.wins}/${s.closed.length} ganadas, <span class="${cls(s.pnl)}">${fmt$(s.pnl)}</span>` : 'sin resueltas'}`;
   strategyCard($('fast4Card'), '🔄 15 minutos al contrario', [
-    `Cuando la estrategia “15 minutos” apuesta a un lado al que el modelo le da <b>menos de ${Math.round((F4.maxModelP || 0.3) * 100)}%</b>, esta compra el <b>lado opuesto</b> en ese mismo momento y por el mismo monto`,
-    `Precio real del libro + ${Math.round((F4.slip || 0) * 100)}¢ de deslizamiento + comisión. El lado opuesto suele costar 85–90¢: gana poco por acierto y un fallo cuesta casi todo lo apostado`,
-    s4.closed.length ? `Para ganar necesita acertar más que su precio medio: acierta ${fmtPct(s4.wins / s4.closed.length, 0)} pagando en promedio ${fmtPct(s4.closed.reduce((a, b) => a + b.price, 0) / s4.closed.length, 0)}` : 'Sin resueltas todavía',
-    F4.enabled === false ? '<b class="neg">Desactivada</b>' : 'Historial aparte (empezó de cero el 8 oct)',
-  ], fb4, 'chFast4', b => `<tr><td>${fmtT(b.placedAt)}</td><td><a href="https://polymarket.com/event/${esc(b.slug)}" target="_blank" rel="noopener">${b.side === 'UP' ? '⬆ Sube' : '⬇ Baja'}</a> <span class="small">(modelo daba ${fmtPct(b.origP, 0)} al otro)</span></td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtPct(b.p, 0)}</td><td class="num">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(b.pnl)}">${b.status === 'open' ? '–' : fmt$(b.pnl)}</td></tr>`,
+    `<b>Igual que “15 minutos: velocidad”</b> (mismas apuestas, mismo momento, precio y monto), con una sola diferencia:`,
+    `cuando el modelo le da <b>menos de ${Math.round((F4.maxModelP || 0.3) * 100)}%</b> al lado elegido, apuesta al <b>lado contrario</b> (precio real del libro + ${Math.round((F4.slip || 0) * 100)}¢ de deslizamiento + comisión)`,
+    `${part('Copiadas', s4c)} · ${part('Invertidas', s4f)}. La diferencia con “15 minutos: velocidad” sale solo de las invertidas`,
+    F4.enabled === false ? '<b class="neg">Desactivada</b>' : 'Historial aparte (empezó de cero el 8 oct, junto con las otras de 15 min)',
+  ], fb4, 'chFast4', b => `<tr><td>${fmtT(b.placedAt)}</td><td><a href="https://polymarket.com/event/${esc(b.slug)}" target="_blank" rel="noopener">${b.side === 'UP' ? '⬆ Sube' : '⬇ Baja'}</a> ${b.flipped ? `<span class="badge">↔ invertida</span> <span class="small">(modelo daba ${fmtPct(b.origP, 0)} al otro)</span>` : '<span class="small">copiada</span>'}</td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtPct(b.p, 0)}</td><td class="num">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(b.pnl)}">${b.status === 'open' ? '–' : fmt$(b.pnl)}</td></tr>`,
     '<th>Apostada</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
-    alive ? 'Todavía no hay apuestas: se registra una cada vez que la estrategia original apuesta a un lado con menos de 30%.' : 'El bot rápido no está corriendo.');
+    alive ? 'Todavía no hay apuestas: copia cada apuesta de “15 minutos: velocidad” (invertida si el modelo da menos de 30%).' : 'El bot rápido no está corriendo.');
 
   // Calibracion: Brier modelo vs mercado
   const brier = (rows, f) => { const r = rows.filter(x => f(x) != null); return r.length ? r.reduce((a, x) => a + (f(x) - x.y) ** 2, 0) / r.length : null; };
