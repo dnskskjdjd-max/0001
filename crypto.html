@@ -83,6 +83,7 @@ ul.strat li { margin: 2px 0; }
     <div class="card" id="dailyCard"></div>
     <div class="card" id="fastCard"></div>
     <div class="card" id="fast3Card"></div>
+    <div class="card" id="fast4Card"></div>
   </div>
 
   <div class="card">
@@ -116,7 +117,7 @@ const fmtDT = s => s ? new Date(s).toLocaleString('es', { weekday: 'short', day:
 const fmtT = s => s ? new Date(s).toLocaleString('es', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '–';
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió' };
-const cfg = C.cfg || {}; const D = cfg.daily || {}; const F = cfg.fast || {}; const F3 = cfg.fast3 || {};
+const cfg = C.cfg || {}; const D = cfg.daily || {}; const F = cfg.fast || {}; const F3 = cfg.fast3 || {}; const F4 = cfg.fast4 || {};
 const MODEL_NAMES = { end60: 'último minuto vs minuto previo al inicio', end: 'precio final vs inicio', twap: 'promedio de toda la ventana' };
 const MODEL_IDX = { twap: 0, end: 1, end60: 3 };   // posición en checks: [twap, end, precio del mercado, end60]
 // Precio actual de una apuesta diaria: precio de venta ahora (y diferencia con lo pagado), modelo y BTC ahora;
@@ -180,17 +181,18 @@ function render() {
   $('stale').style.display = ageH > 10 / 60 ? '' : 'none';
   $('stale').innerHTML = `<b class="neg">⚠ Los datos no se actualizan desde hace ${isFinite(ageH) ? Math.round(ageH * 60) + ' minutos' : 'nunca'}</b><div class="sub" style="margin:4px 0 0">Los bots corren en tu PC: revisa que esté encendida y con internet. Detalles en <code>data/log.txt</code> (líneas con [cripto] y [cripto-rapido]).</div>`;
 
-  const db = (C.daily || {}).bets || [], fb = (C.fast || {}).bets || [], fb3 = (C.fast3 || {}).bets || [];
-  const sd = stats(db), sf = stats(fb), sf3 = stats(fb3);
+  const db = (C.daily || {}).bets || [], fb = (C.fast || {}).bets || [], fb3 = (C.fast3 || {}).bets || [], fb4 = (C.fast4 || {}).bets || [];
+  const sd = stats(db), sf = stats(fb), sf3 = stats(fb3), sf4 = stats(fb4);
   const st = (C.fast || {}).state;
   const lagMin = st && st.lastLoop && C.generatedAt ? (Date.parse(C.generatedAt) - Date.parse(st.lastLoop)) / 6e4 : null;
   const alive = lagMin != null && lagMin < 10;
   $('tiles').innerHTML = [
     ['Bitcoin (Binance)', fmtUsd(C.spot), `volatilidad ${fmtPct(C.sigma, 0)} anual${C.rv ? ` · realizada ${fmtPct(C.rv, 0)}` : ''}`],
-    ['Ganancia total', `<span class="${cls(sd.pnl + sf.pnl + sf3.pnl)}">${fmt$(sd.pnl + sf.pnl + sf3.pnl)}</span>`, `${sd.closed.length + sf.closed.length + sf3.closed.length} apuestas resueltas`],
+    ['Ganancia total', `<span class="${cls(sd.pnl + sf.pnl + sf3.pnl + sf4.pnl)}">${fmt$(sd.pnl + sf.pnl + sf3.pnl + sf4.pnl)}</span>`, `${sd.closed.length + sf.closed.length + sf3.closed.length + sf4.closed.length} apuestas resueltas`],
     ['Diaria', `<span class="${cls(sd.pnl)}">${fmt$(sd.pnl)}</span>`, `${db.length} apuestas`],
     ['15 minutos', `<span class="${cls(sf.pnl)}">${fmt$(sf.pnl)}</span>`, `${fb.length} apuestas`],
     ['15 min en 3 tramos', `<span class="${cls(sf3.pnl)}">${fmt$(sf3.pnl)}</span>`, `${fb3.length} apuestas`],
+    ['15 min al contrario', `<span class="${cls(sf4.pnl)}">${fmt$(sf4.pnl)}</span>`, `${fb4.length} apuestas`],
     ['Bot rápido', `<span class="dot" style="background:${alive ? css('--good') : css('--bad')}"></span>${alive ? 'Activo' : 'Detenido'}`,
       st ? `último ciclo ${fmtT(st.lastLoop)} · ${(st.loops || 0).toLocaleString('es')} ciclos${st.errors ? ` · ${st.errors} errores` : ''}` : 'todavía no arrancó'],
   ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
@@ -230,6 +232,17 @@ function render() {
   ], fb3, 'chFast3', b => `<tr><td>${fmtT(b.placedAt)}</td><td><b>${b.tramo} min</b></td><td><a href="https://polymarket.com/event/${esc(b.slug)}" target="_blank" rel="noopener">${b.side === 'UP' ? '⬆ Sube' : '⬇ Baja'}</a></td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtPct(b.p, 0)}</td><td class="num pos">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(b.pnl)}">${b.status === 'open' ? '–' : fmt$(b.pnl)}</td></tr>`,
     '<th>Apostada</th><th>Tramo</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
     alive ? 'Todavía no hay apuestas: empieza a registrar en el próximo tramo con ventaja.' : 'El bot rápido no está corriendo.');
+
+  // Estrategia "al contrario": cuando la original apuesta a un lado al que el modelo da < 30%, se compra el otro lado
+  const s4 = stats(fb4);
+  strategyCard($('fast4Card'), '🔄 15 minutos al contrario', [
+    `Cuando la estrategia “15 minutos” apuesta a un lado al que el modelo le da <b>menos de ${Math.round((F4.maxModelP || 0.3) * 100)}%</b>, esta compra el <b>lado opuesto</b> en ese mismo momento y por el mismo monto`,
+    `Precio real del libro + ${Math.round((F4.slip || 0) * 100)}¢ de deslizamiento + comisión. El lado opuesto suele costar 85–90¢: gana poco por acierto y un fallo cuesta casi todo lo apostado`,
+    s4.closed.length ? `Para ganar necesita acertar más que su precio medio: acierta ${fmtPct(s4.wins / s4.closed.length, 0)} pagando en promedio ${fmtPct(s4.closed.reduce((a, b) => a + b.price, 0) / s4.closed.length, 0)}` : 'Sin resueltas todavía',
+    F4.enabled === false ? '<b class="neg">Desactivada</b>' : 'Historial aparte (empezó de cero el 8 oct)',
+  ], fb4, 'chFast4', b => `<tr><td>${fmtT(b.placedAt)}</td><td><a href="https://polymarket.com/event/${esc(b.slug)}" target="_blank" rel="noopener">${b.side === 'UP' ? '⬆ Sube' : '⬇ Baja'}</a> <span class="small">(modelo daba ${fmtPct(b.origP, 0)} al otro)</span></td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtPct(b.p, 0)}</td><td class="num">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(b.pnl)}">${b.status === 'open' ? '–' : fmt$(b.pnl)}</td></tr>`,
+    '<th>Apostada</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
+    alive ? 'Todavía no hay apuestas: se registra una cada vez que la estrategia original apuesta a un lado con menos de 30%.' : 'El bot rápido no está corriendo.');
 
   // Calibracion: Brier modelo vs mercado
   const brier = (rows, f) => { const r = rows.filter(x => f(x) != null); return r.length ? r.reduce((a, x) => a + (f(x) - x.y) ** 2, 0) / r.length : null; };
