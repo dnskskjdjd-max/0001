@@ -983,12 +983,13 @@
         "askUp":  0.83,
         "askDown":  0.18,
         "placedAt":  "2026-10-09T03:07:51Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.1793,
         "version":  6,
         "flipped":  true,
         "origSide":  "DOWN",
-        "origP":  0.2781
+        "origP":  0.2781,
+        "resolvedAt":  "2026-10-09T03:16:08Z"
     },
     {
         "id":  "btc-updown-5m-1791515400|UP",
