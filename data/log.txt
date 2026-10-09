@@ -7716,3 +7716,14 @@
 2026-10-08 23:11:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-08 23:11:00  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-08 23:11:00  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 23:12:11  [cripto-5m] Apuesta rapida btc-updown-5m-1791519000: DOWN $2 a 25c, modelo 36.1%, ventaja 9.8 pp, faltan 169 s
+2026-10-08 23:15:24  [cripto] OK diario: BTC 82492, vol 36.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (5 en el historial), 0 resueltas; rapido: 26 apuestas
+2026-10-08 23:15:30  --- inicio ---
+2026-10-08 23:15:36  [cripto-5m] Resuelta rapida btc-updown-5m-1791518700: UP -> won (2.95 USD)
+2026-10-08 23:15:36  [cripto-5m] Resueltas al contrario btc-updown-5m-1791518700: UP won (2.95 USD)
+2026-10-08 23:15:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T04:06:01.438Z)
+2026-10-08 23:15:54  Resuelta: Cleveland Guardians vs. Chicago White Sox [CLEVELAND GUARDIANS] -> won
+2026-10-08 23:15:58  OK: 17 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 1 resueltas, 115 senales + 335 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (8 en total)
+2026-10-08 23:16:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-08 23:16:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-08 23:16:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
