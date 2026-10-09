@@ -1271,12 +1271,13 @@
         "askUp":  0.84,
         "askDown":  0.17,
         "placedAt":  "2026-10-09T04:02:06Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.166,
         "version":  6,
         "flipped":  true,
         "origSide":  "DOWN",
-        "origP":  0.256
+        "origP":  0.256,
+        "resolvedAt":  "2026-10-09T04:10:35Z"
     },
     {
         "id":  "btc-updown-5m-1791518700|UP",
