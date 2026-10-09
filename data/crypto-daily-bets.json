@@ -208,9 +208,9 @@
         "curPrice":  0.21,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T11:23:20Z",
-        "curP":  0.2247,
-        "curSpot":  82534.01,
+        "curPriceAt":  "2026-10-09T11:24:20Z",
+        "curP":  0.221,
+        "curSpot":  82542.01,
         "hist":  [
                      {
                          "t":  "2026-10-08T11:11:20Z",
@@ -376,12 +376,12 @@
         "placedAt":  "2026-10-08T14:56:20Z",
         "end":  "2026-10-09T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.043,
+        "curPrice":  0.036,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T11:23:20Z",
-        "curP":  0.0194,
-        "curSpot":  82534.01,
+        "curPriceAt":  "2026-10-09T11:24:20Z",
+        "curP":  0.0197,
+        "curSpot":  82542.01,
         "hist":  [
                      {
                          "t":  "2026-10-08T14:56:20Z",
@@ -532,9 +532,9 @@
         "curPrice":  0.996,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T11:23:20Z",
+        "curPriceAt":  "2026-10-09T11:24:20Z",
         "curP":  1,
-        "curSpot":  82534.01,
+        "curSpot":  82542.01,
         "hist":  [
                      {
                          "t":  "2026-10-08T16:03:22Z",
@@ -673,9 +673,9 @@
         "curPrice":  0.13,
         "pnl":  null,
         "version":  6,
-        "curPriceAt":  "2026-10-09T11:23:20Z",
-        "curP":  0.2008,
-        "curSpot":  82534.01,
+        "curPriceAt":  "2026-10-09T11:24:20Z",
+        "curP":  0.2021,
+        "curSpot":  82542.01,
         "hist":  [
                      {
                          "t":  "2026-10-09T10:00:20Z",
@@ -712,9 +712,9 @@
         "curPrice":  0.33,
         "pnl":  null,
         "version":  6,
-        "curPriceAt":  "2026-10-09T11:23:20Z",
-        "curP":  0.3841,
-        "curSpot":  82534.01,
+        "curPriceAt":  "2026-10-09T11:24:20Z",
+        "curP":  0.3824,
+        "curSpot":  82542.01,
         "hist":  [
                      {
                          "t":  "2026-10-09T10:02:20Z",
