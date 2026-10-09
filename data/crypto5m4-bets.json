@@ -1413,12 +1413,13 @@
         "askUp":  0.17,
         "askDown":  0.84,
         "placedAt":  "2026-10-09T04:27:00Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.166,
         "version":  6,
         "flipped":  true,
         "origSide":  "UP",
-        "origP":  0.2608
+        "origP":  0.2608,
+        "resolvedAt":  "2026-10-09T04:36:44Z"
     },
     {
         "id":  "btc-updown-5m-1791520200|DOWN",
