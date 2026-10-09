@@ -1063,11 +1063,12 @@
         "askUp":  0.26,
         "askDown":  0.75,
         "placedAt":  "2026-10-09T10:42:02Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.598,
         "version":  6,
         "flipped":  false,
         "trend30":  -0.318,
-        "vol30":  0.2112
+        "vol30":  0.2112,
+        "resolvedAt":  "2026-10-09T10:51:33Z"
     }
 ]
