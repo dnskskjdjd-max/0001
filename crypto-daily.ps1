@@ -220,6 +220,8 @@ $out5 = [ordered]@{
     fast = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto5m-bets.json')); windows = @(Read-CJsonArray (Join-Path $DataDir 'crypto5m-windows.json') | Select-Object -Last 1500)
         state = $(if (Test-Path $st5File) { try { Get-Content $st5File -Raw | ConvertFrom-Json } catch { $null } } else { $null }) }
     fast4 = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto5m4-bets.json')) }
+    fastF = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto5mf-bets.json')) }   # al contrario + filtro de mercado
+    fastP = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto5mp-bets.json')) }   # al contrario + pausa por racha
 }
 Write-CFileAtomic (Join-Path $DataDir 'crypto5.js') ("window.CRYPTO5 = " + (ConvertTo-Json -InputObject $out5 -Depth 8 -Compress) + ";")
 # Corre cada minuto (crypto-publish.ps1): la linea de estado va al registro cada 5 minutos o si hubo novedades

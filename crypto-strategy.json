@@ -59,5 +59,17 @@
     "nota": "5 min al contrario: identica a fast5, salvo cuando esta apuesta a un lado al que el modelo da menos de maxModelP: ahi se compra el lado opuesto",
     "maxModelP": 0.30,
     "slip": 0.01
+  },
+  "fast5f": {
+    "enabled": true,
+    "nota": "5 min al contrario + filtro de mercado: copia la apuesta de fast5c solo si va a favor de la tendencia de BTC de los ultimos trendMinutes y la volatilidad de esos minutos es menor a maxVol (anual). Umbrales elegidos el 8 oct con 180 apuestas pasadas: hay que validarlos hacia adelante",
+    "trendMinutes": 30,
+    "maxVol": 0.32
+  },
+  "fast5p": {
+    "enabled": true,
+    "nota": "5 min al contrario + pausa por racha: copia la apuesta de fast5c salvo que este en pausa; tras streak perdidas seguidas se detiene pauseMinutes",
+    "streak": 4,
+    "pauseMinutes": 90
   }
 }
