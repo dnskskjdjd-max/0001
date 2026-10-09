@@ -1269,10 +1269,11 @@
         "askUp":  0.9,
         "askDown":  0.11,
         "placedAt":  "2026-10-09T11:18:32Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.0926,
         "version":  6,
-        "flipped":  false
+        "flipped":  false,
+        "resolvedAt":  "2026-10-09T11:25:14Z"
     },
     {
         "id":  "btc-updown-5m-1791544800|DOWN",
