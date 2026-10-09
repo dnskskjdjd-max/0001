@@ -809,11 +809,12 @@
         "askUp":  0.16,
         "askDown":  0.85,
         "placedAt":  "2026-10-09T04:50:01Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.153,
         "version":  6,
         "flipped":  true,
         "origSide":  "UP",
-        "origP":  0.2554
+        "origP":  0.2554,
+        "resolvedAt":  "2026-10-09T05:04:52Z"
     }
 ]
