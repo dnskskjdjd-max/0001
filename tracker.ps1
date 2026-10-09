@@ -341,6 +341,7 @@ $DefaultStrategy = [ordered]@{
     maxOverWhale = -1           # no comprar si el precio supera la entrada media de las ballenas en mas de esto (-1 = desactivado)
     excludeCats = @()           # categorias excluidas (nombres de categories.ps1)
     onePerEvent = 0             # 1 = una sola apuesta por evento o partido (eventSlug) en el historial
+    maxFeeRate = -1             # tasa de comision maxima del mercado (0 = solo mercados sin comision; -1 = sin limite)
 }
 
 function Get-WhaleStats($m, $position) {
@@ -395,9 +396,10 @@ function Add-StrategyBets($ledger, $strategy, $current, $gamma, $now, $tag) {
         if ($lowTier -and $strategy.lowScoreMaxPrice -gt 0 -and $price -gt $strategy.lowScoreMaxPrice) { continue }
         # No perseguir: si el precio ya subio sobre la entrada media de las ballenas, su informacion ya esta en el precio
         if ($strategy.maxOverWhale -ge 0 -and ($null -eq $c.whaleAvgEntry -or $price -gt [double]$c.whaleAvgEntry + $strategy.maxOverWhale)) { continue }
+        $feeRate = Get-FeeRate $gamma[$c.slug]
+        if ($strategy.maxFeeRate -ge 0 -and $feeRate -gt [double]$strategy.maxFeeRate) { continue }
         $stake = if ($lowTier) { $strategy.lowScoreStake }
                  elseif ($strategy.rule -eq 'consensus' -and $cons.ok) { $strategy.consensusStake } else { $strategy.baseStake }
-        $feeRate = Get-FeeRate $gamma[$c.slug]
         $ledger[$c.key] = @{
             key = $c.key; placedAt = $now; slug = $c.slug; title = $c.title; position = $c.position
             eventSlug = $c.eventSlug; questionID = $c.questionID; endDate = $c.endDate
