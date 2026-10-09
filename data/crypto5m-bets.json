@@ -3072,8 +3072,9 @@
         "askUp":  0.36,
         "askDown":  0.65,
         "placedAt":  "2026-10-09T10:52:19Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  6
+        "status":  "lost",
+        "pnl":  -2.0882,
+        "version":  6,
+        "resolvedAt":  "2026-10-09T11:00:36Z"
     }
 ]
