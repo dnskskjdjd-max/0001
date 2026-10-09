@@ -8570,3 +8570,15 @@
 2026-10-09 04:51:07  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-09 04:51:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-09 04:51:08  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 04:52:00  [cripto-5m] Apuesta rapida btc-updown-5m-1791539400: DOWN $1 a 30c, modelo 40%, ventaja 8.5 pp, faltan 180 s
+2026-10-09 04:54:01  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791539100: DOWN $1 a 9c, modelo 16.9%, ventaja 7.3 pp
+2026-10-09 04:55:26  [cripto] OK diario: BTC 82666, vol 36.8%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (5 en el historial), 0 resueltas; rapido: 44 apuestas
+2026-10-09 04:55:31  --- inicio ---
+2026-10-09 04:55:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T09:45:14.180Z)
+2026-10-09 04:56:03  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 117 senales + 337 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (9 en total) ; prueba zona-media: 0 nuevas (2 en total) ; prueba zona-media-sin-comision: 0 nuevas (0 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (2 en total)
+2026-10-09 04:56:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-09 04:56:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-09 04:56:05  [cripto-5m] Resuelta rapida btc-updown-5m-1791539100: DOWN -> lost (-1.06 USD)
+2026-10-09 04:56:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 04:56:05  [cripto-5m] Resueltas al contrario btc-updown-5m-1791539100: UP won (0.14 USD)
+2026-10-09 04:56:05  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791539100: UP won (0.14 USD)
