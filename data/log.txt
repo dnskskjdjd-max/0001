@@ -7658,3 +7658,17 @@
 2026-10-08 22:46:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-08 22:46:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-08 22:46:02  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 22:47:08  [cripto-5m] Apuesta rapida btc-updown-5m-1791517500: DOWN $1 a 32c, modelo 39%, ventaja 5.5 pp, faltan 173 s
+2026-10-08 22:50:15  [cripto-rapido] Resuelta rapida btc-updown-15m-1791516600: DOWN -> lost (-1.05 USD)
+2026-10-08 22:50:15  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791516600: DOWN lost (-1.05 USD)
+2026-10-08 22:50:32  [cripto] OK diario: BTC 82371, vol 36.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (5 en el historial), 0 resueltas; rapido: 24 apuestas
+2026-10-08 22:50:38  --- inicio ---
+2026-10-08 22:50:56  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T03:46:00.936Z)
+2026-10-08 22:51:07  OK: 17 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 115 senales + 335 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (8 en total)
+2026-10-08 22:51:11  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-08 22:51:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-08 22:51:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 22:51:28  [cripto-rapido] Apuesta rapida btc-updown-15m-1791517500: UP $1 a 31c, modelo 38.9%, ventaja 6.4 pp, faltan 512 s
+2026-10-08 22:51:56  [ligas] Cuotas: soccer_spain_la_liga actualizado (20 partidos; creditos restantes 479)
+2026-10-08 22:52:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791517800: UP $3 a 28c, modelo 42.3%, ventaja 12.9 pp, faltan 180 s
+2026-10-08 22:52:06  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
