@@ -357,10 +357,11 @@
         "askUp":  0.91,
         "askDown":  0.1,
         "placedAt":  "2026-10-09T00:32:01Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.0814,
         "version":  6,
-        "flipped":  false
+        "flipped":  false,
+        "resolvedAt":  "2026-10-09T00:40:33Z"
     },
     {
         "id":  "btc-updown-5m-1791506100|DOWN",
