@@ -8739,3 +8739,19 @@
 2026-10-09 06:01:27  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-09 06:01:27  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-09 06:01:27  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 06:02:16  [cripto-5m] Apuesta rapida btc-updown-5m-1791543600: DOWN $1 a 70c, modelo 79.3%, ventaja 7.9 pp, faltan 165 s
+2026-10-09 06:02:16  [cripto-5m] Filtro de mercado btc-updown-5m-1791543600: DOWN (tendencia -0.11%, volatilidad 32%)
+2026-10-09 06:02:48  [cripto-rapido] Resuelta rapida btc-updown-15m-1791542700: UP -> won (0.75 USD)
+2026-10-09 06:02:48  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791542700: 10 min UP won (0.75 USD)
+2026-10-09 06:02:48  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791542700: UP won (0.75 USD)
+2026-10-09 06:05:21  [cripto-rapido] Apuesta rapida btc-updown-15m-1791543600: DOWN $1 a 76c, modelo 83.4%, ventaja 6.1 pp, faltan 580 s
+2026-10-09 06:05:31  [cripto] OK diario: BTC 82508, vol 37.1%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (7 en el historial), 0 resueltas; rapido: 48 apuestas
+2026-10-09 06:05:36  --- inicio ---
+2026-10-09 06:05:56  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T11:01:12.502Z)
+2026-10-09 06:06:09  OK: 19 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 117 senales + 337 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (9 en total) ; prueba zona-media: 0 nuevas (2 en total) ; prueba zona-media-sin-comision: 0 nuevas (0 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (2 en total)
+2026-10-09 06:06:11  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-09 06:06:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-09 06:06:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 06:07:13  [cripto-5m] Apuesta rapida btc-updown-5m-1791543900: UP $3 a 73c, modelo 88.3%, ventaja 13.9 pp, faltan 167 s
+2026-10-09 06:07:13  [cripto-5m] Filtro de mercado btc-updown-5m-1791543900: UP (tendencia 0.04%, volatilidad 29%)
+2026-10-09 06:07:14  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
