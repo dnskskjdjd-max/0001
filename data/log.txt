@@ -8327,3 +8327,15 @@
 2026-10-09 03:16:52  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-09 03:16:57  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-09 03:16:57  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 03:17:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791533700: DOWN $1 a 74c, modelo 83.2%, ventaja 7.9 pp, faltan 179 s
+2026-10-09 03:20:08  [cripto-rapido] Apuesta rapida btc-updown-15m-1791533700: DOWN $1 a 76c, modelo 83.2%, ventaja 5.9 pp, faltan 593 s
+2026-10-09 03:20:26  [cripto] OK diario: BTC 82641, vol 36.3%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (5 en el historial), 0 resueltas; rapido: 40 apuestas
+2026-10-09 03:20:27  [cripto-rapido] Resuelta rapida btc-updown-15m-1791532800: DOWN -> lost (-1.04 USD)
+2026-10-09 03:20:27  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791532800: 6 min UP won, 3 min UP won (0.94 USD)
+2026-10-09 03:20:27  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791532800: DOWN lost (-1.04 USD)
+2026-10-09 03:20:30  --- inicio ---
+2026-10-09 03:20:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T08:11:03.227Z)
+2026-10-09 03:21:00  OK: 17 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 116 senales + 337 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (8 en total) ; prueba zona-media: 0 nuevas (2 en total) ; prueba zona-media-sin-comision: 0 nuevas (0 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (2 en total)
+2026-10-09 03:21:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-09 03:21:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-09 03:21:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
