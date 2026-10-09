@@ -68,8 +68,9 @@
   },
   "fast5p": {
     "enabled": true,
-    "nota": "5 min al contrario + pausa por racha: copia la apuesta de fast5c salvo que este en pausa; tras streak perdidas seguidas se detiene pauseMinutes",
+    "nota": "5 min al contrario + pausa por racha: copia la apuesta de fast5c salvo que este en pausa; cuando la racha de perdidas seguidas suma maxStreakLoss dolares se detiene pauseMinutes (desde el 9 oct; antes: 4 perdidas seguidas -> 90 min)",
+    "maxStreakLoss": 3,
     "streak": 4,
-    "pauseMinutes": 90
+    "pauseMinutes": 15
   }
 }

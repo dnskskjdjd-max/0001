@@ -240,14 +240,17 @@ function Get-Regime([int]$minutes) {
     $m = ($ret | Measure-Object -Average).Average; $v = 0.0; foreach ($x in $ret) { $v += ($x - $m) * ($x - $m) }
     return @{ trend = [Math]::Log([double]$k[$k.Count - 1][4] / [double]$k[0][4]); vol = [Math]::Sqrt($v / ($ret.Count - 1) * 525600) }
 }
-# Pausa por racha: recorre el historial resuelto de la estrategia; cada vez que junta N perdidas seguidas, pausa X minutos
-# desde la ultima de ellas y vuelve a contar desde cero. Devuelve hasta cuando dura la ultima pausa (o $null).
+# Pausa por racha: recorre el historial resuelto de la estrategia; cada vez que la racha de perdidas seguidas llega a
+# maxStreakLoss dolares (o, si no esta definido, a streak perdidas), pausa pauseMinutes desde la ultima de ellas y vuelve
+# a contar desde cero. Devuelve hasta cuando dura la ultima pausa (o $null).
 function Get-PauseUntil {
     if (-not ($F6 -and $F6.enabled)) { return $null }
-    $until = $null; $streak = 0
+    $until = $null; $streak = 0; $streakLoss = 0.0
+    $byAmount = $null -ne $F6.maxStreakLoss -and [double]$F6.maxStreakLoss -gt 0
     foreach ($b in @($bets6 | Where-Object { $_.status -in 'won', 'lost' -and $_.resolvedAt } | Sort-Object { [datetime]$_.resolvedAt })) {
-        if ($b.status -eq 'lost') { $streak++ } else { $streak = 0 }
-        if ($streak -ge [int]$F6.streak) { $until = ([datetime]$b.resolvedAt).ToUniversalTime().AddMinutes([double]$F6.pauseMinutes); $streak = 0 }
+        if ($b.status -eq 'lost') { $streak++; $streakLoss += - [double]$b.pnl } else { $streak = 0; $streakLoss = 0.0 }
+        $hit = if ($byAmount) { $streakLoss -ge [double]$F6.maxStreakLoss } else { $streak -ge [int]$F6.streak }
+        if ($hit) { $until = ([datetime]$b.resolvedAt).ToUniversalTime().AddMinutes([double]$F6.pauseMinutes); $streak = 0; $streakLoss = 0.0 }
     }
     return $until
 }

@@ -211,8 +211,9 @@ function render() {
   const pu = st && st.pauseUntil ? Date.parse(st.pauseUntil) : null;
   const paused = pu && pu > Date.now();
   strategyCard($('fastPCard'), '⏸ 5 min al contrario + pausa por racha', [
-    `${baseTxt}, pero tras <b>${FP.streak || 4} pérdidas seguidas</b> se detiene <b>${FP.pauseMinutes || 90} minutos</b>; luego vuelve a contar desde cero`,
-    'En las 180 apuestas pasadas, esta regla mejoró los tres bots y redujo la peor caída a la mitad',
+    FP.maxStreakLoss ? `${baseTxt}, pero cuando la <b>racha de pérdidas seguidas suma $${FP.maxStreakLoss} o más</b> se detiene <b>${FP.pauseMinutes || 15} minutos</b>; luego vuelve a contar desde cero`
+      : `${baseTxt}, pero tras <b>${FP.streak || 4} pérdidas seguidas</b> se detiene <b>${FP.pauseMinutes || 90} minutos</b>; luego vuelve a contar desde cero`,
+    'Regla cambiada el 9 oct (antes: 4 pérdidas seguidas → 90 min de pausa). Las apuestas anteriores se mantienen en el historial',
     paused ? `<b class="neg">⏸ En pausa hasta las ${new Date(pu).toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' })}</b>` : '<b class="pos">Activa</b> (no está en pausa)',
     FP.enabled === false ? '<b class="neg">Desactivada</b>' : 'Historial aparte (empezó el 8 oct)',
   ], fbP, 'chFastP', row(b => flipTag(b)), HEAD,
