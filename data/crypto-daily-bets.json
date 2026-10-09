@@ -208,9 +208,9 @@
         "curPrice":  0.18,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T09:59:20Z",
-        "curP":  0.2018,
-        "curSpot":  82666.01,
+        "curPriceAt":  "2026-10-09T10:00:20Z",
+        "curP":  0.2005,
+        "curSpot":  82668.71,
         "hist":  [
                      {
                          "t":  "2026-10-08T11:11:20Z",
@@ -373,9 +373,9 @@
         "curPrice":  0.076,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T09:59:20Z",
-        "curP":  0.0477,
-        "curSpot":  82666.01,
+        "curPriceAt":  "2026-10-09T10:00:20Z",
+        "curP":  0.0478,
+        "curSpot":  82668.71,
         "hist":  [
                      {
                          "t":  "2026-10-08T14:56:20Z",
@@ -514,9 +514,9 @@
         "curPrice":  0.995,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T09:59:20Z",
+        "curPriceAt":  "2026-10-09T10:00:20Z",
         "curP":  1,
-        "curSpot":  82666.01,
+        "curSpot":  82668.71,
         "hist":  [
                      {
                          "t":  "2026-10-08T16:03:22Z",
@@ -625,6 +625,39 @@
                          "px":  0.995,
                          "p":  1,
                          "S":  82668
+                     }
+                 ]
+    },
+    {
+        "id":  "bitcoin-above-84k-on-october-10-2026|YES",
+        "ev":  "bitcoin-above-on-october-10-2026",
+        "slug":  "bitcoin-above-84k-on-october-10-2026",
+        "k":  84000,
+        "side":  "YES",
+        "token":  "39960626539355057168140920640592827729921953882604067146277043588308414774480",
+        "stake":  1,
+        "price":  0.17,
+        "fee":  0.0581,
+        "p":  0.2256,
+        "edge":  0.0457,
+        "S":  82668.71,
+        "sig":  0.3676,
+        "tauH":  29.99,
+        "placedAt":  "2026-10-09T10:00:20Z",
+        "end":  "2026-10-10T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.16,
+        "pnl":  null,
+        "version":  6,
+        "curPriceAt":  "2026-10-09T10:00:20Z",
+        "curP":  0.2256,
+        "curSpot":  82668.71,
+        "hist":  [
+                     {
+                         "t":  "2026-10-09T10:00:20Z",
+                         "px":  0.16,
+                         "p":  0.2256,
+                         "S":  82669
                      }
                  ]
     }
