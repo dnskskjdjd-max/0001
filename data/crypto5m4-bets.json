@@ -2977,10 +2977,11 @@
         "askUp":  0.64,
         "askDown":  0.38,
         "placedAt":  "2026-10-09T09:57:20Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  1.5214,
         "version":  6,
-        "flipped":  false
+        "flipped":  false,
+        "resolvedAt":  "2026-10-09T10:06:10Z"
     },
     {
         "id":  "btc-updown-5m-1791540000|DOWN",
