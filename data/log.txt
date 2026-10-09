@@ -8363,3 +8363,21 @@
 2026-10-09 03:31:14  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-09 03:31:14  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-09 03:31:14  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 03:31:23  [cripto-5m] Resuelta rapida btc-updown-5m-1791534000: DOWN -> won (0.36 USD)
+2026-10-09 03:31:23  [cripto-5m] Resueltas al contrario btc-updown-5m-1791534000: DOWN won (0.36 USD)
+2026-10-09 03:31:23  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791534000: DOWN won (0.36 USD)
+2026-10-09 03:32:05  [cripto-5m] Apuesta rapida btc-updown-5m-1791534600: DOWN $2 a 73c, modelo 83.5%, ventaja 9.1 pp, faltan 176 s
+2026-10-09 03:32:05  [cripto-5m] Filtro de mercado btc-updown-5m-1791534600: DOWN (tendencia -0.09%, volatilidad 24%)
+2026-10-09 03:33:35  [cripto-rapido] Resuelta rapida btc-updown-15m-1791533700: DOWN -> won (0.3 USD)
+2026-10-09 03:33:35  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791533700: DOWN won (0.3 USD)
+2026-10-09 03:35:20  [cripto-rapido] Apuesta rapida btc-updown-15m-1791534600: DOWN $1 a 66c, modelo 72.7%, ventaja 5.1 pp, faltan 580 s
+2026-10-09 03:35:24  [cripto] OK diario: BTC 82545, vol 36.4%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (5 en el historial), 0 resueltas; rapido: 41 apuestas
+2026-10-09 03:35:25  [cripto-5m] Resuelta rapida btc-updown-5m-1791534300: UP -> won (0.24 USD)
+2026-10-09 03:35:25  [cripto-5m] Resueltas al contrario btc-updown-5m-1791534300: UP won (0.24 USD)
+2026-10-09 03:35:26  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791534300: UP won (0.24 USD)
+2026-10-09 03:35:29  --- inicio ---
+2026-10-09 03:35:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T08:28:04.013Z)
+2026-10-09 03:35:59  OK: 18 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 116 senales + 337 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (8 en total) ; prueba zona-media: 0 nuevas (2 en total) ; prueba zona-media-sin-comision: 0 nuevas (0 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (2 en total)
+2026-10-09 03:36:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-09 03:36:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-09 03:36:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
