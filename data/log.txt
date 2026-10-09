@@ -8618,3 +8618,18 @@
 2026-10-09 05:11:06  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-09 05:11:07  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-09 05:11:07  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 05:11:11  [cripto-5m] Resuelta rapida btc-updown-5m-1791540000: DOWN -> lost (-2.08 USD)
+2026-10-09 05:11:11  [cripto-5m] Resueltas al contrario btc-updown-5m-1791540000: DOWN lost (-2.08 USD)
+2026-10-09 05:11:11  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791540000: DOWN lost (-2.08 USD)
+2026-10-09 05:15:24  [cripto] OK diario: BTC 82726, vol 36.8%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (7 en el historial), 0 resueltas; rapido: 45 apuestas
+2026-10-09 05:15:29  --- inicio ---
+2026-10-09 05:15:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T10:01:02.175Z)
+2026-10-09 05:16:02  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 117 senales + 337 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (9 en total) ; prueba zona-media: 0 nuevas (2 en total) ; prueba zona-media-sin-comision: 0 nuevas (0 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (2 en total)
+2026-10-09 05:16:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-09 05:16:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-09 05:16:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 05:16:13  [cripto-5m] Resuelta rapida btc-updown-5m-1791540300: DOWN -> won (4.15 USD)
+2026-10-09 05:16:13  [cripto-5m] Resueltas al contrario btc-updown-5m-1791540300: DOWN won (4.15 USD)
+2026-10-09 05:16:13  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791540300: DOWN won (4.15 USD)
+2026-10-09 05:16:40  [ligas] Cuotas: soccer_spain_la_liga actualizado (20 partidos; creditos restantes 477)
+2026-10-09 05:16:50  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
