@@ -8644,3 +8644,18 @@
 2026-10-09 05:21:07  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-09 05:21:07  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-09 05:21:07  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 05:21:16  [cripto-rapido] Apuesta rapida btc-updown-15m-1791540900: UP $1 a 11c, modelo 17.1%, ventaja 5.4 pp, faltan 524 s
+2026-10-09 05:21:16  [cripto-rapido] Apuesta al contrario btc-updown-15m-1791540900: DOWN $1 a 92c (el modelo daba 17.1% a UP)
+2026-10-09 05:22:00  [cripto-5m] Apuesta rapida btc-updown-5m-1791541200: UP $3 a 12c, modelo 26.4%, ventaja 13.7 pp, faltan 180 s
+2026-10-09 05:22:00  [cripto-5m] Apuesta al contrario btc-updown-5m-1791541200: DOWN $3 a 91c (el modelo daba 26.4% a UP)
+2026-10-09 05:22:01  [cripto-5m] Filtro de mercado btc-updown-5m-1791541200: DOWN (tendencia -0.01%, volatilidad 12%)
+2026-10-09 05:25:15  [cripto-5m] Resuelta rapida btc-updown-5m-1791540900: UP -> lost (-2.1 USD)
+2026-10-09 05:25:15  [cripto-5m] Resueltas al contrario btc-updown-5m-1791540900: UP lost (-2.1 USD)
+2026-10-09 05:25:15  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791540900: UP lost (-2.1 USD)
+2026-10-09 05:25:27  [cripto] OK diario: BTC 82646, vol 36.9%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (7 en el historial), 0 resueltas; rapido: 46 apuestas
+2026-10-09 05:25:32  --- inicio ---
+2026-10-09 05:25:54  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T10:01:02.175Z)
+2026-10-09 05:26:08  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 117 senales + 337 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (9 en total) ; prueba zona-media: 0 nuevas (2 en total) ; prueba zona-media-sin-comision: 0 nuevas (0 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (2 en total)
+2026-10-09 05:26:10  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-09 05:26:11  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-09 05:26:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
