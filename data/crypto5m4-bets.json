@@ -560,5 +560,32 @@
         "version":  6,
         "flipped":  false,
         "resolvedAt":  "2026-10-09T01:20:12Z"
+    },
+    {
+        "id":  "btc-updown-5m-1791508800|DOWN",
+        "W":  1791508800,
+        "slug":  "btc-updown-5m-1791508800",
+        "side":  "DOWN",
+        "token":  "45151497585785804070466400735580919706406197791135236213721541935094941676069",
+        "stake":  2,
+        "price":  0.68,
+        "fee":  0.0448,
+        "p":  0.814,
+        "edge":  0.1188,
+        "model":  "end60",
+        "secLeft":  164,
+        "S0":  81665.99,
+        "S":  81636,
+        "twapSoFar":  81643.05,
+        "pTwap":  0.0264,
+        "pEnd":  0.2506,
+        "pEnd60":  0.186,
+        "askUp":  0.34,
+        "askDown":  0.67,
+        "placedAt":  "2026-10-09T01:22:17Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  6,
+        "flipped":  false
     }
 ]
