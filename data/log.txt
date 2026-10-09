@@ -7332,3 +7332,17 @@
 2026-10-08 20:16:16  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-08 20:16:17  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-08 20:16:17  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 20:20:12  [cripto-rapido] Resuelta rapida btc-updown-15m-1791507600: DOWN -> won (0.89 USD)
+2026-10-08 20:20:12  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791507600: 6 min DOWN won, 3 min DOWN won (3.77 USD)
+2026-10-08 20:20:12  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791507600: DOWN won (0.89 USD)
+2026-10-08 20:20:12  [cripto-5m] Resuelta rapida btc-updown-5m-1791508200: DOWN -> won (3.7 USD)
+2026-10-08 20:20:12  [cripto-5m] Resueltas al contrario btc-updown-5m-1791508200: DOWN won (3.7 USD)
+2026-10-08 20:20:24  [cripto] OK diario: BTC 81666, vol 37.5%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (5 en el historial), 0 resueltas; rapido: 16 apuestas
+2026-10-08 20:20:30  --- inicio ---
+2026-10-08 20:20:38  [cripto-rapido] Apuesta rapida btc-updown-15m-1791508500: DOWN $1 a 79c, modelo 85.6%, ventaja 5.4 pp, faltan 563 s
+2026-10-08 20:20:57  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-09T01:16:08.848Z)
+2026-10-08 20:21:10  OK: 17 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (45 en el historial), 0 alertas de venta, 0 resueltas, 114 senales + 334 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (8 en total)
+2026-10-08 20:21:14  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-08 20:21:15  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-08 20:21:15  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-08 20:22:13  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
