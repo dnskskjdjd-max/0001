@@ -208,9 +208,9 @@
         "curPrice":  0.22,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T10:54:21Z",
-        "curP":  0.2526,
-        "curSpot":  82494,
+        "curPriceAt":  "2026-10-09T10:55:21Z",
+        "curP":  0.2524,
+        "curSpot":  82493.72,
         "hist":  [
                      {
                          "t":  "2026-10-08T11:11:20Z",
@@ -373,9 +373,9 @@
         "curPrice":  0.038,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T10:54:21Z",
-        "curP":  0.0214,
-        "curSpot":  82494,
+        "curPriceAt":  "2026-10-09T10:55:21Z",
+        "curP":  0.0212,
+        "curSpot":  82493.72,
         "hist":  [
                      {
                          "t":  "2026-10-08T14:56:20Z",
@@ -520,9 +520,9 @@
         "curPrice":  0.996,
         "pnl":  null,
         "version":  5,
-        "curPriceAt":  "2026-10-09T10:54:21Z",
+        "curPriceAt":  "2026-10-09T10:55:21Z",
         "curP":  1,
-        "curSpot":  82494,
+        "curSpot":  82493.72,
         "hist":  [
                      {
                          "t":  "2026-10-08T16:03:22Z",
@@ -652,12 +652,12 @@
         "placedAt":  "2026-10-09T10:00:20Z",
         "end":  "2026-10-10T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.14,
+        "curPrice":  0.13,
         "pnl":  null,
         "version":  6,
-        "curPriceAt":  "2026-10-09T10:54:21Z",
-        "curP":  0.196,
-        "curSpot":  82494,
+        "curPriceAt":  "2026-10-09T10:55:21Z",
+        "curP":  0.1958,
+        "curSpot":  82493.72,
         "hist":  [
                      {
                          "t":  "2026-10-09T10:00:20Z",
@@ -685,12 +685,12 @@
         "placedAt":  "2026-10-09T10:02:20Z",
         "end":  "2026-10-10T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.32,
+        "curPrice":  0.35,
         "pnl":  null,
         "version":  6,
-        "curPriceAt":  "2026-10-09T10:54:21Z",
+        "curPriceAt":  "2026-10-09T10:55:21Z",
         "curP":  0.3936,
-        "curSpot":  82494,
+        "curSpot":  82493.72,
         "hist":  [
                      {
                          "t":  "2026-10-09T10:02:20Z",
