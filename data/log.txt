@@ -8848,3 +8848,17 @@
 2026-10-10 15:36:31  [ligas] Cuotas: soccer_spain_la_liga actualizado (16 partidos; creditos restantes 476)
 2026-10-10 15:36:52  [cripto-rapido] Apuesta rapida btc-updown-15m-1791664200: DOWN $3 a 39c, modelo 62.4%, ventaja 21.7 pp, faltan 489 s
 2026-10-10 15:36:54  [ligas] OK: 33 partidos en 10 dias, 33 con Vegas, 0 apuestas en el historial
+2026-10-10 15:37:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791664500: DOWN $3 a 13c, modelo 31.4%, ventaja 17.6 pp, faltan 180 s
+2026-10-10 15:37:02  [cripto-5m] Filtro de mercado btc-updown-5m-1791664500: DOWN (tendencia -0.07%, volatilidad 9%)
+2026-10-10 15:37:05  [cripto] Apuesta diaria: BTC YES > 84000 (bitcoin-above-on-october-11-2026) $3 a 9c, modelo 25.1%, ventaja 15.5 pp
+2026-10-10 15:37:06  [cripto] OK diario: BTC 83041, vol 36.8%, 3 fechas, 0 senales nuevas, 1 apuestas nuevas (9 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-10 15:39:02  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791664200: UP $1 a 90c, modelo 97.5%, ventaja 6.9 pp
+2026-10-10 15:40:27  [cripto-5m] Iniciado (pid 23680)
+2026-10-10 15:40:27  [cripto-rapido] Iniciado (pid 11280)
+2026-10-10 15:40:30  [cripto] OK diario: BTC 83068, vol 36.8%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (9 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-10 15:40:37  --- inicio ---
+2026-10-10 15:40:53  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-10T20:36:01.737Z)
+2026-10-10 15:41:09  OK: 20 mercados >= 60, 5 >= 70, 1 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (46 en el historial), 0 alertas de venta, 0 resueltas, 121 senales + 341 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (10 en total) ; prueba zona-media: 0 nuevas (3 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (3 en total)
+2026-10-10 15:41:12  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-10 15:41:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-10 15:41:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
