@@ -8903,3 +8903,14 @@
 2026-10-10 15:56:28  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-10 15:56:30  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-10 15:56:30  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-10 15:59:27  [cripto] ERROR diario: La operación sobrepasó el tiempo de espera. (linea 13)
+2026-10-10 16:00:29  [cripto] OK diario: BTC 83040, vol 36.8%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (9 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-10 16:00:37  --- inicio ---
+2026-10-10 16:01:23  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-10T20:56:16.777Z)
+2026-10-10 16:01:44  Resuelta: Will Yulia Navalnaya win the Nobel Peace Prize in 2026? [NO] -> won
+2026-10-10 16:01:44  Resuelta: Will Donald Trump win the Nobel Peace Prize in 2026? [NO] -> won
+2026-10-10 16:01:44  Resuelta: Will Yulia Navalnaya win the Nobel Peace Prize in 2026? [YES] -> lost
+2026-10-10 16:01:50  OK: 21 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (46 en el historial), 0 alertas de venta, 3 resueltas, 121 senales + 341 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (10 en total) ; prueba zona-media: 0 nuevas (3 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (3 en total)
+2026-10-10 16:02:20  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-10 16:02:24  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-10 16:02:24  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
