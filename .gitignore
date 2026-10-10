@@ -1,3 +1,4 @@
 local-run.log
 *.tmp
 secrets/
+research/data/
