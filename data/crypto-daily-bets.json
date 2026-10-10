@@ -756,15 +756,48 @@
         "curPrice":  0.05,
         "pnl":  null,
         "version":  6,
-        "curPriceAt":  "2026-10-10T20:35:21Z",
-        "curP":  0.2372,
-        "curSpot":  83035.38,
+        "curPriceAt":  "2026-10-10T20:37:00Z",
+        "curP":  0.2358,
+        "curSpot":  83041.08,
         "hist":  [
                      {
                          "t":  "2026-10-10T20:35:21Z",
                          "px":  0.05,
                          "p":  0.2372,
                          "S":  83035
+                     }
+                 ]
+    },
+    {
+        "id":  "bitcoin-above-84k-on-october-11-2026|YES",
+        "ev":  "bitcoin-above-on-october-11-2026",
+        "slug":  "bitcoin-above-84k-on-october-11-2026",
+        "k":  84000,
+        "side":  "YES",
+        "token":  "7772393174236023486921009514988061135771602413534463399480670727565609329550",
+        "stake":  3,
+        "price":  0.09,
+        "fee":  0.1911,
+        "p":  0.2509,
+        "edge":  0.1552,
+        "S":  83041.08,
+        "sig":  0.3682,
+        "tauH":  19.38,
+        "placedAt":  "2026-10-10T20:37:00Z",
+        "end":  "2026-10-11T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.08,
+        "pnl":  null,
+        "version":  6,
+        "curPriceAt":  "2026-10-10T20:37:00Z",
+        "curP":  0.2509,
+        "curSpot":  83041.08,
+        "hist":  [
+                     {
+                         "t":  "2026-10-10T20:37:00Z",
+                         "px":  0.08,
+                         "p":  0.2509,
+                         "S":  83041
                      }
                  ]
     }
