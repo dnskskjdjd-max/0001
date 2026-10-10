@@ -179,7 +179,7 @@ function render() {
       st ? `último ciclo ${fmtT(st.lastLoop)} · ${(st.loops || 0).toLocaleString('es')} ciclos${st.errors ? ` · ${st.errors} errores` : ''}` : 'todavía no arrancó'],
   ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
 
-  const obs = r.canBet ? '<b class="pos">Apostando</b>' : `<b>Fase de observación</b>: no apuesta hasta que la regla coincida con la resolución real en ≥ ${Math.round((F.minRuleMatch || 0.9) * 100)}% de al menos ${F.minObserved || 25} ventanas (van ${r.n || 0})`;
+  const obs = F.betting === false ? '<b class="neg">⏸ Apuestas pausadas</b> desde el 10 oct: se está investigando una estrategia nueva con 60 días de historial. El bot sigue registrando cada ventana.' : r.canBet ? '<b class="pos">Apostando</b>' : `<b>Fase de observación</b>: no apuesta hasta que la regla coincida con la resolución real en ≥ ${Math.round((F.minRuleMatch || 0.9) * 100)}% de al menos ${F.minObserved || 25} ventanas (van ${r.n || 0})`;
   strategyCard($('fastCard'), '⚡ 5 minutos: velocidad', [
     'Mercados “Bitcoin sube o baja” de 5 min: “sube” si el precio de Chainlink (promedio de 60 s) al final es ≥ al del inicio',
     `Cada ~${F.pollSec || 2} s calcula con Binance la probabilidad de “sube” (modelo: ${MODEL_NAMES[F.model] || F.model}) y la compara con el libro de órdenes`,

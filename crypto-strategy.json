@@ -12,6 +12,8 @@
     "tiers": [ { "edge": 0.08, "stake": 3 }, { "edge": 0.05, "stake": 2 }, { "edge": 0.02, "stake": 1 } ]
   },
   "fast": {
+    "betting": false,
+    "pausa": "Apuestas pausadas desde el 10 oct: se investiga una estrategia nueva con 60 dias de historial; el bot sigue registrando ventanas",
     "model": "end60",
     "pollSec": 2,
     "maxSecLeft": 600,
@@ -41,6 +43,8 @@
     "slip": 0.01
   },
   "fast5": {
+    "betting": false,
+    "pausa": "Apuestas pausadas desde el 10 oct: se investiga una estrategia nueva con 60 dias de historial; el bot sigue registrando ventanas",
     "nota": "Mercados de 5 min (btc-updown-5m): mismo modelo end60 y reglas que fast, apuesta en los ultimos 3 min (no en los ultimos 15 s; antes 4 min, cambiado el 8 oct); fase de observacion propia",
     "model": "end60",
     "pollSec": 2,

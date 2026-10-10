@@ -380,7 +380,7 @@ try {
                     }
                     # Estrategia 1 (original): una apuesta por ventana, en cualquier momento de los ultimos 10 min
                     $already = $bets | Where-Object { $_.W -eq $cur.W } | Select-Object -First 1
-                    if (-not $already -and $null -ne $p -and $rule.canBet -and $secLeft -le [int]$F.maxSecLeft -and $secLeft -ge [int]$F.minSecLeft) {
+                    if (-not $already -and $F.betting -ne $false -and $null -ne $p -and $rule.canBet -and $secLeft -le [int]$F.maxSecLeft -and $secLeft -ge [int]$F.minSecLeft) {
                         $best = Find-BestBet $bu $bd $p $F
                         if ($best) {
                             $bet = New-FastBet $best $md $secLeft $askUp $askDn "$($cur.slug)|$($best.side)"
@@ -399,7 +399,7 @@ try {
                     }
                     # Estrategia 2 ("3 tramos"): se mira la ventaja una vez en cada momento fijo (faltando 10, 6 y 3 min);
                     # si hay ventaja se apuesta, si no ese tramo se salta. Hasta 3 apuestas por ventana, historial aparte.
-                    if ($F3 -and $F3.enabled -and $null -ne $p -and $rule.canBet) {
+                    if ($F3 -and $F3.enabled -and $F.betting -ne $false -and $null -ne $p -and $rule.canBet) {
                         foreach ($slot in @($F3.slots)) {
                             $sl = [int]$slot
                             if ($secLeft -gt $sl -or $secLeft -le $sl - [int]$F3.slotToleranceSec -or $cur.slotsDone.Contains("$sl")) { continue }
