@@ -1213,11 +1213,12 @@
         "askUp":  0.89,
         "askDown":  0.12,
         "placedAt":  "2026-10-10T20:37:01Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -3.1827,
         "version":  6,
         "flipped":  false,
         "trend30":  -0.071,
-        "vol30":  0.0862
+        "vol30":  0.0862,
+        "resolvedAt":  "2026-10-10T20:45:03Z"
     }
 ]
