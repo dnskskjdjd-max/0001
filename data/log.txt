@@ -8810,3 +8810,41 @@
 2026-10-09 06:25:56  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-09 06:25:56  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
 2026-10-09 06:25:56  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-09 06:28:06  [cripto-5m] Apuesta rapida btc-updown-5m-1791545100: DOWN $3 a 31c, modelo 45.3%, ventaja 12.8 pp, faltan 114 s
+2026-10-09 06:28:07  [cripto-5m] Filtro de mercado btc-updown-5m-1791545100: DOWN (tendencia -0.03%, volatilidad 26%)
+2026-10-10 15:35:17  [cripto-rapido] Iniciado (pid 11876)
+2026-10-10 15:35:17  [cripto-5m] Iniciado (pid 11804)
+2026-10-10 15:35:21  [cripto-5m] Ventana btc-updown-5m-1791545100 reconstruida (el bot no estaba corriendo al cerrarse)
+2026-10-10 15:35:21  [cripto-5m] Resuelta rapida btc-updown-5m-1791544800: DOWN -> won (0.09 USD)
+2026-10-10 15:35:21  [cripto-5m] Resueltas al contrario btc-updown-5m-1791544800: DOWN won (0.09 USD)
+2026-10-10 15:35:21  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791544800: DOWN won (0.09 USD)
+2026-10-10 15:35:21  [cripto-5m] Resuelta rapida btc-updown-5m-1791545100: DOWN -> lost (-3.14 USD)
+2026-10-10 15:35:21  [cripto-5m] Resueltas al contrario btc-updown-5m-1791545100: DOWN lost (-3.14 USD)
+2026-10-10 15:35:21  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791545100: DOWN lost (-3.14 USD)
+2026-10-10 15:35:21  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791545100: DOWN lost (-3.14 USD)
+2026-10-10 15:35:22  [cripto-rapido] Ventana btc-updown-15m-1791544500 reconstruida (el bot no estaba corriendo al cerrarse)
+2026-10-10 15:35:22  [cripto-rapido] Resuelta rapida btc-updown-15m-1791544500: UP -> won (1.05 USD)
+2026-10-10 15:35:22  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791544500: UP won (1.05 USD)
+2026-10-10 15:35:25  [cripto] Apuesta diaria: BTC NO > 82000 (bitcoin-above-on-october-11-2026) $3 a 6c, modelo 23.7%, ventaja 17.3 pp
+2026-10-10 15:35:25  [cripto] Resuelta diaria: BTC YES > 84000 -> lost (-1.06 USD)
+2026-10-10 15:35:25  [cripto] Resuelta diaria: BTC NO > 82000 -> lost (-1.05 USD)
+2026-10-10 15:35:26  [cripto] Resuelta diaria: BTC NO > 82000 -> lost (-1.04 USD)
+2026-10-10 15:35:26  [cripto] Resuelta diaria: BTC YES > 84000 -> lost (-1.06 USD)
+2026-10-10 15:35:26  [cripto] Resuelta diaria: BTC YES > 78000 -> won (0.05 USD)
+2026-10-10 15:35:26  [cripto] OK diario: BTC 83035, vol 36.8%, 3 fechas, 2 senales nuevas, 1 apuestas nuevas (8 en el historial), 5 resueltas; rapido: 49 apuestas
+2026-10-10 15:35:32  --- inicio ---
+2026-10-10 15:35:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-10T20:12:06.198Z)
+2026-10-10 15:35:52  Apuesta conservadora: $3 a NO en Will Benjamin Netanyahu be the next Prime Minister of Israel? @ 67c (score 69, consenso 8/10)
+2026-10-10 15:35:52  [prueba:no-perseguir] Apuesta: $2 a NO en Will Benjamin Netanyahu be the next Prime Minister of Israel? @ 67c (score 69, consenso 8/10)
+2026-10-10 15:35:52  [prueba:zona-media] Apuesta: $2 a NO en Will Benjamin Netanyahu be the next Prime Minister of Israel? @ 67c (score 69, consenso 8/10)
+2026-10-10 15:35:52  [prueba:zona-media-sin-comision] Apuesta: $2 a NO en Will Benjamin Netanyahu be the next Prime Minister of Israel? @ 67c (score 69, consenso 8/10)
+2026-10-10 15:35:52  [prueba:zona-media-sin-perseguir] Apuesta: $2 a NO en Will Benjamin Netanyahu be the next Prime Minister of Israel? @ 67c (score 69, consenso 8/10)
+2026-10-10 15:35:52  Resuelta: Counter-Strike: FURIA vs MOUZ (BO3) - ESL Pro League Playoffs [MOUZ] -> won
+2026-10-10 15:35:52  Resuelta: Will Brighton & Hove Albion FC win on 2026-10-10? [NO] -> lost
+2026-10-10 15:35:55  OK: 19 mercados >= 60, 5 >= 70, 3 senales nuevas, 4 de control nuevas, 1 apuestas nuevas (46 en el historial), 0 alertas de venta, 2 resueltas, 120 senales + 341 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 1 nuevas (10 en total) ; prueba zona-media: 1 nuevas (3 en total) ; prueba zona-media-sin-comision: 1 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 1 nuevas (3 en total)
+2026-10-10 15:35:57  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-10 15:35:58  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 0 en el historial
+2026-10-10 15:35:58  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-10 15:36:31  [ligas] Cuotas: soccer_spain_la_liga actualizado (16 partidos; creditos restantes 476)
+2026-10-10 15:36:52  [cripto-rapido] Apuesta rapida btc-updown-15m-1791664200: DOWN $3 a 39c, modelo 62.4%, ventaja 21.7 pp, faltan 489 s
+2026-10-10 15:36:54  [ligas] OK: 33 partidos en 10 dias, 33 con Vegas, 0 apuestas en el historial
