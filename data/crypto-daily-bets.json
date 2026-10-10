@@ -204,9 +204,9 @@
         "tauH":  28.81,
         "placedAt":  "2026-10-08T11:11:20Z",
         "end":  "2026-10-09T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.22,
-        "pnl":  null,
+        "status":  "lost",
+        "curPrice":  0,
+        "pnl":  -1.0427,
         "version":  5,
         "curPriceAt":  "2026-10-09T11:29:20Z",
         "curP":  0.1952,
@@ -356,7 +356,8 @@
                          "p":  0.2316,
                          "S":  82542
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-10T20:35:21Z"
     },
     {
         "id":  "bitcoin-above-84k-on-october-9-2026|YES",
@@ -375,9 +376,9 @@
         "tauH":  25.06,
         "placedAt":  "2026-10-08T14:56:20Z",
         "end":  "2026-10-09T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.04,
-        "pnl":  null,
+        "status":  "lost",
+        "curPrice":  0,
+        "pnl":  -1.0567,
         "version":  5,
         "curPriceAt":  "2026-10-09T11:29:20Z",
         "curP":  0.0231,
@@ -509,7 +510,8 @@
                          "p":  0.0251,
                          "S":  82563
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-10T20:35:21Z"
     },
     {
         "id":  "bitcoin-above-78k-on-october-9-2026|YES",
@@ -528,9 +530,9 @@
         "tauH":  23.94,
         "placedAt":  "2026-10-08T16:03:22Z",
         "end":  "2026-10-09T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.996,
-        "pnl":  null,
+        "status":  "won",
+        "curPrice":  1,
+        "pnl":  0.0501,
         "version":  5,
         "curPriceAt":  "2026-10-09T11:29:20Z",
         "curP":  1,
@@ -650,7 +652,8 @@
                          "p":  1,
                          "S":  82542
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-10T20:35:21Z"
     },
     {
         "id":  "bitcoin-above-84k-on-october-10-2026|YES",
@@ -669,9 +672,9 @@
         "tauH":  29.99,
         "placedAt":  "2026-10-09T10:00:20Z",
         "end":  "2026-10-10T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.13,
-        "pnl":  null,
+        "status":  "lost",
+        "curPrice":  0,
+        "pnl":  -1.0581,
         "version":  6,
         "curPriceAt":  "2026-10-09T11:29:20Z",
         "curP":  0.2112,
@@ -689,7 +692,8 @@
                          "p":  0.207,
                          "S":  82566
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-10T20:35:21Z"
     },
     {
         "id":  "bitcoin-above-82k-on-october-10-2026|NO",
@@ -708,9 +712,9 @@
         "tauH":  29.96,
         "placedAt":  "2026-10-09T10:02:20Z",
         "end":  "2026-10-10T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.33,
-        "pnl":  null,
+        "status":  "lost",
+        "curPrice":  0,
+        "pnl":  -1.0483,
         "version":  6,
         "curPriceAt":  "2026-10-09T11:29:20Z",
         "curP":  0.3697,
@@ -727,6 +731,40 @@
                          "px":  0.33,
                          "p":  0.3783,
                          "S":  82563
+                     }
+                 ],
+        "resolvedAt":  "2026-10-10T20:35:21Z"
+    },
+    {
+        "id":  "bitcoin-above-82k-on-october-11-2026|NO",
+        "ev":  "bitcoin-above-on-october-11-2026",
+        "slug":  "bitcoin-above-82k-on-october-11-2026",
+        "k":  82000,
+        "side":  "NO",
+        "token":  "94063556273365179537816700056850523230089802304932806775470799310809625181478",
+        "stake":  3,
+        "price":  0.06,
+        "fee":  0.1974,
+        "p":  0.2372,
+        "edge":  0.1733,
+        "S":  83035.38,
+        "sig":  0.3682,
+        "tauH":  19.41,
+        "placedAt":  "2026-10-10T20:35:21Z",
+        "end":  "2026-10-11T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.05,
+        "pnl":  null,
+        "version":  6,
+        "curPriceAt":  "2026-10-10T20:35:21Z",
+        "curP":  0.2372,
+        "curSpot":  83035.38,
+        "hist":  [
+                     {
+                         "t":  "2026-10-10T20:35:21Z",
+                         "px":  0.05,
+                         "p":  0.2372,
+                         "S":  83035
                      }
                  ]
     }
