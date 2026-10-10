@@ -210,6 +210,7 @@ $out = [ordered]@{
     fast = [ordered]@{ bets = @($fastBets); windows = @($fastWin | Select-Object -Last 700); state = $fastState }
     fast3 = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto-fast3-bets.json')) }   # estrategia "3 tramos"
     fast4 = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto-fast4-bets.json')) }   # estrategia "al contrario"
+    fastL = [ordered]@{ bets = @(Read-CJsonArray (Join-Path $DataDir 'crypto-fastL-bets.json')) }   # "retraso" (prueba final)
 }
 Write-CFileAtomic $JsFile ("window.CRYPTO = " + (ConvertTo-Json -InputObject $out -Depth 8 -Compress) + ";")
 

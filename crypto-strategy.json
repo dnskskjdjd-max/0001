@@ -42,7 +42,22 @@
     "maxModelP": 0.30,
     "slip": 0.01
   },
+  "fastlag": {
+    "enabled": true,
+    "nota": "Prueba final de Bitcoin 15 min (desde el 10 oct). Unica estrategia que sobrevivio la investigacion con 60 dias (research/): entre los segundos secFrom y secTo de la ventana (5 a 2 min antes del cierre), si BTC salto al menos z desviaciones en los ultimos lookSec segundos y el precio de Polymarket no se movio a favor (maxPmMove), compra ese lado al precio real del libro. Historial: +10% en 377 apuestas simuladas; desaparece si se paga 2c mas.",
+    "criterio": "Tras ~150 apuestas resueltas: si la ganancia es menor a +3% (con precios reales), se apaga el programa de Bitcoin rapido.",
+    "secFrom": 600,
+    "secTo": 780,
+    "lookSec": 15,
+    "z": 2.0,
+    "maxPmMove": 0,
+    "volMinutes": 30,
+    "stake": 1,
+    "minPrice": 0.05,
+    "maxPrice": 0.95
+  },
   "fast5": {
+    "apagado": "Bot de 5 min apagado el 10 oct: la investigacion con 17.278 mercados (60 dias) no encontro ninguna estrategia que gane en la validacion",
     "betting": false,
     "pausa": "Apuestas pausadas desde el 10 oct: se investiga una estrategia nueva con 60 dias de historial; el bot sigue registrando ventanas",
     "nota": "Mercados de 5 min (btc-updown-5m): mismo modelo end60 y reglas que fast, apuesta en los ultimos 3 min (no en los ultimos 15 s; antes 4 min, cambiado el 8 oct); fase de observacion propia",

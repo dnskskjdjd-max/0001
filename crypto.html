@@ -79,6 +79,7 @@ ul.strat li { margin: 2px 0; }
   <div id="stale" class="verdict" style="display:none"></div>
   <div class="tiles" style="margin-top:16px" id="tiles"></div>
 
+  <div class="card" id="lagCard"></div>
   <div class="cols">
     <div class="card" id="dailyCard"></div>
     <div class="card" id="fastCard"></div>
@@ -245,6 +246,21 @@ function render() {
   ], fb4, 'chFast4', b => `<tr><td>${fmtT(b.placedAt)}</td><td><a href="https://polymarket.com/event/${esc(b.slug)}" target="_blank" rel="noopener">${b.side === 'UP' ? '⬆ Sube' : '⬇ Baja'}</a> ${b.flipped ? `<span class="badge">↔ invertida</span> <span class="small">(modelo daba ${fmtPct(b.origP, 0)} al otro)</span>` : '<span class="small">copiada</span>'}</td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtPct(b.p, 0)}</td><td class="num">${fmtPP(b.edge)}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(b.pnl)}">${b.status === 'open' ? '–' : fmt$(b.pnl)}</td></tr>`,
     '<th>Apostada</th><th>Apuesta</th><th class="num">Precio</th><th class="num">Modelo</th><th class="num">Ventaja</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
     alive ? 'Todavía no hay apuestas: copia cada apuesta de “15 minutos: velocidad” (invertida si el modelo da menos de 30%).' : 'El bot rápido no está corriendo.');
+
+  // Prueba final "retraso" (15 min): con regla de exito fijada de antemano
+  const FLc = cfg.fastlag || {}; const fbL = (C.fastL || {}).bets || []; const sL = stats(fbL);
+  const roiL = sL.staked ? sL.pnl / sL.staked : null, target = 150;
+  const night = stats(fbL.filter(b => b.night)), day = stats(fbL.filter(b => !b.night));
+  const slipL = fbL.length ? fbL.reduce((a, b) => a + (b.price - (b.side === 'UP' ? b.mid : 1 - b.mid)), 0) / fbL.length : null;
+  const verdict = sL.closed.length < target ? `<b>En curso:</b> ${sL.closed.length} de ${target} apuestas resueltas`
+    : roiL >= 0.03 ? '<b class="pos">✔ Pasó la prueba</b> (≥ +3% con precios reales)' : '<b class="neg">✘ No pasó la prueba</b> (menos de +3%): se apaga el programa de Bitcoin rápido';
+  strategyCard($('lagCard'), '🎯 15 min: retraso — prueba final', [
+    `Única estrategia que sobrevivió la investigación con 60 días: entre ${Math.round((900 - (FLc.secTo || 780)) / 60)} y ${Math.round((900 - (FLc.secFrom || 600)) / 60)} min antes del cierre, si Bitcoin saltó ≥ ${FLc.z || 2} desviaciones en los últimos ${FLc.lookSec || 15} s y Polymarket todavía no se movió, compra ese lado al <b>precio real del libro</b> ($${FLc.stake || 1})`,
+    `<b>Regla de éxito (fijada antes de empezar):</b> tras ${target} apuestas resueltas, ganancia ≥ +3%; si no, se apaga el Bitcoin rápido. ${verdict} · ROI actual ${fmtPct(roiL)}`,
+    `De noche (00–12 h UTC = 19:00–07:00 Perú): ${night.closed.length ? `${night.closed.length} res., ${fmt$(night.pnl)}` : 'sin resueltas'} · De día: ${day.closed.length ? `${day.closed.length} res., ${fmt$(day.pnl)}` : 'sin resueltas'} · Pagado sobre el precio medio: ${slipL != null ? (slipL * 100).toFixed(1) + '¢' : '–'} por apuesta (en la simulación se suponía ~1–2¢)`,
+  ], fbL, 'chLag', b => `<tr><td>${fmtT(b.placedAt)}</td><td><a href="https://polymarket.com/event/${esc(b.slug)}" target="_blank" rel="noopener">${b.side === 'UP' ? '⬆ Sube' : '⬇ Baja'}</a> <span class="small">z=${b.z} · PM ${b.pmMove > 0 ? '+' : ''}${(b.pmMove * 100).toFixed(1)}¢ · faltaban ${b.secLeft}s${b.night ? ' · 🌙' : ''}</span></td><td class="num">${fmtC(b.price)}</td><td class="num">${fmtC(b.side === 'UP' ? b.mid : 1 - b.mid)}</td><td class="num">${fmtPP(b.price - (b.side === 'UP' ? b.mid : 1 - b.mid))}</td><td class="num"><b>$${b.stake}</b></td><td><span class="badge ${b.status}">${label[b.status] || b.status}</span></td><td class="num ${cls(b.pnl)}">${b.status === 'open' ? '–' : fmt$(b.pnl)}</td></tr>`,
+    '<th>Apostada</th><th>Apuesta</th><th class="num">Pagado</th><th class="num">Precio medio</th><th class="num">Sobreprecio</th><th class="num">Monto</th><th>Estado</th><th class="num">P&amp;L</th>',
+    FLc.enabled === false ? 'Desactivada.' : (alive ? 'Todavía no hay apuestas: espera un salto brusco de Bitcoin que Polymarket no haya reflejado (entre 5 y 2 min antes de cada cierre).' : 'El bot rápido no está corriendo.'));
 
   // Calibracion: Brier modelo vs mercado
   const brier = (rows, f) => { const r = rows.filter(x => f(x) != null); return r.length ? r.reduce((a, x) => a + (f(x) - x.y) ** 2, 0) / r.length : null; };

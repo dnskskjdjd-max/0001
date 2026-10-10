@@ -32,10 +32,10 @@ $DataDir = Join-Path $Root 'data'
 $LogFile = Join-Path $DataDir 'log.txt'
 $CfgFile = Join-Path $Root 'crypto-strategy.json'
 $Prof = if ($Market -eq '5m') {
-    @{ T = 300; slug = 'btc-updown-5m-'; files = 'crypto5m'; cfg = 'fast5'; cfg3 = 'fast5t'; cfg4 = 'fast5c'; cfg5 = 'fast5f'; cfg6 = 'fast5p'; mutex = 'FirePolymarketCrypto5m'; tag = 'cripto-5m'
+    @{ T = 300; slug = 'btc-updown-5m-'; files = 'crypto5m'; cfg = 'fast5'; cfg3 = 'fast5t'; cfg4 = 'fast5c'; cfg5 = 'fast5f'; cfg6 = 'fast5p'; cfgLag = 'fast5lag'; mutex = 'FirePolymarketCrypto5m'; tag = 'cripto-5m'
        checks = @(240, 180, 120, 60, 30) }
 } else {
-    @{ T = 900; slug = 'btc-updown-15m-'; files = 'crypto-fast'; cfg = 'fast'; cfg3 = 'fast3'; cfg4 = 'fast4'; cfg5 = 'fast4f'; cfg6 = 'fast4p'; mutex = 'FirePolymarketCryptoFast'; tag = 'cripto-rapido'
+    @{ T = 900; slug = 'btc-updown-15m-'; files = 'crypto-fast'; cfg = 'fast'; cfg3 = 'fast3'; cfg4 = 'fast4'; cfg5 = 'fast4f'; cfg6 = 'fast4p'; cfgLag = 'fastlag'; mutex = 'FirePolymarketCryptoFast'; tag = 'cripto-rapido'
        checks = @(600, 360, 300, 180, 120, 60, 30) }
 }
 $T = $Prof.T
@@ -47,6 +47,7 @@ $Bets3File = Join-Path $DataDir "$($Prof.files)3-bets.json"   # estrategia "3 tr
 $Bets4File = Join-Path $DataDir "$($Prof.files)4-bets.json"   # estrategia "al contrario"
 $Bets5File = Join-Path $DataDir "$($Prof.files)f-bets.json"   # "al contrario" + filtro de mercado (tendencia y volatilidad)
 $Bets6File = Join-Path $DataDir "$($Prof.files)p-bets.json"   # "al contrario" + pausa tras una racha de perdidas
+$BetsLagFile = Join-Path $DataDir "$($Prof.files)L-bets.json"   # "retraso": BTC salto y Polymarket todavia no reacciono
 function Log($m) { Write-CLog $LogFile $Prof.tag $m }
 
 # Una sola copia a la vez (la tarea intenta arrancarlo cada 5 minutos por si se cerro)
@@ -59,10 +60,11 @@ $bets3 = [System.Collections.ArrayList]@(Read-CJsonArray $Bets3File)
 $bets4 = [System.Collections.ArrayList]@(Read-CJsonArray $Bets4File)
 $bets5 = [System.Collections.ArrayList]@(Read-CJsonArray $Bets5File)
 $bets6 = [System.Collections.ArrayList]@(Read-CJsonArray $Bets6File)
+$betsLag = [System.Collections.ArrayList]@(Read-CJsonArray $BetsLagFile)
 $startedAt = Get-Date
 $cur = $null
 $volSec = $null; $volAt = [datetime]::MinValue
-$cfgAt = [datetime]::MinValue; $F = $null; $F3 = $null; $F4 = $null; $F5 = $null; $F6 = $null; $cfgVersion = $null; $pauseUntil = $null
+$cfgAt = [datetime]::MinValue; $F = $null; $F3 = $null; $F4 = $null; $F5 = $null; $F6 = $null; $FL = $null; $volLag = $null; $volLagAt = [datetime]::MinValue; $cfgVersion = $null; $pauseUntil = $null
 $lastState = [datetime]::MinValue; $lastResolve = [datetime]::MinValue; $lastErrLog = [datetime]::MinValue
 $loops = 0; $errors = 0; $lastErr = $null
 $view = @{}
@@ -75,7 +77,7 @@ function New-Window([long]$winStart) {
     $slug = "$($Prof.slug)$winStart"
     $m = @(Get-CJson "https://gamma-api.polymarket.com/markets?slug=$slug" | ForEach-Object { $_ }) | Select-Object -First 1
     $nw = @{ W = $winStart; slug = $slug; up = $null; down = $null; pre = New-Object System.Collections.Generic.List[double]
-        closes = New-Object System.Collections.Generic.List[double]; lastMs = $null; S0 = $null; checks = [ordered]@{}; slotsDone = [ordered]@{} }
+        closes = New-Object System.Collections.Generic.List[double]; lastMs = $null; S0 = $null; checks = [ordered]@{}; slotsDone = [ordered]@{}; pm = New-Object System.Collections.Generic.List[double[]] }
     if ($m) {
         $tok = (Get-JArr $m.clobTokenIds); $outs = (Get-JArr $m.outcomes)
         $iu = [array]::IndexOf($outs, 'Up'); if ($iu -lt 0) { $iu = 0 }
@@ -294,7 +296,7 @@ function Resolve-Windows {
     $nowS = Get-UnixNow; $changed = $false
     # Si el bot se cerro (o lo cerraron) antes de terminar la ventana de una apuesta, esa ventana no quedo registrada y la
     # apuesta no se resolveria nunca: se reconstruye con el historial de 1 s de Binance (sin las fotos de modelo vs mercado)
-    foreach ($b in @(@($bets) + @($bets3) + @($bets4) + @($bets5) + @($bets6) | Where-Object { $_.status -eq 'open' -and $_.W + $T -lt $nowS - 30 })) {
+    foreach ($b in @(@($bets) + @($bets3) + @($bets4) + @($bets5) + @($bets6) + @($betsLag) | Where-Object { $_.status -eq 'open' -and $_.W + $T -lt $nowS - 30 })) {
         if ($wins | Where-Object { $_.W -eq $b.W }) { continue }
         if ($cur -and $cur.W -eq $b.W) { continue }
         try { Close-Window (New-Window ([long]$b.W)); Log "Ventana $($b.slug) reconstruida (el bot no estaba corriendo al cerrarse)" } catch {}
@@ -316,7 +318,7 @@ function Resolve-Windows {
                 Write-CFileAtomic $BetsFile (ConvertTo-Json -InputObject @($bets) -Depth 5)
             }
             # Estrategias paralelas (3 tramos, al contrario): cada una con su historial
-            foreach ($L in @(@{ list = $bets3; file = $Bets3File; name = '3 tramos' }, @{ list = $bets4; file = $Bets4File; name = 'al contrario' }, @{ list = $bets5; file = $Bets5File; name = 'filtro de mercado' }, @{ list = $bets6; file = $Bets6File; name = 'pausa por racha' })) {
+            foreach ($L in @(@{ list = $bets3; file = $Bets3File; name = '3 tramos' }, @{ list = $bets4; file = $Bets4File; name = 'al contrario' }, @{ list = $bets5; file = $Bets5File; name = 'filtro de mercado' }, @{ list = $bets6; file = $Bets6File; name = 'pausa por racha' }, @{ list = $betsLag; file = $BetsLagFile; name = 'retraso' })) {
                 $resX = @($L.list | Where-Object { $_.W -eq $rec.W -and $_.status -eq 'open' })
                 foreach ($b in $resX) {
                     $won = ($b.side -eq 'UP') -eq ($rec.upWon -eq 1)
@@ -339,11 +341,14 @@ try {
         $loopStart = Get-Date
         if ($RunMinutes -gt 0 -and ($loopStart - $startedAt).TotalMinutes -ge $RunMinutes) { break }
         try {
-            if (($loopStart - $cfgAt).TotalMinutes -ge 5) { $c = Get-Content $CfgFile -Raw | ConvertFrom-Json; $F = $c.($Prof.cfg); $F3 = $c.($Prof.cfg3); $F4 = $c.($Prof.cfg4); $F5 = $c.($Prof.cfg5); $F6 = $c.($Prof.cfg6); $cfgVersion = $c.version; $cfgAt = $loopStart }
+            if (($loopStart - $cfgAt).TotalMinutes -ge 5) { $c = Get-Content $CfgFile -Raw | ConvertFrom-Json; $F = $c.($Prof.cfg); $F3 = $c.($Prof.cfg3); $F4 = $c.($Prof.cfg4); $F5 = $c.($Prof.cfg5); $F6 = $c.($Prof.cfg6); $FL = $c.($Prof.cfgLag); $cfgVersion = $c.version; $cfgAt = $loopStart }
             if (-not $synced4) { Sync-Fast4; $synced4 = $true }
             if (-not $volSec -or ($loopStart - $volAt).TotalMinutes -ge 5) {
                 $v = Get-RealizedVol ([int]$F.volMinutes)
                 if ($v) { $volSec = $v / [Math]::Sqrt($CSecPerYear); $volAt = $loopStart }
+            }
+            if ($FL -and $FL.enabled -and (-not $volLag -or ($loopStart - $volLagAt).TotalMinutes -ge 5)) {
+                $v2 = Get-RealizedVol ([int]$FL.volMinutes); if ($v2) { $volLag = $v2; $volLagAt = $loopStart }
             }
             $nowS = Get-UnixNow
             $W = $nowS - ($nowS % $T)
@@ -376,6 +381,37 @@ try {
                             # [modelo twap, modelo end, precio medio del mercado, modelo end60]
                             $cur.checks["$cp"] = @([Math]::Round($md.pTwap, 4), [Math]::Round($md.pEnd, 4), $(if ($null -ne $mid) { [Math]::Round($mid, 4) } else { $null }),
                                 $(if ($null -ne $md.pEnd60) { [Math]::Round($md.pEnd60, 4) } else { $null }))
+                        }
+                    }
+                    # Historial del precio medio de Up en esta ventana (para saber si Polymarket ya reacciono a un salto de BTC)
+                    if ($null -ne $mid) { $cur.pm.Add([double[]]@([double]($T - $secLeft), [double]$mid)) }
+                    # Estrategia "retraso" (prueba final, 10 oct; investigacion con 60 dias en research/): BTC salto fuerte en los
+                    # ultimos lookSec segundos y Polymarket todavia no se movio a favor -> se compra ese lado al precio real del libro
+                    if ($FL -and $FL.enabled -and $null -ne $mid -and -not ($betsLag | Where-Object { $_.W -eq $cur.W })) {
+                        $el = $T - $secLeft; $n = $cur.closes.Count; $lk = [int]$FL.lookSec
+                        if ($el -ge [int]$FL.secFrom -and $el -le [int]$FL.secTo -and $n -gt $lk + 1 -and $volLag) {
+                            $S = $cur.closes[$n - 1]; $Sl = $cur.closes[$n - 1 - $lk]
+                            $z = [Math]::Log($S / $Sl) / ($volLag / [Math]::Sqrt($CSecPerYear) * [Math]::Sqrt($lk))
+                            $midThen = $null; for ($i = $cur.pm.Count - 1; $i -ge 0; $i--) { if ($cur.pm[$i][0] -le $el - $lk) { $midThen = $cur.pm[$i][1]; break } }
+                            if ([Math]::Abs($z) -ge [double]$FL.z -and $null -ne $midThen) {
+                                $sideL = if ($z -gt 0) { 'UP' } else { 'DOWN' }
+                                $pmMove = if ($sideL -eq 'UP') { $mid - $midThen } else { $midThen - $mid }
+                                $bkL = if ($sideL -eq 'UP') { $bu } else { $bd }
+                                if ($pmMove -le [double]$FL.maxPmMove -and $bkL -and $bkL.asks.Count) {
+                                    $fillL = Get-FillPrice $bkL.asks ([double]$FL.stake)
+                                    if ($null -ne $fillL -and $fillL -ge [double]$FL.minPrice -and $fillL -le [double]$FL.maxPrice) {
+                                        $shL = [double]$FL.stake / $fillL
+                                        $betL = [pscustomobject]@{ id = "$($cur.slug)|$sideL"; W = $cur.W; slug = $cur.slug; side = $sideL; token = $(if ($sideL -eq 'UP') { $cur.up } else { $cur.down })
+                                            stake = [double]$FL.stake; price = [Math]::Round($fillL, 4); fee = [Math]::Round($shL * (Get-CryptoFee $fillL), 4)
+                                            z = [Math]::Round($z, 2); lookSec = $lk; pmMove = [Math]::Round($pmMove, 4); mid = [Math]::Round($mid, 4); askUp = $askUp; askDown = $askDn
+                                            secLeft = $secLeft; S = $S; Slook = $Sl; volAnnual = [Math]::Round($volLag, 4); night = ([DateTime]::UtcNow.Hour -lt 12)
+                                            p = $null; edge = $null; placedAt = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); status = 'open'; pnl = $null; version = $cfgVersion }
+                                        [void]$betsLag.Add($betL)
+                                        Write-CFileAtomic $BetsLagFile (ConvertTo-Json -InputObject @($betsLag) -Depth 5)
+                                        Log "Retraso $($cur.slug): $sideL `$$($FL.stake) a $([Math]::Round($fillL * 100, 1))c (BTC z=$([Math]::Round($z, 2)) en ${lk}s, Polymarket se movio $([Math]::Round($pmMove * 100, 1))c, faltan $secLeft s)"
+                                    }
+                                }
+                            }
                         }
                     }
                     # Estrategia 1 (original): una apuesta por ventana, en cualquier momento de los ultimos 10 min
