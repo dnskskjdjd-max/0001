@@ -848,5 +848,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "itsb-mod-ver-2026-10-11-draw|0",
+        "strategy":  "ml",
+        "slug":  "itsb-mod-ver-2026-10-11-draw",
+        "ev":  "itsb-mod-ver-2026-10-11",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Modena FC 2018 vs. Hellas Verona FC end in a draw?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "13640431627580249262835892241111170792372877351408825267019597193862623102242",
+        "stake":  1,
+        "price":  0.3,
+        "bestBid":  0.29,
+        "feeRate":  0.05,
+        "fee":  0.035,
+        "vol":  7177,
+        "start":  "2026-10-11T17:30:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T15:01:11Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
