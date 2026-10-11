@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "nota": "Bitcoin, simulado. Diario: valor justo vs Binance + volatilidad Deribit; desde el 7 oct ventaja minima 2 pp ($1 con 2-5, $2 con 5-8, $3 con 8+) y hasta 3 apuestas por fecha (una por precio); desde el 10 oct, si el modelo da menos de 30% al lado elegido se compra el contrario. Rapido: ventanas de 15 min, modelo end60 (TWAP 60 s de Chainlink al final vs al inicio), fase de observacion superada (28/28 ventanas), apuestas simuladas activas desde el 7 oct.",
   "daily": {
     "volSource": "dvol",
@@ -61,10 +61,19 @@
   "fast5": {
     "betting": true,
     "reactivado": "Bot de 5 min apagado del 10 al 11 oct (la investigacion con 17.278 mercados de 60 dias no encontro estrategia ganadora); reactivado el 11 oct a pedido del usuario",
-    "nota": "Mercados de 5 min (btc-updown-5m): mismo modelo end60 y reglas que fast, apuesta en los ultimos 3 min (no en los ultimos 15 s; antes 4 min, cambiado el 8 oct); fase de observacion propia",
+    "rule": "cross",
+    "desde": "2026-10-11T19:15:00Z",
+    "nota": "Regla cruce (desde el 11 oct, a pedido del usuario; apuestas desde cero, historial anterior en data/archivo/*-hasta-2026-10-11.json): sin modelo ni ventaja. Cuando el precio de compra de Sube o Baja pasa trigger, se compra ese lado por stake. Hasta maxPerWindow compras por ventana; la siguiente solo si hubo inestabilidad (el precio del lado que va adelante volvio por debajo de rearmBelow y algun lado vuelve a pasar trigger). En toda la ventana salvo los ultimos minSecLeft segundos. El modelo end60 se sigue calculando: lo usa 'al contrario' y queda como referencia.",
+    "trigger": 0.73,
+    "rearmBelow": 0.70,
+    "maxPerWindow": 2,
+    "stake": 1,
+    "anterior": { "hasta": "2026-10-11", "regla": "ventaja del modelo ($1/$2/$3 con 5/8/12 pp)",
+      "fast": { "n": 168, "wins": 75, "pnl": -29.34, "staked": 285 }, "fast4": { "n": 168, "wins": 95, "pnl": -8.2, "staked": 285 },
+      "fastF": { "n": 58, "wins": 33, "pnl": -8.36, "staked": 107 }, "fastP": { "n": 87, "wins": 48, "pnl": -1.85, "staked": 152 } },
     "model": "end60",
     "pollSec": 2,
-    "maxSecLeft": 180,
+    "maxSecLeft": 300,
     "minSecLeft": 15,
     "minPrice": 0.05,
     "maxPrice": 0.95,

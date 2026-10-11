@@ -72,7 +72,7 @@ ul.strat li { margin: 2px 0; }
 <main>
   <nav class="tabs" id="tabs"></nav>
   <h1>⚡ Bitcoin 5 minutos (simulado)</h1>
-  <p class="sub">Los mismos dos modelos de la pestaña Bitcoin (“velocidad” y “al contrario”), probados en los mercados “Bitcoin sube o baja” de <b>5 minutos</b>. Dinero simulado, comisiones incluidas, historial fijo. <span id="updated" class="small"></span></p>
+  <p class="sub">Bots de los mercados “Bitcoin sube o baja” de <b>5 minutos</b>. Desde el 11 oct todos usan la <b>regla de cruce</b>: compran cuando Sube o Baja pasa los 73¢, hasta 2 veces por ciclo; las apuestas empezaron de cero y el historial anterior quedó guardado aparte. Dinero simulado, comisiones incluidas. <span id="updated" class="small"></span></p>
 
   <div id="stale" class="verdict" style="display:none"></div>
   <div class="tiles" style="margin-top:16px" id="tiles"></div>
@@ -111,6 +111,9 @@ const label = { open: 'Abierta', won: 'Ganó', lost: 'Perdió' };
 const cfg = C.cfg || {}; const F = cfg.fast5 || {}; const F4 = cfg.fast5c || {}; const FF = cfg.fast5f || {}; const FP = cfg.fast5p || {};
 const MODEL_NAMES = { end60: 'último minuto vs minuto previo al inicio', end: 'precio final vs inicio', twap: 'promedio de toda la ventana' };
 const MODEL_IDX = { twap: 0, end: 1, end60: 3 };   // posición en checks: [twap, end, precio del mercado, end60]
+const CROSS = F.rule === 'cross', ANT = F.anterior || null;
+// Historial anterior a la regla actual (archivado, no se borra)
+const antTxt = k => { const a = ANT && ANT[k]; return a ? `<span class="small">Historial anterior (regla ${esc(ANT.regla)}, hasta el ${esc(ANT.hasta)}): ${a.n} apuestas, ${a.wins} ganadas, <span class="${cls(a.pnl)}">${fmt$(a.pnl)}</span> (ROI ${fmtPct(a.staked ? a.pnl / a.staked : null)}). Guardado aparte; esta tarjeta empieza de cero.</span>` : null; };
 const tiersTxt = t => (t || []).slice().sort((a, b) => a.edge - b.edge).map(x => `$${x.stake} con ventaja ≥ ${Math.round(x.edge * 100)} pp`).join(' · ');
 
 function renderTabs() {
@@ -123,8 +126,8 @@ function stats(B) {
   const closed = B.filter(b => b.status === 'won' || b.status === 'lost'), open = B.filter(b => b.status === 'open');
   const pnl = closed.reduce((a, b) => a + b.pnl, 0), staked = closed.reduce((a, b) => a + b.stake, 0);
   const fees = B.reduce((a, b) => a + (b.fee || 0), 0), wins = closed.filter(b => b.status === 'won').length;
-  const expWin = closed.reduce((a, b) => a + (b.p || 0), 0);
-  return { closed, open, pnl, staked, fees, wins, expWin };
+  const expWin = closed.reduce((a, b) => a + (b.p || 0), 0), avgPx = closed.length ? closed.reduce((a, b) => a + b.price, 0) / closed.length : null;
+  return { closed, open, pnl, staked, fees, wins, expWin, avgPx };
 }
 const charts = {};
 function drawChart(id, B) {
@@ -142,7 +145,7 @@ function strategyCard(el, title, rules, B, chartId, rowFn, head, empty) {
   const tiles = [
     ['Apuestas', B.length, `${s.open.length} abiertas · ${s.closed.length} resueltas`],
     ['Ganancia (con comisión)', `<span class="${cls(s.pnl)}">${fmt$(s.pnl)}</span>`, `ROI ${fmtPct(s.staked ? s.pnl / s.staked : null)} · comisiones ${fmt$(s.fees)}`],
-    ['Acierto', s.closed.length ? fmtPct(s.wins / s.closed.length, 0) : '–', s.closed.length ? `el modelo esperaba ${fmtPct(s.expWin / s.closed.length, 0)}` : 'sin resueltas'],
+    ['Acierto', s.closed.length ? fmtPct(s.wins / s.closed.length, 0) : '–', s.closed.length ? (CROSS ? `precio medio pagado ${fmtC(s.avgPx)}: para ganar hay que acertar más que eso` : `el modelo esperaba ${fmtPct(s.expWin / s.closed.length, 0)}`) : 'sin resueltas'],
   ];
   const rows = B.slice().sort((a, b) => Date.parse(b.placedAt) - Date.parse(a.placedAt)).slice(0, 40);
   el.innerHTML = `<h2>${title}</h2><ul class="strat">${rules.map(r => `<li>${r}</li>`).join('')}</ul>
@@ -180,12 +183,18 @@ function render() {
   ].map(([k, v, d]) => `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="d">${d}</div></div>`).join('');
 
   const obs = F.apagado ? `<b class="neg">⛔ Bot apagado</b>: ${esc(F.apagado)}. El historial queda como registro.` : F.betting === false ?'<b class="neg">⏸ Apuestas pausadas</b> desde el 10 oct: se está investigando una estrategia nueva con 60 días de historial. El bot sigue registrando cada ventana.' : r.canBet ? '<b class="pos">Apostando</b>' : `<b>Fase de observación</b>: no apuesta hasta que la regla coincida con la resolución real en ≥ ${Math.round((F.minRuleMatch || 0.9) * 100)}% de al menos ${F.minObserved || 25} ventanas (van ${r.n || 0})`;
-  strategyCard($('fastCard'), '⚡ 5 minutos: velocidad', [
+  strategyCard($('fastCard'), '⚡ 5 minutos: velocidad', (CROSS ? [
+    'Mercados “Bitcoin sube o baja” de 5 min: “sube” si el precio de Chainlink (promedio de 60 s) al final es ≥ al del inicio',
+    `<b>Regla nueva desde el ${fmtT(F.desde)}:</b> ya no mira la ventaja del modelo. Cada ~${F.pollSec || 2} s lee el libro de órdenes y, cuando el precio de compra de <b>Sube o Baja pasa los ${Math.round(F.trigger * 100)}¢</b>, compra ese lado por <b>$${F.stake}</b> (precio real del libro + ${Math.round((F.slip || 0) * 100)}¢ + comisión)`,
+    `Hasta <b>${F.maxPerWindow} compras por ciclo</b>: la segunda solo si hay inestabilidad, es decir, si el precio vuelve por debajo de ${Math.round(F.rearmBelow * 100)}¢ y algún lado vuelve a pasar los ${Math.round(F.trigger * 100)}¢ · en todo el ciclo salvo los últimos ${F.minSecLeft || 15} s`,
+    antTxt('fast'),
+    obs,
+  ] : [
     'Mercados “Bitcoin sube o baja” de 5 min: “sube” si el precio de Chainlink (promedio de 60 s) al final es ≥ al del inicio',
     `Cada ~${F.pollSec || 2} s calcula con Binance la probabilidad de “sube” (modelo: ${MODEL_NAMES[F.model] || F.model}) y la compara con el libro de órdenes`,
     `${tiersTxt(F.tiers)} · solo en los últimos ${Math.round((F.maxSecLeft || 240) / 60)} min (y no en los últimos ${F.minSecLeft || 15} s) · +${Math.round((F.slip || 0) * 100)}¢ de deslizamiento · una apuesta por ventana`,
     obs,
-  ], fb, 'chFast', row(b => `<span class="small">faltaban ${b.secLeft}s</span>`), HEAD,
+  ]).filter(Boolean), fb, 'chFast', row(b => `<span class="small">${b.n ? `${b.n}ª compra del ciclo · ` : ''}faltaban ${b.secLeft}s</span>`), HEAD,
     !alive ? 'El bot de 5 min no está corriendo.' : r.canBet ? 'Todavía no hay apuestas: mira cada ventana y apuesta solo con ventaja.' : 'En fase de observación: registra cada ventana sin apostar.');
 
   const part = (n, s) => `${n}: ${s.closed.length ? `${s.wins}/${s.closed.length} ganadas, <span class="${cls(s.pnl)}">${fmt$(s.pnl)}</span>` : 'sin resueltas'}`;
@@ -193,8 +202,9 @@ function render() {
     `<b>Igual que “5 minutos: velocidad”</b> (mismas apuestas, mismo momento, precio y monto), con una sola diferencia:`,
     `cuando el modelo le da <b>menos de ${Math.round((F4.maxModelP || 0.3) * 100)}%</b> al lado elegido, apuesta al <b>lado contrario</b> (precio real del libro + ${Math.round((F4.slip || 0) * 100)}¢ + comisión)`,
     `${part('Copiadas', stats(fb4.filter(b => !b.flipped)))} · ${part('Invertidas', stats(fb4.filter(b => b.flipped)))}`,
+    antTxt('fast4'),
     obs,
-  ], fb4, 'chFast4', row(b => b.flipped ? `<span class="badge">↔ invertida</span> <span class="small">(modelo daba ${fmtPct(b.origP, 0)} al otro)</span>` : '<span class="small">copiada</span>'), HEAD,
+  ].filter(Boolean), fb4, 'chFast4', row(b => b.flipped ? `<span class="badge">↔ invertida</span> <span class="small">(modelo daba ${fmtPct(b.origP, 0)} al otro)</span>` : '<span class="small">copiada</span>'), HEAD,
     alive ? 'Todavía no hay apuestas: copia cada apuesta de “5 minutos: velocidad” (invertida si el modelo da menos de 30%).' : 'El bot de 5 min no está corriendo.');
 
   // Derivadas de "al contrario": filtro de mercado y pausa por racha (empezaron el 8 oct)
@@ -205,7 +215,8 @@ function render() {
     `1) la apuesta va <b>a favor de la tendencia</b> de Bitcoin de los últimos ${FF.trendMinutes || 30} min, y 2) la <b>volatilidad</b> de esos minutos es <b>menor a ${Math.round((FF.maxVol || 0.32) * 100)}%</b> anual`,
     `Con las 180 apuestas pasadas, esas condiciones separaban las rachas buenas de las malas (+$20.91 vs −$11.41). Los umbrales salieron de esos mismos datos: aquí se validan con apuestas nuevas`,
     FF.enabled === false ? '<b class="neg">Desactivada</b>' : `Apuesta solo en una parte de los ciclos: ${fb4.length ? fmtPct(fbF.length / fb4.length, 0) : '–'} de las apuestas de “al contrario” desde que empezó`,
-  ], fbF, 'chFastF', row(b => `${flipTag(b)} <span class="small">tendencia ${b.trend30 > 0 ? '+' : ''}${b.trend30}% · vol ${fmtPct(b.vol30, 0)}</span>`), HEAD,
+    antTxt('fastF'),
+  ].filter(Boolean), fbF, 'chFastF', row(b => `${flipTag(b)} <span class="small">tendencia ${b.trend30 > 0 ? '+' : ''}${b.trend30}% · vol ${fmtPct(b.vol30, 0)}</span>`), HEAD,
     alive ? 'Todavía no hay apuestas: copia las de “al contrario” solo cuando van a favor de la tendencia y con volatilidad normal.' : 'El bot de 5 min no está corriendo.');
 
   const pu = st && st.pauseUntil ? Date.parse(st.pauseUntil) : null;
@@ -216,7 +227,8 @@ function render() {
     'Regla cambiada el 9 oct (antes: 4 pérdidas seguidas → 90 min de pausa). Las apuestas anteriores se mantienen en el historial',
     paused ? `<b class="neg">⏸ En pausa hasta las ${new Date(pu).toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' })}</b>` : '<b class="pos">Activa</b> (no está en pausa)',
     FP.enabled === false ? '<b class="neg">Desactivada</b>' : 'Historial aparte (empezó el 8 oct)',
-  ], fbP, 'chFastP', row(b => flipTag(b)), HEAD,
+    antTxt('fastP'),
+  ].filter(Boolean), fbP, 'chFastP', row(b => flipTag(b)), HEAD,
     alive ? 'Todavía no hay apuestas: copia las de “al contrario” salvo cuando está en pausa.' : 'El bot de 5 min no está corriendo.');
 
   // Modelo vs mercado y comprobacion de la regla, con las ventanas de 5 min

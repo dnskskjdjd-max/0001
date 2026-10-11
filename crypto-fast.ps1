@@ -19,6 +19,10 @@
 #   6. Derivadas de "al contrario" (secciones cfg5/cfg6, p. ej. fast5f / fast5p): copian su apuesta solo si
 #      - filtro de mercado: va a favor de la tendencia de BTC de los ultimos 30 min y la volatilidad es < 32% anual
 #      - pausa por racha: no esta en pausa (tras 4 perdidas seguidas se detiene 90 min)
+#   7. Regla "cruce" (rule = 'cross' en la seccion del mercado; 5 min desde el 11 oct): reemplaza al punto 3, sin modelo
+#      ni ventaja. Cuando el precio de compra de Sube o Baja pasa trigger (73c) se compra ese lado por stake; hasta
+#      maxPerWindow compras por ventana, y la siguiente solo si antes el precio volvio por debajo de rearmBelow
+#      (inestabilidad). "Al contrario" y sus derivadas siguen copiando cada compra como antes.
 # Guarda cada ventana (para saber que modelo describe mejor la resolucion real y medir modelo vs mercado) y las apuestas.
 # Los datos los sube run-local.ps1 (cada 5 min) y los muestra la pestana Cripto (crypto.html).
 # -Market 15m (por defecto) o 5m: el mismo bot corre como procesos separados para los mercados de 15 y de 5 minutos,
@@ -203,14 +207,14 @@ function Sync-Fast4 {
     if (-not ($F4 -and $F4.enabled)) { return }
     $added = 0
     foreach ($b in @($bets)) {
-        if ($bets4 | Where-Object { $_.W -eq $b.W }) { continue }
-        if ([double]$b.p -ge [double]$F4.maxModelP) { $copy = $b.PSObject.Copy(); $copy | Add-Member -NotePropertyName flipped -NotePropertyValue $false -Force; [void]$bets4.Add($copy); $added++; continue }
+        if ($bets4 | Where-Object { $_.W -eq $b.W -and $_.n -eq $b.n }) { continue }   # n: numero de compra en la ventana (regla cruce)
+        if ($null -eq $b.p -or [double]$b.p -ge [double]$F4.maxModelP) { $copy = $b.PSObject.Copy(); $copy | Add-Member -NotePropertyName flipped -NotePropertyValue $false -Force; [void]$bets4.Add($copy); $added++; continue }
         $side = if ($b.side -eq 'UP') { 'DOWN' } else { 'UP' }
         $ask = if ($side -eq 'UP') { $b.askUp } else { $b.askDown }
         if (-not $ask) { continue }
         $fill = [Math]::Min(0.999, [double]$ask + [double]$F4.slip); $sh = [double]$b.stake / $fill
         $c = $b.PSObject.Copy()
-        $c.id = "$($b.slug)|$side"; $c.side = $side; $c.price = [Math]::Round($fill, 4); $c.fee = [Math]::Round($sh * (Get-CryptoFee $fill), 4)
+        $c.id = if ($b.n) { $b.id } else { "$($b.slug)|$side" }; $c.side = $side; $c.price = [Math]::Round($fill, 4); $c.fee = [Math]::Round($sh * (Get-CryptoFee $fill), 4)
         $c.p = [Math]::Round(1 - [double]$b.p, 4); $c.edge = [Math]::Round((1 - [double]$b.p) - $fill - (Get-CryptoFee $fill), 4)
         $c.status = 'open'; $c.pnl = $null
         if ($b.status -in 'won', 'lost') { $won = $b.status -eq 'lost'; $c.status = if ($won) { 'won' } else { 'lost' }; $c.pnl = Get-CryptoPnl $c $won }
@@ -221,7 +225,7 @@ function Sync-Fast4 {
     }
     if ($added) { Write-CFileAtomic $Bets4File (ConvertTo-Json -InputObject @($bets4 | Sort-Object { [long]$_.W }) -Depth 5); Log "Al contrario: $added apuestas sincronizadas con la estrategia original" }
 }
-function Add-ContraBet($orig, $bu, $bd, $md, $secLeft, $askUp, $askDn) {
+function Add-ContraBet($orig, $bu, $bd, $md, $secLeft, $askUp, $askDn, $n = $null) {
     $side = if ($orig.side -eq 'UP') { 'DOWN' } else { 'UP' }
     $bk = if ($side -eq 'UP') { $bu } else { $bd }
     if (-not $bk -or -not $bk.asks.Count) { return }
@@ -231,7 +235,8 @@ function Add-ContraBet($orig, $bu, $bd, $md, $secLeft, $askUp, $askDn) {
     $fill = [Math]::Min(0.999, $fill + [double]$F4.slip)
     $pS = 1 - $orig.pS
     $c = @{ side = $side; pS = $pS; fill = $fill; edge = $pS - $fill - (Get-CryptoFee $fill); stake = $stake; tok = $(if ($side -eq 'UP') { $cur.up } else { $cur.down }) }
-    $bet = New-FastBet $c $md $secLeft $askUp $askDn "$($cur.slug)|$side"
+    $bet = New-FastBet $c $md $secLeft $askUp $askDn $(if ($n) { "$($cur.slug)|$n" } else { "$($cur.slug)|$side" })
+    if ($n) { $bet | Add-Member -NotePropertyName n -NotePropertyValue $n; $bet | Add-Member -NotePropertyName rule -NotePropertyValue 'cross' }
     $bet | Add-Member -NotePropertyName flipped -NotePropertyValue $true
     $bet | Add-Member -NotePropertyName origSide -NotePropertyValue $orig.side
     $bet | Add-Member -NotePropertyName origP -NotePropertyValue ([Math]::Round($orig.pS, 4))
@@ -427,6 +432,40 @@ try {
                             }
                         }
                     }
+                    if ("$($F.rule)" -eq 'cross') {
+                        # Estrategia 1 con la regla "cruce" (punto 7 del encabezado): sin modelo ni ventaja
+                        if ($null -ne $askUp -and $null -ne $askDn) {
+                            $lead = if ($askUp -ge $askDn) { 'UP' } else { 'DOWN' }
+                            $top = [Math]::Max($askUp, $askDn)
+                            if ($top -lt [double]$F.rearmBelow) { $cur.xArmed = $true }   # el precio volvio a la zona indecisa
+                            $nX = @($bets | Where-Object { $_.W -eq $cur.W }).Count
+                            if ($cur.xArmed -and $top -ge [double]$F.trigger -and $nX -lt [int]$F.maxPerWindow -and $F.betting -ne $false -and $rule.canBet -and $secLeft -le [int]$F.maxSecLeft -and $secLeft -ge [int]$F.minSecLeft) {
+                                $bkX = if ($lead -eq 'UP') { $bu } else { $bd }
+                                $fillX = Get-FillPrice $bkX.asks ([double]$F.stake)
+                                if ($null -ne $fillX) { $fillX = [Math]::Min(0.999, $fillX + [double]$F.slip) }
+                                if ($null -ne $fillX -and $fillX -le [double]$F.maxPrice) {
+                                    $cur.xArmed = $false; $nX++
+                                    $pX = if ($null -eq $p) { $null } elseif ($lead -eq 'UP') { $p } else { 1 - $p }
+                                    $best = @{ side = $lead; pS = $(if ($null -ne $pX) { $pX } else { 0.5 }); fill = $fillX; edge = 0; stake = [double]$F.stake; tok = $(if ($lead -eq 'UP') { $cur.up } else { $cur.down }) }
+                                    $bet = New-FastBet $best $md $secLeft $askUp $askDn "$($cur.slug)|$nX"
+                                    # Modelo y ventaja solo como referencia (la regla no los usa)
+                                    $bet.p = $(if ($null -ne $pX) { [Math]::Round($pX, 4) } else { $null })
+                                    $bet.edge = $(if ($null -ne $pX) { [Math]::Round($pX - $fillX - (Get-CryptoFee $fillX), 4) } else { $null })
+                                    $bet | Add-Member -NotePropertyName n -NotePropertyValue $nX
+                                    $bet | Add-Member -NotePropertyName rule -NotePropertyValue 'cross'
+                                    [void]$bets.Add($bet)
+                                    Write-CFileAtomic $BetsFile (ConvertTo-Json -InputObject @($bets) -Depth 5)
+                                    Log "Apuesta cruce $nX $($cur.slug): $lead `$$($F.stake) a $([Math]::Round($fillX * 100, 1))c (paso los $([Math]::Round([double]$F.trigger * 100))c), faltan $secLeft s"
+                                    if ($F4 -and $F4.enabled) {
+                                        if ($null -ne $pX -and $pX -lt [double]$F4.maxModelP) { Add-ContraBet $best $bu $bd $md $secLeft $askUp $askDn $nX }
+                                        else { Add-CopyBet $bet }
+                                        $last4 = if ($bets4.Count) { $bets4[$bets4.Count - 1] } else { $null }
+                                        if ($last4 -and $last4.W -eq $cur.W -and $last4.n -eq $nX) { Add-DerivedBets $last4 }
+                                    }
+                                }
+                            }
+                        }
+                    } else {
                     # Estrategia 1 (original): una apuesta por ventana, en cualquier momento de los ultimos 10 min
                     $already = $bets | Where-Object { $_.W -eq $cur.W } | Select-Object -First 1
                     if (-not $already -and $F.betting -ne $false -and $null -ne $p -and $rule.canBet -and $secLeft -le [int]$F.maxSecLeft -and $secLeft -ge [int]$F.minSecLeft) {
@@ -445,6 +484,7 @@ try {
                                 if ($last4 -and $last4.W -eq $cur.W) { Add-DerivedBets $last4 }
                             }
                         }
+                    }
                     }
                     # Estrategia 2 ("3 tramos"): se mira la ventaja una vez en cada momento fijo (faltando 10, 6 y 3 min);
                     # si hay ventaja se apuesta, si no ese tramo se salta. Hasta 3 apuestas por ventana, historial aparte.
