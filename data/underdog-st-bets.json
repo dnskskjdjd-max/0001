@@ -462,9 +462,10 @@
         "start":  "2026-10-11T14:30:00Z",
         "minBefore":  131,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0365,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:16:06Z"
     },
     {
         "id":  "kaz1-kky-ord-2026-10-11-total-3pt5|0",
