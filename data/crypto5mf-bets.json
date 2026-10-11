@@ -915,13 +915,15 @@
         "askUp":  0.75,
         "askDown":  0.26,
         "placedAt":  "2026-10-11T23:20:41Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0168,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  0.049,
-        "vol30":  0.1715
+        "vol30":  0.1715,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T23:25:01Z"
     }
 ]
