@@ -10363,3 +10363,20 @@
 2026-10-11 09:42:09  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 34c | Will Puskas Akademia FC Felcsut win on 2026-10-11? | empieza en 138 min
 2026-10-11 09:42:12  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 34c | Will Puskas Akademia FC Felcsut win on 2026-10-11? | empieza en 138 min
 2026-10-11 09:42:18  [no-favoritos] OK: 45 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
+2026-10-11 09:45:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791729000: salto max z=2.46; Polymarket ya se habia movido 5 veces (hasta 3c), sin precio previo 0, precio fuera de rango 0
+2026-10-11 09:45:24  [cripto] OK diario: BTC 83142, vol 37.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 52 apuestas
+2026-10-11 09:45:30  --- inicio ---
+2026-10-11 09:45:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T14:41:03.367Z)
+2026-10-11 09:46:02  ALERTA DE VENTA: Eagles vs. Jaguars [JAGUARS] - solo 3 de las 10 ballenas mejor rankeadas siguen en JAGUARS (al apostar eran 7)
+2026-10-11 09:46:03  OK: 21 mercados >= 60, 8 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 129 senales + 362 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (14 en total) ; prueba zona-media: 0 nuevas (6 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (6 en total)
+2026-10-11 09:46:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 09:46:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 09:46:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 09:46:09  [cripto-5m] Resuelta rapida btc-updown-5m-1791729300: UP -> won (0.95 USD)
+2026-10-11 09:46:09  [cripto-5m] Resueltas al contrario btc-updown-5m-1791729300: UP won (0.95 USD)
+2026-10-11 09:46:09  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791729300: UP won (0.95 USD)
+2026-10-11 09:46:09  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791729300: UP won (0.95 USD)
+2026-10-11 09:46:28  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 20c | Will Hapoel Ramat Gan Givatayim FC vs. Beitar Jerusalem FC end in a draw? | empieza en 149 min
+2026-10-11 09:46:31  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 20c | Will Hapoel Ramat Gan Givatayim FC vs. Beitar Jerusalem FC end in a draw? | empieza en 149 min
+2026-10-11 09:46:36  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 20c | Yellow-Red KV Mechelen vs. St. Truidense VV: O/U 1.5 | empieza en 149 min
+2026-10-11 09:46:38  [no-favoritos] OK: 54 mercados principales en la ventana, 3 apuestas nuevas, 0 resueltas

@@ -1243,11 +1243,12 @@
         "askUp":  0.74,
         "askDown":  0.27,
         "placedAt":  "2026-10-11T14:39:04Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.9475,
         "version":  8,
         "flipped":  false,
         "trend30":  0.078,
-        "vol30":  0.1282
+        "vol30":  0.1282,
+        "resolvedAt":  "2026-10-11T14:46:09Z"
     }
 ]

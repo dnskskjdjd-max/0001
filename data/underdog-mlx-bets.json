@@ -847,5 +847,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "isr-rgg-bei-2026-10-11-draw|0",
+        "strategy":  "mlx",
+        "slug":  "isr-rgg-bei-2026-10-11-draw",
+        "ev":  "isr-rgg-bei-2026-10-11",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Hapoel Ramat Gan Givatayim FC vs. Beitar Jerusalem FC end in a draw?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "105423540220691769536385307444859241679170460976801023252992272647919079620859",
+        "stake":  1,
+        "price":  0.2,
+        "bestBid":  0.19,
+        "feeRate":  0.05,
+        "fee":  0.04,
+        "vol":  373,
+        "start":  "2026-10-11T17:15:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T14:46:07Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
