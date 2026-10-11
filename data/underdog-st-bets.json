@@ -642,9 +642,10 @@
         "start":  "2026-10-11T15:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T12:31:13Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0325,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:42:02Z"
     },
     {
         "id":  "itsb-pad-car-2026-10-11-spread-home-1pt5|0",

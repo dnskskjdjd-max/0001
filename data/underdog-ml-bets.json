@@ -609,9 +609,10 @@
         "start":  "2026-10-11T15:30:00Z",
         "minBefore":  150,
         "placedAt":  "2026-10-11T13:00:23Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0395,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:42:02Z"
     },
     {
         "id":  "cze1-asp-fkp-2026-10-11-asp|1",
