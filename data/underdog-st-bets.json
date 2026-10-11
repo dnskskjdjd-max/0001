@@ -332,9 +332,10 @@
         "start":  "2026-10-11T14:00:00Z",
         "minBefore":  101,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.9968,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:51:07Z"
     },
     {
         "id":  "es2-alm-leg-2026-10-11-spread-home-1pt5|0",

@@ -432,9 +432,10 @@
         "start":  "2026-10-11T14:45:00Z",
         "minBefore":  146,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0365,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:51:07Z"
     },
     {
         "id":  "srb-par-npa-2026-10-11-par|1",
