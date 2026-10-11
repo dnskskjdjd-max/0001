@@ -10267,3 +10267,10 @@
 2026-10-11 09:01:45  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 26c | FK Rubin Kazan vs. FK Dinamo Moskva: O/U 3.5 | empieza en 149 min
 2026-10-11 09:01:45  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 30c | RCD Mallorca vs. UD Las Palmas: O/U 3.5 | empieza en 149 min
 2026-10-11 09:01:46  [no-favoritos] OK: 37 mercados principales en la ventana, 8 apuestas nuevas, 0 resueltas
+2026-10-11 09:05:26  [cripto] OK diario: BTC 83086, vol 37.1%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-11 09:05:30  --- inicio ---
+2026-10-11 09:05:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T13:46:07.564Z)
+2026-10-11 09:06:04  OK: 19 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (48 en el historial), 0 alertas de venta, 0 resueltas, 127 senales + 360 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (13 en total) ; prueba zona-media: 0 nuevas (5 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (5 en total)
+2026-10-11 09:06:06  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 09:06:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 09:06:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
