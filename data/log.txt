@@ -10655,3 +10655,20 @@
 2026-10-11 11:11:02  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-11 11:11:35  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
 2026-10-11 11:11:59  [cripto-rapido] Apuesta rapida btc-updown-15m-1791734400: DOWN $1 a 88c, modelo 94.1%, ventaja 5.3 pp, faltan 182 s
+2026-10-11 11:12:14  [cripto-5m] Apuesta rapida btc-updown-5m-1791735000: UP $1 a 87c, modelo 93%, ventaja 5.2 pp, faltan 166 s
+2026-10-11 11:15:24  [cripto] OK diario: BTC 83850, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 58 apuestas
+2026-10-11 11:15:30  --- inicio ---
+2026-10-11 11:15:41  [cripto-5m] Resuelta rapida btc-updown-5m-1791734700: UP -> lost (-1.06 USD)
+2026-10-11 11:15:41  [cripto-5m] Resueltas al contrario btc-updown-5m-1791734700: DOWN won (0.19 USD)
+2026-10-11 11:15:41  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791734700: DOWN won (0.19 USD)
+2026-10-11 11:15:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T16:15:13.046Z)
+2026-10-11 11:16:04  OK: 23 mercados >= 60, 7 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 365 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 11:16:06  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 11:16:07  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 11:16:07  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 11:16:17  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 30c | Will Orense SC vs. CD Cuenca end in a draw? | empieza en 149 min
+2026-10-11 11:16:21  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 30c | Will Orense SC vs. CD Cuenca end in a draw? | empieza en 149 min
+2026-10-11 11:16:25  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Olympique de Marseille' a 26c | Spread: Olympique de Marseille (-1.5) | empieza en 149 min
+2026-10-11 11:16:25  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Orense SC' a 22c | Spread: Orense SC (-1.5) | empieza en 149 min
+2026-10-11 11:16:26  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Juventus FC' a 34c | Spread: Juventus FC (-1.5) | empieza en 149 min
+2026-10-11 11:16:33  [no-favoritos] OK: 42 mercados principales en la ventana, 5 apuestas nuevas, 0 resueltas

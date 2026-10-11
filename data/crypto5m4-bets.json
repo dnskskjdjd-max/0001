@@ -3905,12 +3905,13 @@
         "askUp":  0.19,
         "askDown":  0.82,
         "placedAt":  "2026-10-11T16:08:12Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.1929,
         "version":  8,
         "flipped":  true,
         "origSide":  "UP",
-        "origP":  0.2614
+        "origP":  0.2614,
+        "resolvedAt":  "2026-10-11T16:15:41Z"
     },
     {
         "id":  "btc-updown-5m-1791735000|UP",

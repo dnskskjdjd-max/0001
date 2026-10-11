@@ -1024,5 +1024,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "ecu1-ore-cue-2026-10-11-draw|0",
+        "strategy":  "mlx",
+        "slug":  "ecu1-ore-cue-2026-10-11-draw",
+        "ev":  "ecu1-ore-cue-2026-10-11",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Orense SC vs. CD Cuenca end in a draw?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "69788468471427563923853749669733058054212713793001992180124798156917370179455",
+        "stake":  1,
+        "price":  0.3,
+        "bestBid":  0.29,
+        "feeRate":  0.05,
+        "fee":  0.035,
+        "vol":  488,
+        "start":  "2026-10-11T18:45:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T16:16:08Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
