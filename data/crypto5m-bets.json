@@ -603,10 +603,12 @@
         "askUp":  0.2,
         "askDown":  0.81,
         "placedAt":  "2026-10-11T20:21:36Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2069,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T20:25:01Z"
     }
 ]
