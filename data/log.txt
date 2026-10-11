@@ -10129,3 +10129,29 @@
 2026-10-11 07:46:20  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Calcio Padova' a 27c | Spread: Calcio Padova (-1.5) | empieza en 149 min
 2026-10-11 07:46:21  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Stade Rennais FC 1901' a 26c | Spread: Stade Rennais FC 1901 (-2.5) | empieza en 149 min
 2026-10-11 07:46:23  [no-favoritos] OK: 40 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
+2026-10-11 07:50:26  [cripto] OK diario: BTC 83130, vol 37.1%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-11 07:50:31  --- inicio ---
+2026-10-11 07:51:08  FirePolymarket fallo (intento 1): No se puede escribir datos de en la conexión de transporte: Se ha anulado una conexión establecida por el software en su equipo host.
+2026-10-11 07:55:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T12:51:06.655Z)
+2026-10-11 07:56:02  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (48 en el historial), 0 alertas de venta, 0 resueltas, 127 senales + 358 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (13 en total) ; prueba zona-media: 0 nuevas (5 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (5 en total)
+2026-10-11 07:56:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 07:56:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 07:56:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 07:57:03  [cripto-rapido] ERROR: Se excedió el tiempo de espera de la operación (linea 82)
+2026-10-11 08:00:23  [ligas] OK: 32 partidos en 10 dias, 32 con Vegas, 0 apuestas en el historial
+2026-10-11 08:00:39  [cripto] OK diario: BTC 83120, vol 37%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-11 08:00:45  --- inicio ---
+2026-10-11 08:00:47  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 30c | Will Korona Kielce win on 2026-10-11? | empieza en 150 min
+2026-10-11 08:00:48  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 30c | Will Al Faisaly Saudi Club win on 2026-10-11? | empieza en 145 min
+2026-10-11 08:00:48  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 21c | Will CD La Serena win on 2026-10-11? | empieza en 150 min
+2026-10-11 08:00:49  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'NK Maribor' a 34c | Spread: NK Maribor (-1.5) | empieza en 150 min
+2026-10-11 08:00:50  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Abha Saudi Club' a 22c | Spread: Abha Saudi Club (-1.5) | empieza en 145 min
+2026-10-11 08:00:50  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'SC Freiburg' a 33c | Spread: SC Freiburg (-1.5) | empieza en 150 min
+2026-10-11 08:00:54  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 25c | Pogon Szczecin vs. Korona Kielce: O/U 1.5 | empieza en 150 min
+2026-10-11 08:00:54  [no-favoritos] OK: 44 mercados principales en la ventana, 7 apuestas nuevas, 0 resueltas
+2026-10-11 08:01:09  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T12:51:06.655Z)
+2026-10-11 08:01:33  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (48 en el historial), 0 alertas de venta, 0 resueltas, 127 senales + 358 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (13 en total) ; prueba zona-media: 0 nuevas (5 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (5 en total)
+2026-10-11 08:01:36  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 08:01:36  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 08:01:36  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 08:02:08  [no-favoritos] OK: 44 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
