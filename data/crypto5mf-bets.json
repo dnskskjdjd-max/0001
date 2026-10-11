@@ -1757,11 +1757,12 @@
         "askUp":  0.47,
         "askDown":  0.54,
         "placedAt":  "2026-10-11T18:52:11Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0315,
         "version":  8,
         "flipped":  false,
         "trend30":  -0.355,
-        "vol30":  0.2549
+        "vol30":  0.2549,
+        "resolvedAt":  "2026-10-11T19:01:23Z"
     }
 ]

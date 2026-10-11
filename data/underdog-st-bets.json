@@ -1821,5 +1821,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "uru1-esp-nac-2026-10-11-spread-away-1pt5|0",
+        "strategy":  "st",
+        "slug":  "uru1-esp-nac-2026-10-11-spread-away-1pt5",
+        "ev":  "uru1-esp-nac-2026-10-11",
+        "league":  "soccer",
+        "type":  "spreads",
+        "line":  -1.5,
+        "question":  "Spread: Club Nacional de Football (-1.5)",
+        "side":  0,
+        "outcome":  "Club Nacional de Football",
+        "token":  "65050374198819949571478395866767305620011974949857512368937022687370975158817",
+        "stake":  1,
+        "price":  0.34,
+        "bestBid":  0.33,
+        "feeRate":  0.05,
+        "fee":  0.033,
+        "vol":  29,
+        "start":  "2026-10-11T21:30:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T19:01:21Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
