@@ -1965,8 +1965,10 @@
         "askUp":  0.78,
         "askDown":  0.23,
         "placedAt":  "2026-10-11T20:05:01Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  9
+        "status":  "lost",
+        "pnl":  -1.0532,
+        "version":  9,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T20:15:01Z"
     }
 ]

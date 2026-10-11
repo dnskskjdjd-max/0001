@@ -11462,3 +11462,43 @@
 2026-10-11 15:07:24  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791747900: 3 min UP lost (-1.07 USD)
 2026-10-11 15:07:24  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791747900: UP lost (-1.04 USD)
 2026-10-11 15:07:33  [no-favoritos] OK: 18 mercados principales en la ventana, 0 apuestas nuevas, 7 resueltas
+2026-10-11 15:09:05  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791748800: DOWN $1 a 32c, modelo 39.5%, ventaja 6 pp
+2026-10-11 15:10:33  [cripto-5m] Resueltas rapida btc-updown-5m-1791748800: UP won (0.33 USD)
+2026-10-11 15:10:33  [cripto-5m] Resueltas al contrario btc-updown-5m-1791748800: UP won (0.33 USD)
+2026-10-11 15:10:33  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791748800: UP won (0.33 USD)
+2026-10-11 15:10:36  --- inicio ---
+2026-10-11 15:10:40  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791749400: UP $1 a 79c (paso los 73c), faltan 262 s
+2026-10-11 15:12:01  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1791748800: DOWN $1 a 8c, modelo 14.3%, ventaja 5.8 pp
+2026-10-11 15:15:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791748800: salto max z=3.12; Polymarket ya se habia movido 5 veces (hasta 32c), sin precio previo 0, precio fuera de rango 0
+2026-10-11 15:15:43  [cripto-5m] Resueltas rapida btc-updown-5m-1791749100: UP lost, DOWN won (-0.78 USD)
+2026-10-11 15:15:43  [cripto-5m] Resueltas al contrario btc-updown-5m-1791749100: UP lost, DOWN won (-0.78 USD)
+2026-10-11 15:15:43  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791749100: DOWN won (0.24 USD)
+2026-10-11 15:15:43  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791749100: UP lost, DOWN won (-0.78 USD)
+2026-10-11 15:16:11  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T20:06:10.558Z)
+2026-10-11 15:16:22  Resuelta: Texans vs. Titans [TEXANS] -> won
+2026-10-11 15:16:22  Resuelta: Vikings vs. Saints [SAINTS] -> lost
+2026-10-11 15:16:22  Resuelta: Vikings vs. Saints [VIKINGS] -> won
+2026-10-11 15:16:22  Resuelta: Texans vs. Titans: O/U 38.5 [UNDER] -> won
+2026-10-11 15:16:22  Apuesta resuelta: Texans vs. Titans [TEXANS] -> won (1.6292)
+2026-10-11 15:16:22  [prueba:no-perseguir] Apuesta resuelta: Texans vs. Titans [TEXANS] -> won (0.6517)
+2026-10-11 15:16:22  [prueba:zona-media] Apuesta resuelta: Texans vs. Titans [TEXANS] -> won (0.6517)
+2026-10-11 15:16:22  [prueba:zona-media-sin-perseguir] Apuesta resuelta: Texans vs. Titans [TEXANS] -> won (0.6517)
+2026-10-11 15:16:30  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 3 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 4 resueltas, 137 senales + 381 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 15:16:35  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 15:16:36  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 15:16:36  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 15:17:35  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791749700: DOWN $1 a 88c (paso los 73c), faltan 146 s
+2026-10-11 15:17:36  [cripto-5m] Filtro de mercado btc-updown-5m-1791749700: DOWN (tendencia -0.02%, volatilidad 11%)
+2026-10-11 15:18:05  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791749700: DOWN $1 a 85c (paso los 73c), faltan 116 s
+2026-10-11 15:18:06  [cripto-5m] Filtro de mercado btc-updown-5m-1791749700: DOWN (tendencia -0.04%, volatilidad 11%)
+2026-10-11 15:18:41  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 15:18:58  [no-favoritos] Resuelta [ml] srb-par-npa-2026-10-11-par: 'No' -> lost (-1.03 USD)
+2026-10-11 15:18:58  [no-favoritos] Resuelta [ml] svk1-pod-trn-2026-10-11-trn: 'Yes' -> won (1.82 USD)
+2026-10-11 15:18:59  [no-favoritos] Resuelta [ml] tur-bes-koc-2026-10-11-bes: 'No' -> lost (-1.04 USD)
+2026-10-11 15:19:00  [no-favoritos] Resuelta [ml] nfl-hou-ten-2026-10-11: 'Titans' -> lost (-1.02 USD)
+2026-10-11 15:19:05  [no-favoritos] Resuelta [mlx] srb-par-npa-2026-10-11-par: 'No' -> lost (-1.03 USD)
+2026-10-11 15:19:06  [no-favoritos] Resuelta [mlx] tur-bes-koc-2026-10-11-bes: 'No' -> lost (-1.04 USD)
+2026-10-11 15:19:07  [no-favoritos] Resuelta [mlx] nfl-hou-ten-2026-10-11: 'Titans' -> lost (-1.02 USD)
+2026-10-11 15:19:12  [no-favoritos] Resuelta [st] tur-bes-koc-2026-10-11-spread-home-2pt5: 'Beşiktaş JK' -> lost (-1.03 USD)
+2026-10-11 15:19:16  [no-favoritos] Resuelta [st] nfl-min-no-2026-10-11-spread-home-3pt5: 'Saints' -> lost (-1.02 USD)
+2026-10-11 15:19:20  [no-favoritos] OK: 18 mercados principales en la ventana, 0 apuestas nuevas, 9 resueltas

@@ -823,9 +823,10 @@
         "start":  "2026-10-11T16:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T13:31:28Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0325,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:18:42Z"
     },
     {
         "id":  "tur2-bur-mar-2026-10-11-spread-home-1pt5|0",
@@ -1101,9 +1102,10 @@
         "start":  "2026-10-11T17:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:31:20Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0201,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:18:42Z"
     },
     {
         "id":  "hun-gyo-pus-2026-10-11-spread-home-1pt5|0",

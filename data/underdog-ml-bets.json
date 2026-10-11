@@ -460,9 +460,10 @@
         "start":  "2026-10-11T15:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T12:31:13Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0335,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:18:42Z"
     },
     {
         "id":  "rou1-fcm-ucc-2026-10-11-ucc|1",
@@ -666,9 +667,10 @@
         "start":  "2026-10-11T16:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T13:31:28Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.8246,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:18:42Z"
     },
     {
         "id":  "tur-bes-koc-2026-10-11-bes|1",
@@ -691,9 +693,10 @@
         "start":  "2026-10-11T16:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T13:31:28Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0395,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:18:42Z"
     },
     {
         "id":  "rus-rub-din-2026-10-11-rub|0",
@@ -792,9 +795,10 @@
         "start":  "2026-10-11T17:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:31:20Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0222,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:18:42Z"
     },
     {
         "id":  "por-ben-gui-2026-10-11-ben|1",
