@@ -172,9 +172,10 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0385,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T15:21:03Z"
     },
     {
         "id":  "itsb-cat-man-2026-10-11-spread-home-5pt5|0",
