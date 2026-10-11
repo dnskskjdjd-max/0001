@@ -616,9 +616,10 @@
         "start":  "2026-10-11T15:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T12:31:13Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0345,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:35:55Z"
     },
     {
         "id":  "swe2-ikb-hel-2026-10-11-total-3pt5|0",
@@ -794,9 +795,10 @@
         "start":  "2026-10-11T15:30:00Z",
         "minBefore":  150,
         "placedAt":  "2026-10-11T13:00:23Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0375,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:35:55Z"
     },
     {
         "id":  "tur-bes-koc-2026-10-11-spread-home-2pt5|0",

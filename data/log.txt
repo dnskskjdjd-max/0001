@@ -11320,3 +11320,23 @@
 2026-10-11 14:31:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-11 14:31:21  [no-favoritos] Apuesta [st] nhl totals: $1 a 'Under' a 22c | Canucks vs. Rangers: O/U 4.5 | empieza en 149 min
 2026-10-11 14:31:34  [no-favoritos] OK: 11 mercados principales en la ventana, 1 apuestas nuevas, 0 resueltas
+2026-10-11 14:35:05  [cripto-rapido] Apuesta rapida btc-updown-15m-1791747000: DOWN $1 a 19c, modelo 25.5%, ventaja 5.4 pp, faltan 596 s
+2026-10-11 14:35:05  [cripto-rapido] Apuesta al contrario btc-updown-15m-1791747000: UP $1 a 84c (el modelo daba 25.5% a DOWN)
+2026-10-11 14:35:07  [cripto-5m] Resueltas rapida btc-updown-5m-1791746700: DOWN won, DOWN won (0.41 USD)
+2026-10-11 14:35:07  [cripto-5m] Resueltas al contrario btc-updown-5m-1791746700: DOWN won, DOWN won (0.41 USD)
+2026-10-11 14:35:07  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791746700: DOWN won, DOWN won (0.41 USD)
+2026-10-11 14:35:24  [cripto] OK diario: BTC 83739, vol 37.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 71 apuestas
+2026-10-11 14:35:29  --- inicio ---
+2026-10-11 14:35:43  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T19:30:12.861Z)
+2026-10-11 14:35:51  OK: 24 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 137 senales + 376 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 14:35:53  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 14:35:54  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 14:35:54  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 14:36:04  [no-favoritos] Resuelta [ml] pol-psz-kor-2026-10-11-kor: 'Yes' -> lost (-1.04 USD)
+2026-10-11 14:36:08  [cripto-rapido] Resueltas rapida btc-updown-15m-1791746100: DOWN won (1.81 USD)
+2026-10-11 14:36:08  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791746100: 6 min DOWN won, 3 min UP lost (1.03 USD)
+2026-10-11 14:36:08  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791746100: DOWN won (1.81 USD)
+2026-10-11 14:36:08  [no-favoritos] Resuelta [mlx] pol-psz-kor-2026-10-11-kor: 'Yes' -> lost (-1.04 USD)
+2026-10-11 14:36:11  [no-favoritos] Resuelta [st] nor-ik-ham-2026-10-11-spread-home-1pt5: 'IK Start' -> lost (-1.03 USD)
+2026-10-11 14:36:12  [no-favoritos] Resuelta [st] pol-psz-kor-2026-10-11-total-1pt5: 'Under' -> lost (-1.04 USD)
+2026-10-11 14:36:18  [no-favoritos] OK: 10 mercados principales en la ventana, 0 apuestas nuevas, 4 resueltas

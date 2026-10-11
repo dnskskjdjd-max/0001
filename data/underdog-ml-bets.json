@@ -558,9 +558,10 @@
         "start":  "2026-10-11T15:30:00Z",
         "minBefore":  150,
         "placedAt":  "2026-10-11T13:00:23Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.035,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:35:55Z"
     },
     {
         "id":  "spl-abh-fai-2026-10-11-fai|0",
