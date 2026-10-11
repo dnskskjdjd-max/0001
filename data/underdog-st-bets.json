@@ -929,9 +929,10 @@
         "start":  "2026-10-11T16:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T13:31:28Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.04,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:56:03Z"
     },
     {
         "id":  "svk1-pod-trn-2026-10-11-total-1pt5|1",
