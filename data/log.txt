@@ -10213,3 +10213,10 @@
 2026-10-11 08:32:05  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 20c | FC Midtjylland vs. FC København: O/U 1.5 | empieza en 149 min
 2026-10-11 08:32:06  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 20c | FK Železiarne Podbrezová vs. FC Spartak Trnava: O/U 1.5 | empieza en 149 min
 2026-10-11 08:32:06  [no-favoritos] OK: 44 mercados principales en la ventana, 12 apuestas nuevas, 0 resueltas
+2026-10-11 08:35:25  [cripto] OK diario: BTC 83089, vol 37.1%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-11 08:35:30  --- inicio ---
+2026-10-11 08:35:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T13:30:12.679Z)
+2026-10-11 08:36:02  OK: 19 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (48 en el historial), 0 alertas de venta, 0 resueltas, 127 senales + 360 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (13 en total) ; prueba zona-media: 0 nuevas (5 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (5 en total)
+2026-10-11 08:36:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 08:36:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 08:36:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
