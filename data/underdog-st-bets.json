@@ -1005,9 +1005,10 @@
         "start":  "2026-10-11T16:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:01:15Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.5354,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:41:10Z"
     },
     {
         "id":  "rus-rub-din-2026-10-11-total-3pt5|0",
@@ -1030,9 +1031,10 @@
         "start":  "2026-10-11T16:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:01:15Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.037,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:41:10Z"
     },
     {
         "id":  "es2-rm-lpm-2026-10-11-total-3pt5|0",
@@ -1055,9 +1057,10 @@
         "start":  "2026-10-11T16:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:01:15Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.2983,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:41:10Z"
     },
     {
         "id":  "nfl-ind-pit-2026-10-11-spread-home-7pt5|0",
@@ -2007,6 +2010,31 @@
         "start":  "2026-10-11T23:00:00Z",
         "minBefore":  148,
         "placedAt":  "2026-10-11T20:32:18Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
+    },
+    {
+        "id":  "mex-pac-nec-2026-10-11-spread-home-1pt5|0",
+        "strategy":  "st",
+        "slug":  "mex-pac-nec-2026-10-11-spread-home-1pt5",
+        "ev":  "mex-pac-nec-2026-10-11",
+        "league":  "soccer",
+        "type":  "spreads",
+        "line":  -1.5,
+        "question":  "Spread: CF Pachuca (-1.5)",
+        "side":  0,
+        "outcome":  "CF Pachuca",
+        "token":  "6539495420553668249398351406481784415415678312313925194985063507762568976403",
+        "stake":  1,
+        "price":  0.32,
+        "bestBid":  0.31,
+        "feeRate":  0.05,
+        "fee":  0.034,
+        "vol":  200,
+        "start":  "2026-10-11T23:10:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T20:41:10Z",
         "status":  "open",
         "pnl":  null,
         "version":  1

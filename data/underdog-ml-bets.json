@@ -720,9 +720,10 @@
         "start":  "2026-10-11T16:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:01:15Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.038,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:41:10Z"
     },
     {
         "id":  "lal-bet-osa-2026-10-11-bet|1",
