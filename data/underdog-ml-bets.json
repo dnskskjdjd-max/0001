@@ -798,5 +798,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "hun-gyo-pus-2026-10-11-pus|0",
+        "strategy":  "ml",
+        "slug":  "hun-gyo-pus-2026-10-11-pus",
+        "ev":  "hun-gyo-pus-2026-10-11",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Puskas Akademia FC Felcsut win on 2026-10-11?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "94200528570615161943571397142347555222924760628103054466868113105159765029313",
+        "stake":  1,
+        "price":  0.34,
+        "bestBid":  0.33,
+        "feeRate":  0.05,
+        "fee":  0.033,
+        "vol":  123,
+        "start":  "2026-10-11T17:00:00Z",
+        "minBefore":  138,
+        "placedAt":  "2026-10-11T14:41:55Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

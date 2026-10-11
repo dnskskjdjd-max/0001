@@ -10348,3 +10348,18 @@
 2026-10-11 09:36:10  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-11 09:36:11  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 09:36:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 09:39:04  [cripto-5m] Apuesta rapida btc-updown-5m-1791729300: UP $3 a 75c, modelo 100%, ventaja 23.7 pp, faltan 61 s
+2026-10-11 09:39:05  [cripto-5m] Filtro de mercado btc-updown-5m-1791729300: UP (tendencia 0.08%, volatilidad 13%)
+2026-10-11 09:39:06  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791729000: UP $2 a 89c, modelo 98.1%, ventaja 8.5 pp
+2026-10-11 09:40:26  [cripto] OK diario: BTC 83126, vol 37.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 52 apuestas
+2026-10-11 09:40:30  --- inicio ---
+2026-10-11 09:40:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T14:23:47.078Z)
+2026-10-11 09:41:05  OK: 22 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 129 senales + 361 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (14 en total) ; prueba zona-media: 0 nuevas (6 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (6 en total)
+2026-10-11 09:41:07  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 09:41:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 09:41:08  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 09:41:54  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 09:42:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791729600: DOWN $2 a 50c, modelo 61.1%, ventaja 9.4 pp, faltan 180 s
+2026-10-11 09:42:09  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 34c | Will Puskas Akademia FC Felcsut win on 2026-10-11? | empieza en 138 min
+2026-10-11 09:42:12  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 34c | Will Puskas Akademia FC Felcsut win on 2026-10-11? | empieza en 138 min
+2026-10-11 09:42:18  [no-favoritos] OK: 45 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
