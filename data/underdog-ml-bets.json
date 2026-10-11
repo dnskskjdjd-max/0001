@@ -1205,5 +1205,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "nfl-det-ari-2026-10-11|1",
+        "strategy":  "ml",
+        "slug":  "nfl-det-ari-2026-10-11",
+        "ev":  "nfl-det-ari-2026-10-11",
+        "league":  "nfl",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Lions vs. Cardinals",
+        "side":  1,
+        "outcome":  "Cardinals",
+        "token":  "45771357044293249394701484141194198475871091757894999118580113740262781405581",
+        "stake":  1,
+        "price":  0.31,
+        "bestBid":  0.3,
+        "feeRate":  0.03,
+        "fee":  0.0207,
+        "vol":  16713,
+        "start":  "2026-10-11T20:25:00Z",
+        "minBefore":  148,
+        "placedAt":  "2026-10-11T17:57:02Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

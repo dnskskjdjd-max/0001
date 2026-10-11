@@ -1545,12 +1545,13 @@
         "askUp":  0.33,
         "askDown":  0.68,
         "placedAt":  "2026-10-11T17:47:13Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0462,
         "version":  8,
         "flipped":  false,
         "trend30":  0.065,
-        "vol30":  0.2704
+        "vol30":  0.2704,
+        "resolvedAt":  "2026-10-11T17:55:45Z"
     },
     {
         "id":  "btc-updown-5m-1791741000|DOWN",
