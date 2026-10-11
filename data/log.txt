@@ -10087,3 +10087,18 @@
 2026-10-11 07:26:14  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-11 07:26:14  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 07:26:14  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 07:30:29  [cripto] OK diario: BTC 83134, vol 37%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-11 07:30:34  --- inicio ---
+2026-10-11 07:30:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T12:15:14.307Z)
+2026-10-11 07:31:10  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (47 en el historial), 0 alertas de venta, 0 resueltas, 127 senales + 357 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (13 en total) ; prueba zona-media: 0 nuevas (5 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (5 en total)
+2026-10-11 07:31:12  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 07:31:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 07:31:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 07:31:28  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 33c | Will FK Partizan Belgrade win on 2026-10-11? | empieza en 149 min
+2026-10-11 07:31:29  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 25c | Will Universitatea Craiova CS win on 2026-10-11? | empieza en 149 min
+2026-10-11 07:31:30  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 34c | Will Sarpsborg 08 FF win on 2026-10-11? | empieza en 149 min
+2026-10-11 07:31:30  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 33c | Will Helsingborgs IF win on 2026-10-11? | empieza en 149 min
+2026-10-11 07:31:32  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Real Sociedad de Fútbol' a 35c | Spread: Real Sociedad de Fútbol (-1.5) | empieza en 104 min
+2026-10-11 07:31:36  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'IK Start' a 31c | Spread: IK Start (-1.5) | empieza en 149 min
+2026-10-11 07:31:38  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 35c | IK Brage vs. Helsingborgs IF: O/U 3.5 | empieza en 149 min
+2026-10-11 07:31:40  [no-favoritos] OK: 40 mercados principales en la ventana, 7 apuestas nuevas, 0 resueltas
