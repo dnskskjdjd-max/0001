@@ -2341,10 +2341,11 @@
         "askUp":  0.44,
         "askDown":  0.57,
         "placedAt":  "2026-10-11T18:27:01Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0385,
         "version":  8,
-        "flipped":  false
+        "flipped":  false,
+        "resolvedAt":  "2026-10-11T18:35:54Z"
     },
     {
         "id":  "btc-updown-5m-1791743400|UP",

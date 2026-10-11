@@ -409,9 +409,10 @@
         "start":  "2026-10-11T14:30:00Z",
         "minBefore":  131,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0385,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:36:21Z"
     },
     {
         "id":  "gre1-kif-pa-2026-10-11-spread-home-1pt5|0",
