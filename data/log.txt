@@ -11542,3 +11542,33 @@
 2026-10-11 15:27:27  [no-favoritos] Resuelta [st] kaz1-kky-ord-2026-10-11-total-3pt5: 'Over' -> won (2.19 USD)
 2026-10-11 15:27:29  [no-favoritos] Resuelta [st] tur2-bur-mar-2026-10-11-spread-home-1pt5: 'Bursaspor' -> lost (-1.03 USD)
 2026-10-11 15:27:37  [no-favoritos] OK: 18 mercados principales en la ventana, 0 apuestas nuevas, 2 resueltas
+2026-10-11 15:30:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791749700: salto max z=6.55; Polymarket ya se habia movido 15 veces (hasta 3.4c), sin precio previo 0, precio fuera de rango 6
+2026-10-11 15:30:31  [cripto] OK diario: BTC 83622, vol 37.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 74 apuestas
+2026-10-11 15:30:38  --- inicio ---
+2026-10-11 15:30:50  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791750600: DOWN $1 a 75c (paso los 73c), faltan 251 s
+2026-10-11 15:30:51  [cripto-5m] Filtro de mercado btc-updown-5m-1791750600: DOWN (tendencia -0.05%, volatilidad 16%)
+2026-10-11 15:30:56  [cripto-5m] Resueltas rapida btc-updown-5m-1791750000: DOWN won (0.21 USD)
+2026-10-11 15:30:56  [cripto-5m] Resueltas al contrario btc-updown-5m-1791750000: DOWN won (0.21 USD)
+2026-10-11 15:30:56  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791750000: DOWN won (0.21 USD)
+2026-10-11 15:30:56  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791750000: DOWN won (0.21 USD)
+2026-10-11 15:31:03  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T20:26:25.477Z)
+2026-10-11 15:31:22  Resuelta: Colts vs. Steelers [COLTS] -> lost
+2026-10-11 15:31:22  Resuelta: Colts vs. Steelers [STEELERS] -> won
+2026-10-11 15:31:22  Resuelta: Spread: Steelers (-7.5) [COLTS] -> lost
+2026-10-11 15:31:27  OK: 21 mercados >= 60, 6 >= 70, 2 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 3 resueltas, 139 senales + 382 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 15:31:30  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 15:31:30  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 15:31:30  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 15:32:18  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 15:32:26  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 32c | Will CD Palestino win on 2026-10-11? | empieza en 148 min
+2026-10-11 15:32:26  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 23c | Will Pacific FC vs. Atletico Ottawa end in a draw? | empieza en 148 min
+2026-10-11 15:32:26  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 35c | Will St. Louis City SC win on 2026-10-11? | empieza en 148 min
+2026-10-11 15:32:28  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 32c | Will CD Palestino win on 2026-10-11? | empieza en 148 min
+2026-10-11 15:32:29  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 23c | Will Pacific FC vs. Atletico Ottawa end in a draw? | empieza en 148 min
+2026-10-11 15:32:29  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'No' a 35c | Will St. Louis City SC win on 2026-10-11? | empieza en 148 min
+2026-10-11 15:32:31  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Atlético San Luis' a 23c | Spread: Atlético San Luis (-1.5) | empieza en 148 min
+2026-10-11 15:32:35  [no-favoritos] Resuelta [ml] kaz1-kky-ord-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
+2026-10-11 15:32:39  [no-favoritos] Resuelta [mlx] kaz1-kky-ord-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
+2026-10-11 15:32:41  [no-favoritos] Resuelta [st] slo-bri-nkm-2026-10-11-spread-away-1pt5: 'NK Maribor' -> lost (-1.03 USD)
+2026-10-11 15:32:44  [no-favoritos] Resuelta [st] nfl-ind-pit-2026-10-11-spread-home-7pt5: 'Steelers' -> won (2.31 USD)
+2026-10-11 15:32:49  [no-favoritos] OK: 31 mercados principales en la ventana, 7 apuestas nuevas, 4 resueltas

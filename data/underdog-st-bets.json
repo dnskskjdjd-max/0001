@@ -722,9 +722,10 @@
         "start":  "2026-10-11T15:30:00Z",
         "minBefore":  150,
         "placedAt":  "2026-10-11T13:00:23Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.033,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:32:18Z"
     },
     {
         "id":  "spl-abh-fai-2026-10-11-spread-home-1pt5|0",
@@ -1079,9 +1080,10 @@
         "start":  "2026-10-11T17:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:31:20Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.3123,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:32:18Z"
     },
     {
         "id":  "nfl-min-no-2026-10-11-spread-home-3pt5|0",
@@ -1980,6 +1982,31 @@
         "start":  "2026-10-11T22:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T20:01:16Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
+    },
+    {
+        "id":  "mex-asl-san-2026-10-11-spread-home-1pt5|0",
+        "strategy":  "st",
+        "slug":  "mex-asl-san-2026-10-11-spread-home-1pt5",
+        "ev":  "mex-asl-san-2026-10-11",
+        "league":  "soccer",
+        "type":  "spreads",
+        "line":  -1.5,
+        "question":  "Spread: Atlético San Luis (-1.5)",
+        "side":  0,
+        "outcome":  "Atlético San Luis",
+        "token":  "44886665851594670694374066935056817678756988983904617304325688973230098964816",
+        "stake":  1,
+        "price":  0.23,
+        "bestBid":  0.22,
+        "feeRate":  0.05,
+        "fee":  0.0385,
+        "vol":  1351,
+        "start":  "2026-10-11T23:00:00Z",
+        "minBefore":  148,
+        "placedAt":  "2026-10-11T20:32:18Z",
         "status":  "open",
         "pnl":  null,
         "version":  1
