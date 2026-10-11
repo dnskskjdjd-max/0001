@@ -10490,3 +10490,18 @@
 2026-10-11 10:21:02  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-11 10:21:35  [no-favoritos] Resuelta [st] epl-hul-eve-2026-10-11-spread-away-1pt5: 'Everton FC' -> lost (-1.04 USD)
 2026-10-11 10:21:36  [no-favoritos] OK: 45 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
+2026-10-11 10:22:04  [cripto-5m] Apuesta rapida btc-updown-5m-1791732000: UP $3 a 67c, modelo 83.9%, ventaja 15.4 pp, faltan 177 s
+2026-10-11 10:25:23  [cripto-5m] Resuelta rapida btc-updown-5m-1791731700: UP -> lost (-1.05 USD)
+2026-10-11 10:25:23  [cripto-5m] Resueltas al contrario btc-updown-5m-1791731700: UP lost (-1.05 USD)
+2026-10-11 10:25:23  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791731700: UP lost (-1.05 USD)
+2026-10-11 10:25:25  [cripto] OK diario: BTC 83150, vol 37.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 55 apuestas
+2026-10-11 10:25:30  --- inicio ---
+2026-10-11 10:25:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T15:16:04.660Z)
+2026-10-11 10:25:58  OK: 24 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 131 senales + 364 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 10:26:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 10:26:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 10:26:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 10:26:28  [ligas] Cuotas: soccer_spain_la_liga actualizado (25 partidos; creditos restantes 466)
+2026-10-11 10:26:35  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 10:27:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791732300: UP $1 a 30c, modelo 38.4%, ventaja 7 pp, faltan 179 s
+2026-10-11 10:27:02  [cripto-5m] Filtro de mercado btc-updown-5m-1791732300: UP (tendencia 0.02%, volatilidad 6%)
