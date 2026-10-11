@@ -10758,3 +10758,11 @@
 2026-10-11 11:42:00  [cripto-5m] Apuesta al contrario btc-updown-5m-1791736800: UP $2 a 89c (el modelo daba 25% a DOWN)
 2026-10-11 11:42:00  [cripto-5m] Filtro de mercado btc-updown-5m-1791736800: UP (tendencia 0.09%, volatilidad 28%)
 2026-10-11 11:42:09  [no-favoritos] OK: 43 mercados principales en la ventana, 1 apuestas nuevas, 0 resueltas
+2026-10-11 11:45:00  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791736200: salto max z=4.88; Polymarket ya se habia movido 20 veces (hasta 36.5c), sin precio previo 0, precio fuera de rango 0
+2026-10-11 11:45:25  [cripto] OK diario: BTC 83916, vol 37.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 60 apuestas
+2026-10-11 11:45:30  --- inicio ---
+2026-10-11 11:45:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T16:31:05.826Z)
+2026-10-11 11:46:00  OK: 22 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 365 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 11:46:02  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 11:46:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 11:46:03  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
