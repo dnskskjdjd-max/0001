@@ -981,9 +981,10 @@
         "start":  "2026-10-11T16:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:01:15Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0355,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T21:11:03Z"
     },
     {
         "id":  "bel1-wes-rafc-2026-10-11-spread-home-1pt5|0",

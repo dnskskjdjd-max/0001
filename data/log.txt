@@ -11689,3 +11689,17 @@
 2026-10-11 16:06:09  [cripto-rapido] Resueltas rapida btc-updown-15m-1791751500: DOWN won (3.62 USD)
 2026-10-11 16:06:09  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791751500: 6 min UP lost (-2.11 USD)
 2026-10-11 16:06:09  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791751500: DOWN won (3.62 USD)
+2026-10-11 16:09:00  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791752400: DOWN $2 a 66c, modelo 77.5%, ventaja 10 pp
+2026-10-11 16:10:12  [cripto-5m] Resueltas rapida btc-updown-5m-1791752400: DOWN won, UP lost (-0.72 USD)
+2026-10-11 16:10:12  [cripto-5m] Resueltas al contrario btc-updown-5m-1791752400: DOWN won, UP lost (-0.72 USD)
+2026-10-11 16:10:12  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791752400: DOWN won, UP lost (-0.72 USD)
+2026-10-11 16:10:12  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791752400: DOWN won, UP lost (-0.72 USD)
+2026-10-11 16:10:25  [cripto] OK diario: BTC 83622, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 77 apuestas
+2026-10-11 16:10:30  --- inicio ---
+2026-10-11 16:10:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T21:06:07.613Z)
+2026-10-11 16:11:00  OK: 22 mercados >= 60, 7 >= 70, 2 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 143 senales + 383 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 16:11:02  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 16:11:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 16:11:02  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 16:11:23  [no-favoritos] Resuelta [st] ecu1-uni-mac-2026-10-11-spread-home-1pt5: 'CD Universidad Catolica del Ecuador' -> lost (-1.04 USD)
+2026-10-11 16:11:29  [no-favoritos] OK: 22 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
