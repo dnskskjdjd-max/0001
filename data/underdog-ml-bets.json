@@ -252,9 +252,10 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0395,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:11:48Z"
     },
     {
         "id":  "sui-stg-lau-2026-10-11-stg|1",
@@ -377,9 +378,10 @@
         "start":  "2026-10-11T14:00:00Z",
         "minBefore":  101,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.039,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:11:48Z"
     },
     {
         "id":  "kaz1-kky-ord-2026-10-11-draw|0",

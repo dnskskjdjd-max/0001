@@ -20,9 +20,10 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.036,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:11:48Z"
     },
     {
         "id":  "sea-laz-mon-2026-10-11-spread-home-1pt5|0",
@@ -429,9 +430,10 @@
         "start":  "2026-10-11T14:00:00Z",
         "minBefore":  101,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.8092,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:11:48Z"
     },
     {
         "id":  "sui-stg-lau-2026-10-11-spread-home-2pt5|0",
