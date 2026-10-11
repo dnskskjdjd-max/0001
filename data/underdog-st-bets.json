@@ -1577,5 +1577,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "argpn-alb-casm-2026-10-11-total-2pt5|0",
+        "strategy":  "st",
+        "slug":  "argpn-alb-casm-2026-10-11-total-2pt5",
+        "ev":  "argpn-alb-casm-2026-10-11",
+        "league":  "soccer",
+        "type":  "totals",
+        "line":  2.5,
+        "question":  "Club Almirante Brown vs. CA San Miguel: O/U 2.5",
+        "side":  0,
+        "outcome":  "Over",
+        "token":  "4156243170734502407205918503817630080417056306007318311276377126274864027166",
+        "stake":  1,
+        "price":  0.3,
+        "bestBid":  0.28,
+        "feeRate":  0.05,
+        "fee":  0.035,
+        "vol":  602,
+        "start":  "2026-10-11T18:30:00Z",
+        "minBefore":  108,
+        "placedAt":  "2026-10-11T16:41:41Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

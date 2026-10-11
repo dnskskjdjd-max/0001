@@ -10741,3 +10741,20 @@
 2026-10-11 11:36:16  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 35c | Will Club The Strongest win on 2026-10-11? | empieza en 144 min
 2026-10-11 11:36:20  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 35c | Will Club The Strongest win on 2026-10-11? | empieza en 144 min
 2026-10-11 11:36:34  [no-favoritos] OK: 43 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
+2026-10-11 11:37:15  [cripto-5m] Apuesta rapida btc-updown-5m-1791736500: DOWN $2 a 42c, modelo 53.8%, ventaja 10.1 pp, faltan 166 s
+2026-10-11 11:38:40  [cripto-rapido] Apuesta rapida btc-updown-15m-1791736200: UP $1 a 21c, modelo 28.4%, ventaja 6.2 pp, faltan 380 s
+2026-10-11 11:38:41  [cripto-rapido] Apuesta al contrario btc-updown-15m-1791736200: DOWN $1 a 82c (el modelo daba 28.4% a UP)
+2026-10-11 11:39:00  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791736200: UP $1 a 15c, modelo 22.9%, ventaja 7 pp
+2026-10-11 11:40:26  [cripto] OK diario: BTC 83872, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 60 apuestas
+2026-10-11 11:40:30  --- inicio ---
+2026-10-11 11:40:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T16:31:05.826Z)
+2026-10-11 11:41:02  OK: 22 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 365 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 11:41:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 11:41:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 11:41:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 11:41:40  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 11:41:56  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 30c | Club Almirante Brown vs. CA San Miguel: O/U 2.5 | empieza en 108 min
+2026-10-11 11:42:00  [cripto-5m] Apuesta rapida btc-updown-5m-1791736800: DOWN $2 a 14c, modelo 25%, ventaja 10.2 pp, faltan 180 s
+2026-10-11 11:42:00  [cripto-5m] Apuesta al contrario btc-updown-5m-1791736800: UP $2 a 89c (el modelo daba 25% a DOWN)
+2026-10-11 11:42:00  [cripto-5m] Filtro de mercado btc-updown-5m-1791736800: UP (tendencia 0.09%, volatilidad 28%)
+2026-10-11 11:42:09  [no-favoritos] OK: 43 mercados principales en la ventana, 1 apuestas nuevas, 0 resueltas
