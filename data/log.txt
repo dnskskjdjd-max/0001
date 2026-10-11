@@ -10956,3 +10956,12 @@
 2026-10-11 12:42:21  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
 2026-10-11 12:42:43  [no-favoritos] Resuelta [st] scop-abe-joh-2026-10-11-spread-home-1pt5: 'Aberdeen FC' -> lost (-1.04 USD)
 2026-10-11 12:42:52  [no-favoritos] OK: 22 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
+2026-10-11 12:45:29  [cripto] OK diario: BTC 83964, vol 37.2%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 64 apuestas
+2026-10-11 12:45:36  --- inicio ---
+2026-10-11 12:46:06  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T17:45:13.037Z)
+2026-10-11 12:46:34  OK: 24 mercados >= 60, 11 >= 70, 1 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 133 senales + 368 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 12:46:37  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 12:46:38  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 12:46:39  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 12:47:13  [cripto-5m] Apuesta rapida btc-updown-5m-1791740700: UP $1 a 34c, modelo 41.2%, ventaja 5.7 pp, faltan 168 s
+2026-10-11 12:47:14  [cripto-5m] Filtro de mercado btc-updown-5m-1791740700: UP (tendencia 0.06%, volatilidad 27%)
