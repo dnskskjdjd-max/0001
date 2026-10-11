@@ -10505,3 +10505,31 @@
 2026-10-11 10:26:35  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
 2026-10-11 10:27:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791732300: UP $1 a 30c, modelo 38.4%, ventaja 7 pp, faltan 179 s
 2026-10-11 10:27:02  [cripto-5m] Filtro de mercado btc-updown-5m-1791732300: UP (tendencia 0.02%, volatilidad 6%)
+2026-10-11 10:30:00  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791731700: salto max z=-3.78; Polymarket ya se habia movido 8 veces (hasta 8c), sin precio previo 0, precio fuera de rango 0
+2026-10-11 10:30:23  [cripto] OK diario: BTC 83150, vol 37.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 55 apuestas
+2026-10-11 10:30:24  [cripto-5m] Resuelta rapida btc-updown-5m-1791732000: UP -> won (1.41 USD)
+2026-10-11 10:30:24  [cripto-5m] Resueltas al contrario btc-updown-5m-1791732000: UP won (1.41 USD)
+2026-10-11 10:30:24  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791732000: UP won (1.41 USD)
+2026-10-11 10:30:30  --- inicio ---
+2026-10-11 10:30:46  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T15:16:04.660Z)
+2026-10-11 10:30:57  Resuelta: Will Everton FC win on 2026-10-11? [YES] -> lost
+2026-10-11 10:30:58  Resuelta: Will Everton FC win on 2026-10-11? [NO] -> won
+2026-10-11 10:30:58  [prueba:no-perseguir] Apuesta resuelta: Will Everton FC win on 2026-10-11? [NO] -> won (1.6577)
+2026-10-11 10:30:58  [prueba:zona-media] Apuesta resuelta: Will Everton FC win on 2026-10-11? [NO] -> won (1.6577)
+2026-10-11 10:30:58  [prueba:zona-media-sin-perseguir] Apuesta resuelta: Will Everton FC win on 2026-10-11? [NO] -> won (1.6577)
+2026-10-11 10:31:03  OK: 24 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 2 resueltas, 131 senales + 364 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 10:31:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 10:31:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 10:31:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 10:31:21  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 33c | Will Al Taawoun Saudi Club win on 2026-10-11? | empieza en 149 min
+2026-10-11 10:31:24  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 31c | Will Olympiacos Piraeus vs. Panathinaikos Athens end in a draw? | empieza en 149 min
+2026-10-11 10:31:24  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 26c | Will FCV Farul Constanţa vs. FC Petrolul Ploieşti end in a draw? | empieza en 149 min
+2026-10-11 10:31:25  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 25c | Will San Martin de Tucuman win on 2026-10-11? | empieza en 149 min
+2026-10-11 10:31:26  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 33c | Will Al Taawoun Saudi Club win on 2026-10-11? | empieza en 149 min
+2026-10-11 10:31:28  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 31c | Will Olympiacos Piraeus vs. Panathinaikos Athens end in a draw? | empieza en 149 min
+2026-10-11 10:31:29  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 26c | Will FCV Farul Constanţa vs. FC Petrolul Ploieşti end in a draw? | empieza en 149 min
+2026-10-11 10:31:29  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 25c | Will San Martin de Tucuman win on 2026-10-11? | empieza en 149 min
+2026-10-11 10:31:32  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Olympiacos Piraeus' a 22c | Spread: Olympiacos Piraeus (-1.5) | empieza en 149 min
+2026-10-11 10:31:33  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Deportivo Madryn' a 29c | Spread: Deportivo Madryn (-1.5) | empieza en 149 min
+2026-10-11 10:31:34  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 22c | Cerro Largo FC vs. Albion FC: O/U 3.5 | empieza en 149 min
+2026-10-11 10:31:41  [no-favoritos] OK: 36 mercados principales en la ventana, 11 apuestas nuevas, 0 resueltas
