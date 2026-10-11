@@ -20,10 +20,11 @@
         "start":  "2026-10-11T12:45:00Z",
         "minBefore":  95,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0355,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T18:27:40Z"
     },
     {
         "id":  "hun-zal-nyi-2026-10-11-zal|0",
@@ -46,10 +47,11 @@
         "start":  "2026-10-11T12:45:00Z",
         "minBefore":  95,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  1.8246,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T18:27:40Z"
     },
     {
         "id":  "nfl-phi-jax-2026-10-11|0",

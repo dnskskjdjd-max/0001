@@ -11100,3 +11100,27 @@
 2026-10-11 13:22:01  [cripto-5m] Filtro de mercado btc-updown-5m-1791742800: DOWN (tendencia -0.09%, volatilidad 24%)
 2026-10-11 13:22:21  [no-favoritos] Resuelta [st] bel1-usg-ohl-2026-10-11-total-4pt5: 'Over' -> lost (-1.04 USD)
 2026-10-11 13:22:24  [no-favoritos] OK: 36 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
+2026-10-11 13:24:02  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791742500: DOWN $2 a 26c, modelo 36.5%, ventaja 9.2 pp
+2026-10-11 13:25:31  [cripto] OK diario: BTC 83872, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 67 apuestas
+2026-10-11 13:25:37  --- inicio ---
+2026-10-11 13:26:03  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T18:18:44.555Z)
+2026-10-11 13:26:14  [cripto-5m] Resuelta rapida btc-updown-5m-1791742500: DOWN -> lost (-3.16 USD)
+2026-10-11 13:26:14  [cripto-5m] Resueltas al contrario btc-updown-5m-1791742500: DOWN lost (-3.16 USD)
+2026-10-11 13:26:14  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791742500: DOWN lost (-3.16 USD)
+2026-10-11 13:26:16  OK: 23 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 135 senales + 372 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 13:26:20  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 13:26:20  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 13:26:20  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 13:27:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791743100: UP $1 a 45c, modelo 52.5%, ventaja 5.8 pp, faltan 180 s
+2026-10-11 13:27:01  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1791742500: DOWN $2 a 13c, modelo 25.3%, ventaja 11.5 pp
+2026-10-11 13:27:28  [ligas] Cuotas: soccer_spain_la_liga actualizado (24 partidos; creditos restantes 464)
+2026-10-11 13:27:39  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 13:28:10  [no-favoritos] Resuelta [ml] pol-pgl-wlo-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
+2026-10-11 13:28:10  [no-favoritos] Resuelta [ml] hun-zal-nyi-2026-10-11-zal: 'Yes' -> won (1.82 USD)
+2026-10-11 13:28:26  [no-favoritos] Resuelta [mlx] pol-pgl-wlo-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
+2026-10-11 13:28:29  [no-favoritos] Resuelta [mlx] hun-zal-nyi-2026-10-11-zal: 'Yes' -> won (1.82 USD)
+2026-10-11 13:28:33  [no-favoritos] Resuelta [st] swe2-var-fff-2026-10-11-spread-home-1pt5: 'IFK Varnamo' -> lost (-1.04 USD)
+2026-10-11 13:28:34  [no-favoritos] Resuelta [st] srb-rdn-voj-2026-10-11-spread-away-1pt5: 'FK Vojvodina Novi Sad' -> won (2.30 USD)
+2026-10-11 13:28:35  [no-favoritos] Resuelta [st] isp-chb-muc-2026-10-11-spread-away-1pt5: 'Mumbai City FC' -> lost (-1.03 USD)
+2026-10-11 13:28:39  [no-favoritos] Resuelta [st] sea-sas-mil-2026-10-11-spread-away-1pt5: 'AC Milan' -> lost (-1.04 USD)
+2026-10-11 13:28:41  [no-favoritos] OK: 36 mercados principales en la ventana, 0 apuestas nuevas, 8 resueltas
