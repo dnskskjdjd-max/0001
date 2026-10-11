@@ -11617,3 +11617,29 @@
 2026-10-11 15:41:31  [no-favoritos] Resuelta [st] rus-rub-din-2026-10-11-total-3pt5: 'Over' -> lost (-1.04 USD)
 2026-10-11 15:41:31  [no-favoritos] Resuelta [st] es2-rm-lpm-2026-10-11-total-3pt5: 'Over' -> won (2.30 USD)
 2026-10-11 15:41:35  [no-favoritos] OK: 35 mercados principales en la ventana, 1 apuestas nuevas, 5 resueltas
+2026-10-11 15:42:00  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1791750600: DOWN $2 a 12c, modelo 23.2%, ventaja 10.5 pp
+2026-10-11 15:45:26  [cripto] OK diario: BTC 83679, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 75 apuestas
+2026-10-11 15:45:32  --- inicio ---
+2026-10-11 15:45:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T20:26:25.477Z)
+2026-10-11 15:46:03  OK: 21 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 139 senales + 382 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 15:46:05  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791751500: UP $1 a 89c (paso los 73c), faltan 236 s
+2026-10-11 15:46:06  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 15:46:07  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 15:46:07  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 15:46:07  [cripto-5m] Resueltas rapida btc-updown-5m-1791750900: UP won, UP won (0.65 USD)
+2026-10-11 15:46:07  [cripto-5m] Resueltas al contrario btc-updown-5m-1791750900: UP won, UP won (0.65 USD)
+2026-10-11 15:46:07  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791750900: UP won, UP won (0.65 USD)
+2026-10-11 15:49:31  [cripto-5m] ERROR: Se excedió el tiempo de espera de la operación (linea 82)
+2026-10-11 15:49:54  [cripto-rapido] ERROR: No se puede resolver el nombre remoto: 'api.binance.com' (linea 13)
+2026-10-11 15:50:17  [cripto-rapido] Resueltas rapida btc-updown-15m-1791750600: DOWN lost (-1.05 USD)
+2026-10-11 15:50:17  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791750600: 10 min DOWN lost, 6 min DOWN lost, 3 min DOWN lost (-5.3 USD)
+2026-10-11 15:50:17  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791750600: DOWN lost (-1.05 USD)
+2026-10-11 15:50:59  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 15:50:59  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791751800: DOWN $1 a 75c (paso los 73c), faltan 241 s
+2026-10-11 15:51:06  [cripto-5m] Resueltas rapida btc-updown-5m-1791751200: DOWN won (0.32 USD)
+2026-10-11 15:51:06  [cripto-5m] Resueltas al contrario btc-updown-5m-1791751200: DOWN won (0.32 USD)
+2026-10-11 15:51:06  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791751200: DOWN won (0.32 USD)
+2026-10-11 15:51:06  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791751200: DOWN won (0.32 USD)
+2026-10-11 15:51:13  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791751800: DOWN $1 a 81c (paso los 73c), faltan 227 s
+2026-10-11 15:51:21  [no-favoritos] Resuelta [st] nfl-cin-mia-2026-10-11-total-54pt5: 'Over' -> won (3.52 USD)
+2026-10-11 15:51:26  [no-favoritos] OK: 29 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
