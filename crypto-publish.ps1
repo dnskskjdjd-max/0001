@@ -16,9 +16,9 @@ function Invoke-Git([string[]]$a) {
 }
 
 # Mismo bloqueo que run-local.ps1: los dos usan git en esta carpeta. Si la corrida de 5 minutos esta en curso, se espera
-# un poco; si no termina, se omite este minuto (el siguiente lo recupera).
+# hasta 100 s (la tarea tiene limite de 3 min); si no termina, se omite este minuto (el siguiente lo recupera).
 $mutex = New-Object System.Threading.Mutex($false, 'FirePolymarketTrackerLocal')
-if (-not $mutex.WaitOne(45000)) { exit 0 }
+if (-not $mutex.WaitOne(100000)) { exit 0 }
 try {
     if ((Invoke-Git @('pull', '--rebase', '--autostash', '-q')) -ne 0) { L 'Fallo git pull; se sigue con los datos locales' }
     & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'crypto-daily.ps1') | Out-Null

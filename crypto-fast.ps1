@@ -303,6 +303,29 @@ function Get-RuleMatch {
     return @{ n = $r.Count; rate = $(if ($r.Count) { [Math]::Round($ok / $r.Count, 4) } else { $null }); field = $field
         canBet = ($r.Count -ge [int]$F.minObserved -and $r.Count -gt 0 -and $ok / $r.Count -ge [double]$F.minRuleMatch) }
 }
+# Todos los historiales del bot (para resolver apuestas)
+$Ledgers = @(@{ list = $bets; file = $BetsFile; name = 'rapida' }, @{ list = $bets3; file = $Bets3File; name = '3 tramos' }, @{ list = $bets4; file = $Bets4File; name = 'al contrario' },
+    @{ list = $bets5; file = $Bets5File; name = 'filtro de mercado' }, @{ list = $bets6; file = $Bets6File; name = 'pausa por racha' }, @{ list = $betsLag; file = $BetsLagFile; name = 'retraso' })
+# Resultado provisional al cerrar la ventana: Polymarket tarda ~6 min en resolver, pero la regla calculada con Binance
+# (promedio del ultimo minuto vs el del minuto previo al inicio) coincidio con su resolucion en 261 de 266 ventanas y
+# los desacuerdos fueron por menos de $5. Si la diferencia es de al menos provisionalMinUsd (por defecto $10) se marca
+# el resultado como provisional; cuando Polymarket resuelve se confirma o se corrige.
+function Set-Provisional($rec) {
+    if ($null -ne $rec.upWon -or $null -eq $rec.end60 -or $null -eq $rec.start60) { return }
+    $minUsd = if ($null -ne $F.provisionalMinUsd) { [double]$F.provisionalMinUsd } else { 10.0 }
+    if ($minUsd -lt 0 -or [Math]::Abs([double]$rec.end60 - [double]$rec.start60) -lt $minUsd) { return }
+    $up = [double]$rec.end60 -ge [double]$rec.start60
+    foreach ($L in $Ledgers) {
+        $resX = @($L.list | Where-Object { $_.W -eq $rec.W -and $_.status -eq 'open' })
+        foreach ($b in $resX) {
+            $won = ($b.side -eq 'UP') -eq $up
+            $b.status = if ($won) { 'won' } else { 'lost' }; $b.pnl = Get-CryptoPnl $b $won
+            $b | Add-Member -NotePropertyName provisional -NotePropertyValue $true -Force
+            $b | Add-Member -NotePropertyName resolvedAt -NotePropertyValue ((Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')) -Force
+        }
+        if ($resX.Count) { Write-CFileAtomic $L.file (ConvertTo-Json -InputObject @($L.list) -Depth 5) }
+    }
+}
 function Resolve-Windows {
     $nowS = Get-UnixNow; $changed = $false
     # Si el bot se cerro (o lo cerraron) antes de terminar la ventana de una apuesta, esa ventana no quedo registrada y la
@@ -316,28 +339,25 @@ function Resolve-Windows {
         if ($rec.W + $T -lt $nowS - 172800) { $rec.upWon = -1; $changed = $true; continue }   # sin resolver tras 2 dias: se descarta
         try {
             $m = @(Get-CJson "https://gamma-api.polymarket.com/markets?slug=$($rec.slug)&closed=true" | ForEach-Object { $_ }) | Select-Object -First 1
-            if (-not $m -or -not $m.closed) { continue }
+            if (-not $m -or -not $m.closed) { Set-Provisional $rec; continue }
             $op = (Get-JArr $m.outcomePrices); $outs = (Get-JArr $m.outcomes)
             $iu = [array]::IndexOf($outs, 'Up'); if ($iu -lt 0) { $iu = 0 }
-            if ([double]$op[$iu] -ge 0.99) { $rec.upWon = 1 } elseif ([double]$op[$iu] -le 0.01) { $rec.upWon = 0 } else { continue }
+            if ([double]$op[$iu] -ge 0.99) { $rec.upWon = 1 } elseif ([double]$op[$iu] -le 0.01) { $rec.upWon = 0 } else { Set-Provisional $rec; continue }
             $changed = $true
-            foreach ($b in @($bets | Where-Object { $_.W -eq $rec.W -and $_.status -eq 'open' })) {
-                $won = ($b.side -eq 'UP') -eq ($rec.upWon -eq 1)
-                $b.status = if ($won) { 'won' } else { 'lost' }; $b.pnl = Get-CryptoPnl $b $won
-                $b | Add-Member -NotePropertyName resolvedAt -NotePropertyValue ((Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')) -Force
-                Log "Resuelta rapida $($rec.slug): $($b.side) -> $($b.status) ($([Math]::Round($b.pnl, 2)) USD)"
-                Write-CFileAtomic $BetsFile (ConvertTo-Json -InputObject @($bets) -Depth 5)
-            }
-            # Estrategias paralelas (3 tramos, al contrario): cada una con su historial
-            foreach ($L in @(@{ list = $bets3; file = $Bets3File; name = '3 tramos' }, @{ list = $bets4; file = $Bets4File; name = 'al contrario' }, @{ list = $bets5; file = $Bets5File; name = 'filtro de mercado' }, @{ list = $bets6; file = $Bets6File; name = 'pausa por racha' }, @{ list = $betsLag; file = $BetsLagFile; name = 'retraso' })) {
-                $resX = @($L.list | Where-Object { $_.W -eq $rec.W -and $_.status -eq 'open' })
+            # Resolucion oficial: apuestas abiertas y las que tenian resultado provisional (se confirma o se corrige)
+            foreach ($L in $Ledgers) {
+                $resX = @($L.list | Where-Object { $_.W -eq $rec.W -and ($_.status -eq 'open' -or $_.provisional) })
+                $fixed = 0
                 foreach ($b in $resX) {
                     $won = ($b.side -eq 'UP') -eq ($rec.upWon -eq 1)
-                    $b.status = if ($won) { 'won' } else { 'lost' }; $b.pnl = Get-CryptoPnl $b $won
-                    $b | Add-Member -NotePropertyName resolvedAt -NotePropertyValue ((Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')) -Force
+                    $st = if ($won) { 'won' } else { 'lost' }
+                    if ($b.provisional -and $b.status -ne $st) { $fixed++ }
+                    $b.status = $st; $b.pnl = Get-CryptoPnl $b $won
+                    if ($b.provisional) { $b.PSObject.Properties.Remove('provisional') }
+                    else { $b | Add-Member -NotePropertyName resolvedAt -NotePropertyValue ((Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')) -Force }
                 }
                 if ($resX.Count) {
-                    Log "Resueltas $($L.name) $($rec.slug): $(($resX | ForEach-Object { "$(if ($_.tramo) { "$($_.tramo) min " })$($_.side) $($_.status)" }) -join ', ') ($([Math]::Round(($resX | Measure-Object pnl -Sum).Sum, 2)) USD)"
+                    Log "Resueltas $($L.name) $($rec.slug): $(($resX | ForEach-Object { "$(if ($_.tramo) { "$($_.tramo) min " })$($_.side) $($_.status)" }) -join ', ') ($([Math]::Round(($resX | Measure-Object pnl -Sum).Sum, 2)) USD)$(if ($fixed) { " - $fixed corregidas (el resultado provisional era otro)" })"
                     Write-CFileAtomic $L.file (ConvertTo-Json -InputObject @($L.list) -Depth 5)
                 }
             }
@@ -364,7 +384,7 @@ try {
             $nowS = Get-UnixNow
             $W = $nowS - ($nowS % $T)
             if (-not $cur -or $cur.W -ne $W) {
-                if ($cur) { Close-Window $cur }
+                if ($cur) { Close-Window $cur; if ($wins.Count) { try { Set-Provisional $wins[$wins.Count - 1] } catch {} } }
                 $cur = New-Window $W
             }
             Update-Window $cur
