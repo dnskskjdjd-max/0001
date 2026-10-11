@@ -10815,3 +10815,19 @@
 2026-10-11 12:01:29  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'FC Arouca' a 22c | Spread: FC Arouca (-1.5) | empieza en 149 min
 2026-10-11 12:01:38  [no-favoritos] Resuelta [st] lva1-rfs-jel-2026-10-11-total-2pt5: 'Under' -> lost (-1.04 USD)
 2026-10-11 12:01:40  [no-favoritos] OK: 34 mercados principales en la ventana, 1 apuestas nuevas, 1 resueltas
+2026-10-11 12:02:25  [cripto] OK diario: BTC 83776, vol 37.4%, 3 fechas, 1 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 61 apuestas
+2026-10-11 12:02:44  [cripto-rapido] Resuelta rapida btc-updown-15m-1791737100: DOWN -> lost (-1.05 USD)
+2026-10-11 12:02:44  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791737100: DOWN lost (-1.05 USD)
+2026-10-11 12:05:25  [cripto] OK diario: BTC 83808, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 61 apuestas
+2026-10-11 12:05:30  --- inicio ---
+2026-10-11 12:05:54  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T16:48:16.525Z)
+2026-10-11 12:05:58  [cripto-5m] Resuelta rapida btc-updown-5m-1791737700: UP -> lost (-3.16 USD)
+2026-10-11 12:05:58  [cripto-5m] Resueltas al contrario btc-updown-5m-1791737700: UP lost (-3.16 USD)
+2026-10-11 12:05:58  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791737700: UP lost (-3.16 USD)
+2026-10-11 12:06:08  OK: 23 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 366 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 12:06:10  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 12:06:11  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 12:06:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 12:06:29  [no-favoritos] Resuelta [ml] cze1-fkt-sso-2026-10-11-draw: 'Yes' -> won (2.54 USD)
+2026-10-11 12:06:34  [no-favoritos] Resuelta [mlx] cze1-fkt-sso-2026-10-11-draw: 'Yes' -> won (2.54 USD)
+2026-10-11 12:06:44  [no-favoritos] OK: 34 mercados principales en la ventana, 0 apuestas nuevas, 2 resueltas
