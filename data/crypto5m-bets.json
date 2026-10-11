@@ -2056,7 +2056,6 @@
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T23:50:00Z"
     },
     {
@@ -2086,7 +2085,6 @@
         "version":  9,
         "n":  2,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T23:50:00Z"
     },
     {
