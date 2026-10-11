@@ -1301,5 +1301,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "pol-leg-wis-2026-10-11-spread-home-1pt5|0",
+        "strategy":  "st",
+        "slug":  "pol-leg-wis-2026-10-11-spread-home-1pt5",
+        "ev":  "pol-leg-wis-2026-10-11",
+        "league":  "soccer",
+        "type":  "spreads",
+        "line":  -1.5,
+        "question":  "Spread: Legia Warszawa (-1.5)",
+        "side":  0,
+        "outcome":  "Legia Warszawa",
+        "token":  "98903780856219322589399454753602043611358553118378641614970137944082885078614",
+        "stake":  1,
+        "price":  0.24,
+        "bestBid":  0.23,
+        "feeRate":  0.05,
+        "fee":  0.038,
+        "vol":  13,
+        "start":  "2026-10-11T18:15:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T15:46:00Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
