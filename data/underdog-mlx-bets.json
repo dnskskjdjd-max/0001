@@ -1099,5 +1099,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "bol1-pot-str-2026-10-11-str|0",
+        "strategy":  "mlx",
+        "slug":  "bol1-pot-str-2026-10-11-str",
+        "ev":  "bol1-pot-str-2026-10-11",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Club The Strongest win on 2026-10-11?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "13649626511292979659921501165477412249077878428425647012312580081058802522001",
+        "stake":  1,
+        "price":  0.35,
+        "bestBid":  0.34,
+        "feeRate":  0.05,
+        "fee":  0.0325,
+        "vol":  1388,
+        "start":  "2026-10-11T19:00:00Z",
+        "minBefore":  144,
+        "placedAt":  "2026-10-11T16:36:03Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

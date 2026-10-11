@@ -10725,3 +10725,19 @@
 2026-10-11 11:31:34  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 22c | Gimnasia y Esgrima de Jujuy vs. Gimnasia Y Tiro de Salta: O/U 3.5 | empieza en 149 min
 2026-10-11 11:31:44  [no-favoritos] Resuelta [st] lal-rso-dep-2026-10-11-spread-home-1pt5: 'Real Sociedad de Fútbol' -> lost (-1.03 USD)
 2026-10-11 11:31:44  [no-favoritos] OK: 43 mercados principales en la ventana, 9 apuestas nuevas, 1 resueltas
+2026-10-11 11:34:35  [cripto-rapido] Resuelta rapida btc-updown-15m-1791735300: UP -> won (2.28 USD)
+2026-10-11 11:34:35  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791735300: 3 min UP won (16.06 USD)
+2026-10-11 11:34:35  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791735300: UP won (2.28 USD)
+2026-10-11 11:35:24  [cripto] OK diario: BTC 83813, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 59 apuestas
+2026-10-11 11:35:30  --- inicio ---
+2026-10-11 11:35:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T16:31:05.826Z)
+2026-10-11 11:35:48  [cripto-5m] Resuelta rapida btc-updown-5m-1791735900: UP -> won (1.66 USD)
+2026-10-11 11:35:48  [cripto-5m] Resueltas al contrario btc-updown-5m-1791735900: UP won (1.66 USD)
+2026-10-11 11:35:48  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791735900: UP won (1.66 USD)
+2026-10-11 11:36:00  OK: 22 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 365 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 11:36:02  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 11:36:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 11:36:02  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 11:36:16  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 35c | Will Club The Strongest win on 2026-10-11? | empieza en 144 min
+2026-10-11 11:36:20  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 35c | Will Club The Strongest win on 2026-10-11? | empieza en 144 min
+2026-10-11 11:36:34  [no-favoritos] OK: 43 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
