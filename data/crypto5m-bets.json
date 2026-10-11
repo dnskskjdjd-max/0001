@@ -1614,10 +1614,12 @@
         "askUp":  0.82,
         "askDown":  0.21,
         "placedAt":  "2026-10-11T23:00:34Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.1929,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T23:05:01Z"
     }
 ]
