@@ -12104,3 +12104,25 @@
 2026-10-11 18:36:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-11 18:36:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 18:36:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 18:37:46  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791761700: DOWN $1 a 74c (paso los 73c), faltan 134 s
+2026-10-11 18:38:28  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791761700: DOWN $1 a 81c (paso los 73c), faltan 92 s
+2026-10-11 18:40:17  [cripto-rapido] Apuesta rapida btc-updown-15m-1791761400: DOWN $1 a 52c, modelo 59.6%, ventaja 5.9 pp, faltan 283 s
+2026-10-11 18:40:26  [cripto] OK diario: BTC 83724, vol 37.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 84 apuestas
+2026-10-11 18:40:32  --- inicio ---
+2026-10-11 18:40:37  [cripto-5m] Resueltas rapida btc-updown-5m-1791761400: DOWN won, DOWN won (0.55 USD)
+2026-10-11 18:40:37  [cripto-5m] Resueltas al contrario btc-updown-5m-1791761400: DOWN won, DOWN won (0.55 USD)
+2026-10-11 18:40:37  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791761400: DOWN won, DOWN won (0.55 USD)
+2026-10-11 18:40:41  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791762000: DOWN $1 a 81c (paso los 73c), faltan 262 s
+2026-10-11 18:40:42  [cripto-5m] Filtro de mercado btc-updown-5m-1791762000: DOWN (tendencia -0.05%, volatilidad 18%)
+2026-10-11 18:40:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T23:26:05.786Z)
+2026-10-11 18:40:59  Resuelta: Broncos vs. Chargers [BRONCOS] -> won
+2026-10-11 18:40:59  Resuelta: Broncos vs. Chargers [BRONCOS] -> won
+2026-10-11 18:40:59  Resuelta: Spread: Broncos (-3.5) [CHARGERS] -> lost
+2026-10-11 18:41:00  Resuelta: Spread: Broncos (-3.5) [CHARGERS] -> lost
+2026-10-11 18:41:00  Resuelta: Spread: Broncos (-3.5) [BRONCOS] -> won
+2026-10-11 18:41:00  Resuelta: Spread: Broncos (-3.5) [BRONCOS] -> won
+2026-10-11 18:41:00  Resuelta: Broncos vs. Chargers [CHARGERS] -> lost
+2026-10-11 18:41:07  OK: 22 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 7 resueltas, 149 senales + 386 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 18:41:10  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 18:41:11  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 18:41:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
