@@ -11124,3 +11124,17 @@
 2026-10-11 13:28:35  [no-favoritos] Resuelta [st] isp-chb-muc-2026-10-11-spread-away-1pt5: 'Mumbai City FC' -> lost (-1.03 USD)
 2026-10-11 13:28:39  [no-favoritos] Resuelta [st] sea-sas-mil-2026-10-11-spread-away-1pt5: 'AC Milan' -> lost (-1.04 USD)
 2026-10-11 13:28:41  [no-favoritos] OK: 36 mercados principales en la ventana, 0 apuestas nuevas, 8 resueltas
+2026-10-11 13:30:27  [cripto] OK diario: BTC 83875, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 67 apuestas
+2026-10-11 13:30:35  --- inicio ---
+2026-10-11 13:31:12  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T18:18:44.555Z)
+2026-10-11 13:31:17  [cripto-5m] Resuelta rapida btc-updown-5m-1791742800: DOWN -> won (2.65 USD)
+2026-10-11 13:31:17  [cripto-5m] Resueltas al contrario btc-updown-5m-1791742800: DOWN won (2.65 USD)
+2026-10-11 13:31:17  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791742800: DOWN won (2.65 USD)
+2026-10-11 13:31:17  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791742800: DOWN won (2.65 USD)
+2026-10-11 13:31:32  Resuelta: Will Lewis Hamilton win the 2026 F1 Singapore Grand Prix? [NO] -> won
+2026-10-11 13:31:38  OK: 23 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 1 resueltas, 135 senales + 372 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 13:31:41  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 13:31:41  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 13:31:42  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 13:32:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791743400: UP $3 a 25c, modelo 43.5%, ventaja 17.2 pp, faltan 179 s
+2026-10-11 13:33:07  [no-favoritos] OK: 23 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
