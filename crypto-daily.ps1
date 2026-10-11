@@ -132,13 +132,28 @@ try {
                 if ($null -eq $fill2) { continue }
                 $fill = [Math]::Min(0.999, $fill2 + [double]$D.slip)
                 $edge = $c.pSide - $fill - (Get-CryptoFee $fill)
+                # Regla "al contrario" (desde el 10 oct): si el modelo le da menos de flipBelowP al lado elegido, se compra
+                # el lado opuesto, por el mismo monto y al precio real de su libro. Se guarda lo que habria sido la original.
+                $side = $c.side; $pS = $c.pSide; $orig = $null
+                if ($D.flipBelowP -and $c.pSide -lt [double]$D.flipBelowP) {
+                    $side = if ($c.side -eq 'YES') { 'NO' } else { 'YES' }
+                    $tokB2 = if ($side -eq 'YES') { $c.r.tokYes } else { $c.r.tokNo }
+                    $booksO = Get-Books @($tokB2); $asksO = $booksO["$tokB2"].asks
+                    $fillO = Get-FillPrice $asksO $stake
+                    if ($null -eq $fillO) { continue }
+                    $fillO = [Math]::Min(0.999, $fillO + [double]$D.slip)
+                    if ($fillO -gt [double]$D.flipMaxPrice) { continue }   # el lado opuesto casi seguro no paga ni la comision
+                    $orig = @{ side = $c.side; price = [Math]::Round($fill, 4); p = [Math]::Round($c.pSide, 4); edge = [Math]::Round($edge, 4) }
+                    $tokB = $tokB2; $fill = $fillO; $pS = 1 - $c.pSide; $edge = $pS - $fill - (Get-CryptoFee $fill)
+                }
                 $shares = $stake / $fill
-                $bet = [pscustomobject]@{ id = "$($c.r.slug)|$($c.side)"; ev = $evSlug; slug = $c.r.slug; k = $c.r.k; side = $c.side; token = $tokB
-                    stake = $stake; price = [Math]::Round($fill, 4); fee = [Math]::Round($shares * (Get-CryptoFee $fill), 4); p = [Math]::Round($c.pSide, 4)
+                $bet = [pscustomobject]@{ id = "$($c.r.slug)|$side"; ev = $evSlug; slug = $c.r.slug; k = $c.r.k; side = $side; token = $tokB
+                    stake = $stake; price = [Math]::Round($fill, 4); fee = [Math]::Round($shares * (Get-CryptoFee $fill), 4); p = [Math]::Round($pS, 4)
                     edge = [Math]::Round($edge, 4); S = [Math]::Round($spot, 2); sig = [Math]::Round($sigma, 4); tauH = [Math]::Round($c.r.tauH, 2)
-                    placedAt = $now; end = $c.r.end; status = 'open'; curPrice = $null; pnl = $null; version = $Cfg.version }
+                    placedAt = $now; end = $c.r.end; status = 'open'; curPrice = $null; pnl = $null; version = $Cfg.version
+                    flipped = [bool]$orig; orig = $orig }
                 [void]$bets.Add($bet); $newBets++
-                Log "Apuesta diaria: BTC $($c.side) > $($c.r.k) ($evSlug) `$$stake a $([Math]::Round($fill * 100, 1))c, modelo $([Math]::Round($c.pSide * 100, 1))%, ventaja $([Math]::Round($edge * 100, 1)) pp"
+                Log "Apuesta diaria: BTC $side > $($c.r.k) ($evSlug) `$$stake a $([Math]::Round($fill * 100, 1))c, modelo $([Math]::Round($pS * 100, 1))%$(if ($orig) { " (INVERTIDA: el modelo daba $([Math]::Round($c.pSide * 100, 1))% a $($c.side) a $([Math]::Round($orig.price * 100, 1))c)" } else { ", ventaja $([Math]::Round($edge * 100, 1)) pp" })"
                 break
             }
         }
