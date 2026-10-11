@@ -321,7 +321,6 @@
         "pnl":  -1.0345,
         "version":  1,
         "copiedFrom":  "ml",
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
@@ -1010,7 +1009,6 @@
         "status":  "lost",
         "pnl":  -1.037,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
@@ -1247,9 +1245,11 @@
         "start":  "2026-10-11T20:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T17:31:26Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.2983,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:46:45Z"
     },
     {
         "id":  "par1-rub-oli-2026-10-11-rub|0",
