@@ -10940,3 +10940,19 @@
 2026-10-11 12:36:59  [no-favoritos] Resuelta [st] slo-naf-bra-2026-10-11-spread-home-1pt5: 'Nafta 1903 Lendava' -> lost (-1.04 USD)
 2026-10-11 12:37:00  [no-favoritos] Resuelta [st] rus-csk-rod-2026-10-11-total-4pt5: 'Over' -> lost (-1.04 USD)
 2026-10-11 12:37:07  [no-favoritos] OK: 22 mercados principales en la ventana, 0 apuestas nuevas, 8 resueltas
+2026-10-11 12:40:26  [cripto-5m] Resuelta rapida btc-updown-5m-1791739800: UP -> won (1.14 USD)
+2026-10-11 12:40:26  [cripto-5m] Resueltas al contrario btc-updown-5m-1791739800: UP won (1.14 USD)
+2026-10-11 12:40:26  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791739800: UP won (1.14 USD)
+2026-10-11 12:40:26  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791739800: UP won (1.14 USD)
+2026-10-11 12:40:27  [cripto] OK diario: BTC 84103, vol 37.1%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 64 apuestas
+2026-10-11 12:40:33  --- inicio ---
+2026-10-11 12:40:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T17:25:53.900Z)
+2026-10-11 12:41:06  OK: 23 mercados >= 60, 10 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 368 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 12:41:09  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 12:41:11  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 12:41:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 12:42:02  [cripto-5m] Apuesta rapida btc-updown-5m-1791740400: UP $3 a 7c, modelo 26.2%, ventaja 18.8 pp, faltan 180 s
+2026-10-11 12:42:02  [cripto-5m] Apuesta al contrario btc-updown-5m-1791740400: DOWN $3 a 96c (el modelo daba 26.2% a UP)
+2026-10-11 12:42:21  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 12:42:43  [no-favoritos] Resuelta [st] scop-abe-joh-2026-10-11-spread-home-1pt5: 'Aberdeen FC' -> lost (-1.04 USD)
+2026-10-11 12:42:52  [no-favoritos] OK: 22 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas

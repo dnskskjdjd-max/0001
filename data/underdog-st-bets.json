@@ -123,9 +123,10 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.038,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T17:42:22Z"
     },
     {
         "id":  "swe2-var-fff-2026-10-11-spread-home-1pt5|0",
