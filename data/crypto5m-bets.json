@@ -316,7 +316,6 @@
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T19:50:01Z"
     },
     {
@@ -346,7 +345,6 @@
         "version":  9,
         "n":  2,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T19:50:01Z"
     },
     {
@@ -371,10 +369,12 @@
         "askUp":  0.27,
         "askDown":  0.74,
         "placedAt":  "2026-10-11T19:50:40Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.3158,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T19:55:00Z"
     }
 ]
