@@ -795,9 +795,10 @@
         "start":  "2026-10-11T17:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:31:20Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0225,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:36:26Z"
     },
     {
         "id":  "nfl-hou-ten-2026-10-11|1",
