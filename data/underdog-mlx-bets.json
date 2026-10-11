@@ -290,10 +290,11 @@
         "start":  "2026-10-11T14:30:00Z",
         "minBefore":  131,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.034,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T19:51:12Z"
     },
     {
         "id":  "uru1-juv-rcm-2026-10-11-draw|0",
@@ -342,10 +343,11 @@
         "start":  "2026-10-11T14:45:00Z",
         "minBefore":  146,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  2.5354,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T19:51:12Z"
     },
     {
         "id":  "gre1-tri-lev-2026-10-11-draw|0",

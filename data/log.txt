@@ -11379,3 +11379,28 @@
 2026-10-11 14:46:25  [no-favoritos] Resuelta [mlx] nor-aal-sar-2026-10-11-sar: 'Yes' -> won (1.91 USD)
 2026-10-11 14:46:25  [no-favoritos] Resuelta [mlx] swe2-ikb-hel-2026-10-11-hel: 'Yes' -> lost (-1.03 USD)
 2026-10-11 14:46:31  [no-favoritos] OK: 12 mercados principales en la ventana, 1 apuestas nuevas, 4 resueltas
+2026-10-11 14:47:19  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791747900: UP $1 a 79c (paso los 73c), faltan 161 s
+2026-10-11 14:48:11  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791747900: UP $1 a 75c (paso los 73c), faltan 109 s
+2026-10-11 14:49:12  [cripto-rapido] Resueltas rapida btc-updown-15m-1791747000: DOWN lost (-1.06 USD)
+2026-10-11 14:49:12  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791747000: 6 min DOWN lost (-2.12 USD)
+2026-10-11 14:49:12  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791747000: UP won (0.18 USD)
+2026-10-11 14:50:13  [cripto-5m] Resueltas rapida btc-updown-5m-1791747600: UP lost, UP lost (-2.04 USD)
+2026-10-11 14:50:13  [cripto-5m] Resueltas al contrario btc-updown-5m-1791747600: UP lost, UP lost (-2.04 USD)
+2026-10-11 14:50:13  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791747600: UP lost, UP lost (-2.04 USD)
+2026-10-11 14:50:13  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791747600: UP lost, UP lost (-2.04 USD)
+2026-10-11 14:50:27  [cripto] OK diario: BTC 83736, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 71 apuestas
+2026-10-11 14:50:32  --- inicio ---
+2026-10-11 14:50:40  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791748200: DOWN $1 a 75c (paso los 73c), faltan 261 s
+2026-10-11 14:50:55  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T19:46:02.161Z)
+2026-10-11 14:51:08  OK: 21 mercados >= 60, 8 >= 70, 0 senales nuevas, 2 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 137 senales + 378 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 14:51:08  [cripto-rapido] Apuesta rapida btc-updown-15m-1791747900: UP $1 a 40c, modelo 47.4%, ventaja 5.7 pp, faltan 532 s
+2026-10-11 14:51:11  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 14:51:11  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 14:51:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 14:51:27  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Libertad Asuncion' a 23c | Spread: Libertad Asuncion (-1.5) | empieza en 149 min
+2026-10-11 14:51:28  [no-favoritos] Resuelta [ml] sui-stg-lau-2026-10-11-stg: 'No' -> lost (-1.03 USD)
+2026-10-11 14:51:29  [no-favoritos] Resuelta [ml] hun-hon-ujp-2026-10-11-draw: 'Yes' -> won (2.54 USD)
+2026-10-11 14:51:34  [no-favoritos] Resuelta [mlx] sui-stg-lau-2026-10-11-stg: 'No' -> lost (-1.03 USD)
+2026-10-11 14:51:34  [no-favoritos] Resuelta [mlx] hun-hon-ujp-2026-10-11-draw: 'Yes' -> won (2.54 USD)
+2026-10-11 14:51:38  [no-favoritos] Resuelta [st] hun-hon-ujp-2026-10-11-total-1pt5: 'Under' -> lost (-1.04 USD)
+2026-10-11 14:51:45  [no-favoritos] OK: 15 mercados principales en la ventana, 1 apuestas nuevas, 5 resueltas
