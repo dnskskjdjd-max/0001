@@ -12073,3 +12073,20 @@
 2026-10-11 18:26:40  [no-favoritos] Provisional [mlx] nfl-det-ari-2026-10-11: 'Cardinals' -> lost (-1.02 USD, por confirmar)
 2026-10-11 18:26:46  [no-favoritos] Provisional [st] nfl-det-ari-2026-10-11-spread-home-3pt5: 'Cardinals' -> lost (-1.02 USD, por confirmar)
 2026-10-11 18:26:49  [no-favoritos] OK: 7 mercados principales en la ventana, 0 apuestas nuevas, 3 resueltas
+2026-10-11 18:27:01  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1791760500: DOWN $2 a 26c, modelo 36.6%, ventaja 9.2 pp
+2026-10-11 18:30:24  [cripto] OK diario: BTC 83728, vol 37.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 83 apuestas
+2026-10-11 18:30:27  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791761400: DOWN $1 a 76c (paso los 73c), faltan 273 s
+2026-10-11 18:30:30  --- inicio ---
+2026-10-11 18:30:32  [cripto-5m] Resueltas rapida btc-updown-5m-1791760800: UP lost, DOWN won (-0.73 USD)
+2026-10-11 18:30:32  [cripto-5m] Resueltas al contrario btc-updown-5m-1791760800: UP lost, DOWN won (-0.73 USD)
+2026-10-11 18:30:32  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791760800: UP lost (-1.02 USD)
+2026-10-11 18:30:32  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791760800: UP lost, DOWN won (-0.73 USD)
+2026-10-11 18:30:44  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791761400: DOWN $1 a 79c (paso los 73c), faltan 257 s
+2026-10-11 18:30:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T23:26:05.786Z)
+2026-10-11 18:31:13  OK: 22 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 149 senales + 386 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 18:31:14  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 18:31:15  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 18:31:15  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 18:32:06  [ligas] OK: 30 partidos en 10 dias, 30 con Vegas, 0 apuestas en el historial
+2026-10-11 18:32:26  [no-favoritos] Provisional [st] uru1-esp-nac-2026-10-11-spread-away-1pt5: 'Club Nacional de Football' -> lost (-1.03 USD, por confirmar)
+2026-10-11 18:32:26  [no-favoritos] OK: 4 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas

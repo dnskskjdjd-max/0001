@@ -1899,9 +1899,11 @@
         "start":  "2026-10-11T21:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T19:01:21Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.033,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T23:32:07Z"
     },
     {
         "id":  "nhl-van-nyr-2026-10-11-total-4pt5|1",
