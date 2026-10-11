@@ -11985,3 +11985,16 @@
 2026-10-11 18:01:49  [ligas] Cuotas: soccer_uefa_champs_league actualizado (18 partidos; creditos restantes 460)
 2026-10-11 18:02:04  [ligas] OK: 30 partidos en 10 dias, 30 con Vegas, 0 apuestas en el historial
 2026-10-11 18:02:27  [no-favoritos] OK: 7 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
+2026-10-11 18:04:23  [cripto-rapido] Resueltas rapida btc-updown-15m-1791758700: UP lost (-1.04 USD)
+2026-10-11 18:04:23  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791758700: 6 min UP lost, 3 min UP lost (-6.37 USD)
+2026-10-11 18:04:23  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791758700: UP lost (-1.04 USD)
+2026-10-11 18:05:25  [cripto] OK diario: BTC 83748, vol 37.2%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 81 apuestas
+2026-10-11 18:05:30  --- inicio ---
+2026-10-11 18:05:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T22:46:03.889Z)
+2026-10-11 18:06:05  OK: 22 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 148 senales + 386 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 18:06:07  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 18:06:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 18:06:08  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 18:06:18  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791759900: DOWN $1 a 76c (paso los 73c), faltan 222 s
+2026-10-11 18:06:25  [cripto-5m] Resueltas rapida btc-updown-5m-1791759300: UP lost, UP lost (-2.03 USD)
+2026-10-11 18:06:25  [cripto-5m] Resueltas al contrario btc-updown-5m-1791759300: UP lost, UP lost (-2.03 USD)
