@@ -1423,12 +1423,13 @@
         "askUp":  0.9,
         "askDown":  0.11,
         "placedAt":  "2026-10-11T15:42:00Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.1852,
         "version":  8,
         "flipped":  false,
         "trend30":  0.317,
-        "vol30":  0.2649
+        "vol30":  0.2649,
+        "resolvedAt":  "2026-10-11T15:50:31Z"
     },
     {
         "id":  "btc-updown-5m-1791733500|UP",

@@ -10580,3 +10580,17 @@
 2026-10-11 10:45:59  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-11 10:46:12  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Legia Warszawa' a 24c | Spread: Legia Warszawa (-1.5) | empieza en 149 min
 2026-10-11 10:46:19  [no-favoritos] OK: 30 mercados principales en la ventana, 1 apuestas nuevas, 0 resueltas
+2026-10-11 10:47:02  [cripto-5m] Apuesta rapida btc-updown-5m-1791733500: UP $2 a 54c, modelo 65.6%, ventaja 9.9 pp, faltan 179 s
+2026-10-11 10:47:02  [cripto-5m] Filtro de mercado btc-updown-5m-1791733500: UP (tendencia 0.37%, volatilidad 27%)
+2026-10-11 10:50:03  [cripto-rapido] Apuesta rapida btc-updown-15m-1791733500: UP $1 a 79c, modelo 86.2%, ventaja 6.1 pp, faltan 597 s
+2026-10-11 10:50:24  [cripto] OK diario: BTC 83482, vol 37.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 57 apuestas
+2026-10-11 10:50:30  --- inicio ---
+2026-10-11 10:50:31  [cripto-5m] Resuelta rapida btc-updown-5m-1791733200: UP -> won (0.19 USD)
+2026-10-11 10:50:31  [cripto-5m] Resueltas al contrario btc-updown-5m-1791733200: UP won (0.19 USD)
+2026-10-11 10:50:31  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791733200: UP won (0.19 USD)
+2026-10-11 10:50:31  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791733200: UP won (0.19 USD)
+2026-10-11 10:50:47  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T15:36:02.994Z)
+2026-10-11 10:51:00  OK: 22 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 131 senales + 364 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 10:51:02  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 10:51:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 10:51:03  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
