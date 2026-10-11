@@ -676,9 +676,10 @@
         "start":  "2026-10-11T15:15:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T12:46:04Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.8092,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T17:27:19Z"
     },
     {
         "id":  "slo-bri-nkm-2026-10-11-spread-away-1pt5|0",
