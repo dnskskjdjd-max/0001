@@ -9347,3 +9347,12 @@
 2026-10-10 22:56:17  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-10 22:56:18  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-10 22:56:18  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-10 23:00:44  [cripto] OK diario: BTC 82820, vol 37%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (9 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-10 23:00:55  --- inicio ---
+2026-10-10 23:02:12  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T04:00:13.609Z)
+2026-10-10 23:02:29  Resuelta: USC vs. Penn State [USC] -> won
+2026-10-10 23:02:35  OK: 16 mercados >= 60, 4 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (46 en el historial), 0 alertas de venta, 1 resueltas, 123 senales + 355 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (10 en total) ; prueba zona-media: 0 nuevas (3 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (3 en total)
+2026-10-10 23:02:39  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-10 23:02:40  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-10 23:02:40  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-10 23:03:41  [ligas] OK: 32 partidos en 10 dias, 32 con Vegas, 0 apuestas en el historial
