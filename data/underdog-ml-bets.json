@@ -1243,5 +1243,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "bra-bah-mir-2026-10-11-mir|0",
+        "strategy":  "ml",
+        "slug":  "bra-bah-mir-2026-10-11-mir",
+        "ev":  "bra-bah-mir-2026-10-11",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Mirassol FC win on 2026-10-11?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "96034924721292870161244972027727865857702170158760727413531239348936925484925",
+        "stake":  1,
+        "price":  0.2,
+        "bestBid":  0.19,
+        "feeRate":  0.05,
+        "fee":  0.04,
+        "vol":  356,
+        "start":  "2026-10-11T22:30:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T20:01:16Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
