@@ -80,13 +80,41 @@ try {
             }
         }
     }
-    # 4. Resultados (partidos que empezaron hace mas de 2 h)
-    foreach ($s in $Cfg.strategies) {
-        foreach ($b in @($ledgers[$s.id] | Where-Object { $_.status -eq 'open' -and [DateTimeOffset]::Parse($_.start, $Inv).UtcDateTime -lt $nowUtc.AddHours(-2) })) {
-            $m = @(Get-CJson "https://gamma-api.polymarket.com/markets?slug=$($b.slug)&closed=true" | ForEach-Object { $_ }) | Select-Object -First 1
-            if (-not $m -or -not $m.closed) { continue }
+} catch {
+    Log "ERROR: $($_.Exception.Message) (linea $($_.InvocationInfo.ScriptLineNumber))"
+}
+
+# 4. Resultados (partidos que empezaron hace mas de 2 h; aparte, para que un fallo al buscar partidos no los frene).
+#    Polymarket cierra el mercado recien despues de la propuesta de resultado y un periodo de confirmacion (UMA, 2 h o
+#    mas): mientras tanto, si el precio del mercado abierto ya esta en >= 99,5c / <= 0,5c y hay resultado propuesto (o
+#    el partido empezo hace mas de 3 h), se marca provisional; al cerrarse el mercado se confirma o se corrige.
+$mkCache = @{}
+foreach ($s in $Cfg.strategies) {
+    foreach ($b in @($ledgers[$s.id] | Where-Object { ($_.status -eq 'open' -or $_.provisional) -and [DateTimeOffset]::Parse($_.start, $Inv).UtcDateTime -lt $nowUtc.AddHours(-2) })) {
+        try {
+            if (-not $mkCache.ContainsKey($b.slug)) {
+                $mc = @(Get-CJson "https://gamma-api.polymarket.com/markets?slug=$($b.slug)&closed=true" | ForEach-Object { $_ }) | Select-Object -First 1
+                if (-not $mc) { $mc = @(Get-CJson "https://gamma-api.polymarket.com/markets?slug=$($b.slug)" | ForEach-Object { $_ }) | Select-Object -First 1 }
+                $mkCache[$b.slug] = $mc
+            }
+            $m = $mkCache[$b.slug]
+            if (-not $m) { continue }
             $op = Get-JArr $m.outcomePrices; $pw = [double]$op[[int]$b.side]
             $won = $pw -ge 0.99
+            if (-not $m.closed) {
+                # Provisional: el resultado ya esta decidido en el precio, falta el cierre oficial
+                if ($b.provisional -or ($pw -lt 0.995 -and $pw -gt 0.005)) { continue }
+                $old = [DateTimeOffset]::Parse($b.start, $Inv).UtcDateTime -lt $nowUtc.AddHours(-3)
+                if ($m.umaResolutionStatus -notin 'proposed', 'resolved' -and -not $old) { continue }
+                $b.status = if ($won) { 'won' } else { 'lost' }
+                $b.pnl = [Math]::Round($(if ($won) { $b.stake / $b.price - $b.stake } else { - $b.stake }) - $b.fee, 4)
+                $b | Add-Member -NotePropertyName provisional -NotePropertyValue $true -Force
+                $b | Add-Member -NotePropertyName resolvedAt -NotePropertyValue $now -Force
+                $resolved++
+                Log "Provisional [$($s.id)] $($b.slug): '$($b.outcome)' -> $($b.status) ($([Math]::Round($b.pnl, 2)) USD, por confirmar)"
+                continue
+            }
+            $prev = if ($b.provisional) { $b.status } else { $null }
             if (-not $won -and $pw -gt 0.01) {
                 if ($m.umaResolutionStatus -ne 'resolved') { continue }
                 $b.status = 'void'; $b.pnl = [Math]::Round($b.stake * ($pw / $b.price - 1) - $b.fee, 4)   # resultado parcial (p. ej. 50/50)
@@ -94,13 +122,12 @@ try {
                 $b.status = if ($won) { 'won' } else { 'lost' }
                 $b.pnl = [Math]::Round($(if ($won) { $b.stake / $b.price - $b.stake } else { - $b.stake }) - $b.fee, 4)
             }
-            $b | Add-Member -NotePropertyName resolvedAt -NotePropertyValue $now -Force
-            $resolved++
-            Log "Resuelta [$($s.id)] $($b.slug): '$($b.outcome)' -> $($b.status) ($([Math]::Round($b.pnl, 2)) USD)"
-        }
+            if ($b.provisional) { $b.PSObject.Properties.Remove('provisional') }
+            else { $b | Add-Member -NotePropertyName resolvedAt -NotePropertyValue $now -Force; $resolved++ }
+            if (-not $prev) { Log "Resuelta [$($s.id)] $($b.slug): '$($b.outcome)' -> $($b.status) ($([Math]::Round($b.pnl, 2)) USD)" }
+            elseif ($prev -ne $b.status) { $resolved++; Log "Corregida [$($s.id)] $($b.slug): el resultado provisional era $prev, el oficial es $($b.status)" }
+        } catch { Log "ERROR al resolver $($b.slug): $($_.Exception.Message)" }
     }
-} catch {
-    Log "ERROR: $($_.Exception.Message) (linea $($_.InvocationInfo.ScriptLineNumber))"
 }
 
 foreach ($s in $Cfg.strategies) { Write-CFileAtomic (Join-Path $DataDir "underdog-$($s.id)-bets.json") (ConvertTo-Json -InputObject @($ledgers[$s.id]) -Depth 5) }

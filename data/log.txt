@@ -11890,3 +11890,4 @@
 2026-10-11 17:32:27  [no-favoritos] Provisional [st] par1-rub-oli-2026-10-11-spread-away-1pt5: 'Club Olimpia' -> lost (-1.04 USD, por confirmar)
 2026-10-11 17:32:28  [no-favoritos] Provisional [st] argpn-ccn-fco-2026-10-11-total-2pt5: 'Over' -> lost (-1.04 USD, por confirmar)
 2026-10-11 17:32:30  [no-favoritos] OK: 9 mercados principales en la ventana, 0 apuestas nuevas, 37 resueltas
+2026-10-11 17:32:56  [no-favoritos] OK: 9 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
