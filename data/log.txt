@@ -10773,3 +10773,13 @@
 2026-10-11 11:49:34  --- inicio ---
 2026-10-11 11:49:43  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T16:48:16.525Z)
 2026-10-11 11:49:49  OK: 23 mercados >= 60, 7 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 366 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 11:50:25  [cripto] OK diario: BTC 83918, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 60 apuestas
+2026-10-11 11:50:30  --- inicio ---
+2026-10-11 11:50:41  [cripto-rapido] Resuelta rapida btc-updown-15m-1791736200: UP -> won (3.71 USD)
+2026-10-11 11:50:41  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791736200: 6 min UP won (5.61 USD)
+2026-10-11 11:50:41  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791736200: DOWN lost (-1.01 USD)
+2026-10-11 11:50:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T16:48:16.525Z)
+2026-10-11 11:51:02  OK: 23 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 366 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 11:51:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 11:51:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 11:51:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
