@@ -11788,3 +11788,14 @@
 2026-10-11 17:14:19  [no-favoritos] Resuelta [st] itsb-mod-ver-2026-10-11-spread-home-1pt5: 'Modena FC 2018' -> lost (-1.04 USD)
 2026-10-11 17:14:20  [no-favoritos] Resuelta [st] uru1-cla-alb-2026-10-11-total-3pt5: 'Over' -> lost (-1.04 USD)
 2026-10-11 17:14:25  [no-favoritos] OK: 8 mercados principales en la ventana, 5 apuestas nuevas, 10 resueltas
+2026-10-11 17:15:52  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791756900: DOWN $1 a 76c (paso los 73c), faltan 249 s
+2026-10-11 17:16:52  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791756900: UP $1 a 78c (paso los 73c), faltan 188 s
+2026-10-11 17:16:52  [cripto-5m] Filtro de mercado btc-updown-5m-1791756900: UP (tendencia 0.2%, volatilidad 29%)
+2026-10-11 17:17:02  --- inicio ---
+2026-10-11 17:17:14  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T22:12:32.662Z)
+2026-10-11 17:17:25  OK: 24 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 147 senales + 383 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 17:17:27  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 17:17:28  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 17:17:28  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 17:17:43  [no-favoritos] Resuelta [st] arg-ros-riv1-2026-10-11-total-3pt5: 'Over' -> won (3.72 USD)
+2026-10-11 17:17:43  [no-favoritos] OK: 8 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
