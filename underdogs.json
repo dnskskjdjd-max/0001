@@ -11,6 +11,8 @@
   "strategies": [
     { "id": "ml", "title": "No favorito líquido (ganador)", "types": ["moneyline"], "leagues": ["tennis", "soccer", "ufc", "nfl"],
       "nota": "Mercado de ganador (el mas liquido). En la investigacion: tenis +8%, futbol +14%, UFC +17%, NFL +18%; se excluyen NHL, MLB y WNBA (negativas)." },
+    { "id": "mlx", "title": "Ganador sin tenis", "types": ["moneyline"], "leagues": ["soccer", "ufc", "nfl"], "desde": "2026-10-11",
+      "nota": "Igual que la estrategia 1 pero sin tenis. Se agrego al completar los 60 dias de datos: el tenis dio solo +1,6% en 1880 partidos (y negativo pagando 2c mas), mientras futbol dio +20%, UFC +17% y NFL +18%. Como esas ligas se eligieron mirando los datos, se prueba aparte. Arranca con las apuestas de futbol, UFC y NFL que ya habia hecho la estrategia 1 (misma regla)." },
     { "id": "st", "title": "No favorito en spreads y totales", "types": ["spreads", "totals"], "leagues": ["nfl", "cfb", "mlb", "nba", "nhl", "wnba", "soccer", "ufc"],
       "nota": "En la investigacion dio +26% (spreads) y +77% (totales), pero casi siempre en mercados de poco volumen: puede ser un espejismo del precio historico. Esta prueba lo comprueba con el precio real del libro." }
   ],
