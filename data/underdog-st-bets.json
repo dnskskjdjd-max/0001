@@ -355,9 +355,10 @@
         "start":  "2026-10-11T14:15:00Z",
         "minBefore":  116,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.8246,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:17:09Z"
     },
     {
         "id":  "isp-chb-muc-2026-10-11-spread-away-1pt5|0",
@@ -506,9 +507,10 @@
         "start":  "2026-10-11T14:00:00Z",
         "minBefore":  101,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0395,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:17:09Z"
     },
     {
         "id":  "hun-hon-ujp-2026-10-11-total-1pt5|1",

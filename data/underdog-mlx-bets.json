@@ -366,10 +366,11 @@
         "start":  "2026-10-11T14:00:00Z",
         "minBefore":  101,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0345,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T18:17:09Z"
     },
     {
         "id":  "gre1-kif-pa-2026-10-11-pa|0",
