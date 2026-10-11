@@ -11743,3 +11743,22 @@
 2026-10-11 16:26:27  [no-favoritos] Resuelta [st] fl1-tro-olm-2026-10-11-spread-away-1pt5: 'Olympique de Marseille' -> won (2.81 USD)
 2026-10-11 16:26:28  [no-favoritos] Resuelta [st] lal-rrc-val-2026-10-11-spread-home-1pt5: 'Real Racing Club' -> lost (-1.04 USD)
 2026-10-11 16:26:29  [no-favoritos] OK: 22 mercados principales en la ventana, 0 apuestas nuevas, 3 resueltas
+2026-10-11 16:27:29  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791753900: UP $1 a 75c (paso los 73c), faltan 151 s
+2026-10-11 17:11:07  [cripto-5m] Resueltas rapida btc-updown-5m-1791753600: DOWN lost, UP won (-0.68 USD)
+2026-10-11 17:11:07  [cripto-5m] Resueltas al contrario btc-updown-5m-1791753600: DOWN lost, UP won (-0.68 USD)
+2026-10-11 17:11:07  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791753600: DOWN lost, UP won (-0.68 USD)
+2026-10-11 17:11:07  [cripto-5m] Resueltas rapida btc-updown-5m-1791753900: DOWN lost, UP won (-0.7 USD)
+2026-10-11 17:11:07  [cripto-5m] Resueltas al contrario btc-updown-5m-1791753900: DOWN lost, UP won (-0.7 USD)
+2026-10-11 17:11:07  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791753900: DOWN lost, UP won (-0.7 USD)
+2026-10-11 17:11:09  [cripto-rapido] Resueltas rapida btc-updown-15m-1791753300: DOWN won (0.09 USD)
+2026-10-11 17:11:09  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791753300: 10 min DOWN won (0.09 USD)
+2026-10-11 17:11:09  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791753300: DOWN won (0.09 USD)
+2026-10-11 17:11:58  --- inicio ---
+2026-10-11 17:12:00  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791756600: UP $1 a 74c (paso los 73c), faltan 180 s
+2026-10-11 17:12:01  [cripto-5m] Filtro de mercado btc-updown-5m-1791756600: UP (tendencia 0.11%, volatilidad 30%)
+2026-10-11 17:12:09  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T21:45:12.895Z)
+2026-10-11 17:12:15  Resuelta: Spread: Commanders (-3.5) [GIANTS] -> won
+2026-10-11 17:12:15  Resuelta: Spread: Commanders (-3.5) [COMMANDERS] -> lost
+2026-10-11 17:12:15  Resuelta: Giants vs. Commanders [GIANTS] -> void
+2026-10-11 17:12:15  Resuelta: Spread: Commanders (-3.5) [GIANTS] -> won
+2026-10-11 17:12:20  OK: 23 mercados >= 60, 7 >= 70, 2 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 4 resueltas, 145 senales + 383 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
