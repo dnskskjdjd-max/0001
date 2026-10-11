@@ -11502,3 +11502,22 @@
 2026-10-11 15:19:12  [no-favoritos] Resuelta [st] tur-bes-koc-2026-10-11-spread-home-2pt5: 'Beşiktaş JK' -> lost (-1.03 USD)
 2026-10-11 15:19:16  [no-favoritos] Resuelta [st] nfl-min-no-2026-10-11-spread-home-3pt5: 'Saints' -> lost (-1.02 USD)
 2026-10-11 15:19:20  [no-favoritos] OK: 18 mercados principales en la ventana, 0 apuestas nuevas, 9 resueltas
+2026-10-11 15:19:42  [cripto-rapido] Resueltas rapida btc-updown-15m-1791748800: DOWN lost (-1.05 USD)
+2026-10-11 15:19:42  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791748800: 10 min DOWN lost, 6 min DOWN lost, 3 min DOWN lost (-3.17 USD)
+2026-10-11 15:19:42  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791748800: DOWN lost (-1.05 USD)
+2026-10-11 15:20:23  [cripto-rapido] Apuesta rapida btc-updown-15m-1791749700: UP $1 a 21c, modelo 28.6%, ventaja 6.4 pp, faltan 577 s
+2026-10-11 15:20:23  [cripto-rapido] Apuesta al contrario btc-updown-15m-1791749700: DOWN $1 a 82c (el modelo daba 28.6% a UP)
+2026-10-11 15:20:25  [cripto] OK diario: BTC 83684, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 74 apuestas
+2026-10-11 15:20:30  --- inicio ---
+2026-10-11 15:20:48  [cripto-5m] Resueltas rapida btc-updown-5m-1791749400: UP won (0.25 USD)
+2026-10-11 15:20:48  [cripto-5m] Resueltas al contrario btc-updown-5m-1791749400: UP won (0.25 USD)
+2026-10-11 15:20:48  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791749400: UP won (0.25 USD)
+2026-10-11 15:20:57  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T20:06:10.558Z)
+2026-10-11 15:21:07  Resuelta: Dota 2: Team Yandex vs Team Spirit (BO5) - BLAST Slam Playoffs [TEAM YANDEX] -> won
+2026-10-11 15:21:07  Resuelta: Dota 2: Team Yandex vs Team Spirit (BO5) - BLAST Slam Playoffs [TEAM YANDEX] -> won
+2026-10-11 15:21:13  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 2 resueltas, 137 senales + 381 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 15:21:18  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 15:21:19  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 15:21:19  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 15:21:36  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791750000: DOWN $1 a 82c (paso los 73c), faltan 205 s
+2026-10-11 15:21:37  [cripto-5m] Filtro de mercado btc-updown-5m-1791750000: DOWN (tendencia -0.01%, volatilidad 10%)
