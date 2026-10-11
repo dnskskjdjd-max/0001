@@ -999,5 +999,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "argpn-est-mor-2026-10-11-est|0",
+        "strategy":  "mlx",
+        "slug":  "argpn-est-mor-2026-10-11-est",
+        "ev":  "argpn-est-mor-2026-10-11",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will CA Estudiantes win on 2026-10-11?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "17534070473369470229170024939851157353119538540552342270462589462802392782768",
+        "stake":  1,
+        "price":  0.32,
+        "bestBid":  0.31,
+        "feeRate":  0.05,
+        "fee":  0.034,
+        "vol":  295,
+        "start":  "2026-10-11T18:30:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T16:01:10Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
