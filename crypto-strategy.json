@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "nota": "Bitcoin, simulado. Diario: valor justo vs Binance + volatilidad Deribit; desde el 7 oct ventaja minima 2 pp ($1 con 2-5, $2 con 5-8, $3 con 8+) y hasta 3 apuestas por fecha (una por precio); desde el 10 oct, si el modelo da menos de 30% al lado elegido se compra el contrario. Rapido: ventanas de 15 min, modelo end60 (TWAP 60 s de Chainlink al final vs al inicio), fase de observacion superada (28/28 ventanas), apuestas simuladas activas desde el 7 oct.",
   "daily": {
     "volSource": "dvol",
@@ -14,8 +14,8 @@
     "tiers": [ { "edge": 0.08, "stake": 3 }, { "edge": 0.05, "stake": 2 }, { "edge": 0.02, "stake": 1 } ]
   },
   "fast": {
-    "betting": false,
-    "pausa": "Apuestas pausadas desde el 10 oct: se investiga una estrategia nueva con 60 dias de historial; el bot sigue registrando ventanas",
+    "betting": true,
+    "reactivado": "Apuestas pausadas del 10 al 11 oct (investigacion con 60 dias de historial); reactivadas el 11 oct a pedido del usuario",
     "model": "end60",
     "pollSec": 2,
     "maxSecLeft": 600,
@@ -59,9 +59,8 @@
     "maxPrice": 0.95
   },
   "fast5": {
-    "apagado": "Bot de 5 min apagado el 10 oct: la investigacion con 17.278 mercados (60 dias) no encontro ninguna estrategia que gane en la validacion",
-    "betting": false,
-    "pausa": "Apuestas pausadas desde el 10 oct: se investiga una estrategia nueva con 60 dias de historial; el bot sigue registrando ventanas",
+    "betting": true,
+    "reactivado": "Bot de 5 min apagado del 10 al 11 oct (la investigacion con 17.278 mercados de 60 dias no encontro estrategia ganadora); reactivado el 11 oct a pedido del usuario",
     "nota": "Mercados de 5 min (btc-updown-5m): mismo modelo end60 y reglas que fast, apuesta en los ultimos 3 min (no en los ultimos 15 s; antes 4 min, cambiado el 8 oct); fase de observacion propia",
     "model": "end60",
     "pollSec": 2,
