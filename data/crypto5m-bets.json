@@ -1528,10 +1528,12 @@
         "askUp":  0.1,
         "askDown":  0.91,
         "placedAt":  "2026-10-11T22:52:54Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.0814,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:55:00Z"
     }
 ]
