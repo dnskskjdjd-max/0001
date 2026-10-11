@@ -97,9 +97,10 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.04,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T17:36:20Z"
     },
     {
         "id":  "scop-abe-joh-2026-10-11-spread-home-1pt5|0",
@@ -249,9 +250,10 @@
         "start":  "2026-10-11T13:30:00Z",
         "minBefore":  140,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0385,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T17:36:20Z"
     },
     {
         "id":  "hun-zal-nyi-2026-10-11-total-3pt5|0",

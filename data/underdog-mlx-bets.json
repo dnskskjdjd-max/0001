@@ -72,10 +72,11 @@
         "start":  "2026-10-11T13:30:00Z",
         "minBefore":  140,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0231,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T17:36:20Z"
     },
     {
         "id":  "rus-csk-rod-2026-10-11-csk|1",
@@ -98,10 +99,11 @@
         "start":  "2026-10-11T13:30:00Z",
         "minBefore":  140,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0345,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T17:36:20Z"
     },
     {
         "id":  "epl-cry-not-2026-10-11-cry|0",
@@ -177,10 +179,11 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.036,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T17:36:20Z"
     },
     {
         "id":  "cze1-fkt-sso-2026-10-11-draw|0",
