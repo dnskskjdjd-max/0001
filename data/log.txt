@@ -10002,3 +10002,33 @@
 2026-10-11 06:06:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 06:06:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-11 06:06:50  [ligas] OK: 32 partidos en 10 dias, 32 con Vegas, 0 apuestas en el historial
+2026-10-11 06:09:40  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 29c | Will GKS Piast Gliwice vs. Widzew Lodz end in a draw? | empieza en 95 min
+2026-10-11 06:09:41  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 35c | Will Zalaegerszeg TE win on 2026-10-11? | empieza en 95 min
+2026-10-11 06:09:41  [no-favoritos] Apuesta [ml] nfl moneyline: $1 a 'Eagles' a 23c | Eagles vs. Jaguars | empieza en 140 min
+2026-10-11 06:09:42  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 31c | Will PFK CSKA Moskva win on 2026-10-11? | empieza en 140 min
+2026-10-11 06:09:42  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 35c | Will Crystal Palace FC win on 2026-10-11? | empieza en 110 min
+2026-10-11 06:09:43  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 30c | Will MFK Ružomberok win on 2026-10-11? | empieza en 140 min
+2026-10-11 06:09:43  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 28c | Will Gaziantep FK vs. Çorum FK end in a draw? | empieza en 110 min
+2026-10-11 06:09:44  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 28c | Will FK Teplice vs. SK Sigma Olomouc end in a draw? | empieza en 110 min
+2026-10-11 06:09:44  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 32c | Will RC Strasbourg Alsace win on 2026-10-11? | empieza en 110 min
+2026-10-11 06:09:45  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 21c | Will Muglaspor win on 2026-10-11? | empieza en 110 min
+2026-10-11 06:09:46  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Fatih Karagumruk Istanbul' a 28c | Spread: Fatih Karagumruk Istanbul (-1.5) | empieza en 110 min
+2026-10-11 06:09:47  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'SS Lazio' a 31c | Spread: SS Lazio (-1.5) | empieza en 110 min
+2026-10-11 06:09:47  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'OGC Nice' a 23c | Spread: OGC Nice (-1.5) | empieza en 110 min
+2026-10-11 06:09:48  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Nafta 1903 Lendava' a 20c | Spread: Nafta 1903 Lendava (-1.5) | empieza en 110 min
+2026-10-11 06:09:49  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Aberdeen FC' a 24c | Spread: Aberdeen FC (-1.5) | empieza en 110 min
+2026-10-11 06:09:50  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'IFK Varnamo' a 20c | Spread: IFK Varnamo (-1.5) | empieza en 110 min
+2026-10-11 06:09:51  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Everton FC' a 23c | Spread: Everton FC (-1.5) | empieza en 110 min
+2026-10-11 06:09:52  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'US Catanzaro 1929' a 25c | Spread: US Catanzaro 1929 (-5.5) | empieza en 110 min
+2026-10-11 06:09:52  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'FK Vojvodina Novi Sad' a 30c | Spread: FK Vojvodina Novi Sad (-1.5) | empieza en 110 min
+2026-10-11 06:09:52  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 23c | PFK CSKA Moskva vs. FK Rodina Moskva: O/U 4.5 | empieza en 140 min
+2026-10-11 06:09:53  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 33c | Zalaegerszeg TE vs. Nyiregyhaza Spartacus FC: O/U 3.5 | empieza en 95 min
+2026-10-11 06:09:55  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 30c | FC RFS vs. FS Jelgava: O/U 2.5 | empieza en 110 min
+2026-10-11 06:09:55  [no-favoritos] OK: 61 mercados principales en la ventana, 22 apuestas nuevas, 0 resueltas
+2026-10-11 06:10:24  [cripto] OK diario: BTC 83024, vol 36.9%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-11 06:10:29  --- inicio ---
+2026-10-11 06:10:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T10:56:01.101Z)
+2026-10-11 06:10:58  OK: 17 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (46 en el historial), 0 alertas de venta, 0 resueltas, 125 senales + 357 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (11 en total) ; prueba zona-media: 0 nuevas (4 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (4 en total)
+2026-10-11 06:11:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 06:11:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 06:11:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
