@@ -1023,8 +1023,8 @@
                      "edge":  0.0826,
                      "side":  "NO"
                  },
-        "curPriceAt":  "2026-10-11T20:21:52Z",
-        "curP":  0.8709,
+        "curPriceAt":  "2026-10-11T20:22:21Z",
+        "curP":  0.871,
         "curSpot":  83669.29,
         "hist":  [
                      {
@@ -1123,7 +1123,7 @@
                      "edge":  0.0719,
                      "side":  "YES"
                  },
-        "curPriceAt":  "2026-10-11T20:21:52Z",
+        "curPriceAt":  "2026-10-11T20:22:21Z",
         "curP":  0.5917,
         "curSpot":  83669.29,
         "hist":  [
@@ -1223,8 +1223,8 @@
                      "edge":  0.0291,
                      "side":  "YES"
                  },
-        "curPriceAt":  "2026-10-11T20:21:52Z",
-        "curP":  0.9409,
+        "curPriceAt":  "2026-10-11T20:22:21Z",
+        "curP":  0.941,
         "curSpot":  83669.29,
         "hist":  [
                      {
