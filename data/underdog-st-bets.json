@@ -666,9 +666,10 @@
         "start":  "2026-10-11T15:15:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T12:46:04Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0365,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:27:26Z"
     },
     {
         "id":  "fl1-ren-aja-2026-10-11-spread-home-2pt5|0",
