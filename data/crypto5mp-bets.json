@@ -1409,10 +1409,11 @@
         "askUp":  0.26,
         "askDown":  0.75,
         "placedAt":  "2026-10-11T14:47:05Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  2.6526,
         "version":  8,
-        "flipped":  false
+        "flipped":  false,
+        "resolvedAt":  "2026-10-11T14:55:11Z"
     },
     {
         "id":  "btc-updown-5m-1791730200|UP",
