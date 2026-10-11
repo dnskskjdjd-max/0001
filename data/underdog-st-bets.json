@@ -1876,5 +1876,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "arg-rac-bel-2026-10-11-total-1pt5|1",
+        "strategy":  "st",
+        "slug":  "arg-rac-bel-2026-10-11-total-1pt5",
+        "ev":  "arg-rac-bel-2026-10-11",
+        "league":  "soccer",
+        "type":  "totals",
+        "line":  1.5,
+        "question":  "Racing Club vs. CA Belgrano: O/U 1.5",
+        "side":  1,
+        "outcome":  "Under",
+        "token":  "3259470069330347728531824966587526745860727216375839803522873240659359572401",
+        "stake":  1,
+        "price":  0.31,
+        "bestBid":  0.3,
+        "feeRate":  0.05,
+        "fee":  0.0345,
+        "vol":  4827,
+        "start":  "2026-10-11T22:15:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T19:46:10Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

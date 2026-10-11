@@ -508,9 +508,10 @@
         "start":  "2026-10-11T15:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T12:31:13Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.9082,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:46:10Z"
     },
     {
         "id":  "swe2-ikb-hel-2026-10-11-hel|0",
@@ -533,9 +534,10 @@
         "start":  "2026-10-11T15:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T12:31:13Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0335,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T19:46:10Z"
     },
     {
         "id":  "pol-psz-kor-2026-10-11-kor|0",
