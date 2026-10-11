@@ -1943,11 +1943,12 @@
         "askUp":  0.79,
         "askDown":  0.22,
         "placedAt":  "2026-10-11T19:05:07Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.236,
         "version":  8,
         "flipped":  true,
         "origSide":  "DOWN",
-        "origP":  0.2967
+        "origP":  0.2967,
+        "resolvedAt":  "2026-10-11T19:18:53Z"
     }
 ]
