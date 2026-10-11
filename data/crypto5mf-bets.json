@@ -663,13 +663,15 @@
         "askUp":  0.77,
         "askDown":  0.24,
         "placedAt":  "2026-10-11T22:16:52Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2667,
         "version":  9,
         "n":  2,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  0.195,
-        "vol30":  0.2867
+        "vol30":  0.2867,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:20:00Z"
     }
 ]
