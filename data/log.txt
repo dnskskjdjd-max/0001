@@ -12126,3 +12126,19 @@
 2026-10-11 18:41:10  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-11 18:41:11  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 18:41:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 18:45:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791761400: salto max z=-2.17; Polymarket ya se habia movido 5 veces (hasta 24c), sin precio previo 0, precio fuera de rango 0
+2026-10-11 18:45:19  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791762300: DOWN $1 a 75c (paso los 73c), faltan 281 s
+2026-10-11 18:45:20  [cripto-5m] Filtro de mercado btc-updown-5m-1791762300: DOWN (tendencia 0%, volatilidad 15%)
+2026-10-11 18:45:27  [cripto] OK diario: BTC 83680, vol 37.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 84 apuestas
+2026-10-11 18:45:34  --- inicio ---
+2026-10-11 18:45:44  [cripto-5m] Resueltas rapida btc-updown-5m-1791761700: DOWN won, DOWN won (0.55 USD)
+2026-10-11 18:45:44  [cripto-5m] Resueltas al contrario btc-updown-5m-1791761700: DOWN won, DOWN won (0.55 USD)
+2026-10-11 18:45:44  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791761700: DOWN won, DOWN won (0.55 USD)
+2026-10-11 18:46:01  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T23:45:15.157Z)
+2026-10-11 18:46:17  OK: 20 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 149 senales + 386 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 18:46:20  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 18:46:21  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 18:46:21  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 18:47:15  [ligas] OK: 30 partidos en 10 dias, 30 con Vegas, 0 apuestas en el historial
+2026-10-11 18:47:29  [no-favoritos] Provisional [st] nfl-sf-sea-2026-10-11-spread-away-3pt5: '49ers' -> lost (-1.02 USD, por confirmar)
+2026-10-11 18:47:31  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas

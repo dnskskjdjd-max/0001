@@ -1819,9 +1819,11 @@
         "start":  "2026-10-11T20:25:00Z",
         "minBefore":  148,
         "placedAt":  "2026-10-11T17:57:02Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0216,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T23:47:16Z"
     },
     {
         "id":  "bra-pal-cor1-2026-10-11-spread-home-1pt5|0",
