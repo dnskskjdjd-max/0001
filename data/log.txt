@@ -10380,3 +10380,19 @@
 2026-10-11 09:46:31  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 20c | Will Hapoel Ramat Gan Givatayim FC vs. Beitar Jerusalem FC end in a draw? | empieza en 149 min
 2026-10-11 09:46:36  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 20c | Yellow-Red KV Mechelen vs. St. Truidense VV: O/U 1.5 | empieza en 149 min
 2026-10-11 09:46:38  [no-favoritos] OK: 54 mercados principales en la ventana, 3 apuestas nuevas, 0 resueltas
+2026-10-11 09:47:05  [cripto-5m] Apuesta rapida btc-updown-5m-1791729900: UP $1 a 27c, modelo 35.1%, ventaja 6.7 pp, faltan 176 s
+2026-10-11 09:47:05  [cripto-5m] Filtro de mercado btc-updown-5m-1791729900: UP (tendencia 0.03%, volatilidad 13%)
+2026-10-11 09:49:59  [cripto-rapido] Resuelta rapida btc-updown-15m-1791729000: UP -> won (0.36 USD)
+2026-10-11 09:49:59  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791729000: 10 min UP won, 6 min UP won (0.59 USD)
+2026-10-11 09:49:59  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791729000: UP won (0.36 USD)
+2026-10-11 09:50:10  [cripto-5m] Resuelta rapida btc-updown-5m-1791729600: DOWN -> won (1.93 USD)
+2026-10-11 09:50:10  [cripto-5m] Resueltas al contrario btc-updown-5m-1791729600: DOWN won (1.93 USD)
+2026-10-11 09:50:10  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791729600: DOWN won (1.93 USD)
+2026-10-11 09:50:25  [cripto] OK diario: BTC 83158, vol 37.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 52 apuestas
+2026-10-11 09:50:30  --- inicio ---
+2026-10-11 09:50:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T14:41:03.367Z)
+2026-10-11 09:51:03  OK: 21 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 129 senales + 362 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (14 en total) ; prueba zona-media: 0 nuevas (6 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (6 en total)
+2026-10-11 09:51:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 09:51:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 09:51:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 09:51:46  [cripto-rapido] Apuesta rapida btc-updown-15m-1791729900: UP $2 a 63c, modelo 75.8%, ventaja 11.2 pp, faltan 494 s
