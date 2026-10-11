@@ -756,9 +756,9 @@
         "curPrice":  0.031,
         "pnl":  null,
         "version":  6,
-        "curPriceAt":  "2026-10-11T09:59:20Z",
-        "curP":  0.0971,
-        "curSpot":  83040,
+        "curPriceAt":  "2026-10-11T10:00:20Z",
+        "curP":  0.0967,
+        "curSpot":  83040.01,
         "hist":  [
                      {
                          "t":  "2026-10-10T20:35:21Z",
@@ -855,9 +855,9 @@
         "curPrice":  0.02,
         "pnl":  null,
         "version":  6,
-        "curPriceAt":  "2026-10-11T09:59:20Z",
-        "curP":  0.1164,
-        "curSpot":  83040,
+        "curPriceAt":  "2026-10-11T10:00:20Z",
+        "curP":  0.116,
+        "curSpot":  83040.01,
         "hist":  [
                      {
                          "t":  "2026-10-10T20:37:00Z",
@@ -930,6 +930,46 @@
                          "px":  0.02,
                          "p":  0.1316,
                          "S":  83047
+                     }
+                 ]
+    },
+    {
+        "id":  "bitcoin-above-82k-on-october-12-2026|YES",
+        "ev":  "bitcoin-above-on-october-12-2026",
+        "slug":  "bitcoin-above-82k-on-october-12-2026",
+        "k":  82000,
+        "side":  "YES",
+        "token":  "58100326529466815661410944022020977939794449485588814468318733550215282047446",
+        "stake":  3,
+        "price":  0.82,
+        "fee":  0.0378,
+        "p":  0.7166,
+        "edge":  -0.1137,
+        "S":  83040.01,
+        "sig":  0.3691,
+        "tauH":  29.99,
+        "placedAt":  "2026-10-11T10:00:20Z",
+        "end":  "2026-10-12T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.81,
+        "pnl":  null,
+        "version":  7,
+        "flipped":  true,
+        "orig":  {
+                     "price":  0.19,
+                     "p":  0.2834,
+                     "edge":  0.0826,
+                     "side":  "NO"
+                 },
+        "curPriceAt":  "2026-10-11T10:00:20Z",
+        "curP":  0.7166,
+        "curSpot":  83040.01,
+        "hist":  [
+                     {
+                         "t":  "2026-10-11T10:00:20Z",
+                         "px":  0.81,
+                         "p":  0.7166,
+                         "S":  83040
                      }
                  ]
     }
