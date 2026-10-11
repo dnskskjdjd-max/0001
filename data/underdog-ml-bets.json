@@ -120,9 +120,10 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.8246,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T15:56:35Z"
     },
     {
         "id":  "svk1-ruz-zil-2026-10-11-ruz|0",
