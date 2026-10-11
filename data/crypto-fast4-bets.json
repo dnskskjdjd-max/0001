@@ -1741,12 +1741,13 @@
         "askUp":  0.07,
         "askDown":  0.94,
         "placedAt":  "2026-10-11T17:09:24Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.0491,
         "version":  8,
         "flipped":  true,
         "origSide":  "UP",
-        "origP":  0.1399
+        "origP":  0.1399,
+        "resolvedAt":  "2026-10-11T17:20:54Z"
     },
     {
         "id":  "btc-updown-15m-1791738900|UP",

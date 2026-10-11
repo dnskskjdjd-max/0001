@@ -198,9 +198,10 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0375,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T17:21:14Z"
     },
     {
         "id":  "srb-rdn-voj-2026-10-11-spread-away-1pt5|0",
