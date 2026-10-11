@@ -10192,3 +10192,24 @@
 2026-10-11 08:26:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 08:26:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-11 08:26:44  [ligas] OK: 32 partidos en 10 dias, 32 con Vegas, 0 apuestas en el historial
+2026-10-11 08:30:00  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791724500: salto max z=2.6; Polymarket ya se habia movido 7 veces (hasta 20c), sin precio previo 0, precio fuera de rango 0
+2026-10-11 08:30:25  [cripto] OK diario: BTC 83090, vol 37.1%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-11 08:30:31  --- inicio ---
+2026-10-11 08:31:05  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T13:30:12.679Z)
+2026-10-11 08:31:25  OK: 19 mercados >= 60, 7 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (48 en el historial), 0 alertas de venta, 0 resueltas, 127 senales + 360 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (13 en total) ; prueba zona-media: 0 nuevas (5 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (5 en total)
+2026-10-11 08:31:27  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 08:31:27  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 08:31:27  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 08:31:55  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 29c | Will AC Sparta Praha win on 2026-10-11? | empieza en 149 min
+2026-10-11 08:31:56  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 35c | Will FC Spartak Trnava win on 2026-10-11? | empieza en 149 min
+2026-10-11 08:31:58  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 21c | Will Beşiktaş JK win on 2026-10-11? | empieza en 149 min
+2026-10-11 08:31:59  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'No' a 29c | Will AC Sparta Praha win on 2026-10-11? | empieza en 149 min
+2026-10-11 08:32:00  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 35c | Will FC Spartak Trnava win on 2026-10-11? | empieza en 149 min
+2026-10-11 08:32:02  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'No' a 21c | Will Beşiktaş JK win on 2026-10-11? | empieza en 149 min
+2026-10-11 08:32:02  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Beşiktaş JK' a 35c | Spread: Beşiktaş JK (-2.5) | empieza en 149 min
+2026-10-11 08:32:03  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Bursaspor' a 35c | Spread: Bursaspor (-1.5) | empieza en 149 min
+2026-10-11 08:32:04  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'AC Milan' a 29c | Spread: AC Milan (-1.5) | empieza en 149 min
+2026-10-11 08:32:04  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 32c | NK Slaven Belupo vs. HNK Rijeka: O/U 3.5 | empieza en 149 min
+2026-10-11 08:32:05  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 20c | FC Midtjylland vs. FC København: O/U 1.5 | empieza en 149 min
+2026-10-11 08:32:06  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 20c | FK Železiarne Podbrezová vs. FC Spartak Trnava: O/U 1.5 | empieza en 149 min
+2026-10-11 08:32:06  [no-favoritos] OK: 44 mercados principales en la ventana, 12 apuestas nuevas, 0 resueltas
