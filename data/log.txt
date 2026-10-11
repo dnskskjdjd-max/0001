@@ -11201,3 +11201,17 @@
 2026-10-11 13:51:24  [no-favoritos] Resuelta [mlx] ere-exc-gro-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
 2026-10-11 13:51:25  [no-favoritos] Resuelta [st] den-bro-lyn-2026-10-11-spread-home-1pt5: 'Brøndby IF' -> won (2.00 USD)
 2026-10-11 13:51:31  [no-favoritos] OK: 22 mercados principales en la ventana, 0 apuestas nuevas, 3 resueltas
+2026-10-11 13:52:11  [cripto-5m] Apuesta rapida btc-updown-5m-1791744600: DOWN $1 a 55c, modelo 63%, ventaja 6.3 pp, faltan 170 s
+2026-10-11 13:52:11  [cripto-5m] Filtro de mercado btc-updown-5m-1791744600: DOWN (tendencia -0.36%, volatilidad 25%)
+2026-10-11 13:55:26  [cripto] OK diario: BTC 83638, vol 37.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 68 apuestas
+2026-10-11 13:55:32  --- inicio ---
+2026-10-11 13:55:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T18:52:26.400Z)
+2026-10-11 13:56:05  OK: 23 mercados >= 60, 8 >= 70, 1 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 136 senales + 375 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 13:56:07  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 13:56:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 13:56:08  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 13:56:50  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
+2026-10-11 13:57:06  [cripto-5m] Apuesta rapida btc-updown-5m-1791744900: UP $1 a 88c, modelo 94.9%, ventaja 6.1 pp, faltan 175 s
+2026-10-11 13:57:12  [no-favoritos] Resuelta [ml] lal-bet-osa-2026-10-11-bet: 'No' -> lost (-1.03 USD)
+2026-10-11 13:57:15  [no-favoritos] Resuelta [mlx] lal-bet-osa-2026-10-11-bet: 'No' -> lost (-1.03 USD)
+2026-10-11 13:57:22  [no-favoritos] OK: 16 mercados principales en la ventana, 0 apuestas nuevas, 2 resueltas
