@@ -11302,3 +11302,21 @@
 2026-10-11 14:27:25  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
 2026-10-11 14:28:14  [no-favoritos] Resuelta [st] itsb-pad-car-2026-10-11-spread-home-1pt5: 'Calcio Padova' -> lost (-1.04 USD)
 2026-10-11 14:28:21  [no-favoritos] OK: 11 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
+2026-10-11 14:30:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791746100: salto max z=-3.59; Polymarket ya se habia movido 6 veces (hasta 43c), sin precio previo 0, precio fuera de rango 0
+2026-10-11 14:30:24  [cripto] OK diario: BTC 83687, vol 37.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 70 apuestas
+2026-10-11 14:30:29  --- inicio ---
+2026-10-11 14:30:31  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791747000: UP $1 a 79c (paso los 73c), faltan 270 s
+2026-10-11 14:30:31  [cripto-5m] Filtro de mercado btc-updown-5m-1791747000: UP (tendencia 0.02%, volatilidad 11%)
+2026-10-11 14:30:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T19:30:12.861Z)
+2026-10-11 14:31:05  [cripto-rapido] Iniciado (pid 28940)
+2026-10-11 14:31:05  [cripto-5m] Iniciado (pid 10132)
+2026-10-11 14:31:07  [cripto-5m] Resueltas rapida btc-updown-5m-1791746400: UP lost, UP lost (-2.04 USD)
+2026-10-11 14:31:07  [cripto-5m] Resueltas al contrario btc-updown-5m-1791746400: UP lost, UP lost (-2.04 USD)
+2026-10-11 14:31:07  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791746400: UP lost, UP lost (-2.04 USD)
+2026-10-11 14:31:07  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791746400: UP lost, UP lost (-2.04 USD)
+2026-10-11 14:31:09  OK: 24 mercados >= 60, 9 >= 70, 1 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 137 senales + 376 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 14:31:11  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 14:31:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 14:31:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 14:31:21  [no-favoritos] Apuesta [st] nhl totals: $1 a 'Under' a 22c | Canucks vs. Rangers: O/U 4.5 | empieza en 149 min
+2026-10-11 14:31:34  [no-favoritos] OK: 11 mercados principales en la ventana, 1 apuestas nuevas, 0 resueltas

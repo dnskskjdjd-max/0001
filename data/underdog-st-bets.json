@@ -1848,5 +1848,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "nhl-van-nyr-2026-10-11-total-4pt5|1",
+        "strategy":  "st",
+        "slug":  "nhl-van-nyr-2026-10-11-total-4pt5",
+        "ev":  "nhl-van-nyr-2026-10-11",
+        "league":  "nhl",
+        "type":  "totals",
+        "line":  4.5,
+        "question":  "Canucks vs. Rangers: O/U 4.5",
+        "side":  1,
+        "outcome":  "Under",
+        "token":  "3779655348265100539935303954533985289478528515710898660432739399051055772493",
+        "stake":  1,
+        "price":  0.22,
+        "bestBid":  0.21,
+        "feeRate":  0.05,
+        "fee":  0.039,
+        "vol":  1022,
+        "start":  "2026-10-11T22:00:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-11T19:31:13Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
