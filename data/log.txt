@@ -10032,3 +10032,39 @@
 2026-10-11 06:11:00  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-11 06:11:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 06:11:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 06:12:00  [cripto-rapido] Retraso btc-updown-15m-1791716400: DOWN $1 a 21c (BTC z=-3.04 en 15s, Polymarket se movio -10.6c, faltan 180 s)
+2026-10-11 06:15:24  [cripto] OK diario: BTC 83012, vol 36.9%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (11 en el historial), 0 resueltas; rapido: 50 apuestas
+2026-10-11 06:15:29  --- inicio ---
+2026-10-11 07:17:25  FirePolymarket fallo (intento 1): No se puede escribir datos de en la conexión de transporte: Se ha anulado una conexión establecida por el software en su equipo host.
+2026-10-11 07:17:35  [cripto-rapido] Resueltas retraso btc-updown-15m-1791716400: DOWN lost (-1.06 USD)
+2026-10-11 07:17:53  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T12:15:14.307Z)
+2026-10-11 07:17:58  Cuotas: americanfootball_nfl actualizado (26 partidos; creditos restantes 470)
+2026-10-11 07:18:00  Apuesta: $5 a JAGUARS en Eagles vs. Jaguars @ 78c (score 76, consenso 7/10)
+2026-10-11 07:18:00  [prueba:no-perseguir] Apuesta: $2 a JAGUARS en Eagles vs. Jaguars @ 78c (score 76, consenso 7/10)
+2026-10-11 07:18:00  [prueba:no-perseguir] Apuesta: $2 a NO en Will Manchester City FC win on 2026-10-11? @ 55c (score 61, consenso 7/10)
+2026-10-11 07:18:00  [prueba:zona-media] Apuesta: $2 a NO en Will Manchester City FC win on 2026-10-11? @ 55c (score 61, consenso 7/10)
+2026-10-11 07:18:00  [prueba:zona-media-sin-perseguir] Apuesta: $2 a NO en Will Manchester City FC win on 2026-10-11? @ 55c (score 61, consenso 7/10)
+2026-10-11 07:18:04  OK: 19 mercados >= 60, 6 >= 70, 2 senales nuevas, 0 de control nuevas, 1 apuestas nuevas (47 en el historial), 0 alertas de venta, 0 resueltas, 127 senales + 357 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 2 nuevas (13 en total) ; prueba zona-media: 1 nuevas (5 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 1 nuevas (5 en total)
+2026-10-11 07:18:06  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 07:18:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 07:18:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 07:18:30  [ligas] Cuotas: soccer_spain_la_liga actualizado (15 partidos; creditos restantes 469)
+2026-10-11 07:18:38  [ligas] OK: 32 partidos en 10 dias, 32 con Vegas, 0 apuestas en el historial
+2026-10-11 07:18:47  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 32c | Will FC St. Gallen 1879 win on 2026-10-11? | empieza en 131 min
+2026-10-11 07:18:48  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 31c | Will CA Juventud de Las Piedras vs. Racing Club Montevideo end in a draw? | empieza en 101 min
+2026-10-11 07:18:49  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 28c | Will Budapest Honved FC vs. Ujpest FC Budapest end in a draw? | empieza en 146 min
+2026-10-11 07:18:49  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 31c | Will POT Iraklis vs. APO Levadiakos FC end in a draw? | empieza en 101 min
+2026-10-11 07:18:50  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 22c | Will Panaitolikos Agrinio win on 2026-10-11? | empieza en 101 min
+2026-10-11 07:18:50  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 22c | Will Kaisar Kyzylorda vs. FC Ordabasy end in a draw? | empieza en 101 min
+2026-10-11 07:18:50  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 27c | Will SBV Excelsior vs. FC Groningen end in a draw? | empieza en 146 min
+2026-10-11 07:18:51  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Brøndby IF' a 33c | Spread: Brøndby IF (-1.5) | empieza en 101 min
+2026-10-11 07:18:51  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'UD Almería' a 35c | Spread: UD Almería (-1.5) | empieza en 116 min
+2026-10-11 07:18:52  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Mumbai City FC' a 32c | Spread: Mumbai City FC (-1.5) | empieza en 101 min
+2026-10-11 07:18:52  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Rio Ave FC' a 23c | Spread: Rio Ave FC (-1.5) | empieza en 131 min
+2026-10-11 07:18:54  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'AE Kifisia FC' a 26c | Spread: AE Kifisia FC (-1.5) | empieza en 101 min
+2026-10-11 07:18:54  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'FC St. Gallen 1879' a 27c | Spread: FC St. Gallen 1879 (-2.5) | empieza en 131 min
+2026-10-11 07:18:55  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 31c | Kaisar Kyzylorda vs. FC Ordabasy: O/U 3.5 | empieza en 101 min
+2026-10-11 07:18:56  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 21c | POT Iraklis vs. APO Levadiakos FC: O/U 3.5 | empieza en 101 min
+2026-10-11 07:18:56  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 21c | Budapest Honved FC vs. Ujpest FC Budapest: O/U 1.5 | empieza en 146 min
+2026-10-11 07:18:57  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 24c | Union Saint-Gilloise vs. Oud-Heverlee Leuven: O/U 4.5 | empieza en 101 min
+2026-10-11 07:18:57  [no-favoritos] OK: 45 mercados principales en la ventana, 17 apuestas nuevas, 0 resueltas
