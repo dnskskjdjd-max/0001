@@ -2001,11 +2001,13 @@
         "askUp":  0.83,
         "askDown":  0.18,
         "placedAt":  "2026-10-11T19:35:05Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.1793,
         "version":  9,
         "flipped":  true,
         "origSide":  "DOWN",
-        "origP":  0.2549
+        "origP":  0.2549,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T19:45:01Z"
     }
 ]
