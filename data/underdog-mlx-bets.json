@@ -1026,9 +1026,10 @@
         "start":  "2026-10-11T18:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T15:31:07Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0375,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T22:26:05Z"
     },
     {
         "id":  "argpn-est-mor-2026-10-11-est|0",
@@ -1176,9 +1177,10 @@
         "start":  "2026-10-11T20:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T17:31:26Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.9082,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T22:26:05Z"
     },
     {
         "id":  "argpn-mai-sma-2026-10-11-draw|0",

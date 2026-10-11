@@ -11815,3 +11815,24 @@
 2026-10-11 17:21:09  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791756600: UP won, UP won (0.57 USD)
 2026-10-11 17:21:14  [no-favoritos] Resuelta [st] argpn-dma-cfe-2026-10-11-spread-home-1pt5: 'Deportivo Madryn' -> lost (-1.04 USD)
 2026-10-11 17:21:18  [no-favoritos] OK: 8 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
+2026-10-11 17:21:43  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791757200: DOWN $1 a 75c (paso los 73c), faltan 197 s
+2026-10-11 17:21:45  [cripto-rapido] Apuesta rapida btc-updown-15m-1791756900: UP $1 a 39c, modelo 48.1%, ventaja 7.4 pp, faltan 495 s
+2026-10-11 17:22:26  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791757200: DOWN $1 a 75c (paso los 73c), faltan 155 s
+2026-10-11 17:24:00  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791756900: DOWN $1 a 42c, modelo 49%, ventaja 5.3 pp
+2026-10-11 17:25:25  [cripto] OK diario: BTC 83646, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 79 apuestas
+2026-10-11 17:25:30  --- inicio ---
+2026-10-11 17:25:48  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T22:12:32.662Z)
+2026-10-11 17:26:00  OK: 24 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 147 senales + 383 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 17:26:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 17:26:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 17:26:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 17:26:11  [cripto-5m] Resueltas rapida btc-updown-5m-1791756900: DOWN lost, UP won (-0.75 USD)
+2026-10-11 17:26:11  [cripto-5m] Resueltas al contrario btc-updown-5m-1791756900: DOWN lost, UP won (-0.75 USD)
+2026-10-11 17:26:11  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791756900: UP won (0.27 USD)
+2026-10-11 17:26:11  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791756900: DOWN lost, UP won (-0.75 USD)
+2026-10-11 17:26:12  [no-favoritos] Resuelta [ml] argpn-atl-smt-2026-10-11-smt: 'Yes' -> lost (-1.04 USD)
+2026-10-11 17:26:14  [no-favoritos] Resuelta [ml] arg-pla-aaj-2026-10-11-draw: 'Yes' -> won (1.91 USD)
+2026-10-11 17:26:17  [no-favoritos] Resuelta [mlx] argpn-atl-smt-2026-10-11-smt: 'Yes' -> lost (-1.04 USD)
+2026-10-11 17:26:18  [no-favoritos] Resuelta [mlx] arg-pla-aaj-2026-10-11-draw: 'Yes' -> won (1.91 USD)
+2026-10-11 17:26:19  [no-favoritos] Resuelta [st] gre1-oly-pan-2026-10-11-spread-home-1pt5: 'Olympiacos Piraeus' -> lost (-1.04 USD)
+2026-10-11 17:26:24  [no-favoritos] OK: 8 mercados principales en la ventana, 0 apuestas nuevas, 5 resueltas
