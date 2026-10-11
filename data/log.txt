@@ -11762,3 +11762,29 @@
 2026-10-11 17:12:15  Resuelta: Giants vs. Commanders [GIANTS] -> void
 2026-10-11 17:12:15  Resuelta: Spread: Commanders (-3.5) [GIANTS] -> won
 2026-10-11 17:12:20  OK: 23 mercados >= 60, 7 >= 70, 2 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 4 resueltas, 145 senales + 383 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 17:12:35  --- inicio ---
+2026-10-11 17:12:55  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T22:12:32.662Z)
+2026-10-11 17:13:09  OK: 24 mercados >= 60, 9 >= 70, 2 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 147 senales + 383 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 17:13:11  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 17:13:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 17:13:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 17:13:27  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791756600: UP $1 a 80c (paso los 73c), faltan 94 s
+2026-10-11 17:13:27  [cripto-5m] Filtro de mercado btc-updown-5m-1791756600: UP (tendencia 0.1%, volatilidad 30%)
+2026-10-11 17:13:46  [ligas] Cuotas: soccer_spain_la_liga actualizado (22 partidos; creditos restantes 461)
+2026-10-11 17:14:01  [ligas] OK: 30 partidos en 10 dias, 30 con Vegas, 0 apuestas en el historial
+2026-10-11 17:14:06  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 31c | Will CA Talleres vs. CA Independiente end in a draw? | empieza en 136 min
+2026-10-11 17:14:07  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 31c | Will CA Talleres vs. CA Independiente end in a draw? | empieza en 136 min
+2026-10-11 17:14:08  [no-favoritos] Apuesta [st] nfl spreads: $1 a 'Ravens' a 28c | Spread: Ravens (-3.5) | empieza en 126 min
+2026-10-11 17:14:08  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'CA Talleres' a 20c | Spread: CA Talleres (-1.5) | empieza en 136 min
+2026-10-11 17:14:09  [no-favoritos] Apuesta [st] mlb spreads: $1 a 'Milwaukee Brewers' a 31c | Spread: Milwaukee Brewers (-1.5) | empieza en 106 min
+2026-10-11 17:14:10  [no-favoritos] Resuelta [ml] por-ben-gui-2026-10-11-ben: 'No' -> lost (-1.04 USD)
+2026-10-11 17:14:10  [no-favoritos] Resuelta [ml] isr-rgg-bei-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
+2026-10-11 17:14:11  [no-favoritos] Resuelta [ml] itsb-mod-ver-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
+2026-10-11 17:14:15  [no-favoritos] Resuelta [mlx] por-ben-gui-2026-10-11-ben: 'No' -> lost (-1.04 USD)
+2026-10-11 17:14:16  [no-favoritos] Resuelta [mlx] isr-rgg-bei-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
+2026-10-11 17:14:16  [no-favoritos] Resuelta [mlx] itsb-mod-ver-2026-10-11-draw: 'Yes' -> lost (-1.04 USD)
+2026-10-11 17:14:19  [no-favoritos] Resuelta [st] srb-zem-zel-2026-10-11-total-3pt5: 'Over' -> lost (-1.03 USD)
+2026-10-11 17:14:19  [no-favoritos] Resuelta [st] bel1-yrm-stt-2026-10-11-total-1pt5: 'Under' -> lost (-1.04 USD)
+2026-10-11 17:14:19  [no-favoritos] Resuelta [st] itsb-mod-ver-2026-10-11-spread-home-1pt5: 'Modena FC 2018' -> lost (-1.04 USD)
+2026-10-11 17:14:20  [no-favoritos] Resuelta [st] uru1-cla-alb-2026-10-11-total-3pt5: 'Over' -> lost (-1.04 USD)
+2026-10-11 17:14:25  [no-favoritos] OK: 8 mercados principales en la ventana, 5 apuestas nuevas, 10 resueltas

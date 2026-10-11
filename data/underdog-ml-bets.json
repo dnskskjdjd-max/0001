@@ -824,9 +824,10 @@
         "start":  "2026-10-11T17:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:31:20Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0395,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T22:14:02Z"
     },
     {
         "id":  "hun-gyo-pus-2026-10-11-pus|0",
@@ -874,9 +875,10 @@
         "start":  "2026-10-11T17:15:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:46:07Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.04,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T22:14:02Z"
     },
     {
         "id":  "itsb-mod-ver-2026-10-11-draw|0",
@@ -899,9 +901,10 @@
         "start":  "2026-10-11T17:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T15:01:11Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.035,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T22:14:02Z"
     },
     {
         "id":  "spl-sha-taa-2026-10-11-taa|0",
@@ -1349,6 +1352,31 @@
         "start":  "2026-10-11T23:00:00Z",
         "minBefore":  148,
         "placedAt":  "2026-10-11T20:32:18Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
+    },
+    {
+        "id":  "arg-tal-ind-2026-10-11-draw|0",
+        "strategy":  "ml",
+        "slug":  "arg-tal-ind-2026-10-11-draw",
+        "ev":  "arg-tal-ind-2026-10-11",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will CA Talleres vs. CA Independiente end in a draw?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "80868090773300906129621517818998838556519807311889204815838078141197068363417",
+        "stake":  1,
+        "price":  0.31,
+        "bestBid":  0.3,
+        "feeRate":  0.05,
+        "fee":  0.0345,
+        "vol":  395,
+        "start":  "2026-10-12T00:30:00Z",
+        "minBefore":  136,
+        "placedAt":  "2026-10-11T22:14:02Z",
         "status":  "open",
         "pnl":  null,
         "version":  1
