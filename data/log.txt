@@ -10886,3 +10886,25 @@
 2026-10-11 12:27:18  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
 2026-10-11 12:28:19  [no-favoritos] Resuelta [st] fl1-ren-aja-2026-10-11-spread-home-2pt5: 'Stade Rennais FC 1901' -> won (2.81 USD)
 2026-10-11 12:28:20  [no-favoritos] OK: 25 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
+2026-10-11 12:30:17  [cripto-5m] Resuelta rapida btc-updown-5m-1791739200: DOWN -> lost (-1.05 USD)
+2026-10-11 12:30:18  [cripto-5m] Resueltas al contrario btc-updown-5m-1791739200: DOWN lost (-1.05 USD)
+2026-10-11 12:30:18  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791739200: DOWN lost (-1.05 USD)
+2026-10-11 12:30:31  [cripto] OK diario: BTC 83984, vol 37.1%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 63 apuestas
+2026-10-11 12:30:37  --- inicio ---
+2026-10-11 12:31:00  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T17:25:53.900Z)
+2026-10-11 12:31:21  OK: 23 mercados >= 60, 10 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 368 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 12:31:24  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 12:31:24  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 12:31:24  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 12:31:38  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 34c | Will CA Platense vs. AA Argentinos Juniors end in a draw? | empieza en 149 min
+2026-10-11 12:31:39  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 32c | Will CD Maipu vs. San Martin de San Juan end in a draw? | empieza en 149 min
+2026-10-11 12:31:40  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 30c | Will Wydad Athletic Club vs. COD Meknès end in a draw? | empieza en 149 min
+2026-10-11 12:31:40  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 22c | Will Rubio Nu win on 2026-10-11? | empieza en 149 min
+2026-10-11 12:31:41  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 34c | Will CA Platense vs. AA Argentinos Juniors end in a draw? | empieza en 149 min
+2026-10-11 12:31:42  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 32c | Will CD Maipu vs. San Martin de San Juan end in a draw? | empieza en 149 min
+2026-10-11 12:31:43  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 30c | Will Wydad Athletic Club vs. COD Meknès end in a draw? | empieza en 149 min
+2026-10-11 12:31:43  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 22c | Will Rubio Nu win on 2026-10-11? | empieza en 149 min
+2026-10-11 12:31:45  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Club Olimpia' a 28c | Spread: Club Olimpia (-1.5) | empieza en 149 min
+2026-10-11 12:31:47  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 21c | CA Rosario Central vs. CS Independiente Rivadavia: O/U 3.5 | empieza en 149 min
+2026-10-11 12:31:47  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 30c | CA Central Norte Salta vs. Ferro Carril Oeste: O/U 2.5 | empieza en 149 min
+2026-10-11 12:32:02  [no-favoritos] OK: 19 mercados principales en la ventana, 11 apuestas nuevas, 0 resueltas
