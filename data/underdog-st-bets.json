@@ -558,9 +558,10 @@
         "start":  "2026-10-11T14:00:00Z",
         "minBefore":  101,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.038,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:21:34Z"
     },
     {
         "id":  "lal-rso-dep-2026-10-11-spread-home-1pt5|0",
