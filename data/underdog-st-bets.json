@@ -899,9 +899,10 @@
         "start":  "2026-10-11T16:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T13:31:28Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.091,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:06:34Z"
     },
     {
         "id":  "den-mid-kob-2026-10-11-total-1pt5|1",
@@ -949,9 +950,10 @@
         "start":  "2026-10-11T16:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T13:31:28Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.04,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:06:34Z"
     },
     {
         "id":  "ecu1-uni-mac-2026-10-11-spread-home-1pt5|0",

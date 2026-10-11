@@ -503,10 +503,11 @@
         "start":  "2026-10-11T15:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T12:31:13Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0375,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "resolvedAt":  "2026-10-11T20:06:34Z"
     },
     {
         "id":  "nor-aal-sar-2026-10-11-sar|0",
@@ -663,9 +664,10 @@
         "start":  "2026-10-11T16:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T13:31:28Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0355,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:06:34Z"
     },
     {
         "id":  "svk1-pod-trn-2026-10-11-trn|0",
@@ -688,9 +690,10 @@
         "start":  "2026-10-11T16:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T13:31:28Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.8246,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T20:06:34Z"
     },
     {
         "id":  "tur-bes-koc-2026-10-11-bes|1",
