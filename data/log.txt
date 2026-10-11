@@ -11025,3 +11025,21 @@
 2026-10-11 13:01:39  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'SE Palmeiras' a 33c | Spread: SE Palmeiras (-1.5) | empieza en 149 min
 2026-10-11 13:01:41  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Under' a 23c | CR Flamengo vs. Fluminense FC: O/U 1.5 | empieza en 149 min
 2026-10-11 13:01:59  [no-favoritos] OK: 36 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
+2026-10-11 13:02:26  [cripto-5m] Apuesta rapida btc-updown-5m-1791741600: DOWN $1 a 57c, modelo 64.4%, ventaja 5.7 pp, faltan 155 s
+2026-10-11 13:02:26  [cripto-5m] Filtro de mercado btc-updown-5m-1791741600: DOWN (tendencia -0.19%, volatilidad 30%)
+2026-10-11 13:02:31  [cripto-rapido] Resuelta rapida btc-updown-15m-1791740700: UP -> lost (-1.05 USD)
+2026-10-11 13:02:31  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791740700: 10 min UP lost, 6 min UP lost, 3 min UP lost (-5.29 USD)
+2026-10-11 13:02:31  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791740700: UP lost (-1.05 USD)
+2026-10-11 13:05:26  [cripto] OK diario: BTC 83858, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 65 apuestas
+2026-10-11 13:05:33  --- inicio ---
+2026-10-11 13:05:54  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T18:01:12.406Z)
+2026-10-11 13:05:59  [cripto-5m] Resuelta rapida btc-updown-5m-1791741300: UP -> lost (-3.17 USD)
+2026-10-11 13:05:59  [cripto-5m] Resueltas al contrario btc-updown-5m-1791741300: UP lost (-3.17 USD)
+2026-10-11 13:05:59  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791741300: UP lost (-3.17 USD)
+2026-10-11 13:06:09  OK: 25 mercados >= 60, 11 >= 70, 2 senales nuevas, 2 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 135 senales + 370 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 13:06:12  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 13:06:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 13:06:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 13:06:49  [no-favoritos] Resuelta [st] hun-zal-nyi-2026-10-11-total-3pt5: 'Over' -> won (2.00 USD)
+2026-10-11 13:06:55  [no-favoritos] Resuelta [st] bun-fre-s04-2026-10-11-spread-home-1pt5: 'SC Freiburg' -> lost (-1.03 USD)
+2026-10-11 13:06:57  [no-favoritos] OK: 36 mercados principales en la ventana, 0 apuestas nuevas, 2 resueltas

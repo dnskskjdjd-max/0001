@@ -277,9 +277,10 @@
         "start":  "2026-10-11T12:45:00Z",
         "minBefore":  95,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.9968,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:06:14Z"
     },
     {
         "id":  "lva1-rfs-jel-2026-10-11-total-2pt5|1",
@@ -755,9 +756,10 @@
         "start":  "2026-10-11T15:30:00Z",
         "minBefore":  150,
         "placedAt":  "2026-10-11T13:00:23Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0335,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T18:06:14Z"
     },
     {
         "id":  "pol-psz-kor-2026-10-11-total-1pt5|1",
