@@ -1487,9 +1487,10 @@
         "start":  "2026-10-11T18:45:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:16:08Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.033,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T21:01:58Z"
     },
     {
         "id":  "argpn-cat-chi-2026-10-11-spread-home-1pt5|0",
