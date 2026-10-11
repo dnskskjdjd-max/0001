@@ -1771,11 +1771,12 @@
         "askUp":  0.93,
         "askDown":  0.08,
         "placedAt":  "2026-10-11T17:20:02Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.0596,
         "version":  8,
         "flipped":  true,
         "origSide":  "DOWN",
-        "origP":  0.1653
+        "origP":  0.1653,
+        "resolvedAt":  "2026-10-11T17:32:05Z"
     }
 ]
