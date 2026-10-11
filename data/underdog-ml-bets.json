@@ -220,9 +220,10 @@
         "start":  "2026-10-11T13:00:00Z",
         "minBefore":  110,
         "placedAt":  "2026-10-11T11:09:32Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.034,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T15:16:02Z"
     },
     {
         "id":  "tur2-kar-mug-2026-10-11-mug|0",
