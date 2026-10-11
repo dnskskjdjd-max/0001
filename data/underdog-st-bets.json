@@ -1276,5 +1276,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "nor-lil-mol-2026-10-11-total-4pt5|0",
+        "strategy":  "st",
+        "slug":  "nor-lil-mol-2026-10-11-total-4pt5",
+        "ev":  "nor-lil-mol-2026-10-11",
+        "league":  "soccer",
+        "type":  "totals",
+        "line":  4.5,
+        "question":  "Lillestrøm SK vs. Molde FK: O/U 4.5",
+        "side":  0,
+        "outcome":  "Over",
+        "token":  "87159076434474658578994765666505931875323761944371924388367646442813837166802",
+        "stake":  1,
+        "price":  0.29,
+        "bestBid":  0.28,
+        "feeRate":  0.05,
+        "fee":  0.0355,
+        "vol":  212,
+        "start":  "2026-10-11T17:15:00Z",
+        "minBefore":  93,
+        "placedAt":  "2026-10-11T15:41:41Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
