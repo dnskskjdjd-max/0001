@@ -10672,3 +10672,19 @@
 2026-10-11 11:16:25  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Orense SC' a 22c | Spread: Orense SC (-1.5) | empieza en 149 min
 2026-10-11 11:16:26  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Juventus FC' a 34c | Spread: Juventus FC (-1.5) | empieza en 149 min
 2026-10-11 11:16:33  [no-favoritos] OK: 42 mercados principales en la ventana, 5 apuestas nuevas, 0 resueltas
+2026-10-11 11:17:18  [cripto-5m] Apuesta rapida btc-updown-5m-1791735300: UP $1 a 35c, modelo 41.7%, ventaja 5.1 pp, faltan 163 s
+2026-10-11 11:18:24  [cripto] Resuelta diaria: BTC NO > 82000 -> lost (-3.2 USD)
+2026-10-11 11:18:24  [cripto] Resuelta diaria: BTC YES > 84000 -> lost (-3.19 USD)
+2026-10-11 11:18:25  [cripto] OK diario: BTC 83779, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 2 resueltas; rapido: 58 apuestas
+2026-10-11 11:20:26  [cripto] OK diario: BTC 83819, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 58 apuestas
+2026-10-11 11:20:31  --- inicio ---
+2026-10-11 11:20:43  [cripto-5m] Resuelta rapida btc-updown-5m-1791735000: UP -> won (0.14 USD)
+2026-10-11 11:20:43  [cripto-5m] Resueltas al contrario btc-updown-5m-1791735000: UP won (0.14 USD)
+2026-10-11 11:20:43  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791735000: UP won (0.14 USD)
+2026-10-11 11:20:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T16:15:13.046Z)
+2026-10-11 11:21:01  OK: 23 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 132 senales + 365 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 11:21:02  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 11:21:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 11:21:03  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 11:21:30  [cripto-rapido] Resuelta rapida btc-updown-15m-1791734400: DOWN -> won (0.13 USD)
+2026-10-11 11:21:30  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791734400: DOWN won (0.13 USD)
