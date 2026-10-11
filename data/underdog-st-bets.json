@@ -1137,9 +1137,11 @@
         "start":  "2026-10-11T17:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T14:31:20Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0395,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "nfl-cin-mia-2026-10-11-total-54pt5|0",
@@ -1370,9 +1372,10 @@
         "start":  "2026-10-11T18:15:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T15:46:00Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  3.1287,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "argpn-ddb-aca-2026-10-11-spread-home-1pt5|0",
@@ -1395,9 +1398,11 @@
         "start":  "2026-10-11T18:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:01:10Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0365,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "argpn-est-mor-2026-10-11-total-2pt5|0",
@@ -1420,9 +1425,11 @@
         "start":  "2026-10-11T18:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:01:10Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.036,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "fl1-tro-olm-2026-10-11-spread-away-1pt5|0",
@@ -1471,9 +1478,11 @@
         "start":  "2026-10-11T18:45:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:16:08Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.039,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "sea-cag-juv-2026-10-11-spread-away-1pt5|0",
@@ -1522,9 +1531,11 @@
         "start":  "2026-10-11T19:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:31:11Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0385,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "bra-cam-san-2026-10-11-spread-home-1pt5|0",
@@ -1547,9 +1558,11 @@
         "start":  "2026-10-11T19:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:31:11Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.039,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "lal-rrc-val-2026-10-11-spread-home-1pt5|0",
@@ -1598,9 +1611,11 @@
         "start":  "2026-10-11T19:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:31:11Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.04,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "argpn-ge-gyt-2026-10-11-total-3pt5|0",
@@ -1623,9 +1638,11 @@
         "start":  "2026-10-11T19:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:31:11Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  3.5065,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "argpn-alb-casm-2026-10-11-total-2pt5|0",
@@ -1648,9 +1665,11 @@
         "start":  "2026-10-11T18:30:00Z",
         "minBefore":  108,
         "placedAt":  "2026-10-11T16:41:41Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.035,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "por-aro-ama-2026-10-11-spread-home-1pt5|0",
@@ -1673,9 +1692,11 @@
         "start":  "2026-10-11T19:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T17:01:15Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.039,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "par1-rub-oli-2026-10-11-spread-away-1pt5|0",
@@ -1698,9 +1719,11 @@
         "start":  "2026-10-11T20:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T17:31:26Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.036,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "arg-ros-riv1-2026-10-11-total-3pt5|0",
@@ -1749,9 +1772,11 @@
         "start":  "2026-10-11T20:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T17:31:26Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.035,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "nfl-det-ari-2026-10-11-spread-home-3pt5|0",

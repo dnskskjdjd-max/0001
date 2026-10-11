@@ -11836,3 +11836,57 @@
 2026-10-11 17:26:18  [no-favoritos] Resuelta [mlx] arg-pla-aaj-2026-10-11-draw: 'Yes' -> won (1.91 USD)
 2026-10-11 17:26:19  [no-favoritos] Resuelta [st] gre1-oly-pan-2026-10-11-spread-home-1pt5: 'Olympiacos Piraeus' -> lost (-1.04 USD)
 2026-10-11 17:26:24  [no-favoritos] OK: 8 mercados principales en la ventana, 0 apuestas nuevas, 5 resueltas
+2026-10-11 17:27:01  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1791756900: DOWN $2 a 33c, modelo 43.2%, ventaja 8.7 pp
+2026-10-11 17:27:37  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791757500: UP $1 a 81c (paso los 73c), faltan 143 s
+2026-10-11 17:27:38  [cripto-5m] Filtro de mercado btc-updown-5m-1791757500: UP (tendencia 0.13%, volatilidad 28%)
+2026-10-11 17:30:27  [cripto] OK diario: BTC 83646, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 79 apuestas
+2026-10-11 17:30:32  --- inicio ---
+2026-10-11 17:30:55  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T22:30:10.407Z)
+2026-10-11 17:30:56  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791757800: DOWN $1 a 78c (paso los 73c), faltan 244 s
+2026-10-11 17:31:13  [cripto-5m] Resueltas rapida btc-updown-5m-1791757200: DOWN won, DOWN won (0.63 USD)
+2026-10-11 17:31:13  [cripto-5m] Resueltas al contrario btc-updown-5m-1791757200: DOWN won, DOWN won (0.63 USD)
+2026-10-11 17:31:13  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791757200: DOWN won, DOWN won (0.63 USD)
+2026-10-11 17:31:16  OK: 22 mercados >= 60, 8 >= 70, 0 senales nuevas, 2 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 147 senales + 385 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 17:31:19  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 17:31:19  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 17:31:19  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 17:32:03  [ligas] OK: 30 partidos en 10 dias, 30 con Vegas, 0 apuestas en el historial
+2026-10-11 17:32:10  [no-favoritos] Provisional [ml] uru1-juv-rcm-2026-10-11-draw: 'Yes' -> lost (-1.03 USD, por confirmar)
+2026-10-11 17:32:11  [no-favoritos] Provisional [ml] hun-gyo-pus-2026-10-11-pus: 'Yes' -> won (1.91 USD, por confirmar)
+2026-10-11 17:32:12  [no-favoritos] Provisional [ml] spl-sha-taa-2026-10-11-taa: 'Yes' -> lost (-1.03 USD, por confirmar)
+2026-10-11 17:32:12  [no-favoritos] Resuelta [ml] gre1-oly-pan-2026-10-11-draw: 'Yes' -> lost (-1.03 USD)
+2026-10-11 17:32:12  [no-favoritos] Provisional [ml] rou1-ffc-fpp-2026-10-11-draw: 'Yes' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:13  [no-favoritos] Provisional [ml] argpn-est-mor-2026-10-11-est: 'Yes' -> won (2.09 USD, por confirmar)
+2026-10-11 17:32:14  [no-favoritos] Provisional [ml] ecu1-ore-cue-2026-10-11-draw: 'Yes' -> won (2.30 USD, por confirmar)
+2026-10-11 17:32:15  [no-favoritos] Provisional [ml] argpn-ge-gyt-2026-10-11-gyt: 'Yes' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:15  [no-favoritos] Provisional [ml] argpn-cam-col-2026-10-11-col: 'Yes' -> lost (-1.03 USD, por confirmar)
+2026-10-11 17:32:16  [no-favoritos] Provisional [ml] bol1-pot-str-2026-10-11-str: 'Yes' -> lost (-1.03 USD, por confirmar)
+2026-10-11 17:32:17  [no-favoritos] Provisional [ml] argpn-mai-sma-2026-10-11-draw: 'Yes' -> won (2.09 USD, por confirmar)
+2026-10-11 17:32:19  [no-favoritos] Provisional [ml] par1-rub-oli-2026-10-11-rub: 'Yes' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] uru1-juv-rcm-2026-10-11-draw: 'Yes' -> lost (-1.03 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] hun-gyo-pus-2026-10-11-pus: 'Yes' -> won (1.91 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] spl-sha-taa-2026-10-11-taa: 'Yes' -> lost (-1.03 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Resuelta [mlx] gre1-oly-pan-2026-10-11-draw: 'Yes' -> lost (-1.03 USD)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] rou1-ffc-fpp-2026-10-11-draw: 'Yes' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] argpn-est-mor-2026-10-11-est: 'Yes' -> won (2.09 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] ecu1-ore-cue-2026-10-11-draw: 'Yes' -> won (2.30 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] argpn-ge-gyt-2026-10-11-gyt: 'Yes' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] argpn-cam-col-2026-10-11-col: 'Yes' -> lost (-1.03 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] bol1-pot-str-2026-10-11-str: 'Yes' -> lost (-1.03 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] argpn-mai-sma-2026-10-11-draw: 'Yes' -> won (2.09 USD, por confirmar)
+2026-10-11 17:32:20  [no-favoritos] Provisional [mlx] par1-rub-oli-2026-10-11-rub: 'Yes' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:21  [no-favoritos] Provisional [st] hun-gyo-pus-2026-10-11-spread-home-1pt5: 'WKW ETO FC Gyor' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:21  [no-favoritos] Resuelta [st] pol-leg-wis-2026-10-11-spread-home-1pt5: 'Legia Warszawa' -> won (3.13 USD)
+2026-10-11 17:32:22  [no-favoritos] Provisional [st] argpn-ddb-aca-2026-10-11-spread-home-1pt5: 'CA Defensores de Belgrano' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:23  [no-favoritos] Provisional [st] argpn-est-mor-2026-10-11-total-2pt5: 'Over' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:23  [no-favoritos] Provisional [st] ecu1-ore-cue-2026-10-11-spread-home-1pt5: 'Orense SC' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:24  [no-favoritos] Provisional [st] argpn-cat-chi-2026-10-11-spread-home-1pt5: 'CA Temperley' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:24  [no-favoritos] Provisional [st] bra-cam-san-2026-10-11-spread-home-1pt5: 'CA Mineiro' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:25  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791757800: DOWN $1 a 75c (paso los 73c), faltan 155 s
+2026-10-11 17:32:25  [no-favoritos] Provisional [st] argpn-cap-gue-2026-10-11-total-3pt5: 'Over' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:25  [no-favoritos] Provisional [st] argpn-ge-gyt-2026-10-11-total-3pt5: 'Over' -> won (3.51 USD, por confirmar)
+2026-10-11 17:32:26  [no-favoritos] Provisional [st] argpn-alb-casm-2026-10-11-total-2pt5: 'Over' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:27  [no-favoritos] Provisional [st] por-aro-ama-2026-10-11-spread-home-1pt5: 'FC Arouca' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:27  [no-favoritos] Provisional [st] par1-rub-oli-2026-10-11-spread-away-1pt5: 'Club Olimpia' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:28  [no-favoritos] Provisional [st] argpn-ccn-fco-2026-10-11-total-2pt5: 'Over' -> lost (-1.04 USD, por confirmar)
+2026-10-11 17:32:30  [no-favoritos] OK: 9 mercados principales en la ventana, 0 apuestas nuevas, 37 resueltas

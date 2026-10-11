@@ -317,10 +317,12 @@
         "start":  "2026-10-11T14:00:00Z",
         "minBefore":  101,
         "placedAt":  "2026-10-11T12:18:38Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0345,
         "version":  1,
-        "copiedFrom":  "ml"
+        "copiedFrom":  "ml",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "hun-hon-ujp-2026-10-11-draw|0",
@@ -874,9 +876,11 @@
         "start":  "2026-10-11T17:00:00Z",
         "minBefore":  138,
         "placedAt":  "2026-10-11T14:41:55Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.9082,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "isr-rgg-bei-2026-10-11-draw|0",
@@ -951,9 +955,11 @@
         "start":  "2026-10-11T18:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T15:31:07Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0335,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "gre1-oly-pan-2026-10-11-draw|0",
@@ -976,9 +982,10 @@
         "start":  "2026-10-11T18:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T15:31:07Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0345,
+        "version":  1,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "rou1-ffc-fpp-2026-10-11-draw|0",
@@ -1001,9 +1008,11 @@
         "start":  "2026-10-11T18:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T15:31:07Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.037,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "argpn-atl-smt-2026-10-11-smt|0",
@@ -1052,9 +1061,11 @@
         "start":  "2026-10-11T18:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:01:10Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.091,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "ecu1-ore-cue-2026-10-11-draw|0",
@@ -1077,9 +1088,11 @@
         "start":  "2026-10-11T18:45:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:16:08Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.2983,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "argpn-ge-gyt-2026-10-11-gyt|0",
@@ -1102,9 +1115,11 @@
         "start":  "2026-10-11T19:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:31:11Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0385,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "argpn-cam-col-2026-10-11-col|0",
@@ -1127,9 +1142,11 @@
         "start":  "2026-10-11T19:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T16:31:11Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0335,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "bol1-pot-str-2026-10-11-str|0",
@@ -1152,9 +1169,11 @@
         "start":  "2026-10-11T19:00:00Z",
         "minBefore":  144,
         "placedAt":  "2026-10-11T16:36:03Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0325,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "arg-pla-aaj-2026-10-11-draw|0",
@@ -1203,9 +1222,11 @@
         "start":  "2026-10-11T20:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T17:31:26Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.091,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "mar1-wac-com-2026-10-11-draw|0",
@@ -1253,9 +1274,11 @@
         "start":  "2026-10-11T20:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T17:31:26Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.039,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
         "id":  "nfl-det-ari-2026-10-11|1",
