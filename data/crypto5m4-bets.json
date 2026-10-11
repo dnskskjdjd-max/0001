@@ -3625,10 +3625,11 @@
         "askUp":  0.55,
         "askDown":  0.46,
         "placedAt":  "2026-10-11T15:12:00Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0371,
         "version":  8,
-        "flipped":  false
+        "flipped":  false,
+        "resolvedAt":  "2026-10-11T15:20:21Z"
     },
     {
         "id":  "btc-updown-5m-1791731700|UP",
