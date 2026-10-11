@@ -11906,3 +11906,18 @@
 2026-10-11 17:36:14  [cripto-5m] Resueltas al contrario btc-updown-5m-1791757500: UP won (0.22 USD)
 2026-10-11 17:36:14  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791757500: UP won (0.22 USD)
 2026-10-11 17:36:14  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791757500: UP won (0.22 USD)
+2026-10-11 17:36:54  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791758100: UP $1 a 74c (paso los 73c), faltan 186 s
+2026-10-11 17:36:55  [cripto-5m] Filtro de mercado btc-updown-5m-1791758100: UP (tendencia 0.12%, volatilidad 17%)
+2026-10-11 17:38:07  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791758100: UP $1 a 74c (paso los 73c), faltan 113 s
+2026-10-11 17:38:07  [cripto-5m] Filtro de mercado btc-updown-5m-1791758100: UP (tendencia 0.08%, volatilidad 16%)
+2026-10-11 17:40:12  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791758400: DOWN $1 a 77c (paso los 73c), faltan 289 s
+2026-10-11 17:40:25  [cripto] OK diario: BTC 83655, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 80 apuestas
+2026-10-11 17:40:30  --- inicio ---
+2026-10-11 17:40:41  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T22:30:10.407Z)
+2026-10-11 17:40:47  OK: 22 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 147 senales + 385 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 17:40:49  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 17:40:49  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 17:40:49  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 17:41:14  [no-favoritos] Provisional [st] bra-pal-cor1-2026-10-11-spread-home-1pt5: 'SE Palmeiras' -> won (2.00 USD, por confirmar)
+2026-10-11 17:41:15  [no-favoritos] Provisional [st] bra-fla-flu-2026-10-11-total-1pt5: 'Under' -> won (3.31 USD, por confirmar)
+2026-10-11 17:41:15  [no-favoritos] OK: 9 mercados principales en la ventana, 0 apuestas nuevas, 2 resueltas

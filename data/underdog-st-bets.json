@@ -1401,7 +1401,6 @@
         "status":  "lost",
         "pnl":  -1.0365,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
@@ -1428,7 +1427,6 @@
         "status":  "lost",
         "pnl":  -1.036,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
@@ -1849,9 +1847,11 @@
         "start":  "2026-10-11T20:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T18:01:17Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.9968,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:40:50Z"
     },
     {
         "id":  "bra-fla-flu-2026-10-11-total-1pt5|1",
@@ -1874,9 +1874,11 @@
         "start":  "2026-10-11T20:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T18:01:17Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  3.3093,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T22:40:50Z"
     },
     {
         "id":  "uru1-esp-nac-2026-10-11-spread-away-1pt5|0",
