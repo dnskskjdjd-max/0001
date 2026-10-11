@@ -77,7 +77,8 @@ function New-Window([long]$winStart) {
     $slug = "$($Prof.slug)$winStart"
     $m = @(Get-CJson "https://gamma-api.polymarket.com/markets?slug=$slug" | ForEach-Object { $_ }) | Select-Object -First 1
     $nw = @{ W = $winStart; slug = $slug; up = $null; down = $null; pre = New-Object System.Collections.Generic.List[double]
-        closes = New-Object System.Collections.Generic.List[double]; lastMs = $null; S0 = $null; checks = [ordered]@{}; slotsDone = [ordered]@{}; pm = New-Object System.Collections.Generic.List[double[]] }
+        closes = New-Object System.Collections.Generic.List[double]; lastMs = $null; S0 = $null; checks = [ordered]@{}; slotsDone = [ordered]@{}; pm = New-Object System.Collections.Generic.List[double[]]
+        lagDiag = @{ maxZ = $null; maxPm = 0.0; pmYaSeMovio = 0; sinPrecioPrevio = 0; precioFuera = 0 } }
     if ($m) {
         $tok = (Get-JArr $m.clobTokenIds); $outs = (Get-JArr $m.outcomes)
         $iu = [array]::IndexOf($outs, 'Up'); if ($iu -lt 0) { $iu = 0 }
@@ -146,6 +147,11 @@ function Close-Window($w) {
     }
     $b = $bets | Where-Object { $_.W -eq $w.W } | Select-Object -First 1
     if ($b) { $rec.bet = $b.side }
+    # Diagnostico de "retraso": hubo salto de BTC pero no se aposto -> por que
+    if ($w.lagDiag -and $null -ne $w.lagDiag.maxZ -and -not ($betsLag | Where-Object { $_.W -eq $w.W })) {
+        $d = $w.lagDiag; $rec.lagDiag = $d
+        Log "Retraso sin apuesta $($w.slug): salto max z=$($d.maxZ); Polymarket ya se habia movido $($d.pmYaSeMovio) veces (hasta $([Math]::Round([double]$d.maxPm * 100, 1))c), sin precio previo $($d.sinPrecioPrevio), precio fuera de rango $($d.precioFuera)"
+    }
     [void]$wins.Add([pscustomobject]$rec)
     while ($wins.Count -gt 3000) { $wins.RemoveAt(0) }
     Write-CFileAtomic $WinFile (ConvertTo-Json -InputObject @($wins) -Depth 6 -Compress)
@@ -393,12 +399,19 @@ try {
                             $S = $cur.closes[$n - 1]; $Sl = $cur.closes[$n - 1 - $lk]
                             $z = [Math]::Log($S / $Sl) / ($volLag / [Math]::Sqrt($CSecPerYear) * [Math]::Sqrt($lk))
                             $midThen = $null; for ($i = $cur.pm.Count - 1; $i -ge 0; $i--) { if ($cur.pm[$i][0] -le $el - $lk) { $midThen = $cur.pm[$i][1]; break } }
+                            # Diagnostico: cuando hay salto pero no se apuesta, se cuenta el motivo (se anota al cerrar la ventana)
+                            if ([Math]::Abs($z) -ge [double]$FL.z) {
+                                if ([Math]::Abs($z) -gt [Math]::Abs([double]$cur.lagDiag.maxZ)) { $cur.lagDiag.maxZ = [Math]::Round($z, 2) }
+                                if ($null -eq $midThen) { $cur.lagDiag.sinPrecioPrevio++ }
+                            }
                             if ([Math]::Abs($z) -ge [double]$FL.z -and $null -ne $midThen) {
                                 $sideL = if ($z -gt 0) { 'UP' } else { 'DOWN' }
                                 $pmMove = if ($sideL -eq 'UP') { $mid - $midThen } else { $midThen - $mid }
                                 $bkL = if ($sideL -eq 'UP') { $bu } else { $bd }
+                                if ($pmMove -gt [double]$FL.maxPmMove) { $cur.lagDiag.pmYaSeMovio++; if ($pmMove -gt [double]$cur.lagDiag.maxPm) { $cur.lagDiag.maxPm = [Math]::Round($pmMove, 3) } }
                                 if ($pmMove -le [double]$FL.maxPmMove -and $bkL -and $bkL.asks.Count) {
                                     $fillL = Get-FillPrice $bkL.asks ([double]$FL.stake)
+                                    if ($null -eq $fillL -or $fillL -lt [double]$FL.minPrice -or $fillL -gt [double]$FL.maxPrice) { $cur.lagDiag.precioFuera++ }
                                     if ($null -ne $fillL -and $fillL -ge [double]$FL.minPrice -and $fillL -le [double]$FL.maxPrice) {
                                         $shL = [double]$FL.stake / $fillL
                                         $betL = [pscustomobject]@{ id = "$($cur.slug)|$sideL"; W = $cur.W; slug = $cur.slug; side = $sideL; token = $(if ($sideL -eq 'UP') { $cur.up } else { $cur.down })
