@@ -11155,3 +11155,19 @@
 2026-10-11 13:36:53  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791742500: 6 min DOWN lost, 3 min DOWN lost (-4.23 USD)
 2026-10-11 13:36:53  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791742500: DOWN lost (-1.05 USD)
 2026-10-11 13:36:54  [no-favoritos] OK: 21 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
+2026-10-11 13:37:01  [cripto-5m] Apuesta rapida btc-updown-5m-1791743700: DOWN $2 a 32c, modelo 45.3%, ventaja 11.8 pp, faltan 180 s
+2026-10-11 13:37:01  [cripto-5m] Filtro de mercado btc-updown-5m-1791743700: DOWN (tendencia -0.02%, volatilidad 13%)
+2026-10-11 13:39:01  [cripto-rapido] Apuesta 3 tramos (6 min) btc-updown-15m-1791743400: UP $2 a 29c, modelo 40.4%, ventaja 10 pp
+2026-10-11 13:40:28  [cripto] OK diario: BTC 83836, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 68 apuestas
+2026-10-11 13:40:39  --- inicio ---
+2026-10-11 13:41:13  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-11T18:36:13.930Z)
+2026-10-11 13:41:26  OK: 22 mercados >= 60, 8 >= 70, 0 senales nuevas, 2 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 135 senales + 374 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 13:41:29  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 13:41:30  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 13:41:30  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 13:42:00  [cripto-5m] Resuelta rapida btc-updown-5m-1791743400: UP -> lost (-3.16 USD)
+2026-10-11 13:42:00  [cripto-5m] Resueltas al contrario btc-updown-5m-1791743400: UP lost (-3.16 USD)
+2026-10-11 13:42:00  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791743400: UP lost (-3.16 USD)
+2026-10-11 13:42:02  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1791743400: UP $3 a 26c, modelo 50.4%, ventaja 23 pp
+2026-10-11 13:42:08  [cripto-5m] Apuesta rapida btc-updown-5m-1791744000: DOWN $1 a 24c, modelo 30.8%, ventaja 5.5 pp, faltan 173 s
+2026-10-11 13:42:27  [ligas] OK: 31 partidos en 10 dias, 31 con Vegas, 0 apuestas en el historial
