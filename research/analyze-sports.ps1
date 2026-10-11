@@ -3,8 +3,13 @@
 param([double]$TrainFrac = 0.67, [int]$MinN = 60, [int]$Top = 25)
 $ErrorActionPreference = 'Stop'
 if (-not ('Fsp.Eng' -as [type])) { Add-Type -Path (Join-Path $PSScriptRoot 'SportsEngine.cs') -ReferencedAssemblies System.Core }
-$all = [Fsp.Eng]::Load((Join-Path $PSScriptRoot 'data\sports'))
-"Mercados: $($all.Count)"
+$raw = [Fsp.Eng]::Load((Join-Path $PSScriptRoot 'data\sports'))
+# Solo el mercado principal de cada tipo por partido (el de mas volumen): las lineas alternativas del mismo partido
+# (spread -3.5, -4.5, -5.5...) se mueven juntas y una sola sorpresa contaria como muchos aciertos
+$all = New-Object 'System.Collections.Generic.List[Fsp.Mk]'
+foreach ($g in ($raw | Group-Object { "$($_.Ev)|$($_.Type)" })) { $all.Add(($g.Group | Sort-Object Vol -Descending | Select-Object -First 1)) }
+$all = [System.Collections.Generic.List[Fsp.Mk]]@($all | Sort-Object Start)
+"Mercados: $($raw.Count) descargados -> $($all.Count) principales (uno por tipo y partido) de $(@($all | Select-Object -ExpandProperty Ev -Unique).Count) partidos"
 $all | Group-Object League | ForEach-Object { '  {0,-18} {1,5} mercados ({2})' -f $_.Name, $_.Count, (($_.Group | Group-Object Type | ForEach-Object { "$($_.Name) $($_.Count)" }) -join ', ') }
 $cut = $all[[int]($all.Count * $TrainFrac)].Start
 $train = New-Object 'System.Collections.Generic.List[Fsp.Mk]'; $test = New-Object 'System.Collections.Generic.List[Fsp.Mk]'

@@ -27,6 +27,7 @@ try {
     & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'tracker.ps1') | Out-Null
     & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'copier.ps1') | Out-Null
     & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'leagues.ps1') | Out-Null   # cada 15 min (se controla solo)
+    & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'underdogs.ps1') | Out-Null   # No favoritos (deportes)
 
     & $GitExe add data 2>&1 | Out-Null
     & $GitExe diff --cached --quiet 2>&1 | Out-Null

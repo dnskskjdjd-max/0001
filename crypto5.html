@@ -117,7 +117,7 @@ function renderTabs() {
   const icons = { 'NFL': '🏈', 'Fútbol': '⚽', 'Economía / Fed': '🏦' };
   $('tabs').innerHTML = `<a href="dashboard.html">🔥 Fire Score</a>` + (window.COPIERS || []).map(c =>
     `<a href="copy.html?c=${encodeURIComponent(c.id)}">${icons[c.category] || '📋'} ${esc(c.title || c.id)}</a>`).join('') +
-    `<a href="leagues.html">🏆 LaLiga · Champions</a><a href="crypto.html">₿ Bitcoin</a><a class="active" href="crypto5.html">⚡ BTC 5 min</a>`;
+    `<a href="leagues.html">🏆 LaLiga · Champions</a><a href="crypto.html">₿ Bitcoin</a><a class="active" href="crypto5.html">⚡ BTC 5 min</a><a href="underdogs.html">🐶 No favoritos</a>`;
 }
 function stats(B) {
   const closed = B.filter(b => b.status === 'won' || b.status === 'lost'), open = B.filter(b => b.status === 'open');

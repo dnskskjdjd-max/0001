@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "desde": "2026-10-11",
+  "nota": "Estrategias propias (sin FirePolymarket), en simulacion. Investigacion con 60 dias de partidos (research/analyze-sports.ps1): en Polymarket los favoritos deportivos parecen sobrevalorados y los no favoritos de 20-35c ganaron mas de lo que indicaba su precio.",
+  "criterio": "Tras ~150 apuestas resueltas en cada estrategia: si la ganancia es menor a +3% (con precios reales del libro), se descarta.",
+  "lo": 0.20,
+  "hi": 0.35,
+  "minBefore": 90,
+  "maxBefore": 150,
+  "stake": 1,
+  "strategies": [
+    { "id": "ml", "title": "No favorito líquido (ganador)", "types": ["moneyline"], "leagues": ["tennis", "soccer", "ufc", "nfl"],
+      "nota": "Mercado de ganador (el mas liquido). En la investigacion: tenis +8%, futbol +14%, UFC +17%, NFL +18%; se excluyen NHL, MLB y WNBA (negativas)." },
+    { "id": "st", "title": "No favorito en spreads y totales", "types": ["spreads", "totals"], "leagues": ["nfl", "cfb", "mlb", "nba", "nhl", "wnba", "soccer", "ufc"],
+      "nota": "En la investigacion dio +26% (spreads) y +77% (totales), pero casi siempre en mercados de poco volumen: puede ser un espejismo del precio historico. Esta prueba lo comprueba con el precio real del libro." }
+  ],
+  "prefixes": {
+    "tennis": ["atp", "itf", "wta"],
+    "ufc": ["ufc"], "nfl": ["nfl"], "cfb": ["cfb"], "mlb": ["mlb"], "nba": ["nba"], "nhl": ["nhl"], "wnba": ["wnba"],
+    "soccer": ["arg", "argpn", "auc", "aut", "bel1", "bl2", "bol1", "bra", "bra3", "bun", "canpl", "chi", "chi1", "chi2", "col1", "cze1", "den", "ecu1", "el1", "el2", "elc", "enl", "epl", "ere", "es2", "fin1", "fl1", "fr2", "gre1", "hr1", "hun", "idn1", "idn2", "irl1", "isp", "isr", "itsb", "ja2", "jap", "kaz1", "kor", "lal", "lva1", "mar1", "mex", "mex2", "mls", "ned2", "nor", "par1", "per1", "pol", "por", "qat1", "rou1", "rus", "scop", "sea", "slo", "spl", "srb", "sui", "svk1", "swe", "swe2", "tha1", "tur", "tur2", "uru1", "uslc", "wwcquefa", "ucl", "uel", "uecl"]
+  }
+}
