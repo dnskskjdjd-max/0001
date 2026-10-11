@@ -2425,10 +2425,11 @@
         "askUp":  0.87,
         "askDown":  0.14,
         "placedAt":  "2026-10-11T18:57:06Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.128,
         "version":  8,
-        "flipped":  false
+        "flipped":  false,
+        "resolvedAt":  "2026-10-11T19:05:52Z"
     },
     {
         "id":  "btc-updown-5m-1791745200|UP",
