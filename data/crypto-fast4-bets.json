@@ -2087,11 +2087,13 @@
         "askUp":  0.2,
         "askDown":  0.81,
         "placedAt":  "2026-10-11T20:20:23Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2069,
         "version":  9,
         "flipped":  true,
         "origSide":  "UP",
-        "origP":  0.286
+        "origP":  0.286,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-11T20:30:01Z"
     }
 ]
