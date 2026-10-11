@@ -752,9 +752,9 @@
         "tauH":  19.41,
         "placedAt":  "2026-10-10T20:35:21Z",
         "end":  "2026-10-11T16:00:00Z",
-        "status":  "open",
+        "status":  "lost",
         "curPrice":  0,
-        "pnl":  null,
+        "pnl":  -3.1974,
         "version":  6,
         "curPriceAt":  "2026-10-11T15:59:20Z",
         "curP":  0,
@@ -862,7 +862,8 @@
                          "p":  0,
                          "S":  83136
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-11T16:18:20Z"
     },
     {
         "id":  "bitcoin-above-84k-on-october-11-2026|YES",
@@ -881,9 +882,9 @@
         "tauH":  19.38,
         "placedAt":  "2026-10-10T20:37:00Z",
         "end":  "2026-10-11T16:00:00Z",
-        "status":  "open",
-        "curPrice":  null,
-        "pnl":  null,
+        "status":  "lost",
+        "curPrice":  0,
+        "pnl":  -3.1911,
         "version":  6,
         "curPriceAt":  "2026-10-11T15:59:20Z",
         "curP":  0.0084,
@@ -991,7 +992,8 @@
                          "p":  0.0008,
                          "S":  83136
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-11T16:18:20Z"
     },
     {
         "id":  "bitcoin-above-82k-on-october-12-2026|YES",
@@ -1021,9 +1023,9 @@
                      "edge":  0.0826,
                      "side":  "NO"
                  },
-        "curPriceAt":  "2026-10-11T16:17:20Z",
-        "curP":  0.8692,
-        "curSpot":  83826.21,
+        "curPriceAt":  "2026-10-11T16:18:20Z",
+        "curP":  0.863,
+        "curSpot":  83779.05,
         "hist":  [
                      {
                          "t":  "2026-10-11T10:00:20Z",
@@ -1091,9 +1093,9 @@
                      "edge":  0.0719,
                      "side":  "YES"
                  },
-        "curPriceAt":  "2026-10-11T16:17:20Z",
-        "curP":  0.5463,
-        "curSpot":  83826.21,
+        "curPriceAt":  "2026-10-11T16:18:20Z",
+        "curP":  0.5577,
+        "curSpot":  83779.05,
         "hist":  [
                      {
                          "t":  "2026-10-11T10:01:20Z",
@@ -1161,9 +1163,9 @@
                      "edge":  0.0291,
                      "side":  "YES"
                  },
-        "curPriceAt":  "2026-10-11T16:17:20Z",
-        "curP":  0.9076,
-        "curSpot":  83826.21,
+        "curPriceAt":  "2026-10-11T16:18:20Z",
+        "curP":  0.9123,
+        "curSpot":  83779.05,
         "hist":  [
                      {
                          "t":  "2026-10-11T16:04:20Z",
