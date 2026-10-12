@@ -162,8 +162,10 @@
         "p":  null,
         "edge":  null,
         "placedAt":  "2026-10-12T00:25:54Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  9
+        "status":  "won",
+        "pnl":  0.2213,
+        "version":  9,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T00:30:02Z"
     }
 ]
