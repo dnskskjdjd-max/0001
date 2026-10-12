@@ -2777,13 +2777,15 @@
         "askUp":  0.73,
         "askDown":  0.28,
         "placedAt":  "2026-10-12T04:46:36Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0182,
         "version":  9,
         "n":  2,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  0.723,
-        "vol30":  0.2783
+        "vol30":  0.2783,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T04:50:01Z"
     }
 ]
