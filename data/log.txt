@@ -12676,3 +12676,15 @@
 2026-10-11 21:32:09  [no-favoritos] Provisional [mlx] arg-tal-ind-2026-10-11-draw: 'Yes' -> won (2.19 USD, por confirmar)
 2026-10-11 21:32:14  [no-favoritos] Provisional [st] arg-tal-ind-2026-10-11-spread-home-1pt5: 'CA Talleres' -> lost (-1.04 USD, por confirmar)
 2026-10-11 21:32:15  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 3 resueltas
+2026-10-11 21:32:53  [cripto-rapido] Resueltas rapida btc-updown-15m-1791771300: DOWN lost (-1.05 USD)
+2026-10-11 21:32:53  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791771300: 3 min DOWN lost (-1.06 USD)
+2026-10-11 21:32:53  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791771300: DOWN lost (-1.05 USD)
+2026-10-11 21:35:20  [cripto-rapido] Apuesta rapida btc-updown-15m-1791772200: DOWN $1 a 24c, modelo 32.7%, ventaja 7.5 pp, faltan 581 s
+2026-10-11 21:35:25  [cripto] OK diario: BTC 83942, vol 37.5%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 96 apuestas
+2026-10-11 21:35:30  --- inicio ---
+2026-10-11 21:35:37  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791772500: DOWN $1 a 74c (paso los 73c), faltan 264 s
+2026-10-11 21:35:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-12T02:27:21.779Z)
+2026-10-11 21:36:01  OK: 20 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 151 senales + 388 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 21:36:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 21:36:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 21:36:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
