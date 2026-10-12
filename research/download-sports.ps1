@@ -1,16 +1,20 @@
 # Descarga partidos deportivos ya resueltos de Polymarket para investigar estrategias propias (sin FirePolymarket).
 # Por cada mercado principal (ganador, spread, total) guarda: liga, tipo, linea, hora de inicio, comision, volumen,
 # resultado y el precio del primer resultado en las 48 h previas al inicio (cada 10 min, historial de precios de la CLOB).
-# Salida: research/data/sports/<liga><Part>.jsonl (una linea por mercado). Se puede cortar y volver a correr.
+# Salida: research/data/<OutName>/<liga><Part>.jsonl (una linea por mercado). Se puede cortar y volver a correr.
 # La API de eventos no pasa de ~2100 resultados por consulta (offset): se recorre por tramos de fecha de cierre
 # (ChunkHours) y un tramo que llega al tope se divide en dos. Para ir mas rapido se puede repartir el periodo entre
 # varios procesos con -FromDay/-Days/-Part (por ejemplo dias 0-15 en "-a", 15-30 en "-b"); cada uno escribe su archivo.
+# OJO (11 oct): el volumen de Gamma es el FINAL (incluye lo operado durante el partido). Filtrar o elegir mercados por
+# ese volumen mete informacion del futuro: los mercados que se pusieron interesantes en el partido juntan mas volumen.
+# Por eso ahora no se filtra (MinVolume 0) y la salida va a data/sports2; data/sports (con filtro de $5000) queda como
+# registro del analisis sesgado. El volumen se guarda solo como dato, no se debe usar para elegir apuestas.
 param([string]$League = 'nfl', [int]$Days = 60, [int]$FromDay = 0, [double]$ChunkHours = 24, [string]$Part = '',
-    [int]$MaxDays = 60, [double]$MinVolume = 5000)
+    [int]$MaxDays = 60, [double]$MinVolume = 0, [string]$OutName = 'sports2')
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$Out = Join-Path $PSScriptRoot 'data\sports'; New-Item -ItemType Directory -Force $Out | Out-Null
+$Out = Join-Path $PSScriptRoot "data\$OutName"; New-Item -ItemType Directory -Force $Out | Out-Null
 $Utf8 = New-Object System.Text.UTF8Encoding $false
 $Inv = [Globalization.CultureInfo]::InvariantCulture
 $LogFile = Join-Path $Out "download-$League$Part.log"
