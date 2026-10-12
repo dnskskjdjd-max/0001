@@ -2153,7 +2153,6 @@
         "status":  "lost",
         "pnl":  -1.0345,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T03:21:10Z"
     }
 ]

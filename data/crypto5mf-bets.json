@@ -2167,13 +2167,14 @@
         "askUp":  0.28,
         "askDown":  0.73,
         "placedAt":  "2026-10-12T03:26:55Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.3332,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  -0.242,
-        "vol30":  0.1904
+        "vol30":  0.1904,
+        "resolvedAt":  "2026-10-12T03:36:03Z"
     }
 ]
