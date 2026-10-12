@@ -1219,7 +1219,6 @@
         "status":  "won",
         "pnl":  2.2983,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T22:46:45Z"
     },
     {
@@ -1295,9 +1294,11 @@
         "start":  "2026-10-11T22:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T20:01:16Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.04,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T00:47:04Z"
     },
     {
         "id":  "chi1-cdl-cdp-2026-10-11-cdp|0",
