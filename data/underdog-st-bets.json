@@ -1140,7 +1140,6 @@
         "status":  "lost",
         "pnl":  -1.0395,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
@@ -1557,7 +1556,6 @@
         "status":  "lost",
         "pnl":  -1.039,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T22:32:04Z"
     },
     {
@@ -1925,9 +1923,11 @@
         "start":  "2026-10-11T22:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T19:31:13Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.039,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T00:02:05Z"
     },
     {
         "id":  "arg-rac-bel-2026-10-11-total-1pt5|1",
