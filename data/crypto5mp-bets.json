@@ -3415,11 +3415,13 @@
         "askUp":  0.76,
         "askDown":  0.25,
         "placedAt":  "2026-10-12T02:30:33Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2826,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T02:35:00Z"
     }
 ]
