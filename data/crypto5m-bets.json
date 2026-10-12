@@ -4893,10 +4893,12 @@
         "askUp":  0.76,
         "askDown":  0.27,
         "placedAt":  "2026-10-12T04:30:24Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2826,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T04:35:01Z"
     }
 ]
