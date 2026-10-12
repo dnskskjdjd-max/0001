@@ -2078,9 +2078,11 @@
         "start":  "2026-10-11T23:10:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T20:41:10Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.034,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T01:21:05Z"
     },
     {
         "id":  "nfl-bal-atl-2026-10-12-spread-away-3pt5|0",

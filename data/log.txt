@@ -12457,3 +12457,17 @@
 2026-10-11 20:16:31  [no-favoritos] Provisional [ml] mls-stl-lag-2026-10-11-stl: 'No' -> lost (-1.03 USD, por confirmar)
 2026-10-11 20:16:31  [no-favoritos] Provisional [mlx] mls-stl-lag-2026-10-11-stl: 'No' -> lost (-1.03 USD, por confirmar)
 2026-10-11 20:16:36  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 2 resueltas
+2026-10-11 20:20:14  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791768000: DOWN $1 a 76c (paso los 73c), faltan 286 s
+2026-10-11 20:20:18  [cripto-5m] Resueltas rapida btc-updown-5m-1791767400: DOWN lost, DOWN lost (-2.04 USD)
+2026-10-11 20:20:18  [cripto-5m] Resueltas al contrario btc-updown-5m-1791767400: DOWN lost, DOWN lost (-2.04 USD)
+2026-10-11 20:20:18  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791767400: DOWN lost, DOWN lost (-2.04 USD)
+2026-10-11 20:20:18  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791767400: DOWN lost, DOWN lost (-2.04 USD)
+2026-10-11 20:20:26  [cripto] OK diario: BTC 83896, vol 37.6%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 90 apuestas
+2026-10-11 20:20:31  --- inicio ---
+2026-10-11 20:20:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-12T01:15:13.054Z)
+2026-10-11 20:21:01  OK: 20 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 151 senales + 387 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 20:21:03  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 20:21:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 20:21:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 20:21:13  [no-favoritos] Provisional [st] mex-pac-nec-2026-10-11-spread-home-1pt5: 'CF Pachuca' -> lost (-1.03 USD, por confirmar)
+2026-10-11 20:21:14  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
