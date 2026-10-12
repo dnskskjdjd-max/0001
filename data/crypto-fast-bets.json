@@ -2454,7 +2454,6 @@
         "status":  "won",
         "pnl":  0.4276,
         "version":  9,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T01:30:00Z"
     }
 ]
