@@ -12898,3 +12898,24 @@
 2026-10-11 22:41:12  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791775800: UP won, UP won (0.52 USD)
 2026-10-11 22:41:19  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791776400: DOWN $1 a 75c (paso los 73c), faltan 221 s
 2026-10-11 22:41:21  [cripto-5m] Filtro de mercado btc-updown-5m-1791776400: DOWN (tendencia -0.12%, volatilidad 17%)
+2026-10-11 22:43:07  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791776400: DOWN $1 a 76c (paso los 73c), faltan 113 s
+2026-10-11 22:43:08  [cripto-5m] Filtro de mercado btc-updown-5m-1791776400: DOWN (tendencia -0.12%, volatilidad 17%)
+2026-10-11 22:45:35  [cripto] OK diario: BTC 83604, vol 37.8%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 99 apuestas
+2026-10-11 22:45:37  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791776700: UP $1 a 75c (paso los 73c), faltan 264 s
+2026-10-11 22:45:44  --- inicio ---
+2026-10-11 22:45:56  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791776700: UP $1 a 74c (paso los 73c), faltan 244 s
+2026-10-11 22:46:09  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-12T03:36:09.052Z)
+2026-10-11 22:46:10  [cripto-5m] Resueltas rapida btc-updown-5m-1791776100: DOWN won (0.27 USD)
+2026-10-11 22:46:10  [cripto-5m] Resueltas al contrario btc-updown-5m-1791776100: DOWN won (0.27 USD)
+2026-10-11 22:46:10  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791776100: DOWN won (0.27 USD)
+2026-10-11 22:46:10  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791776100: DOWN won (0.27 USD)
+2026-10-11 22:46:26  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 151 senales + 389 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 22:46:39  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 22:46:40  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 22:46:40  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 22:49:06  [ligas] Cuotas: tope diario alcanzado (14 consultas)
+2026-10-11 22:49:31  [cripto-rapido] Resueltas rapida btc-updown-15m-1791775800: DOWN won (1.14 USD)
+2026-10-11 22:49:31  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791775800: DOWN won (1.14 USD)
+2026-10-11 22:49:36  [ligas] OK: 30 partidos en 10 dias, 30 con Vegas, 0 apuestas en el historial
+2026-10-11 22:49:47  [no-favoritos] Provisional [st] nfl-bal-atl-2026-10-12-spread-away-3pt5: 'Ravens' -> won (2.55 USD, por confirmar)
+2026-10-11 22:49:47  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas

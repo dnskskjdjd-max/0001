@@ -2099,9 +2099,11 @@
         "start":  "2026-10-12T00:20:00Z",
         "minBefore":  126,
         "placedAt":  "2026-10-11T22:14:02Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.5498,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T03:49:37Z"
     },
     {
         "id":  "arg-tal-ind-2026-10-11-spread-home-1pt5|0",
