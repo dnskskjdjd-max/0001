@@ -1887,7 +1887,6 @@
         "flipped":  false,
         "trend30":  -0.157,
         "vol30":  0.2748,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T02:55:00Z"
     },
     {
@@ -1920,7 +1919,6 @@
         "flipped":  false,
         "trend30":  -0.065,
         "vol30":  0.2759,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T02:55:00Z"
     },
     {
