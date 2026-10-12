@@ -1981,9 +1981,11 @@
         "askUp":  0.92,
         "askDown":  0.09,
         "placedAt":  "2026-10-12T02:27:01Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.063,
         "version":  9,
-        "tramo":  3
+        "tramo":  3,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T02:30:02Z"
     }
 ]
