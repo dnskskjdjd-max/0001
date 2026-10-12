@@ -1869,7 +1869,6 @@
         "status":  "won",
         "pnl":  3.3093,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T22:40:50Z"
     },
     {
@@ -1999,9 +1998,11 @@
         "start":  "2026-10-11T22:30:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T20:01:16Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.037,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T00:41:08Z"
     },
     {
         "id":  "bra-bah-mir-2026-10-11-spread-home-1pt5|0",

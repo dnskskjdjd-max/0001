@@ -2544,11 +2544,12 @@
         "askUp":  0.23,
         "askDown":  0.78,
         "placedAt":  "2026-10-12T00:30:08Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0147,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "resolvedAt":  "2026-10-12T00:41:04Z"
     },
     {
         "id":  "btc-updown-5m-1791765000|2",
@@ -2572,11 +2573,12 @@
         "askUp":  0.16,
         "askDown":  0.85,
         "placedAt":  "2026-10-12T00:30:27Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0098,
         "version":  9,
         "n":  2,
-        "rule":  "cross"
+        "rule":  "cross",
+        "resolvedAt":  "2026-10-12T00:41:04Z"
     },
     {
         "id":  "btc-updown-5m-1791765300|1",
