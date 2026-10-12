@@ -12419,3 +12419,22 @@
 2026-10-11 20:06:11  [no-favoritos] Provisional [mlx] chi1-cdl-cdp-2026-10-11-cdp: 'Yes' -> lost (-1.03 USD, por confirmar)
 2026-10-11 20:06:14  [no-favoritos] Provisional [st] mex-asl-san-2026-10-11-spread-home-1pt5: 'Atlético San Luis' -> lost (-1.04 USD, por confirmar)
 2026-10-11 20:06:14  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 3 resueltas
+2026-10-11 20:10:15  [cripto-5m] Resueltas rapida btc-updown-5m-1791766800: UP won, UP won (0.61 USD)
+2026-10-11 20:10:15  [cripto-5m] Resueltas al contrario btc-updown-5m-1791766800: UP won, UP won (0.61 USD)
+2026-10-11 20:10:15  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791766800: UP won, UP won (0.61 USD)
+2026-10-11 20:10:15  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791766800: UP won, UP won (0.61 USD)
+2026-10-11 20:10:25  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791767400: DOWN $1 a 76c (paso los 73c), faltan 276 s
+2026-10-11 20:10:25  [cripto-5m] Filtro de mercado btc-updown-5m-1791767400: DOWN (tendencia -0.1%, volatilidad 30%)
+2026-10-11 20:10:26  [cripto] OK diario: BTC 83872, vol 37.5%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 90 apuestas
+2026-10-11 20:10:26  [cripto-rapido] Retraso btc-updown-15m-1791766800: DOWN $1 a 67c (BTC z=-2.16 en 15s, Polymarket se movio -4c, faltan 274 s)
+2026-10-11 20:10:31  --- inicio ---
+2026-10-11 20:10:39  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791767400: DOWN $1 a 74c (paso los 73c), faltan 261 s
+2026-10-11 20:10:39  [cripto-5m] Filtro de mercado btc-updown-5m-1791767400: DOWN (tendencia -0.13%, volatilidad 31%)
+2026-10-11 20:10:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-12T00:56:04.180Z)
+2026-10-11 20:11:01  OK: 20 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 151 senales + 387 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 20:11:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 20:11:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 20:11:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 20:11:10  [no-favoritos] Provisional [ml] canpl-pac-ott-2026-10-11-draw: 'Yes' -> lost (-1.04 USD, por confirmar)
+2026-10-11 20:11:11  [no-favoritos] Provisional [mlx] canpl-pac-ott-2026-10-11-draw: 'Yes' -> lost (-1.04 USD, por confirmar)
+2026-10-11 20:11:16  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 2 resueltas
