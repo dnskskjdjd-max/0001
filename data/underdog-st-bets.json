@@ -1818,7 +1818,6 @@
         "status":  "lost",
         "pnl":  -1.0216,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-11T23:47:16Z"
     },
     {
@@ -1926,7 +1925,6 @@
         "status":  "lost",
         "pnl":  -1.039,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T00:02:05Z"
     },
     {
