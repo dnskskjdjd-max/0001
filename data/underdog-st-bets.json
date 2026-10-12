@@ -1975,9 +1975,11 @@
         "start":  "2026-10-11T22:20:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T19:51:12Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0385,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T00:21:17Z"
     },
     {
         "id":  "argpn-ciu-ste-2026-10-11-spread-home-1pt5|0",
