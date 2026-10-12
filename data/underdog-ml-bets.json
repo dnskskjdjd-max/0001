@@ -1400,8 +1400,10 @@
         "start":  "2026-10-12T00:30:00Z",
         "minBefore":  136,
         "placedAt":  "2026-10-11T22:14:02Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.1913,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T02:32:03Z"
     }
 ]

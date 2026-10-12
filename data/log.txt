@@ -12656,3 +12656,23 @@
 2026-10-11 21:26:08  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-11 21:26:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 21:26:08  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 21:26:54  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791771900: DOWN $1 a 74c (paso los 73c), faltan 186 s
+2026-10-11 21:27:01  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1791771300: DOWN $1 a 10c, modelo 16%, ventaja 5.3 pp
+2026-10-11 21:30:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791771300: salto max z=-2.12; Polymarket ya se habia movido 3 veces (hasta 18c), sin precio previo 0, precio fuera de rango 0
+2026-10-11 21:30:26  [cripto] OK diario: BTC 83894, vol 37.8%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 95 apuestas
+2026-10-11 21:30:32  --- inicio ---
+2026-10-11 21:30:33  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791772200: UP $1 a 77c (paso los 73c), faltan 267 s
+2026-10-11 21:30:53  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-12T02:27:21.779Z)
+2026-10-11 21:31:12  OK: 20 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 151 senales + 388 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 21:31:14  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 21:31:15  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 21:31:15  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 21:31:42  [cripto-5m] Resueltas rapida btc-updown-5m-1791771600: DOWN won (0.33 USD)
+2026-10-11 21:31:42  [cripto-5m] Resueltas al contrario btc-updown-5m-1791771600: DOWN won (0.33 USD)
+2026-10-11 21:31:42  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791771600: DOWN won (0.33 USD)
+2026-10-11 21:31:47  [ligas] Cuotas: tope diario alcanzado (14 consultas)
+2026-10-11 21:32:03  [ligas] OK: 30 partidos en 10 dias, 30 con Vegas, 0 apuestas en el historial
+2026-10-11 21:32:09  [no-favoritos] Provisional [ml] arg-tal-ind-2026-10-11-draw: 'Yes' -> won (2.19 USD, por confirmar)
+2026-10-11 21:32:09  [no-favoritos] Provisional [mlx] arg-tal-ind-2026-10-11-draw: 'Yes' -> won (2.19 USD, por confirmar)
+2026-10-11 21:32:14  [no-favoritos] Provisional [st] arg-tal-ind-2026-10-11-spread-home-1pt5: 'CA Talleres' -> lost (-1.04 USD, por confirmar)
+2026-10-11 21:32:15  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 3 resueltas
