@@ -2151,8 +2151,10 @@
         "start":  "2026-10-12T00:00:00Z",
         "minBefore":  106,
         "placedAt":  "2026-10-11T22:14:02Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0345,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T03:21:10Z"
     }
 ]
