@@ -2013,7 +2013,6 @@
         "pnl":  -1.049,
         "version":  9,
         "tramo":  10,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T03:00:01Z"
     },
     {
@@ -2042,7 +2041,6 @@
         "pnl":  -1.0581,
         "version":  9,
         "tramo":  3,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T03:00:01Z"
     }
 ]
