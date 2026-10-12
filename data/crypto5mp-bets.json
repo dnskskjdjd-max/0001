@@ -2995,11 +2995,13 @@
         "askUp":  0.22,
         "askDown":  0.79,
         "placedAt":  "2026-10-12T01:41:25Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.236,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T01:45:01Z"
     }
 ]
