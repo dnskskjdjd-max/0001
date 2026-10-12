@@ -1948,9 +1948,11 @@
         "start":  "2026-10-11T22:15:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-11T19:46:10Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0345,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T00:16:56Z"
     },
     {
         "id":  "par1-lib-gua-2026-10-11-spread-home-1pt5|0",
