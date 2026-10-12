@@ -1013,7 +1013,7 @@
         "placedAt":  "2026-10-11T10:00:20Z",
         "end":  "2026-10-12T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.974,
+        "curPrice":  0.973,
         "pnl":  null,
         "version":  7,
         "flipped":  true,
@@ -1023,9 +1023,9 @@
                      "edge":  0.0826,
                      "side":  "NO"
                  },
-        "curPriceAt":  "2026-10-12T04:53:21Z",
-        "curP":  0.9687,
-        "curSpot":  84070.01,
+        "curPriceAt":  "2026-10-12T04:54:21Z",
+        "curP":  0.9711,
+        "curSpot":  84106.96,
         "hist":  [
                      {
                          "t":  "2026-10-11T10:00:20Z",
@@ -1161,7 +1161,7 @@
         "placedAt":  "2026-10-11T10:01:20Z",
         "end":  "2026-10-12T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.42,
+        "curPrice":  0.45,
         "pnl":  null,
         "version":  7,
         "flipped":  true,
@@ -1171,9 +1171,9 @@
                      "edge":  0.0719,
                      "side":  "YES"
                  },
-        "curPriceAt":  "2026-10-12T04:53:21Z",
-        "curP":  0.4778,
-        "curSpot":  84070.01,
+        "curPriceAt":  "2026-10-12T04:54:21Z",
+        "curP":  0.4646,
+        "curSpot":  84106.96,
         "hist":  [
                      {
                          "t":  "2026-10-11T10:01:20Z",
@@ -1309,7 +1309,7 @@
         "placedAt":  "2026-10-11T16:04:20Z",
         "end":  "2026-10-12T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.95,
+        "curPrice":  0.947,
         "pnl":  null,
         "version":  8,
         "flipped":  true,
@@ -1319,9 +1319,9 @@
                      "edge":  0.0291,
                      "side":  "YES"
                  },
-        "curPriceAt":  "2026-10-12T04:53:21Z",
-        "curP":  0.9561,
-        "curSpot":  84070.01,
+        "curPriceAt":  "2026-10-12T04:54:21Z",
+        "curP":  0.9532,
+        "curSpot":  84106.96,
         "hist":  [
                      {
                          "t":  "2026-10-11T16:04:20Z",
