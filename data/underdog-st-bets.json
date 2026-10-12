@@ -2024,7 +2024,6 @@
         "status":  "lost",
         "pnl":  -1.033,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T00:47:04Z"
     },
     {
@@ -2130,7 +2129,6 @@
         "status":  "lost",
         "pnl":  -1.04,
         "version":  1,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T02:32:03Z"
     },
     {
