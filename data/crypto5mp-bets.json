@@ -4041,11 +4041,13 @@
         "askUp":  0.24,
         "askDown":  0.77,
         "placedAt":  "2026-10-12T03:36:33Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2667,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T03:40:01Z"
     }
 ]
