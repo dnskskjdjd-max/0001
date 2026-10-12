@@ -190,8 +190,10 @@
         "p":  null,
         "edge":  null,
         "placedAt":  "2026-10-12T01:10:26Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  9
+        "status":  "lost",
+        "pnl":  -1.0231,
+        "version":  9,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T01:15:01Z"
     }
 ]

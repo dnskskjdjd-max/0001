@@ -1471,7 +1471,6 @@
         "flipped":  false,
         "trend30":  0.184,
         "vol30":  0.2733,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T01:10:00Z"
     },
     {
@@ -1504,7 +1503,6 @@
         "flipped":  false,
         "trend30":  0.172,
         "vol30":  0.2733,
-        "provisional":  true,
         "resolvedAt":  "2026-10-12T01:10:00Z"
     },
     {
@@ -1529,14 +1527,16 @@
         "askUp":  0.29,
         "askDown":  0.75,
         "placedAt":  "2026-10-12T01:10:25Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0168,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  -0.098,
-        "vol30":  0.302
+        "vol30":  0.302,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T01:15:00Z"
     },
     {
         "id":  "btc-updown-5m-1791767400|2",
@@ -1560,13 +1560,15 @@
         "askUp":  0.28,
         "askDown":  0.73,
         "placedAt":  "2026-10-12T01:10:39Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0182,
         "version":  9,
         "n":  2,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  -0.126,
-        "vol30":  0.3141
+        "vol30":  0.3141,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T01:15:00Z"
     }
 ]
