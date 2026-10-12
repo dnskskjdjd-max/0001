@@ -1344,9 +1344,11 @@
         "start":  "2026-10-11T23:00:00Z",
         "minBefore":  148,
         "placedAt":  "2026-10-11T20:32:18Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.034,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-12T01:06:06Z"
     },
     {
         "id":  "canpl-pac-ott-2026-10-11-draw|0",
