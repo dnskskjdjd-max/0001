@@ -1013,7 +1013,7 @@
         "placedAt":  "2026-10-11T10:00:20Z",
         "end":  "2026-10-12T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.967,
+        "curPrice":  0.968,
         "pnl":  null,
         "version":  7,
         "flipped":  true,
@@ -1023,9 +1023,9 @@
                      "edge":  0.0826,
                      "side":  "NO"
                  },
-        "curPriceAt":  "2026-10-12T01:08:21Z",
-        "curP":  0.9323,
-        "curSpot":  83918,
+        "curPriceAt":  "2026-10-12T01:09:20Z",
+        "curP":  0.9316,
+        "curSpot":  83914,
         "hist":  [
                      {
                          "t":  "2026-10-11T10:00:20Z",
@@ -1137,7 +1137,7 @@
         "placedAt":  "2026-10-11T10:01:20Z",
         "end":  "2026-10-12T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.51,
+        "curPrice":  0.5,
         "pnl":  null,
         "version":  7,
         "flipped":  true,
@@ -1147,9 +1147,9 @@
                      "edge":  0.0719,
                      "side":  "YES"
                  },
-        "curPriceAt":  "2026-10-12T01:08:21Z",
-        "curP":  0.5283,
-        "curSpot":  83918,
+        "curPriceAt":  "2026-10-12T01:09:20Z",
+        "curP":  0.5295,
+        "curSpot":  83914,
         "hist":  [
                      {
                          "t":  "2026-10-11T10:01:20Z",
@@ -1261,7 +1261,7 @@
         "placedAt":  "2026-10-11T16:04:20Z",
         "end":  "2026-10-12T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.947,
+        "curPrice":  0.948,
         "pnl":  null,
         "version":  8,
         "flipped":  true,
@@ -1271,9 +1271,9 @@
                      "edge":  0.0291,
                      "side":  "YES"
                  },
-        "curPriceAt":  "2026-10-12T01:08:21Z",
-        "curP":  0.945,
-        "curSpot":  83918,
+        "curPriceAt":  "2026-10-12T01:09:20Z",
+        "curP":  0.9451,
+        "curSpot":  83914,
         "hist":  [
                      {
                          "t":  "2026-10-11T16:04:20Z",
