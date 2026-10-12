@@ -12487,3 +12487,18 @@
 2026-10-11 20:26:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-11 20:26:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-11 20:26:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 20:26:44  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791768300: DOWN $1 a 77c (paso los 73c), faltan 196 s
+2026-10-11 20:30:08  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791768600: DOWN $1 a 77c (paso los 73c), faltan 293 s
+2026-10-11 20:30:22  [cripto-5m] Resueltas rapida btc-updown-5m-1791768000: DOWN won, DOWN won (0.63 USD)
+2026-10-11 20:30:22  [cripto-5m] Resueltas al contrario btc-updown-5m-1791768000: DOWN won, DOWN won (0.63 USD)
+2026-10-11 20:30:27  [cripto] OK diario: BTC 83728, vol 37.7%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (12 en el historial), 0 resueltas; rapido: 91 apuestas
+2026-10-11 20:30:32  --- inicio ---
+2026-10-11 20:30:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-12T01:15:13.054Z)
+2026-10-11 20:31:07  OK: 20 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 151 senales + 387 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (7 en total) ; prueba zona-media-sin-comision: 0 nuevas (1 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (7 en total)
+2026-10-11 20:31:10  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-11 20:31:11  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-11 20:31:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-11 20:31:38  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791768600: DOWN $1 a 75c (paso los 73c), faltan 203 s
+2026-10-11 20:31:42  [ligas] Cuotas: tope diario alcanzado (14 consultas)
+2026-10-11 20:31:57  [ligas] OK: 30 partidos en 10 dias, 30 con Vegas, 0 apuestas en el historial
+2026-10-11 20:32:08  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
