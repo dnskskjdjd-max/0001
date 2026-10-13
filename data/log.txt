@@ -13384,3 +13384,16 @@
 2026-10-12 20:26:19  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-12 20:26:20  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-12 20:26:20  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-12 20:27:02  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791854700: DOWN $1 a 75c (paso los 73c), faltan 179 s
+2026-10-12 20:27:18  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791854700: DOWN $1 a 81c (paso los 73c), faltan 163 s
+2026-10-12 20:30:27  [cripto] OK diario: BTC 82070, vol 37.4%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (13 en el historial), 0 resueltas; rapido: 106 apuestas
+2026-10-12 20:30:32  --- inicio ---
+2026-10-12 20:30:43  [cripto-5m] Resueltas rapida btc-updown-5m-1791854400: DOWN won (0.3 USD)
+2026-10-12 20:30:43  [cripto-5m] Resueltas al contrario btc-updown-5m-1791854400: DOWN won (0.3 USD)
+2026-10-12 20:30:43  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791854400: DOWN won (0.3 USD)
+2026-10-12 20:30:54  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-13T01:25:30.876Z)
+2026-10-12 20:31:14  OK: 21 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 154 senales + 395 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-12 20:31:16  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-12 20:31:17  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-12 20:31:17  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-12 20:31:23  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
