@@ -1423,5 +1423,40 @@
                      }
                  ],
         "resolvedAt":  "2026-10-13T00:38:57Z"
+    },
+    {
+        "id":  "bitcoin-above-80k-on-october-13-2026|YES",
+        "ev":  "bitcoin-above-on-october-13-2026",
+        "slug":  "bitcoin-above-80k-on-october-13-2026",
+        "k":  80000,
+        "side":  "YES",
+        "token":  "8471424203231033000079125543584841491388710507224551684275199507965954985605",
+        "stake":  1,
+        "price":  0.912,
+        "fee":  0.0062,
+        "p":  0.9451,
+        "edge":  0.0275,
+        "S":  82001.99,
+        "sig":  0.3752,
+        "tauH":  14.73,
+        "placedAt":  "2026-10-13T01:16:26Z",
+        "end":  "2026-10-13T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.912,
+        "pnl":  null,
+        "version":  9,
+        "flipped":  false,
+        "orig":  null,
+        "curPriceAt":  "2026-10-13T01:16:26Z",
+        "curP":  0.9451,
+        "curSpot":  82001.99,
+        "hist":  [
+                     {
+                         "t":  "2026-10-13T01:16:26Z",
+                         "px":  0.912,
+                         "p":  0.9451,
+                         "S":  82002
+                     }
+                 ]
     }
 ]
