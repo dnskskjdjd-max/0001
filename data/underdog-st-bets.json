@@ -2155,5 +2155,30 @@
         "pnl":  -1.0345,
         "version":  1,
         "resolvedAt":  "2026-10-12T03:21:10Z"
+    },
+    {
+        "id":  "ucl-vil-nap-2026-10-13-total-3pt5|0",
+        "strategy":  "st",
+        "slug":  "ucl-vil-nap-2026-10-13-total-3pt5",
+        "ev":  "ucl-vil-nap-2026-10-13",
+        "league":  "soccer",
+        "type":  "totals",
+        "line":  3.5,
+        "question":  "Villarreal CF vs. SSC Napoli: O/U 3.5",
+        "side":  0,
+        "outcome":  "Over",
+        "token":  "98363490420329140987899825333668963106889836660348431831714279476770204327104",
+        "stake":  1,
+        "price":  0.35,
+        "bestBid":  0.34,
+        "feeRate":  0.05,
+        "fee":  0.0325,
+        "vol":  13522,
+        "start":  "2026-10-13T19:00:00Z",
+        "minBefore":  99,
+        "placedAt":  "2026-10-13T17:21:02Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

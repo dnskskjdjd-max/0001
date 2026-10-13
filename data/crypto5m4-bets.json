@@ -6683,11 +6683,13 @@
         "askUp":  0.74,
         "askDown":  0.28,
         "placedAt":  "2026-10-13T17:15:16Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.3158,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-13T17:20:01Z"
     }
 ]

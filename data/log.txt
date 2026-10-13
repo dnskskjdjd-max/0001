@@ -13553,3 +13553,56 @@
 2026-10-12 21:27:05  [cripto-rapido] Apuesta rapida btc-updown-15m-1791857700: DOWN $1 a 16c, modelo 22.6%, ventaja 5.7 pp, faltan 175 s
 2026-10-12 21:27:05  [cripto-rapido] Apuesta al contrario btc-updown-15m-1791857700: UP $1 a 87c (el modelo daba 22.6% a DOWN)
 2026-10-12 21:27:08  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
+2026-10-12 21:30:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791857700: salto max z=-2.39; Polymarket ya se habia movido 3 veces (hasta 14c), sin precio previo 0, precio fuera de rango 0
+2026-10-12 21:30:14  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791858600: UP $1 a 75c (paso los 73c), faltan 286 s
+2026-10-12 21:30:26  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791858600: UP $1 a 76c (paso los 73c), faltan 274 s
+2026-10-12 21:30:27  [cripto] OK diario: BTC 82772, vol 37.2%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (13 en el historial), 0 resueltas; rapido: 110 apuestas
+2026-10-12 21:30:34  --- inicio ---
+2026-10-12 21:30:55  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-13T02:21:13.441Z)
+2026-10-12 21:31:15  OK: 21 mercados >= 60, 10 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 154 senales + 396 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-12 21:31:18  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-12 21:31:19  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-12 21:31:19  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-12 21:31:19  [cripto-5m] Resueltas rapida btc-updown-5m-1791858000: DOWN lost, DOWN lost (-2.03 USD)
+2026-10-12 21:31:19  [cripto-5m] Resueltas al contrario btc-updown-5m-1791858000: DOWN lost, DOWN lost (-2.03 USD)
+2026-10-12 21:31:19  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791858000: DOWN lost, DOWN lost (-2.03 USD)
+2026-10-12 21:31:26  [cripto-rapido] ERROR: Error interno Win32 "No hay ningún proceso en el otro extremo de la canalización" 0xE9 al obtener información del búfer de salida de la consola. Póngase en contacto con los servicios de soporte al cliente de Microsoft. (linea 13)
+2026-10-12 21:31:26  [cripto-rapido] Detenido (pid 28940, 19698 ciclos, 7 errores)
+2026-10-13 12:14:49  [cripto-rapido] Iniciado (pid 12908)
+2026-10-13 12:14:49  [cripto-5m] Iniciado (pid 12920)
+2026-10-13 12:14:57  [cripto-rapido] Resueltas rapida btc-updown-15m-1791857700: DOWN lost (-1.06 USD)
+2026-10-13 12:14:57  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791857700: UP won (0.14 USD)
+2026-10-13 12:14:58  [cripto-5m] Ventana btc-updown-5m-1791858600 reconstruida (el bot no estaba corriendo al cerrarse)
+2026-10-13 12:14:59  [cripto-5m] Resueltas rapida btc-updown-5m-1791858300: DOWN won, DOWN won (0.58 USD)
+2026-10-13 12:14:59  [cripto-5m] Resueltas al contrario btc-updown-5m-1791858300: DOWN won, DOWN won (0.58 USD)
+2026-10-13 12:14:59  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791858300: DOWN won, DOWN won (0.58 USD)
+2026-10-13 12:14:59  [cripto-5m] Resueltas rapida btc-updown-5m-1791858600: UP lost, UP lost (-2.03 USD)
+2026-10-13 12:15:00  [cripto-5m] Resueltas al contrario btc-updown-5m-1791858600: UP lost, UP lost (-2.03 USD)
+2026-10-13 12:15:00  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791858600: UP lost, UP lost (-2.03 USD)
+2026-10-13 12:15:16  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791911700: UP $1 a 75c (paso los 73c), faltan 285 s
+2026-10-13 12:15:45  [cripto] Apuesta diaria: BTC YES > 82000 (bitcoin-above-on-october-14-2026) $1 a 84c, modelo 78.2% (INVERTIDA: el modelo daba 21.8% a NO a 17c)
+2026-10-13 12:15:47  [cripto] Resuelta diaria: BTC YES > 80000 -> won (0.09 USD)
+2026-10-13 12:15:48  [cripto] OK diario: BTC 83248, vol 37.6%, 3 fechas, 2 senales nuevas, 1 apuestas nuevas (14 en el historial), 1 resueltas; rapido: 110 apuestas
+2026-10-13 12:17:32  --- inicio ---
+2026-10-13 12:18:57  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-13T17:15:12.977Z)
+2026-10-13 12:19:20  Resuelta: Spread: Rams (-2.5) [BILLS] -> won
+2026-10-13 12:19:20  Resuelta: Cleveland Guardians vs. Tampa Bay Rays [TAMPA BAY RAYS] -> lost
+2026-10-13 12:19:20  Resuelta: Spread: Bills (-3.5) [RAMS] -> won
+2026-10-13 12:19:20  Resuelta: Spread: Rams (-3.5) [BILLS] -> won
+2026-10-13 12:19:20  Resuelta: Bills vs. Rams [BILLS] -> won
+2026-10-13 12:19:20  Resuelta: Spread: Bills (-3.5) [RAMS] -> won
+2026-10-13 12:19:26  OK: 19 mercados >= 60, 7 >= 70, 1 senales nuevas, 3 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 6 resueltas, 155 senales + 399 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 12:19:29  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-13 12:19:32  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-13 12:19:32  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-13 12:20:35  [ligas] Cuotas: soccer_uefa_champs_league actualizado (18 partidos; creditos restantes 456)
+2026-10-13 12:20:50  [cripto-rapido] Apuesta rapida btc-updown-15m-1791911700: DOWN $2 a 30c, modelo 41.4%, ventaja 9.9 pp, faltan 550 s
+2026-10-13 12:21:01  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
+2026-10-13 12:21:11  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 28c | Will SSC Napoli win on 2026-10-13? | empieza en 99 min
+2026-10-13 12:21:13  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 23c | Will FC Barcelona win on 2026-10-13? | empieza en 99 min
+2026-10-13 12:21:14  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'No' a 35c | Will Birmingham City FC win on 2026-10-13? | empieza en 99 min
+2026-10-13 12:21:14  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 28c | Will SSC Napoli win on 2026-10-13? | empieza en 99 min
+2026-10-13 12:21:16  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'No' a 23c | Will FC Barcelona win on 2026-10-13? | empieza en 99 min
+2026-10-13 12:21:18  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'No' a 35c | Will Birmingham City FC win on 2026-10-13? | empieza en 99 min
+2026-10-13 12:21:24  [no-favoritos] Apuesta [st] soccer totals: $1 a 'Over' a 35c | Villarreal CF vs. SSC Napoli: O/U 3.5 | empieza en 99 min
+2026-10-13 12:21:26  [no-favoritos] OK: 27 mercados principales en la ventana, 7 apuestas nuevas, 0 resueltas
