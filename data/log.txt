@@ -13638,3 +13638,20 @@
 2026-10-13 12:31:59  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 35c | Will Fath Union Sport vs. Raja Club Athletic end in a draw? | empieza en 148 min
 2026-10-13 12:32:00  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 35c | Will Fath Union Sport vs. Raja Club Athletic end in a draw? | empieza en 148 min
 2026-10-13 12:32:02  [no-favoritos] OK: 1 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
+2026-10-13 12:34:51  [cripto-rapido] Resueltas rapida btc-updown-15m-1791911700: DOWN lost (-2.1 USD)
+2026-10-13 12:34:51  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791911700: 6 min DOWN lost (-1.06 USD)
+2026-10-13 12:34:51  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791911700: DOWN lost (-2.1 USD)
+2026-10-13 12:35:29  [cripto] OK diario: BTC 83216, vol 37.6%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (14 en el historial), 0 resueltas; rapido: 111 apuestas
+2026-10-13 12:35:29  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791912900: UP $1 a 75c (paso los 73c), faltan 272 s
+2026-10-13 12:35:36  --- inicio ---
+2026-10-13 12:35:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-13T17:31:09.130Z)
+2026-10-13 12:35:54  [cripto-5m] Resueltas rapida btc-updown-5m-1791912300: UP lost, UP lost (-2.03 USD)
+2026-10-13 12:35:54  [cripto-5m] Resueltas al contrario btc-updown-5m-1791912300: UP lost, UP lost (-2.03 USD)
+2026-10-13 12:35:54  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791912300: UP lost, UP lost (-2.03 USD)
+2026-10-13 12:36:02  OK: 19 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 155 senales + 399 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 12:36:02  [cripto-rapido] Apuesta rapida btc-updown-15m-1791912600: DOWN $1 a 37c, modelo 43.9%, ventaja 5.3 pp, faltan 538 s
+2026-10-13 12:36:05  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-13 12:36:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-13 12:36:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-13 12:36:14  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791912900: UP $1 a 77c (paso los 73c), faltan 226 s
+2026-10-13 12:37:02  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
