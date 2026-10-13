@@ -13265,3 +13265,9 @@
 2026-10-12 19:34:45  [ligas] Cuotas: soccer_uefa_champs_league actualizado (18 partidos; creditos restantes 457)
 2026-10-12 19:35:06  [cripto-rapido] Apuesta rapida btc-updown-15m-1791851400: DOWN $1 a 46c, modelo 52.9%, ventaja 5.2 pp, faltan 595 s
 2026-10-12 19:35:13  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
+2026-10-12 19:37:59  --- inicio ---
+2026-10-12 19:38:23  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-13T00:30:11.445Z)
+2026-10-12 19:38:38  OK: 21 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 154 senales + 394 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-12 19:38:42  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-12 19:38:43  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-12 19:38:43  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
