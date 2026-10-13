@@ -2913,7 +2913,6 @@
         "status":  "lost",
         "pnl":  -1.0469,
         "version":  9,
-        "provisional":  true,
         "resolvedAt":  "2026-10-13T02:00:00Z"
     }
 ]
