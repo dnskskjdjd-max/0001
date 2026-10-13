@@ -6839,7 +6839,6 @@
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-13T17:35:01Z"
     },
     {
@@ -6870,7 +6869,6 @@
         "n":  2,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-13T17:35:01Z"
     },
     {
