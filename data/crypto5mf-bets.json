@@ -2935,13 +2935,15 @@
         "askUp":  0.78,
         "askDown":  0.23,
         "placedAt":  "2026-10-13T02:02:23Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2511,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  0.416,
-        "vol30":  0.2932
+        "vol30":  0.2932,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-13T02:05:01Z"
     }
 ]
