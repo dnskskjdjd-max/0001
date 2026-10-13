@@ -1476,5 +1476,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "mar1-fus-rca-2026-10-13-draw|0",
+        "strategy":  "ml",
+        "slug":  "mar1-fus-rca-2026-10-13-draw",
+        "ev":  "mar1-fus-rca-2026-10-13",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Fath Union Sport vs. Raja Club Athletic end in a draw?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "12530687689652978772815315648641103875766775241230225655916064152428616409894",
+        "stake":  1,
+        "price":  0.35,
+        "bestBid":  0.34,
+        "feeRate":  0.05,
+        "fee":  0.0325,
+        "vol":  224,
+        "start":  "2026-10-13T20:00:00Z",
+        "minBefore":  148,
+        "placedAt":  "2026-10-13T17:31:51Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

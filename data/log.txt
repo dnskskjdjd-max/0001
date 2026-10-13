@@ -13621,3 +13621,20 @@
 2026-10-13 12:26:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-13 12:26:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-13 12:26:12  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791912300: UP $1 a 75c (paso los 73c), faltan 229 s
+2026-10-13 12:30:00  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791911700: salto max z=2; Polymarket ya se habia movido 1 veces (hasta 13c), sin precio previo 0, precio fuera de rango 0
+2026-10-13 12:30:17  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791912600: DOWN $1 a 79c (paso los 73c), faltan 284 s
+2026-10-13 12:30:18  [cripto-5m] Filtro de mercado btc-updown-5m-1791912600: DOWN (tendencia -0.14%, volatilidad 26%)
+2026-10-13 12:30:27  [cripto] OK diario: BTC 83190, vol 37.6%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (14 en el historial), 0 resueltas; rapido: 111 apuestas
+2026-10-13 12:30:32  --- inicio ---
+2026-10-13 12:30:47  [cripto-5m] Resueltas rapida btc-updown-5m-1791912000: UP won, UP won (0.57 USD)
+2026-10-13 12:30:47  [cripto-5m] Resueltas al contrario btc-updown-5m-1791912000: UP won, UP won (0.57 USD)
+2026-10-13 12:30:47  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791912000: UP won, UP won (0.57 USD)
+2026-10-13 12:30:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-13T17:15:12.977Z)
+2026-10-13 12:31:11  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791912600: UP $1 a 76c (paso los 73c), faltan 230 s
+2026-10-13 12:31:46  OK: 19 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 155 senales + 399 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 12:31:49  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-13 12:31:50  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-13 12:31:50  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-13 12:31:59  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 35c | Will Fath Union Sport vs. Raja Club Athletic end in a draw? | empieza en 148 min
+2026-10-13 12:32:00  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 35c | Will Fath Union Sport vs. Raja Club Athletic end in a draw? | empieza en 148 min
+2026-10-13 12:32:02  [no-favoritos] OK: 1 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
