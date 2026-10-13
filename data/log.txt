@@ -13451,3 +13451,15 @@
 2026-10-12 20:55:24  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791856500: UP $1 a 86c (paso los 73c), faltan 279 s
 2026-10-12 20:55:27  [cripto-rapido] Retraso btc-updown-15m-1791855900: UP $1 a 80c (BTC z=4.25 en 15s, Polymarket se movio 0c, faltan 273 s)
 2026-10-12 20:55:28  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
+2026-10-12 20:55:58  [cripto-5m] Resueltas rapida btc-updown-5m-1791855900: DOWN won, DOWN won (0.63 USD)
+2026-10-12 20:55:58  [cripto-5m] Resueltas al contrario btc-updown-5m-1791855900: DOWN won, DOWN won (0.63 USD)
+2026-10-12 20:55:58  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791855900: DOWN won, DOWN won (0.63 USD)
+2026-10-12 20:56:02  [cripto] OK diario: BTC 82427, vol 37.1%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (13 en el historial), 0 resueltas; rapido: 108 apuestas
+2026-10-12 21:00:29  [cripto] OK diario: BTC 82428, vol 37.1%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (13 en el historial), 0 resueltas; rapido: 108 apuestas
+2026-10-12 21:00:35  --- inicio ---
+2026-10-12 21:00:59  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-13T01:45:12.978Z)
+2026-10-12 21:01:19  OK: 20 mercados >= 60, 9 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 154 senales + 396 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-12 21:01:22  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-12 21:01:22  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-12 21:01:22  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-12 21:01:27  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
