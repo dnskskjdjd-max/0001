@@ -5935,11 +5935,13 @@
         "askUp":  0.75,
         "askDown":  0.26,
         "placedAt":  "2026-10-13T02:10:44Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.299,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-13T02:15:01Z"
     }
 ]
