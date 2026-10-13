@@ -13500,3 +13500,30 @@
 2026-10-12 21:11:26  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791856800: UP won (0.25 USD)
 2026-10-12 21:11:26  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791856800: UP won (0.25 USD)
 2026-10-12 21:12:08  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
+2026-10-12 21:12:24  [cripto] OK diario: BTC 82595, vol 37.1%, 3 fechas, 1 senales nuevas, 0 apuestas nuevas (13 en el historial), 0 resueltas; rapido: 109 apuestas
+2026-10-12 21:15:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791856800: salto max z=2.13; Polymarket ya se habia movido 5 veces (hasta 12c), sin precio previo 0, precio fuera de rango 0
+2026-10-12 21:15:44  [cripto] ERROR diario: No se puede resolver el nombre remoto: 'api.binance.com' (linea 13)
+2026-10-12 21:15:45  [cripto] OK diario: BTC 0, vol 0%, 0 fechas, 0 senales nuevas, 0 apuestas nuevas (13 en el historial), 0 resueltas; rapido: 109 apuestas
+2026-10-12 21:15:48  --- inicio ---
+2026-10-12 21:15:56  FirePolymarket fallo (intento 1): No se puede resolver el nombre remoto: 'lrzwloviokblqyczszgl.supabase.co'
+2026-10-12 21:16:03  [cripto-5m] ERROR: La operación sobrepasó el tiempo de espera. (linea 13)
+2026-10-12 21:16:03  [cripto-rapido] ERROR: La operación sobrepasó el tiempo de espera. (linea 13)
+2026-10-12 21:16:06  FirePolymarket fallo (intento 2): No se puede resolver el nombre remoto: 'lrzwloviokblqyczszgl.supabase.co'
+2026-10-12 21:16:06  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791856800: salto max z=2.13; Polymarket ya se habia movido 5 veces (hasta 12c), sin precio previo 0, precio fuera de rango 0
+2026-10-12 21:16:26  FirePolymarket fallo (intento 3): No se puede resolver el nombre remoto: 'lrzwloviokblqyczszgl.supabase.co'
+2026-10-12 21:16:26  ERROR: No se puede resolver el nombre remoto: 'lrzwloviokblqyczszgl.supabase.co' En C:\Users\piero\FirePolymarket-Tracker\tracker.ps1: 93 Carácter: 10
++     $r = Invoke-WebRequest @p
++          ~~~~~~~~~~~~~~~~~~~~
+2026-10-12 21:16:42  [copia:fed] ERROR (fed.json): No se puede resolver el nombre remoto: 'data-api.polymarket.com' En C:\Users\piero\FirePolymarket-Tracker\copier.ps1: 50 Carácter: 18
++ ...        $r = Invoke-WebRequest -Uri $uri -UseBasicParsing -TimeoutSec  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-10-12 21:17:08  [copia:futbol] ERROR (futbol.json): No se puede resolver el nombre remoto: 'data-api.polymarket.com' En C:\Users\piero\FirePolymarket-Tracker\copier.ps1: 50 Carácter: 18
++ ...        $r = Invoke-WebRequest -Uri $uri -UseBasicParsing -TimeoutSec  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-10-12 21:17:12  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791856800: salto max z=2.13; Polymarket ya se habia movido 5 veces (hasta 12c), sin precio previo 0, precio fuera de rango 0
+2026-10-12 21:17:17  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791856800: salto max z=2.13; Polymarket ya se habia movido 5 veces (hasta 12c), sin precio previo 0, precio fuera de rango 0
+2026-10-12 21:17:20  [cripto-5m] Resueltas rapida btc-updown-5m-1791857100: UP won, DOWN lost (-0.78 USD)
+2026-10-12 21:17:20  [cripto-5m] Resueltas al contrario btc-updown-5m-1791857100: UP won, DOWN lost (-0.78 USD)
+2026-10-12 21:17:20  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791857100: UP won (0.24 USD)
+2026-10-12 21:17:20  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791857100: UP won, DOWN lost (-0.78 USD)
+2026-10-12 21:17:25  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
