@@ -6205,11 +6205,13 @@
         "askUp":  0.82,
         "askDown":  0.19,
         "placedAt":  "2026-10-13T01:41:57Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.1929,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-13T01:45:09Z"
     }
 ]
