@@ -13248,3 +13248,20 @@
 2026-10-12 00:36:04  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-12 00:36:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-12 00:36:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-12 19:32:15  [cripto-5m] Resueltas rapida btc-updown-5m-1791783300: UP won (0.33 USD)
+2026-10-12 19:32:15  [cripto-5m] Resueltas al contrario btc-updown-5m-1791783300: UP won (0.33 USD)
+2026-10-12 19:32:15  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791783300: UP won (0.33 USD)
+2026-10-12 19:33:03  --- inicio ---
+2026-10-12 19:33:26  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-13T00:30:11.445Z)
+2026-10-12 19:33:47  [prueba:zona-media] Apuesta: $2 a NO en NATO x Russia military clash by December 31, 2026? @ 75c (score 67, consenso 8/10)
+2026-10-12 19:33:47  [prueba:zona-media-sin-comision] Apuesta: $2 a NO en NATO x Russia military clash by December 31, 2026? @ 75c (score 67, consenso 8/10)
+2026-10-12 19:33:47  [prueba:zona-media-sin-perseguir] Apuesta: $2 a NO en NATO x Russia military clash by December 31, 2026? @ 75c (score 67, consenso 8/10)
+2026-10-12 19:33:47  Resuelta: US x Iran ceasefire continues through October 12? [YES] -> won
+2026-10-12 19:33:52  Resumen semanal generado (2026-W42)
+2026-10-12 19:33:55  OK: 21 mercados >= 60, 9 >= 70, 3 senales nuevas, 4 de control nuevas, 0 apuestas nuevas (49 en el historial), 1 alertas de venta, 1 resueltas, 154 senales + 394 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 1 nuevas (8 en total) ; prueba zona-media-sin-comision: 1 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 1 nuevas (8 en total)
+2026-10-12 19:33:59  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
+2026-10-12 19:33:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-12 19:34:00  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-12 19:34:45  [ligas] Cuotas: soccer_uefa_champs_league actualizado (18 partidos; creditos restantes 457)
+2026-10-12 19:35:06  [cripto-rapido] Apuesta rapida btc-updown-15m-1791851400: DOWN $1 a 46c, modelo 52.9%, ventaja 5.2 pp, faltan 595 s
+2026-10-12 19:35:13  [ligas] OK: 29 partidos en 10 dias, 29 con Vegas, 0 apuestas en el historial
