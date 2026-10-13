@@ -6025,11 +6025,13 @@
         "askUp":  0.26,
         "askDown":  0.75,
         "placedAt":  "2026-10-13T01:21:20Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.299,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-13T01:25:00Z"
     }
 ]
