@@ -3099,11 +3099,13 @@
         "askUp":  0.86,
         "askDown":  0.15,
         "placedAt":  "2026-10-13T02:27:05Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.1403,
         "version":  9,
         "flipped":  true,
         "origSide":  "DOWN",
-        "origP":  0.2265
+        "origP":  0.2265,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-13T02:30:01Z"
     }
 ]
