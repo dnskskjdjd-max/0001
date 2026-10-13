@@ -5969,7 +5969,6 @@
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-13T02:25:02Z"
     },
     {
@@ -6000,7 +5999,6 @@
         "n":  2,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-13T02:25:02Z"
     },
     {
@@ -6031,7 +6029,6 @@
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-13T02:30:01Z"
     },
     {
@@ -6062,7 +6059,6 @@
         "n":  2,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-13T02:30:01Z"
     },
     {
@@ -6087,12 +6083,13 @@
         "askUp":  0.74,
         "askDown":  0.27,
         "placedAt":  "2026-10-13T02:30:14Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0175,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "resolvedAt":  "2026-10-13T17:15:00Z"
     },
     {
         "id":  "btc-updown-5m-1791858600|2",
@@ -6116,10 +6113,40 @@
         "askUp":  0.75,
         "askDown":  0.26,
         "placedAt":  "2026-10-13T02:30:26Z",
+        "status":  "lost",
+        "pnl":  -1.0168,
+        "version":  9,
+        "n":  2,
+        "rule":  "cross",
+        "flipped":  false,
+        "resolvedAt":  "2026-10-13T17:15:00Z"
+    },
+    {
+        "id":  "btc-updown-5m-1791911700|1",
+        "W":  1791911700,
+        "slug":  "btc-updown-5m-1791911700",
+        "side":  "UP",
+        "token":  "48502247547916676619107709366188084011049268187958884909312800245524076204096",
+        "stake":  1,
+        "price":  0.75,
+        "fee":  0.0175,
+        "p":  0.6323,
+        "edge":  -0.1308,
+        "model":  "end60",
+        "secLeft":  285,
+        "S0":  83188.01,
+        "S":  83208.01,
+        "twapSoFar":  83188.92,
+        "pTwap":  0.668,
+        "pEnd":  0.599,
+        "pEnd60":  0.6323,
+        "askUp":  0.74,
+        "askDown":  0.28,
+        "placedAt":  "2026-10-13T17:15:16Z",
         "status":  "open",
         "pnl":  null,
         "version":  9,
-        "n":  2,
+        "n":  1,
         "rule":  "cross",
         "flipped":  false
     }
