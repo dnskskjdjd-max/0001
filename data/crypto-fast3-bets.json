@@ -2457,9 +2457,11 @@
         "askUp":  0.31,
         "askDown":  0.7,
         "placedAt":  "2026-10-14T04:09:13Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  2.0774,
         "version":  9,
-        "tramo":  6
+        "tramo":  6,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T04:15:01Z"
     }
 ]
