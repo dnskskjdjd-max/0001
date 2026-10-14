@@ -6989,7 +6989,6 @@
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T01:25:00Z"
     },
     {
@@ -7020,7 +7019,6 @@
         "n":  2,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T01:25:00Z"
     },
     {
@@ -7045,11 +7043,13 @@
         "askUp":  0.27,
         "askDown":  0.74,
         "placedAt":  "2026-10-14T01:27:46Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.3158,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T01:30:02Z"
     }
 ]
