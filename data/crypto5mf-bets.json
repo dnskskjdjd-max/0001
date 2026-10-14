@@ -3167,7 +3167,6 @@
         "flipped":  false,
         "trend30":  -0.166,
         "vol30":  0.3056,
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T01:35:01Z"
     },
     {
@@ -3200,7 +3199,6 @@
         "flipped":  false,
         "trend30":  -0.092,
         "vol30":  0.2908,
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T01:35:01Z"
     },
     {
@@ -3225,13 +3223,15 @@
         "askUp":  0.24,
         "askDown":  0.77,
         "placedAt":  "2026-10-14T01:36:26Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2667,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  -0.12,
-        "vol30":  0.2712
+        "vol30":  0.2712,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T01:40:01Z"
     }
 ]
