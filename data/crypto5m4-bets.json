@@ -9685,11 +9685,13 @@
         "askUp":  0.78,
         "askDown":  0.24,
         "placedAt":  "2026-10-14T23:46:01Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2511,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T23:50:00Z"
     }
 ]
