@@ -3185,11 +3185,13 @@
         "askUp":  0.12,
         "askDown":  0.89,
         "placedAt":  "2026-10-14T01:09:18Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.1041,
         "version":  9,
         "flipped":  true,
         "origSide":  "UP",
-        "origP":  0.1998
+        "origP":  0.1998,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T01:15:00Z"
     }
 ]
