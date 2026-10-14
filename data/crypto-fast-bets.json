@@ -3156,7 +3156,32 @@
         "status":  "lost",
         "pnl":  -1.0462,
         "version":  9,
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T02:15:02Z"
+    },
+    {
+        "id":  "btc-updown-15m-1791944100|UP",
+        "W":  1791944100,
+        "slug":  "btc-updown-15m-1791944100",
+        "side":  "UP",
+        "token":  "43285697290077762283867249389049105754593862863373281444384884076487621023908",
+        "stake":  1,
+        "price":  0.47,
+        "fee":  0.0371,
+        "p":  0.5569,
+        "edge":  0.0695,
+        "model":  "end60",
+        "secLeft":  492,
+        "S0":  83357.55,
+        "S":  83372.37,
+        "twapSoFar":  83343.83,
+        "pTwap":  0.5223,
+        "pEnd":  0.5579,
+        "pEnd60":  0.5569,
+        "askUp":  0.46,
+        "askDown":  0.55,
+        "placedAt":  "2026-10-14T02:21:55Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  9
     }
 ]
