@@ -4184,13 +4184,15 @@
         "askUp":  0.8,
         "askDown":  0.22,
         "placedAt":  "2026-10-14T04:36:22Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0133,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  0.213,
-        "vol30":  0.2511
+        "vol30":  0.2511,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T04:40:00Z"
     }
 ]
