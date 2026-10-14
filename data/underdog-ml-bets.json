@@ -1423,9 +1423,10 @@
         "start":  "2026-10-13T19:00:00Z",
         "minBefore":  99,
         "placedAt":  "2026-10-13T17:21:02Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.036,
+        "version":  1,
+        "resolvedAt":  "2026-10-14T00:46:05Z"
     },
     {
         "id":  "ucl-gal-fcb-2026-10-13-fcb|1",
@@ -1448,9 +1449,10 @@
         "start":  "2026-10-13T19:00:00Z",
         "minBefore":  99,
         "placedAt":  "2026-10-13T17:21:02Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0385,
+        "version":  1,
+        "resolvedAt":  "2026-10-14T00:46:05Z"
     },
     {
         "id":  "elc-bir-pne-2026-10-13-bir|1",
@@ -1473,9 +1475,10 @@
         "start":  "2026-10-13T19:00:00Z",
         "minBefore":  99,
         "placedAt":  "2026-10-13T17:21:02Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0325,
+        "version":  1,
+        "resolvedAt":  "2026-10-14T00:46:05Z"
     },
     {
         "id":  "mar1-fus-rca-2026-10-13-draw|0",
@@ -1498,8 +1501,10 @@
         "start":  "2026-10-13T20:00:00Z",
         "minBefore":  148,
         "placedAt":  "2026-10-13T17:31:51Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  1.8246,
+        "version":  1,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T00:46:05Z"
     }
 ]

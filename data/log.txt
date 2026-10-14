@@ -13678,3 +13678,42 @@
 2026-10-13 12:46:01  [copia:fed] OK: 2 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 2 en el historial
 2026-10-13 12:46:02  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-13 12:46:02  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-13 12:46:46  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791913500: DOWN $1 a 74c (paso los 73c), faltan 194 s
+2026-10-13 12:46:47  [cripto-5m] Filtro de mercado btc-updown-5m-1791913500: DOWN (tendencia -0.08%, volatilidad 20%)
+2026-10-13 12:47:55  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791913500: DOWN $1 a 80c (paso los 73c), faltan 126 s
+2026-10-13 12:47:55  [cripto-5m] Filtro de mercado btc-updown-5m-1791913500: DOWN (tendencia -0.03%, volatilidad 20%)
+2026-10-13 15:49:55  [cripto] ERROR diario: No se puede resolver el nombre remoto: 'api.binance.com' (linea 13)
+2026-10-13 19:43:32  [cripto-rapido] Resueltas rapida btc-updown-15m-1791912600: DOWN won (1.66 USD)
+2026-10-13 19:43:32  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791912600: DOWN won (1.66 USD)
+2026-10-13 19:43:33  [cripto-5m] Resueltas rapida btc-updown-5m-1791913200: DOWN won, DOWN won (0.57 USD)
+2026-10-13 19:43:33  [cripto-5m] Resueltas al contrario btc-updown-5m-1791913200: DOWN won, DOWN won (0.57 USD)
+2026-10-13 19:43:34  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791913200: DOWN won, DOWN won (0.57 USD)
+2026-10-13 19:43:35  [cripto-5m] Resueltas rapida btc-updown-5m-1791913500: DOWN won, DOWN won (0.57 USD)
+2026-10-13 19:43:35  [cripto-5m] Resueltas al contrario btc-updown-5m-1791913500: DOWN won, DOWN won (0.57 USD)
+2026-10-13 19:43:35  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791913500: DOWN won, DOWN won (0.57 USD)
+2026-10-13 19:43:35  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791913500: DOWN won, DOWN won (0.57 USD)
+2026-10-13 19:43:42  --- inicio ---
+2026-10-13 19:43:48  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791938400: DOWN $1 a 83c (paso los 73c), faltan 72 s
+2026-10-13 19:44:01  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-14T00:15:17.078Z)
+2026-10-13 19:45:04  Resuelta: Will Club Atlético de Madrid win on 2026-10-13? [NO] -> lost
+2026-10-13 19:45:09  OK: 17 mercados >= 60, 5 >= 70, 0 senales nuevas, 2 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 1 resueltas, 155 senales + 401 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 19:45:11  [copia:fed] Copia: $5 a Yes en Will there be no change in Fed interest rates after the January 2027 meeting? @ 67c (el entro a 66.0c con $1330)
+2026-10-13 19:45:11  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 1 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-13 19:45:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-13 19:45:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-13 19:45:16  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791938700: UP $1 a 76c (paso los 73c), faltan 284 s
+2026-10-13 19:45:17  [cripto-5m] Filtro de mercado btc-updown-5m-1791938700: UP (tendencia 0.22%, volatilidad 29%)
+2026-10-13 19:45:50  [ligas] Cuotas: soccer_uefa_champs_league actualizado (9 partidos; creditos restantes 455)
+2026-10-13 19:46:05  [ligas] OK: 28 partidos en 10 dias, 21 con Vegas, 0 apuestas en el historial
+2026-10-13 19:46:13  [no-favoritos] Apuesta [st] nhl spreads: $1 a 'Bruins' a 32c | Spread: Bruins (-1.5) | empieza en 134 min
+2026-10-13 19:46:14  [no-favoritos] Apuesta [st] nhl spreads: $1 a 'Oilers' a 33c | Spread: Oilers (-1.5) | empieza en 104 min
+2026-10-13 19:46:15  [no-favoritos] Resuelta [ml] ucl-vil-nap-2026-10-13-nap: 'Yes' -> lost (-1.04 USD)
+2026-10-13 19:46:16  [no-favoritos] Resuelta [ml] ucl-gal-fcb-2026-10-13-fcb: 'No' -> lost (-1.04 USD)
+2026-10-13 19:46:16  [no-favoritos] Resuelta [ml] elc-bir-pne-2026-10-13-bir: 'No' -> lost (-1.03 USD)
+2026-10-13 19:46:17  [no-favoritos] Provisional [ml] mar1-fus-rca-2026-10-13-draw: 'Yes' -> won (1.82 USD, por confirmar)
+2026-10-13 19:46:17  [no-favoritos] Resuelta [mlx] ucl-vil-nap-2026-10-13-nap: 'Yes' -> lost (-1.04 USD)
+2026-10-13 19:46:17  [no-favoritos] Resuelta [mlx] ucl-gal-fcb-2026-10-13-fcb: 'No' -> lost (-1.04 USD)
+2026-10-13 19:46:17  [no-favoritos] Resuelta [mlx] elc-bir-pne-2026-10-13-bir: 'No' -> lost (-1.03 USD)
+2026-10-13 19:46:17  [no-favoritos] Provisional [mlx] mar1-fus-rca-2026-10-13-draw: 'Yes' -> won (1.82 USD, por confirmar)
+2026-10-13 19:46:18  [no-favoritos] Resuelta [st] ucl-vil-nap-2026-10-13-total-3pt5: 'Over' -> won (1.82 USD)
+2026-10-13 19:46:18  [no-favoritos] OK: 6 mercados principales en la ventana, 2 apuestas nuevas, 9 resueltas
