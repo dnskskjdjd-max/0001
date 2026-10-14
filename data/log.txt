@@ -13870,3 +13870,20 @@
 2026-10-13 20:41:02  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
 2026-10-13 20:41:03  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-13 20:41:03  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-13 20:42:00  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1791941400: DOWN $3 a 49c, modelo 65.2%, ventaja 14.4 pp
+2026-10-13 20:45:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1791941400: salto max z=3.42; Polymarket ya se habia movido 4 veces (hasta 24c), sin precio previo 0, precio fuera de rango 0
+2026-10-13 20:45:19  [cripto-5m] Resueltas rapida btc-updown-5m-1791941700: DOWN won (0.27 USD)
+2026-10-13 20:45:19  [cripto-5m] Resueltas al contrario btc-updown-5m-1791941700: DOWN won (0.27 USD)
+2026-10-13 20:45:19  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791941700: DOWN won (0.27 USD)
+2026-10-13 20:45:19  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791941700: DOWN won (0.27 USD)
+2026-10-13 20:45:25  [cripto] OK diario: BTC 83325, vol 38.3%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (14 en el historial), 0 resueltas; rapido: 115 apuestas
+2026-10-13 20:45:30  --- inicio ---
+2026-10-13 20:45:44  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-14T01:36:04.445Z)
+2026-10-13 20:45:51  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791942300: DOWN $1 a 76c (paso los 73c), faltan 249 s
+2026-10-13 20:45:52  [cripto-5m] Filtro de mercado btc-updown-5m-1791942300: DOWN (tendencia -0.02%, volatilidad 26%)
+2026-10-13 20:45:56  OK: 19 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 156 senales + 401 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 20:45:58  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-13 20:45:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-13 20:45:59  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-13 20:46:35  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791942300: DOWN $1 a 76c (paso los 73c), faltan 205 s
+2026-10-13 20:46:42  [ligas] OK: 28 partidos en 10 dias, 21 con Vegas, 0 apuestas en el historial
