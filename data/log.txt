@@ -14366,3 +14366,17 @@
 2026-10-13 23:51:34  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
 2026-10-13 23:51:35  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-13 23:51:35  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-13 23:51:59  [cripto-rapido] Resueltas rapida btc-updown-15m-1791952200: DOWN won (2.18 USD)
+2026-10-13 23:51:59  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1791952200: 3 min DOWN won (1.23 USD)
+2026-10-13 23:51:59  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791952200: DOWN won (2.18 USD)
+2026-10-13 23:55:16  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791953700: UP $1 a 80c (paso los 73c), faltan 285 s
+2026-10-13 23:55:16  [cripto-5m] Filtro de mercado btc-updown-5m-1791953700: UP (tendencia 0.09%, volatilidad 19%)
+2026-10-13 23:55:27  [cripto] OK diario: BTC 83763, vol 38.1%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (14 en el historial), 0 resueltas; rapido: 126 apuestas
+2026-10-13 23:55:35  --- inicio ---
+2026-10-13 23:55:44  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791953700: UP $1 a 74c (paso los 73c), faltan 257 s
+2026-10-13 23:55:44  [cripto-5m] Filtro de mercado btc-updown-5m-1791953700: UP (tendencia 0.09%, volatilidad 19%)
+2026-10-13 23:56:00  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-14T04:44:50.675Z)
+2026-10-13 23:56:11  OK: 18 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 157 senales + 402 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (16 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 23:56:17  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-13 23:56:17  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-13 23:56:17  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
