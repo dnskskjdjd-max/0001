@@ -8523,7 +8523,6 @@
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T03:45:01Z"
     },
     {
@@ -8553,7 +8552,6 @@
         "version":  9,
         "n":  2,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T03:45:01Z"
     },
     {
@@ -8583,7 +8581,6 @@
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T03:50:00Z"
     },
     {
@@ -8613,7 +8610,6 @@
         "version":  9,
         "n":  2,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T03:50:00Z"
     },
     {
@@ -8638,10 +8634,68 @@
         "askUp":  0.27,
         "askDown":  0.74,
         "placedAt":  "2026-10-14T03:50:13Z",
+        "status":  "won",
+        "pnl":  0.3158,
+        "version":  9,
+        "n":  1,
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T03:55:21Z"
+    },
+    {
+        "id":  "btc-updown-5m-1791950400|1",
+        "W":  1791950400,
+        "slug":  "btc-updown-5m-1791950400",
+        "side":  "DOWN",
+        "token":  "72445186587208285498661054510606546006460807640703140284562239345262328810616",
+        "stake":  1,
+        "price":  0.77,
+        "fee":  0.0161,
+        "p":  0.6518,
+        "edge":  -0.1306,
+        "model":  "end60",
+        "secLeft":  270,
+        "S0":  83700.01,
+        "S":  83684.69,
+        "twapSoFar":  83708.12,
+        "pTwap":  0.349,
+        "pEnd":  0.4041,
+        "pEnd60":  0.3482,
+        "askUp":  0.25,
+        "askDown":  0.76,
+        "placedAt":  "2026-10-14T04:00:31Z",
         "status":  "open",
         "pnl":  null,
         "version":  9,
         "n":  1,
+        "rule":  "cross"
+    },
+    {
+        "id":  "btc-updown-5m-1791950400|2",
+        "W":  1791950400,
+        "slug":  "btc-updown-5m-1791950400",
+        "side":  "DOWN",
+        "token":  "72445186587208285498661054510606546006460807640703140284562239345262328810616",
+        "stake":  1,
+        "price":  0.76,
+        "fee":  0.0168,
+        "p":  0.6999,
+        "edge":  -0.0729,
+        "model":  "end60",
+        "secLeft":  255,
+        "S0":  83700.01,
+        "S":  83677.96,
+        "twapSoFar":  83699.42,
+        "pTwap":  0.2661,
+        "pEnd":  0.3595,
+        "pEnd60":  0.3001,
+        "askUp":  0.26,
+        "askDown":  0.75,
+        "placedAt":  "2026-10-14T04:00:46Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  9,
+        "n":  2,
         "rule":  "cross"
     }
 ]
