@@ -1483,9 +1483,9 @@
         "tauH":  22.74,
         "placedAt":  "2026-10-13T17:15:35Z",
         "end":  "2026-10-14T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.93,
-        "pnl":  null,
+        "status":  "lost",
+        "curPrice":  0,
+        "pnl":  -1.0112,
         "version":  9,
         "flipped":  true,
         "orig":  {
@@ -1534,6 +1534,7 @@
                          "p":  0.932,
                          "S":  83672
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-14T23:34:30Z"
     }
 ]
