@@ -8219,7 +8219,6 @@
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T02:35:02Z"
     },
     {
@@ -8244,11 +8243,13 @@
         "askUp":  0.79,
         "askDown":  0.22,
         "placedAt":  "2026-10-14T02:36:24Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.236,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T02:41:24Z"
     }
 ]
