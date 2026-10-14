@@ -7421,7 +7421,6 @@
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T01:40:01Z"
     },
     {
@@ -7446,10 +7445,12 @@
         "askUp":  0.73,
         "askDown":  0.28,
         "placedAt":  "2026-10-14T01:40:23Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.3332,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T01:45:00Z"
     }
 ]
