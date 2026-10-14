@@ -14188,3 +14188,54 @@
 2026-10-13 22:47:19  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-13 22:47:22  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791949500: UP $1 a 85c (paso los 73c), faltan 159 s
 2026-10-13 22:47:22  [cripto-5m] Filtro de mercado btc-updown-5m-1791949500: UP (tendencia 0.13%, volatilidad 26%)
+2026-10-13 22:48:00  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791949500: UP $1 a 74c (paso los 73c), faltan 121 s
+2026-10-13 22:48:00  [cripto-5m] Filtro de mercado btc-updown-5m-1791949500: UP (tendencia 0.11%, volatilidad 27%)
+2026-10-13 22:50:13  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791949800: DOWN $1 a 75c (paso los 73c), faltan 288 s
+2026-10-13 22:50:35  [cripto-rapido] Apuesta rapida btc-updown-15m-1791949500: UP $1 a 41c, modelo 47.9%, ventaja 5.2 pp, faltan 567 s
+2026-10-13 22:50:36  [cripto] OK diario: BTC 83814, vol 38.2%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (14 en el historial), 0 resueltas; rapido: 122 apuestas
+2026-10-13 22:50:44  --- inicio ---
+2026-10-13 22:51:25  [cripto-5m] Resueltas rapida btc-updown-5m-1791949200: UP lost, DOWN won (-0.68 USD)
+2026-10-13 22:51:25  [cripto-5m] Resueltas al contrario btc-updown-5m-1791949200: UP lost, DOWN won (-0.68 USD)
+2026-10-13 22:51:26  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791949200: UP lost (-1.02 USD)
+2026-10-13 22:51:26  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791949200: UP lost, DOWN won (-0.68 USD)
+2026-10-13 22:52:16  [cripto-rapido] ERROR: No se puede resolver el nombre remoto: 'clob.polymarket.com' (linea 82)
+2026-10-13 22:52:58  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-14T03:46:27.204Z)
+2026-10-13 22:53:20  OK: 17 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 156 senales + 402 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (16 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 22:53:55  [cripto-5m] ERROR: Se excedió el tiempo de espera de la operación (linea 82)
+2026-10-13 22:54:11  [copia:fed] ERROR (fed.json): No se puede resolver el nombre remoto: 'data-api.polymarket.com' En C:\Users\piero\FirePolymarket-Tracker\copier.ps1: 50 Carácter: 18
++ ...        $r = Invoke-WebRequest -Uri $uri -UseBasicParsing -TimeoutSec  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-10-13 22:54:37  [copia:futbol] ERROR (futbol.json): No se puede resolver el nombre remoto: 'data-api.polymarket.com' En C:\Users\piero\FirePolymarket-Tracker\copier.ps1: 50 Carácter: 18
++ ...        $r = Invoke-WebRequest -Uri $uri -UseBasicParsing -TimeoutSec  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-10-13 22:55:04  [copia:nfl] ERROR (nfl.json): No se puede resolver el nombre remoto: 'data-api.polymarket.com' En C:\Users\piero\FirePolymarket-Tracker\copier.ps1: 50 Carácter: 18
++ ...        $r = Invoke-WebRequest -Uri $uri -UseBasicParsing -TimeoutSec  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2026-10-13 22:57:34  [cripto-5m] Resueltas rapida btc-updown-5m-1791949500: UP won, UP won (0.5 USD)
+2026-10-13 22:57:34  [cripto-5m] Resueltas al contrario btc-updown-5m-1791949500: UP won, UP won (0.5 USD)
+2026-10-13 22:57:35  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791949500: UP won, UP won (0.5 USD)
+2026-10-13 22:57:35  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791949500: UP won, UP won (0.5 USD)
+2026-10-13 23:00:31  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791950400: DOWN $1 a 77c (paso los 73c), faltan 270 s
+2026-10-13 23:00:32  [cripto-5m] Filtro de mercado btc-updown-5m-1791950400: DOWN (tendencia -0.22%, volatilidad 22%)
+2026-10-13 23:00:46  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791950400: DOWN $1 a 76c (paso los 73c), faltan 255 s
+2026-10-13 23:00:47  [cripto-5m] Filtro de mercado btc-updown-5m-1791950400: DOWN (tendencia -0.22%, volatilidad 22%)
+2026-10-13 23:00:50  [cripto] OK diario: BTC 83678, vol 38.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (14 en el historial), 0 resueltas; rapido: 122 apuestas
+2026-10-13 23:01:00  [cripto-5m] Resueltas rapida btc-updown-5m-1791949800: DOWN won (0.32 USD)
+2026-10-13 23:01:00  [cripto-5m] Resueltas al contrario btc-updown-5m-1791949800: DOWN won (0.32 USD)
+2026-10-13 23:01:00  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791949800: DOWN won (0.32 USD)
+2026-10-13 23:02:58  [ligas] Cuotas: soccer_uefa_champs_league actualizado (9 partidos; creditos restantes 454)
+2026-10-13 23:03:22  [ligas] OK: 28 partidos en 10 dias, 21 con Vegas, 0 apuestas en el historial
+2026-10-13 23:05:10  [cripto-rapido] Resueltas rapida btc-updown-15m-1791949500: UP lost (-1.04 USD)
+2026-10-13 23:05:10  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791949500: UP lost (-1.04 USD)
+2026-10-13 23:05:14  [cripto-rapido] Apuesta rapida btc-updown-15m-1791950400: UP $1 a 30c, modelo 37%, ventaja 5.5 pp, faltan 586 s
+2026-10-13 23:05:34  [cripto] OK diario: BTC 83662, vol 38.2%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (14 en el historial), 0 resueltas; rapido: 123 apuestas
+2026-10-13 23:05:38  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791950700: DOWN $1 a 86c (paso los 73c), faltan 263 s
+2026-10-13 23:05:39  [cripto-5m] Filtro de mercado btc-updown-5m-1791950700: DOWN (tendencia -0.37%, volatilidad 18%)
+2026-10-13 23:05:42  --- inicio ---
+2026-10-13 23:06:27  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791950700: DOWN $1 a 75c (paso los 73c), faltan 215 s
+2026-10-13 23:06:29  [cripto-5m] Filtro de mercado btc-updown-5m-1791950700: DOWN (tendencia -0.36%, volatilidad 19%)
+2026-10-13 23:07:21  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-14T03:46:27.204Z)
+2026-10-13 23:07:37  OK: 17 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 156 senales + 402 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (16 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 23:07:42  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-13 23:07:43  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-13 23:07:43  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
