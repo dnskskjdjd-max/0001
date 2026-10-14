@@ -3423,7 +3423,6 @@
         "flipped":  false,
         "trend30":  0.006,
         "vol30":  0.2708,
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T02:25:01Z"
     },
     {
@@ -3448,13 +3447,15 @@
         "askUp":  0.73,
         "askDown":  0.28,
         "placedAt":  "2026-10-14T02:26:04Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0182,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  0.043,
-        "vol30":  0.2679
+        "vol30":  0.2679,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-14T02:30:02Z"
     }
 ]
