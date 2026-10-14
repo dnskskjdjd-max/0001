@@ -1484,7 +1484,7 @@
         "placedAt":  "2026-10-13T17:15:35Z",
         "end":  "2026-10-14T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.9,
+        "curPrice":  0.87,
         "pnl":  null,
         "version":  9,
         "flipped":  true,
@@ -1494,9 +1494,9 @@
                      "edge":  0.038,
                      "side":  "NO"
                  },
-        "curPriceAt":  "2026-10-14T00:52:21Z",
-        "curP":  0.86,
-        "curSpot":  83430,
+        "curPriceAt":  "2026-10-14T00:53:21Z",
+        "curP":  0.8664,
+        "curSpot":  83468,
         "hist":  [
                      {
                          "t":  "2026-10-13T17:15:35Z",
