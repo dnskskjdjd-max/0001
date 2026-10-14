@@ -4215,14 +4215,15 @@
         "askUp":  0.8,
         "askDown":  0.21,
         "placedAt":  "2026-10-14T04:47:36Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0133,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  0.101,
-        "vol30":  0.2317
+        "vol30":  0.2317,
+        "resolvedAt":  "2026-10-14T04:56:35Z"
     },
     {
         "id":  "btc-updown-5m-1791953400|1",
