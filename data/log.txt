@@ -13717,3 +13717,11 @@
 2026-10-13 19:46:17  [no-favoritos] Provisional [mlx] mar1-fus-rca-2026-10-13-draw: 'Yes' -> won (1.82 USD, por confirmar)
 2026-10-13 19:46:18  [no-favoritos] Resuelta [st] ucl-vil-nap-2026-10-13-total-3pt5: 'Over' -> won (1.82 USD)
 2026-10-13 19:46:18  [no-favoritos] OK: 6 mercados principales en la ventana, 2 apuestas nuevas, 9 resueltas
+2026-10-13 19:47:57  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1791938700: DOWN $1 a 77c (paso los 73c), faltan 123 s
+2026-10-13 19:49:40  --- inicio ---
+2026-10-13 19:49:58  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-14T00:44:29.578Z)
+2026-10-13 19:50:10  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1791939000: DOWN $1 a 75c (paso los 73c), faltan 291 s
+2026-10-13 19:50:16  OK: 18 mercados >= 60, 5 >= 70, 1 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 156 senales + 401 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (15 en total) ; prueba zona-media: 0 nuevas (8 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (8 en total)
+2026-10-13 19:50:20  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-13 19:50:21  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-13 19:50:21  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
