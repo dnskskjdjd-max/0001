@@ -14421,3 +14421,14 @@
 2026-10-14 18:34:25  [no-favoritos] Resuelta [st] nhl-bos-sj-2026-10-13-spread-away-1pt5: 'Bruins' -> won (2.09 USD)
 2026-10-14 18:34:25  [no-favoritos] Resuelta [st] nhl-edm-lak-2026-10-13-spread-away-1pt5: 'Oilers' -> won (2.00 USD)
 2026-10-14 18:34:25  [no-favoritos] OK: 6 mercados principales en la ventana, 1 apuestas nuevas, 2 resueltas
+2026-10-14 18:34:34  [cripto] Resuelta diaria: BTC YES > 82000 -> lost (-1.01 USD)
+2026-10-14 18:34:35  [cripto] OK diario: BTC 81523, vol 39.1%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (14 en el historial), 1 resueltas; rapido: 126 apuestas
+2026-10-14 18:35:35  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792020900: UP $1 a 81c (paso los 73c), faltan 266 s
+2026-10-14 18:35:54  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792020900: UP $1 a 78c (paso los 73c), faltan 246 s
+2026-10-14 18:36:56  [cripto-rapido] Apuesta rapida btc-updown-15m-1792020600: DOWN $1 a 38c, modelo 46.3%, ventaja 6.7 pp, faltan 485 s
+2026-10-14 18:38:09  --- inicio ---
+2026-10-14 18:38:29  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-14T23:30:14.029Z)
+2026-10-14 18:38:45  OK: 22 mercados >= 60, 8 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 162 senales + 402 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (17 en total) ; prueba zona-media: 0 nuevas (9 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (9 en total)
+2026-10-14 18:38:48  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-14 18:38:49  [copia:futbol] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-14 18:38:49  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
