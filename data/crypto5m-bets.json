@@ -9161,7 +9161,6 @@
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T05:00:01Z"
     },
     {
@@ -9191,7 +9190,34 @@
         "version":  9,
         "n":  2,
         "rule":  "cross",
-        "provisional":  true,
         "resolvedAt":  "2026-10-14T05:00:01Z"
+    },
+    {
+        "id":  "btc-updown-5m-1792020600|1",
+        "W":  1792020600,
+        "slug":  "btc-updown-5m-1792020600",
+        "side":  "DOWN",
+        "token":  "20302856093148387298801351329325478613940061004180859790877586088699833490093",
+        "stake":  1,
+        "price":  0.76,
+        "fee":  0.0168,
+        "p":  0.646,
+        "edge":  -0.1267,
+        "model":  "end60",
+        "secLeft":  155,
+        "S0":  81540.03,
+        "S":  81541.58,
+        "twapSoFar":  81507.98,
+        "pTwap":  0.1666,
+        "pEnd":  0.5112,
+        "pEnd60":  0.354,
+        "askUp":  0.26,
+        "askDown":  0.75,
+        "placedAt":  "2026-10-14T23:32:25Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  9,
+        "n":  1,
+        "rule":  "cross"
     }
 ]

@@ -14397,3 +14397,27 @@
 2026-10-14 00:01:15  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-14 00:02:15  [ligas] OK: 28 partidos en 10 dias, 21 con Vegas, 0 apuestas en el historial
 2026-10-14 00:02:21  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
+2026-10-14 18:32:00  [cripto-rapido] Resueltas rapida btc-updown-15m-1791953100: DOWN lost (-1.04 USD)
+2026-10-14 18:32:00  [cripto-rapido] Resueltas al contrario btc-updown-15m-1791953100: DOWN lost (-1.04 USD)
+2026-10-14 18:32:02  [cripto-5m] Resueltas rapida btc-updown-5m-1791953700: UP won, UP won (0.57 USD)
+2026-10-14 18:32:02  [cripto-5m] Resueltas al contrario btc-updown-5m-1791953700: UP won, UP won (0.57 USD)
+2026-10-14 18:32:02  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1791953700: UP won, UP won (0.57 USD)
+2026-10-14 18:32:02  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1791953700: UP won, UP won (0.57 USD)
+2026-10-14 18:32:25  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792020600: DOWN $1 a 76c (paso los 73c), faltan 155 s
+2026-10-14 18:32:54  --- inicio ---
+2026-10-14 18:33:10  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-14T23:30:14.029Z)
+2026-10-14 18:33:23  Cuotas: baseball_mlb actualizado (2 partidos; creditos restantes 453)
+2026-10-14 18:33:24  Cuotas: americanfootball_nfl actualizado (28 partidos; creditos restantes 452)
+2026-10-14 18:33:28  [prueba:no-perseguir] Apuesta: $2 a SEAHAWKS en Seahawks vs. Broncos @ 57c (score 63, consenso 7/10)
+2026-10-14 18:33:28  [prueba:zona-media] Apuesta: $2 a SEAHAWKS en Seahawks vs. Broncos @ 57c (score 63, consenso 7/10)
+2026-10-14 18:33:28  [prueba:zona-media-sin-perseguir] Apuesta: $2 a SEAHAWKS en Seahawks vs. Broncos @ 57c (score 63, consenso 7/10)
+2026-10-14 18:33:34  OK: 22 mercados >= 60, 8 >= 70, 5 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 162 senales + 402 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 1 nuevas (17 en total) ; prueba zona-media: 1 nuevas (9 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 1 nuevas (9 en total)
+2026-10-14 18:33:38  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-14 18:33:39  [copia:futbol] OK: 1 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-14 18:33:39  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-14 18:34:14  [ligas] Cuotas: soccer_spain_la_liga actualizado (21 partidos; creditos restantes 451)
+2026-10-14 18:34:17  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-14 18:34:22  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Colorado Rapids SC' a 29c | Spread: Colorado Rapids SC (-1.5) | empieza en 116 min
+2026-10-14 18:34:25  [no-favoritos] Resuelta [st] nhl-bos-sj-2026-10-13-spread-away-1pt5: 'Bruins' -> won (2.09 USD)
+2026-10-14 18:34:25  [no-favoritos] Resuelta [st] nhl-edm-lak-2026-10-13-spread-away-1pt5: 'Oilers' -> won (2.00 USD)
+2026-10-14 18:34:25  [no-favoritos] OK: 6 mercados principales en la ventana, 1 apuestas nuevas, 2 resueltas
