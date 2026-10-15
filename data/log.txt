@@ -14950,3 +14950,27 @@
 2026-10-15 08:01:37  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-15 08:01:38  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-15 08:02:06  [no-favoritos] OK: 6 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
+2026-10-15 08:05:45  [cripto] OK diario: BTC 80600, vol 39.9%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 137 apuestas
+2026-10-15 08:05:58  --- inicio ---
+2026-10-15 08:06:22  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T12:47:01.716Z)
+2026-10-15 08:06:40  OK: 23 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 167 senales + 409 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 08:06:58  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 08:06:59  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 08:06:59  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 08:08:08  [cripto-5m] ERROR: No se puede resolver el nombre remoto: 'clob.polymarket.com' (linea 82)
+2026-10-15 08:08:14  [cripto-rapido] ERROR: No se puede resolver el nombre remoto: 'api.binance.com' (linea 13)
+2026-10-15 08:08:31  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792069500: DOWN $1 a 90c (paso los 73c), faltan 90 s
+2026-10-15 08:10:11  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-15 08:11:34  [cripto-5m] Resueltas rapida btc-updown-5m-1792069200: UP won, UP won (0.65 USD)
+2026-10-15 08:11:34  [cripto-5m] Resueltas al contrario btc-updown-5m-1792069200: UP won, UP won (0.65 USD)
+2026-10-15 08:11:34  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792069200: UP won, UP won (0.65 USD)
+2026-10-15 08:11:54  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792069800: DOWN $1 a 79c (paso los 73c), faltan 187 s
+2026-10-15 08:12:55  [cripto] OK diario: BTC 80398, vol 40%, 4 fechas, 2 senales nuevas, 0 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 137 apuestas
+2026-10-15 08:13:01  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792069800: DOWN $1 a 75c (paso los 73c), faltan 119 s
+2026-10-15 08:15:00  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1792069200: salto max z=-2.21; Polymarket ya se habia movido 1 veces (hasta 8c), sin precio previo 0, precio fuera de rango 0
+2026-10-15 08:15:30  --- inicio ---
+2026-10-15 08:15:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T13:06:28.645Z)
+2026-10-15 08:16:04  OK: 23 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 167 senales + 409 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 08:16:11  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 08:16:12  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 08:16:12  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
