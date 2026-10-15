@@ -14863,3 +14863,29 @@
 2026-10-15 06:46:06  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-15 06:46:06  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-15 06:46:06  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792064700: DOWN $1 a 78c (paso los 73c), faltan 234 s
+2026-10-15 06:46:16  [cripto-5m] Resueltas rapida btc-updown-5m-1792064100: UP won, UP won (0.62 USD)
+2026-10-15 06:46:17  [cripto-5m] Resueltas al contrario btc-updown-5m-1792064100: UP won, UP won (0.62 USD)
+2026-10-15 06:46:17  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792064100: UP won, UP won (0.62 USD)
+2026-10-15 06:48:07  [cripto-rapido] Resueltas rapida btc-updown-15m-1792063800: UP won (0.19 USD)
+2026-10-15 06:48:07  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792063800: UP won (0.19 USD)
+2026-10-15 06:50:17  [cripto-5m] Resueltas rapida btc-updown-5m-1792064400: UP lost, UP lost (-2.04 USD)
+2026-10-15 06:50:18  [cripto-5m] Resueltas al contrario btc-updown-5m-1792064400: UP lost, UP lost (-2.04 USD)
+2026-10-15 06:50:18  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792064400: UP lost, UP lost (-2.04 USD)
+2026-10-15 06:50:25  [cripto] OK diario: BTC 81060, vol 39.8%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 136 apuestas
+2026-10-15 06:50:27  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792065000: DOWN $1 a 80c (paso los 73c), faltan 273 s
+2026-10-15 06:50:30  --- inicio ---
+2026-10-15 06:50:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T11:36:05.429Z)
+2026-10-15 07:31:32  Gamma fallo (intento 1): La operación sobrepasó el tiempo de espera.
+2026-10-15 07:31:41  [cripto-5m] Resueltas rapida btc-updown-5m-1792064700: DOWN won, DOWN won (0.57 USD)
+2026-10-15 07:31:41  [cripto-5m] Resueltas al contrario btc-updown-5m-1792064700: DOWN won, DOWN won (0.57 USD)
+2026-10-15 07:31:41  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792064700: DOWN won, DOWN won (0.57 USD)
+2026-10-15 07:31:41  [cripto-5m] Resueltas rapida btc-updown-5m-1792065000: DOWN won (0.24 USD)
+2026-10-15 07:31:41  [cripto-5m] Resueltas al contrario btc-updown-5m-1792065000: DOWN won (0.24 USD)
+2026-10-15 07:31:42  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792065000: DOWN won (0.24 USD)
+2026-10-15 07:31:54  OK: 22 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 166 senales + 409 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 07:31:56  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 07:31:56  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 07:31:56  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 07:32:32  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-15 07:32:37  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Al Khaleej Saudi Club' a 21c | Spread: Al Khaleej Saudi Club (-1.5) | empieza en 137 min
+2026-10-15 07:32:39  [no-favoritos] OK: 3 mercados principales en la ventana, 1 apuestas nuevas, 0 resueltas

@@ -2284,5 +2284,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "spl-kha-fay-2026-10-15-spread-home-1pt5|0",
+        "strategy":  "st",
+        "slug":  "spl-kha-fay-2026-10-15-spread-home-1pt5",
+        "ev":  "spl-kha-fay-2026-10-15",
+        "league":  "soccer",
+        "type":  "spreads",
+        "line":  -1.5,
+        "question":  "Spread: Al Khaleej Saudi Club (-1.5)",
+        "side":  0,
+        "outcome":  "Al Khaleej Saudi Club",
+        "token":  "107904112363742514132955292186348447469967693743452740781565968540881100872374",
+        "stake":  1,
+        "price":  0.21,
+        "bestBid":  0.2,
+        "feeRate":  0.05,
+        "fee":  0.0395,
+        "vol":  149,
+        "start":  "2026-10-15T14:50:00Z",
+        "minBefore":  137,
+        "placedAt":  "2026-10-15T12:32:33Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
