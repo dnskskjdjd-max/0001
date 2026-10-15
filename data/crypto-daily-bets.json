@@ -1560,9 +1560,9 @@
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-15T02:27:16Z",
-        "curP":  0.9927,
-        "curSpot":  80902.32,
+        "curPriceAt":  "2026-10-15T02:28:22Z",
+        "curP":  0.9955,
+        "curSpot":  80680.01,
         "hist":  [
                      {
                          "t":  "2026-10-15T02:14:21Z",
@@ -1595,15 +1595,50 @@
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-15T02:27:16Z",
-        "curP":  0.8107,
-        "curSpot":  80902.32,
+        "curPriceAt":  "2026-10-15T02:28:22Z",
+        "curP":  0.8547,
+        "curSpot":  80680.01,
         "hist":  [
                      {
                          "t":  "2026-10-15T02:24:22Z",
                          "px":  0.58,
                          "p":  0.8415,
                          "S":  80761
+                     }
+                 ]
+    },
+    {
+        "id":  "bitcoin-above-78k-on-october-15-2026|YES",
+        "ev":  "bitcoin-above-on-october-15-2026",
+        "slug":  "bitcoin-above-78k-on-october-15-2026",
+        "k":  78000,
+        "side":  "YES",
+        "token":  "101071193535156725044481524360927427599967354671178726742722439980416487615607",
+        "stake":  1,
+        "price":  0.946,
+        "fee":  0.0038,
+        "p":  0.9852,
+        "edge":  0.0356,
+        "S":  80680.01,
+        "sig":  0.3937,
+        "tauH":  13.53,
+        "placedAt":  "2026-10-15T02:28:22Z",
+        "end":  "2026-10-15T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.938,
+        "pnl":  null,
+        "version":  9,
+        "flipped":  false,
+        "orig":  null,
+        "curPriceAt":  "2026-10-15T02:28:22Z",
+        "curP":  0.9852,
+        "curSpot":  80680.01,
+        "hist":  [
+                     {
+                         "t":  "2026-10-15T02:28:22Z",
+                         "px":  0.938,
+                         "p":  0.9852,
+                         "S":  80680
                      }
                  ]
     }
