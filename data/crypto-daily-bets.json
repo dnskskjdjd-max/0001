@@ -1560,15 +1560,50 @@
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-15T02:23:21Z",
-        "curP":  0.9895,
-        "curSpot":  81089.72,
+        "curPriceAt":  "2026-10-15T02:24:22Z",
+        "curP":  0.995,
+        "curSpot":  80761.47,
         "hist":  [
                      {
                          "t":  "2026-10-15T02:14:21Z",
                          "px":  0.94,
                          "p":  0.9747,
                          "S":  81520
+                     }
+                 ]
+    },
+    {
+        "id":  "bitcoin-above-82k-on-october-15-2026|NO",
+        "ev":  "bitcoin-above-on-october-15-2026",
+        "slug":  "bitcoin-above-82k-on-october-15-2026",
+        "k":  82000,
+        "side":  "NO",
+        "token":  "48995733944512579567530711852032804028316119527358817872187094632889421234534",
+        "stake":  1,
+        "price":  0.79,
+        "fee":  0.0147,
+        "p":  0.8415,
+        "edge":  0.0399,
+        "S":  80761.47,
+        "sig":  0.3891,
+        "tauH":  13.59,
+        "placedAt":  "2026-10-15T02:24:22Z",
+        "end":  "2026-10-15T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.58,
+        "pnl":  null,
+        "version":  9,
+        "flipped":  false,
+        "orig":  null,
+        "curPriceAt":  "2026-10-15T02:24:22Z",
+        "curP":  0.8415,
+        "curSpot":  80761.47,
+        "hist":  [
+                     {
+                         "t":  "2026-10-15T02:24:22Z",
+                         "px":  0.58,
+                         "p":  0.8415,
+                         "S":  80761
                      }
                  ]
     }
