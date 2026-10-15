@@ -1505,5 +1505,30 @@
         "pnl":  1.8246,
         "version":  1,
         "resolvedAt":  "2026-10-14T00:46:05Z"
+    },
+    {
+        "id":  "tur2-mar-kar-2026-10-15-kar|0",
+        "strategy":  "ml",
+        "slug":  "tur2-mar-kar-2026-10-15-kar",
+        "ev":  "tur2-mar-kar-2026-10-15",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Fatih Karagumruk Istanbul win on 2026-10-15?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "64174824534733016060746618419053980165188374628495401927453561821586664361616",
+        "stake":  1,
+        "price":  0.27,
+        "bestBid":  0.25,
+        "feeRate":  0.05,
+        "fee":  0.0365,
+        "vol":  601,
+        "start":  "2026-10-15T14:00:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-15T11:31:15Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

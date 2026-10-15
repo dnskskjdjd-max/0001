@@ -2259,5 +2259,30 @@
         "pnl":  -1.0355,
         "version":  1,
         "resolvedAt":  "2026-10-15T11:12:33Z"
+    },
+    {
+        "id":  "tur2-mar-kar-2026-10-15-spread-home-1pt5|0",
+        "strategy":  "st",
+        "slug":  "tur2-mar-kar-2026-10-15-spread-home-1pt5",
+        "ev":  "tur2-mar-kar-2026-10-15",
+        "league":  "soccer",
+        "type":  "spreads",
+        "line":  -1.5,
+        "question":  "Spread: Mardin 1969 Spor (-1.5)",
+        "side":  0,
+        "outcome":  "Mardin 1969 Spor",
+        "token":  "62364951645705631501117785519266341727755107851608836950925346119194701496884",
+        "stake":  1,
+        "price":  0.24,
+        "bestBid":  0.22,
+        "feeRate":  0.05,
+        "fee":  0.038,
+        "vol":  0,
+        "start":  "2026-10-15T14:00:00Z",
+        "minBefore":  149,
+        "placedAt":  "2026-10-15T11:31:15Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

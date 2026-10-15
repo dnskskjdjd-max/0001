@@ -14807,3 +14807,21 @@
 2026-10-15 06:26:11  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-15 06:27:03  [cripto-rapido] Apuesta 3 tramos (3 min) btc-updown-15m-1792062900: DOWN $1 a 36c, modelo 45.5%, ventaja 7.9 pp
 2026-10-15 06:27:23  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-15 06:29:27  [cripto] Apuesta diaria: BTC YES > 78000 (bitcoin-above-on-october-16-2026) $1 a 92.9c, modelo 95.4%, ventaja 2 pp
+2026-10-15 06:29:29  [cripto] OK diario: BTC 81056, vol 39.8%, 4 fechas, 0 senales nuevas, 1 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 135 apuestas
+2026-10-15 06:30:27  [cripto] OK diario: BTC 81062, vol 39.8%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 135 apuestas
+2026-10-15 06:30:32  --- inicio ---
+2026-10-15 06:30:49  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T11:17:32.374Z)
+2026-10-15 06:30:53  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792063800: DOWN $1 a 74c (paso los 73c), faltan 247 s
+2026-10-15 06:31:10  OK: 23 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 166 senales + 408 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 06:31:11  [cripto-5m] Resueltas rapida btc-updown-5m-1792063200: UP lost, UP lost (-2.03 USD)
+2026-10-15 06:31:11  [cripto-5m] Resueltas al contrario btc-updown-5m-1792063200: UP lost, UP lost (-2.03 USD)
+2026-10-15 06:31:12  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792063200: UP lost, UP lost (-2.03 USD)
+2026-10-15 06:31:13  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 06:31:13  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792063800: DOWN $1 a 78c (paso los 73c), faltan 227 s
+2026-10-15 06:31:14  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 06:31:14  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 06:31:22  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 27c | Will Fatih Karagumruk Istanbul win on 2026-10-15? | empieza en 149 min
+2026-10-15 06:31:23  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 27c | Will Fatih Karagumruk Istanbul win on 2026-10-15? | empieza en 149 min
+2026-10-15 06:31:23  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Mardin 1969 Spor' a 24c | Spread: Mardin 1969 Spor (-1.5) | empieza en 149 min
+2026-10-15 06:31:25  [no-favoritos] OK: 9 mercados principales en la ventana, 3 apuestas nuevas, 0 resueltas
