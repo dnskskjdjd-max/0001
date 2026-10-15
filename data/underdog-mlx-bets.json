@@ -1554,5 +1554,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "spl-haz-fat-2026-10-15-fat|0",
+        "strategy":  "mlx",
+        "slug":  "spl-haz-fat-2026-10-15-fat",
+        "ev":  "spl-haz-fat-2026-10-15",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will Al Fateh Saudi Club win on 2026-10-15?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "107586761095873802687951369773905163845380725536615801133315975454329153767038",
+        "stake":  1,
+        "price":  0.31,
+        "bestBid":  0.3,
+        "feeRate":  0.05,
+        "fee":  0.0345,
+        "vol":  3291,
+        "start":  "2026-10-15T15:15:00Z",
+        "minBefore":  146,
+        "placedAt":  "2026-10-15T12:48:43Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]

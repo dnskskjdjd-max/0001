@@ -14889,3 +14889,32 @@
 2026-10-15 07:32:32  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
 2026-10-15 07:32:37  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Al Khaleej Saudi Club' a 21c | Spread: Al Khaleej Saudi Club (-1.5) | empieza en 137 min
 2026-10-15 07:32:39  [no-favoritos] OK: 3 mercados principales en la ventana, 1 apuestas nuevas, 0 resueltas
+2026-10-15 07:35:01  [cripto-rapido] Apuesta rapida btc-updown-15m-1792067400: DOWN $2 a 87c, modelo 99%, ventaja 11.2 pp, faltan 600 s
+2026-10-15 07:35:01  [cripto-rapido] Apuesta 3 tramos (10 min) btc-updown-15m-1792067400: DOWN $2 a 87c, modelo 99%, ventaja 11.2 pp
+2026-10-15 07:36:59  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792067700: UP $1 a 75c (paso los 73c), faltan 182 s
+2026-10-15 07:37:03  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792067700: UP $1 a 74c (paso los 73c), faltan 178 s
+2026-10-15 07:37:53  --- inicio ---
+2026-10-15 07:40:57  [cripto-rapido] ERROR: La operación sobrepasó el tiempo de espera. (linea 13)
+2026-10-15 07:40:58  [cripto-5m] ERROR: La operación sobrepasó el tiempo de espera. (linea 13)
+2026-10-15 07:41:42  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T12:30:12.647Z)
+2026-10-15 07:41:44  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792068000: UP $1 a 78c (paso los 73c), faltan 197 s
+2026-10-15 07:42:35  OK: 23 mercados >= 60, 6 >= 70, 1 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 167 senales + 409 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 07:42:57  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 07:43:00  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 07:43:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 07:43:08  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792068000: UP $1 a 76c (paso los 73c), faltan 113 s
+2026-10-15 07:46:02  --- inicio ---
+2026-10-15 07:46:07  [cripto-5m] Resueltas rapida btc-updown-5m-1792067700: UP won, UP won (0.65 USD)
+2026-10-15 07:46:07  [cripto-5m] Resueltas al contrario btc-updown-5m-1792067700: UP won, UP won (0.65 USD)
+2026-10-15 07:46:07  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792067700: UP won, UP won (0.65 USD)
+2026-10-15 07:46:12  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792068300: DOWN $1 a 75c (paso los 73c), faltan 228 s
+2026-10-15 07:46:38  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792068300: DOWN $1 a 75c (paso los 73c), faltan 202 s
+2026-10-15 07:46:53  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T12:30:12.647Z)
+2026-10-15 07:47:28  OK: 23 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 167 senales + 409 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 07:47:43  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 07:47:46  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 07:47:47  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 07:48:41  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-15 07:48:56  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 31c | Will Al Fateh Saudi Club win on 2026-10-15? | empieza en 146 min
+2026-10-15 07:48:56  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 31c | Will Al Fateh Saudi Club win on 2026-10-15? | empieza en 146 min
+2026-10-15 07:48:59  [no-favoritos] OK: 6 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
