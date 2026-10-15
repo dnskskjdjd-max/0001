@@ -14825,3 +14825,13 @@
 2026-10-15 06:31:23  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 27c | Will Fatih Karagumruk Istanbul win on 2026-10-15? | empieza en 149 min
 2026-10-15 06:31:23  [no-favoritos] Apuesta [st] soccer spreads: $1 a 'Mardin 1969 Spor' a 24c | Spread: Mardin 1969 Spor (-1.5) | empieza en 149 min
 2026-10-15 06:31:25  [no-favoritos] OK: 9 mercados principales en la ventana, 3 apuestas nuevas, 0 resueltas
+2026-10-15 06:33:01  [cripto-rapido] Resueltas rapida btc-updown-15m-1792062900: DOWN lost (-2.04 USD)
+2026-10-15 06:33:01  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1792062900: 3 min DOWN lost (-1.04 USD)
+2026-10-15 06:33:01  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792062900: DOWN lost (-2.04 USD)
+2026-10-15 06:35:25  [cripto] OK diario: BTC 81084, vol 39.8%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 135 apuestas
+2026-10-15 06:35:30  --- inicio ---
+2026-10-15 06:35:47  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T11:17:32.374Z)
+2026-10-15 06:35:59  OK: 23 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 166 senales + 408 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 06:36:01  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 06:36:01  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 06:36:01  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
