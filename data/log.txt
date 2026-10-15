@@ -14674,3 +14674,22 @@
 2026-10-14 21:31:18  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-14 21:31:18  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-14 21:31:23  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
+2026-10-14 21:31:31  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792031400: DOWN $1 a 74c (paso los 73c), faltan 209 s
+2026-10-14 21:32:36  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792031400: UP $1 a 76c (paso los 73c), faltan 144 s
+2026-10-14 21:34:32  [cripto-5m] Resueltas rapida btc-updown-5m-1792031100: UP lost, DOWN won (-0.85 USD)
+2026-10-14 21:34:32  [cripto-5m] Resueltas al contrario btc-updown-5m-1792031100: UP lost, DOWN won (-0.85 USD)
+2026-10-14 21:34:32  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792031100: UP lost, DOWN won (-0.85 USD)
+2026-10-14 21:35:04  [cripto-rapido] Apuesta rapida btc-updown-15m-1792031400: UP $1 a 80c, modelo 87.1%, ventaja 6 pp, faltan 596 s
+2026-10-14 21:35:32  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792031700: UP $1 a 76c (paso los 73c), faltan 270 s
+2026-10-14 21:35:33  [cripto-5m] ERROR: No se puede crear un archivo que ya existe.
+ (linea 20)
+2026-10-14 21:35:33  [cripto] OK diario: BTC 81117, vol 39.8%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (17 en el historial), 0 resueltas; rapido: 132 apuestas
+2026-10-14 21:35:39  --- inicio ---
+2026-10-14 21:36:26  [cripto-rapido] Resueltas rapida btc-updown-15m-1792030500: DOWN won (0.63 USD)
+2026-10-14 21:36:26  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792030500: DOWN won (0.63 USD)
+2026-10-14 21:36:27  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T02:30:12.430Z)
+2026-10-14 21:36:37  Cuotas: americanfootball_nfl actualizado (28 partidos; creditos restantes 450)
+2026-10-14 21:36:44  OK: 18 mercados >= 60, 5 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 162 senales + 407 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (17 en total) ; prueba zona-media: 0 nuevas (9 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (9 en total)
+2026-10-14 21:36:48  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-14 21:36:49  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-14 21:36:49  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
