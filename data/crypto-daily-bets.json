@@ -1555,14 +1555,14 @@
         "placedAt":  "2026-10-15T02:14:21Z",
         "end":  "2026-10-15T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.982,
+        "curPrice":  0.989,
         "pnl":  null,
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-15T11:28:20Z",
+        "curPriceAt":  "2026-10-15T11:29:21Z",
         "curP":  1,
-        "curSpot":  81070,
+        "curSpot":  81055.79,
         "hist":  [
                      {
                          "t":  "2026-10-15T02:14:21Z",
@@ -1607,9 +1607,9 @@
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-15T11:28:20Z",
-        "curP":  0.8974,
-        "curSpot":  81070,
+        "curPriceAt":  "2026-10-15T11:29:21Z",
+        "curP":  0.9012,
+        "curSpot":  81055.79,
         "hist":  [
                      {
                          "t":  "2026-10-15T02:24:22Z",
@@ -1654,9 +1654,9 @@
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-15T11:28:20Z",
+        "curPriceAt":  "2026-10-15T11:29:21Z",
         "curP":  1,
-        "curSpot":  81070,
+        "curSpot":  81055.79,
         "hist":  [
                      {
                          "t":  "2026-10-15T02:28:22Z",
@@ -1675,6 +1675,41 @@
                          "px":  0.979,
                          "p":  1,
                          "S":  80976
+                     }
+                 ]
+    },
+    {
+        "id":  "bitcoin-above-78k-on-october-16-2026|YES",
+        "ev":  "bitcoin-above-on-october-16-2026",
+        "slug":  "bitcoin-above-78k-on-october-16-2026",
+        "k":  78000,
+        "side":  "YES",
+        "token":  "115036831186229007118075816916702170416644080636667479689951938618105942035421",
+        "stake":  1,
+        "price":  0.929,
+        "fee":  0.005,
+        "p":  0.9538,
+        "edge":  0.0202,
+        "S":  81055.79,
+        "sig":  0.3975,
+        "tauH":  28.51,
+        "placedAt":  "2026-10-15T11:29:21Z",
+        "end":  "2026-10-16T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.926,
+        "pnl":  null,
+        "version":  9,
+        "flipped":  false,
+        "orig":  null,
+        "curPriceAt":  "2026-10-15T11:29:21Z",
+        "curP":  0.9538,
+        "curSpot":  81055.79,
+        "hist":  [
+                     {
+                         "t":  "2026-10-15T11:29:21Z",
+                         "px":  0.926,
+                         "p":  0.9538,
+                         "S":  81056
                      }
                  ]
     }
