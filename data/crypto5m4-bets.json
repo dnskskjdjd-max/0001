@@ -10349,7 +10349,6 @@
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-15T02:30:01Z"
     },
     {
@@ -10380,7 +10379,6 @@
         "n":  2,
         "rule":  "cross",
         "flipped":  false,
-        "provisional":  true,
         "resolvedAt":  "2026-10-15T02:30:01Z"
     },
     {
@@ -10405,12 +10403,14 @@
         "askUp":  0.28,
         "askDown":  0.73,
         "placedAt":  "2026-10-15T02:31:31Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0182,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-15T02:35:01Z"
     },
     {
         "id":  "btc-updown-5m-1792031400|2",
@@ -10434,10 +10434,41 @@
         "askUp":  0.75,
         "askDown":  0.27,
         "placedAt":  "2026-10-15T02:32:36Z",
+        "status":  "won",
+        "pnl":  0.299,
+        "version":  9,
+        "n":  2,
+        "rule":  "cross",
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-15T02:35:01Z"
+    },
+    {
+        "id":  "btc-updown-5m-1792031700|1",
+        "W":  1792031700,
+        "slug":  "btc-updown-5m-1792031700",
+        "side":  "UP",
+        "token":  "26446497719472648283333257931208767084279812570132826119143276105748153813849",
+        "stake":  1,
+        "price":  0.76,
+        "fee":  0.0168,
+        "p":  0.7102,
+        "edge":  -0.0626,
+        "model":  "end60",
+        "secLeft":  270,
+        "S0":  81024.72,
+        "S":  81130.74,
+        "twapSoFar":  81081.66,
+        "pTwap":  0.823,
+        "pEnd":  0.692,
+        "pEnd60":  0.7102,
+        "askUp":  0.75,
+        "askDown":  0.26,
+        "placedAt":  "2026-10-15T02:35:32Z",
         "status":  "open",
         "pnl":  null,
         "version":  9,
-        "n":  2,
+        "n":  1,
         "rule":  "cross",
         "flipped":  false
     }
