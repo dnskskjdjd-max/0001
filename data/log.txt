@@ -14744,3 +14744,30 @@
 2026-10-14 21:56:05  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-14 21:56:05  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-14 21:56:38  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-15 01:01:51  [cripto-rapido] Resueltas rapida btc-updown-15m-1792032300: UP won (1.9 USD)
+2026-10-15 01:01:51  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792032300: UP won (1.9 USD)
+2026-10-15 01:01:51  [cripto-5m] Resueltas rapida btc-updown-5m-1792032600: UP won (0.33 USD)
+2026-10-15 01:01:51  [cripto-5m] Resueltas al contrario btc-updown-5m-1792032600: UP won (0.33 USD)
+2026-10-15 01:01:51  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792032600: UP won (0.33 USD)
+2026-10-15 06:11:06  --- inicio ---
+2026-10-15 06:11:29  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T11:00:12.830Z)
+2026-10-15 06:11:36  Cuotas: americanfootball_nfl actualizado (28 partidos; creditos restantes 448)
+2026-10-15 06:11:40  Apuesta conservadora: $3 a YES en Another Fed rate hike in 2026? @ 82c (score 62, consenso 8/10)
+2026-10-15 06:11:40  [prueba:no-perseguir] Apuesta: $2 a YES en Will Aleksandar Vučić – United Serbia win the most seats in the 2026 Serbian parliamentary election? @ 62c (score 60, consenso 7/10)
+2026-10-15 06:11:40  [prueba:zona-media] Apuesta: $2 a YES en Will Aleksandar Vučić – United Serbia win the most seats in the 2026 Serbian parliamentary election? @ 62c (score 60, consenso 7/10)
+2026-10-15 06:11:41  [prueba:zona-media-sin-perseguir] Apuesta: $2 a YES en Will Aleksandar Vučić – United Serbia win the most seats in the 2026 Serbian parliamentary election? @ 62c (score 60, consenso 7/10)
+2026-10-15 06:11:41  Resuelta: Western Kentucky vs. Sam Houston [WESTERN KENTUCKY] -> won
+2026-10-15 06:11:41  Resuelta: Stars vs. Avalanche [AVALANCHE] -> lost
+2026-10-15 06:11:41  Resuelta: Kennesaw State vs. Missouri State [MISSOURI STATE] -> won
+2026-10-15 06:11:41  Resuelta: Milwaukee Brewers vs. Los Angeles Dodgers [MILWAUKEE BREWERS] -> won
+2026-10-15 06:11:41  Resuelta: Western Kentucky vs. Sam Houston [SAM HOUSTON] -> lost
+2026-10-15 06:11:41  Resuelta: Milwaukee Brewers vs. Los Angeles Dodgers [MILWAUKEE BREWERS] -> won
+2026-10-15 06:11:47  OK: 23 mercados >= 60, 6 >= 70, 3 senales nuevas, 0 de control nuevas, 1 apuestas nuevas (50 en el historial), 0 alertas de venta, 6 resueltas, 165 senales + 408 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 1 nuevas (18 en total) ; prueba zona-media: 1 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 1 nuevas (10 en total)
+2026-10-15 06:11:47  [cripto-rapido] Apuesta rapida btc-updown-15m-1792062000: DOWN $3 a 62c, modelo 89.4%, ventaja 25.8 pp, faltan 209 s
+2026-10-15 06:11:51  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 06:11:51  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 06:11:51  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 06:12:29  [ligas] Cuotas: soccer_spain_la_liga actualizado (21 partidos; creditos restantes 447)
+2026-10-15 06:12:33  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-15 06:12:41  [no-favoritos] Resuelta [st] mls-col-min-2026-10-14-spread-home-1pt5: 'Colorado Rapids SC' -> lost (-1.04 USD)
+2026-10-15 06:12:41  [no-favoritos] OK: 3 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
