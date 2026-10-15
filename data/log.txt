@@ -14658,3 +14658,19 @@
 2026-10-14 21:26:15  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-14 21:26:44  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792031100: UP $1 a 77c (paso los 73c), faltan 196 s
 2026-10-14 21:27:01  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-14 21:27:22  [cripto] OK diario: BTC 80902, vol 39.3%, 3 fechas, 1 senales nuevas, 0 apuestas nuevas (16 en el historial), 0 resueltas; rapido: 131 apuestas
+2026-10-14 21:28:00  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792031100: DOWN $1 a 85c (paso los 73c), faltan 121 s
+2026-10-14 21:28:27  [cripto] Apuesta diaria: BTC YES > 78000 (bitcoin-above-on-october-15-2026) $1 a 94.6c, modelo 98.5%, ventaja 3.6 pp
+2026-10-14 21:28:28  [cripto] OK diario: BTC 80680, vol 39.4%, 3 fechas, 0 senales nuevas, 1 apuestas nuevas (17 en el historial), 0 resueltas; rapido: 131 apuestas
+2026-10-14 21:29:32  [cripto-5m] Resueltas rapida btc-updown-5m-1792030800: UP lost, DOWN won (-0.75 USD)
+2026-10-14 21:29:32  [cripto-5m] Resueltas al contrario btc-updown-5m-1792030800: UP lost, DOWN won (-0.75 USD)
+2026-10-14 21:29:32  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792030800: UP lost, DOWN won (-0.75 USD)
+2026-10-14 21:30:00  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1792030500: salto max z=4.57; Polymarket ya se habia movido 17 veces (hasta 1.7c), sin precio previo 0, precio fuera de rango 2
+2026-10-14 21:30:28  [cripto] OK diario: BTC 80745, vol 39.5%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (17 en el historial), 0 resueltas; rapido: 131 apuestas
+2026-10-14 21:30:34  --- inicio ---
+2026-10-14 21:30:55  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T02:30:12.430Z)
+2026-10-14 21:31:14  OK: 18 mercados >= 60, 5 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 162 senales + 407 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (17 en total) ; prueba zona-media: 0 nuevas (9 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (9 en total)
+2026-10-14 21:31:17  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-14 21:31:18  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-14 21:31:18  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-14 21:31:23  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
