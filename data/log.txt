@@ -14626,3 +14626,16 @@
 2026-10-14 21:16:32  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
 2026-10-14 21:16:33  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-14 21:16:33  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-14 21:18:18  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792030500: UP $1 a 78c (paso los 73c), faltan 103 s
+2026-10-14 21:20:19  [cripto-5m] Resueltas rapida btc-updown-5m-1792030200: DOWN won, DOWN won (0.55 USD)
+2026-10-14 21:20:19  [cripto-5m] Resueltas al contrario btc-updown-5m-1792030200: DOWN won, DOWN won (0.55 USD)
+2026-10-14 21:20:19  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792030200: DOWN won, DOWN won (0.55 USD)
+2026-10-14 21:20:37  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792030800: UP $1 a 74c (paso los 73c), faltan 263 s
+2026-10-14 21:20:37  [cripto] OK diario: BTC 81748, vol 38.8%, 3 fechas, 2 senales nuevas, 0 apuestas nuevas (15 en el historial), 0 resueltas; rapido: 130 apuestas
+2026-10-14 21:20:44  --- inicio ---
+2026-10-14 21:21:05  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T02:11:11.050Z)
+2026-10-14 21:21:19  OK: 18 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (49 en el historial), 0 alertas de venta, 0 resueltas, 162 senales + 406 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (17 en total) ; prueba zona-media: 0 nuevas (9 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (9 en total)
+2026-10-14 21:21:23  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-14 21:21:24  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-14 21:21:24  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-14 21:21:27  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792030800: DOWN $1 a 78c (paso los 73c), faltan 214 s
