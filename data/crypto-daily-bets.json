@@ -1536,5 +1536,40 @@
                      }
                  ],
         "resolvedAt":  "2026-10-14T23:34:30Z"
+    },
+    {
+        "id":  "bitcoin-above-84k-on-october-15-2026|NO",
+        "ev":  "bitcoin-above-on-october-15-2026",
+        "slug":  "bitcoin-above-84k-on-october-15-2026",
+        "k":  84000,
+        "side":  "NO",
+        "token":  "39704907911307760214777673921453024907541792569385609777250843921925936098332",
+        "stake":  1,
+        "price":  0.95,
+        "fee":  0.0035,
+        "p":  0.9747,
+        "edge":  0.0214,
+        "S":  81520.01,
+        "sig":  0.3882,
+        "tauH":  13.76,
+        "placedAt":  "2026-10-15T02:14:21Z",
+        "end":  "2026-10-15T16:00:00Z",
+        "status":  "open",
+        "curPrice":  0.94,
+        "pnl":  null,
+        "version":  9,
+        "flipped":  false,
+        "orig":  null,
+        "curPriceAt":  "2026-10-15T02:14:21Z",
+        "curP":  0.9747,
+        "curSpot":  81520.01,
+        "hist":  [
+                     {
+                         "t":  "2026-10-15T02:14:21Z",
+                         "px":  0.94,
+                         "p":  0.9747,
+                         "S":  81520
+                     }
+                 ]
     }
 ]
