@@ -14937,3 +14937,16 @@
 2026-10-15 07:56:20  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
 2026-10-15 07:56:21  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-15 07:56:22  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 08:00:26  [cripto] OK diario: BTC 80609, vol 40%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 137 apuestas
+2026-10-15 08:00:36  --- inicio ---
+2026-10-15 08:00:51  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792069200: UP $1 a 74c (paso los 73c), faltan 250 s
+2026-10-15 08:00:54  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T12:47:01.716Z)
+2026-10-15 08:01:11  [cripto-5m] Resueltas rapida btc-updown-5m-1792068600: UP lost, DOWN won (-0.81 USD)
+2026-10-15 08:01:11  [cripto-5m] Resueltas al contrario btc-updown-5m-1792068600: UP lost, DOWN won (-0.81 USD)
+2026-10-15 08:01:11  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792068600: UP lost, DOWN won (-0.81 USD)
+2026-10-15 08:01:13  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792069200: UP $1 a 75c (paso los 73c), faltan 228 s
+2026-10-15 08:01:20  OK: 23 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 167 senales + 409 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 08:01:37  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 08:01:37  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 08:01:38  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 08:02:06  [no-favoritos] OK: 6 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
