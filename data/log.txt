@@ -14918,3 +14918,22 @@
 2026-10-15 07:48:56  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 31c | Will Al Fateh Saudi Club win on 2026-10-15? | empieza en 146 min
 2026-10-15 07:48:56  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 31c | Will Al Fateh Saudi Club win on 2026-10-15? | empieza en 146 min
 2026-10-15 07:48:59  [no-favoritos] OK: 6 mercados principales en la ventana, 2 apuestas nuevas, 0 resueltas
+2026-10-15 07:49:06  [cripto-rapido] Resueltas rapida btc-updown-15m-1792067400: DOWN won (0.28 USD)
+2026-10-15 07:49:06  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1792067400: 10 min DOWN won (0.28 USD)
+2026-10-15 07:49:06  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792067400: DOWN won (0.28 USD)
+2026-10-15 07:51:08  [cripto-5m] Resueltas rapida btc-updown-5m-1792068000: UP won, UP won (0.57 USD)
+2026-10-15 07:51:08  [cripto] OK diario: BTC 80782, vol 40%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 137 apuestas
+2026-10-15 07:51:08  [cripto-5m] Resueltas al contrario btc-updown-5m-1792068000: UP won, UP won (0.57 USD)
+2026-10-15 07:51:08  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792068000: UP won, UP won (0.57 USD)
+2026-10-15 07:51:34  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792068600: UP $1 a 79c (paso los 73c), faltan 206 s
+2026-10-15 07:54:01  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792068600: DOWN $1 a 82c (paso los 73c), faltan 60 s
+2026-10-15 07:54:09  [cripto-5m] Resueltas rapida btc-updown-5m-1792068300: DOWN won, DOWN won (0.63 USD)
+2026-10-15 07:54:09  [cripto-5m] Resueltas al contrario btc-updown-5m-1792068300: DOWN won, DOWN won (0.63 USD)
+2026-10-15 07:54:09  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792068300: DOWN won, DOWN won (0.63 USD)
+2026-10-15 07:55:24  [cripto] OK diario: BTC 80724, vol 40%, 4 fechas, 0 senales nuevas, 0 apuestas nuevas (18 en el historial), 0 resueltas; rapido: 137 apuestas
+2026-10-15 07:55:35  --- inicio ---
+2026-10-15 07:56:01  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T12:47:01.716Z)
+2026-10-15 07:56:17  OK: 23 mercados >= 60, 7 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 167 senales + 409 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 07:56:20  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 07:56:21  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 07:56:22  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
