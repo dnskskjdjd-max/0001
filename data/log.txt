@@ -14771,3 +14771,13 @@
 2026-10-15 06:12:33  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
 2026-10-15 06:12:41  [no-favoritos] Resuelta [st] mls-col-min-2026-10-14-spread-home-1pt5: 'Colorado Rapids SC' -> lost (-1.04 USD)
 2026-10-15 06:12:41  [no-favoritos] OK: 3 mercados principales en la ventana, 0 apuestas nuevas, 1 resueltas
+2026-10-15 06:12:58  [cripto] OK diario: BTC 80976, vol 39.7%, 4 fechas, 1 senales nuevas, 0 apuestas nuevas (17 en el historial), 0 resueltas; rapido: 134 apuestas
+2026-10-15 06:15:00  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1792062000: salto max z=2.33; Polymarket ya se habia movido 2 veces (hasta 13c), sin precio previo 0, precio fuera de rango 0
+2026-10-15 06:15:21  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792062900: DOWN $1 a 76c (paso los 73c), faltan 280 s
+2026-10-15 06:16:01  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792062900: DOWN $1 a 75c (paso los 73c), faltan 239 s
+2026-10-15 06:16:57  --- inicio ---
+2026-10-15 06:17:23  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-15T11:00:12.830Z)
+2026-10-15 06:17:38  OK: 23 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (50 en el historial), 0 alertas de venta, 0 resueltas, 165 senales + 408 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 06:17:41  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 06:17:42  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 06:17:42  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
