@@ -10115,10 +10115,12 @@
         "askUp":  0.75,
         "askDown":  0.26,
         "placedAt":  "2026-10-15T02:35:32Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.299,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-15T02:40:01Z"
     }
 ]
