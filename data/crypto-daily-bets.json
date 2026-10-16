@@ -1554,9 +1554,9 @@
         "tauH":  13.76,
         "placedAt":  "2026-10-15T02:14:21Z",
         "end":  "2026-10-15T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.997,
-        "pnl":  null,
+        "status":  "won",
+        "curPrice":  1,
+        "pnl":  0.0491,
         "version":  9,
         "flipped":  false,
         "orig":  null,
@@ -1588,7 +1588,8 @@
                          "p":  1,
                          "S":  80719
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-16T00:21:05Z"
     },
     {
         "id":  "bitcoin-above-82k-on-october-15-2026|NO",
@@ -1607,9 +1608,9 @@
         "tauH":  13.59,
         "placedAt":  "2026-10-15T02:24:22Z",
         "end":  "2026-10-15T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.96,
-        "pnl":  null,
+        "status":  "lost",
+        "curPrice":  0,
+        "pnl":  -1.0147,
         "version":  9,
         "flipped":  false,
         "orig":  null,
@@ -1641,7 +1642,8 @@
                          "p":  0.9769,
                          "S":  80719
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-16T00:21:05Z"
     },
     {
         "id":  "bitcoin-above-78k-on-october-15-2026|YES",
@@ -1660,9 +1662,9 @@
         "tauH":  13.53,
         "placedAt":  "2026-10-15T02:28:22Z",
         "end":  "2026-10-15T16:00:00Z",
-        "status":  "open",
-        "curPrice":  0.975,
-        "pnl":  null,
+        "status":  "won",
+        "curPrice":  1,
+        "pnl":  0.0533,
         "version":  9,
         "flipped":  false,
         "orig":  null,
@@ -1694,7 +1696,8 @@
                          "p":  1,
                          "S":  80719
                      }
-                 ]
+                 ],
+        "resolvedAt":  "2026-10-16T00:21:05Z"
     },
     {
         "id":  "bitcoin-above-78k-on-october-16-2026|YES",
@@ -1714,14 +1717,14 @@
         "placedAt":  "2026-10-15T11:29:21Z",
         "end":  "2026-10-16T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.877,
+        "curPrice":  0.993,
         "pnl":  null,
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-15T13:32:21Z",
-        "curP":  0.911,
-        "curSpot":  80356.87,
+        "curPriceAt":  "2026-10-16T00:21:05Z",
+        "curP":  0.9994,
+        "curSpot":  82288.89,
         "hist":  [
                      {
                          "t":  "2026-10-15T11:29:21Z",
@@ -1734,6 +1737,12 @@
                          "px":  0.906,
                          "p":  0.9363,
                          "S":  80719
+                     },
+                     {
+                         "t":  "2026-10-16T00:21:05Z",
+                         "px":  0.993,
+                         "p":  0.9994,
+                         "S":  82289
                      }
                  ]
     },
@@ -1755,20 +1764,26 @@
         "placedAt":  "2026-10-15T13:31:36Z",
         "end":  "2026-10-16T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.79,
+        "curPrice":  0.35,
         "pnl":  null,
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-15T13:32:21Z",
-        "curP":  0.825,
-        "curSpot":  80356.87,
+        "curPriceAt":  "2026-10-16T00:21:05Z",
+        "curP":  0.4182,
+        "curSpot":  82288.89,
         "hist":  [
                      {
                          "t":  "2026-10-15T13:31:36Z",
                          "px":  0.79,
                          "p":  0.8615,
                          "S":  80091
+                     },
+                     {
+                         "t":  "2026-10-16T00:21:05Z",
+                         "px":  0.35,
+                         "p":  0.4182,
+                         "S":  82289
                      }
                  ]
     }
