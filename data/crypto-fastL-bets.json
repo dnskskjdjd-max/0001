@@ -249,7 +249,6 @@
         "status":  "lost",
         "pnl":  -1.0245,
         "version":  9,
-        "provisional":  true,
         "resolvedAt":  "2026-10-16T00:30:01Z"
     }
 ]
