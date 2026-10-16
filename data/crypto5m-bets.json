@@ -11449,10 +11449,12 @@
         "askUp":  0.79,
         "askDown":  0.23,
         "placedAt":  "2026-10-16T00:35:25Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.236,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-16T00:40:00Z"
     }
 ]
