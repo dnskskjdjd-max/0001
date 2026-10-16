@@ -15263,3 +15263,16 @@
 2026-10-15 20:31:15  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-15 20:31:15  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-15 20:31:19  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
+2026-10-15 20:35:24  [cripto] OK diario: BTC 82256, vol 38.5%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (19 en el historial), 0 resueltas; rapido: 143 apuestas
+2026-10-15 20:35:30  --- inicio ---
+2026-10-15 20:35:44  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792114500: UP $1 a 76c (paso los 73c), faltan 256 s
+2026-10-15 20:35:48  [cripto-rapido] Resueltas rapida btc-updown-15m-1792113300: DOWN won (0.21 USD)
+2026-10-15 20:35:48  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792113300: DOWN won (0.21 USD)
+2026-10-15 20:35:50  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-16T01:30:55.195Z)
+2026-10-15 20:35:52  [cripto-5m] Resueltas rapida btc-updown-5m-1792113900: DOWN won (0.25 USD)
+2026-10-15 20:35:52  [cripto-5m] Resueltas al contrario btc-updown-5m-1792113900: DOWN won (0.25 USD)
+2026-10-15 20:35:52  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1792113900: DOWN won (0.25 USD)
+2026-10-15 20:36:04  OK: 18 mercados >= 60, 7 >= 70, 0 senales nuevas, 2 de control nuevas, 0 apuestas nuevas (51 en el historial), 0 alertas de venta, 0 resueltas, 168 senales + 417 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 20:36:06  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 20:36:07  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 20:36:07  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
