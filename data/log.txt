@@ -15158,3 +15158,16 @@
 2026-10-15 19:56:04  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-15 19:56:04  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-15 19:56:40  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-15 20:00:01  [cripto-rapido] Retraso sin apuesta btc-updown-15m-1792111500: salto max z=2.06; Polymarket ya se habia movido 2 veces (hasta 5.4c), sin precio previo 0, precio fuera de rango 0
+2026-10-15 20:00:27  [cripto] OK diario: BTC 82324, vol 38.7%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (19 en el historial), 0 resueltas; rapido: 141 apuestas
+2026-10-15 20:00:32  --- inicio ---
+2026-10-15 20:00:36  [cripto-5m] Resueltas rapida btc-updown-5m-1792111800: DOWN won, UP lost (-0.68 USD)
+2026-10-15 20:00:36  [cripto-5m] Resueltas al contrario btc-updown-5m-1792111800: DOWN won, UP lost (-0.68 USD)
+2026-10-15 20:00:36  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1792111800: UP lost (-1.01 USD)
+2026-10-15 20:00:36  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792111800: DOWN won, UP lost (-0.68 USD)
+2026-10-15 20:00:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-16T00:55:58.884Z)
+2026-10-15 20:01:10  OK: 18 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (51 en el historial), 0 alertas de venta, 0 resueltas, 168 senales + 413 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 20:01:12  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 20:01:13  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 20:01:13  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 20:01:16  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
