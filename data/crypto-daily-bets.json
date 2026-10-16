@@ -1819,14 +1819,14 @@
         "placedAt":  "2026-10-16T23:39:21Z",
         "end":  "2026-10-17T16:00:00Z",
         "status":  "open",
-        "curPrice":  0.22,
+        "curPrice":  0.21,
         "pnl":  null,
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-16T23:53:22Z",
-        "curP":  0.3833,
-        "curSpot":  81617.59,
+        "curPriceAt":  "2026-10-16T23:54:22Z",
+        "curP":  0.3831,
+        "curSpot":  81617.6,
         "hist":  [
                      {
                          "t":  "2026-10-16T23:39:21Z",
