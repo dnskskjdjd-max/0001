@@ -2685,7 +2685,6 @@
         "pnl":  1.6842,
         "version":  9,
         "tramo":  6,
-        "provisional":  true,
         "resolvedAt":  "2026-10-16T00:45:00Z"
     },
     {
@@ -2714,7 +2713,6 @@
         "pnl":  1.4083,
         "version":  9,
         "tramo":  3,
-        "provisional":  true,
         "resolvedAt":  "2026-10-16T00:45:00Z"
     },
     {
