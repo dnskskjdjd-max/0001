@@ -15171,3 +15171,19 @@
 2026-10-15 20:01:13  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-15 20:01:13  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-15 20:01:16  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
+2026-10-15 20:01:54  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792112400: UP $1 a 74c (paso los 73c), faltan 187 s
+2026-10-15 20:02:06  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792112400: UP $1 a 74c (paso los 73c), faltan 174 s
+2026-10-15 20:02:07  [cripto-5m] Filtro de mercado btc-updown-5m-1792112400: UP (tendencia 0.02%, volatilidad 26%)
+2026-10-15 20:05:27  [cripto] OK diario: BTC 82331, vol 38.7%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (19 en el historial), 0 resueltas; rapido: 141 apuestas
+2026-10-15 20:05:32  --- inicio ---
+2026-10-15 20:05:37  [cripto-5m] Resueltas rapida btc-updown-5m-1792112100: UP won, UP won (0.61 USD)
+2026-10-15 20:05:37  [cripto-5m] Resueltas al contrario btc-updown-5m-1792112100: UP won, UP won (0.61 USD)
+2026-10-15 20:05:37  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792112100: UP won, UP won (0.61 USD)
+2026-10-15 20:05:38  [cripto-rapido] Resueltas rapida btc-updown-15m-1792111500: DOWN won (0.25 USD)
+2026-10-15 20:05:38  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1792111500: 10 min DOWN won (0.25 USD)
+2026-10-15 20:05:38  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792111500: DOWN won (0.25 USD)
+2026-10-15 20:05:52  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-16T00:55:58.884Z)
+2026-10-15 20:06:07  OK: 18 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (51 en el historial), 0 alertas de venta, 0 resueltas, 168 senales + 413 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 20:06:09  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 20:06:10  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 20:06:10  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
