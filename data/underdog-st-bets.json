@@ -2281,9 +2281,10 @@
         "start":  "2026-10-15T14:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-15T11:31:15Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.038,
+        "version":  1,
+        "resolvedAt":  "2026-10-16T00:24:40Z"
     },
     {
         "id":  "spl-kha-fay-2026-10-15-spread-home-1pt5|0",
@@ -2306,8 +2307,9 @@
         "start":  "2026-10-15T14:50:00Z",
         "minBefore":  137,
         "placedAt":  "2026-10-15T12:32:33Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  3.7224,
+        "version":  1,
+        "resolvedAt":  "2026-10-16T00:24:40Z"
     }
 ]

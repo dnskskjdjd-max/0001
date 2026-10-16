@@ -15016,3 +15016,45 @@
 2026-10-15 08:31:22  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-15 08:31:22  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-15 08:31:31  [no-favoritos] OK: 3 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
+2026-10-15 08:31:42  [cripto] Apuesta diaria: BTC NO > 82000 (bitcoin-above-on-october-16-2026) $1 a 83c, modelo 86.2%, ventaja 2.2 pp
+2026-10-15 08:31:44  [cripto] OK diario: BTC 80091, vol 39.8%, 4 fechas, 0 senales nuevas, 1 apuestas nuevas (19 en el historial), 0 resueltas; rapido: 138 apuestas
+2026-10-15 08:31:51  [cripto-5m] Resueltas rapida btc-updown-5m-1792070400: DOWN won, DOWN won (0.62 USD)
+2026-10-15 08:31:51  [cripto-5m] Resueltas al contrario btc-updown-5m-1792070400: DOWN won, DOWN won (0.62 USD)
+2026-10-15 08:31:51  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792070400: DOWN won, DOWN won (0.62 USD)
+2026-10-15 08:32:01  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792071000: UP $1 a 81c (paso los 73c), faltan 180 s
+2026-10-15 19:20:54  [cripto-5m] Resueltas rapida btc-updown-5m-1792070700: DOWN won, DOWN won (0.61 USD)
+2026-10-15 19:20:54  [cripto-5m] Resueltas al contrario btc-updown-5m-1792070700: DOWN won, DOWN won (0.61 USD)
+2026-10-15 19:20:54  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792070700: DOWN won, DOWN won (0.61 USD)
+2026-10-15 19:20:56  [cripto-5m] Resueltas rapida btc-updown-5m-1792071000: DOWN lost, UP won (-0.8 USD)
+2026-10-15 19:20:56  [cripto-5m] Resueltas al contrario btc-updown-5m-1792071000: DOWN lost, UP won (-0.8 USD)
+2026-10-15 19:20:56  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792071000: DOWN lost, UP won (-0.8 USD)
+2026-10-15 19:21:03  [cripto-rapido] Resueltas rapida btc-updown-15m-1792070100: UP lost (-1.06 USD)
+2026-10-15 19:21:03  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792070100: DOWN won (0.14 USD)
+2026-10-15 19:22:10  [cripto] Resuelta diaria: BTC NO > 84000 -> won (0.05 USD)
+2026-10-15 19:22:10  [cripto] Resuelta diaria: BTC NO > 82000 -> lost (-1.01 USD)
+2026-10-15 19:22:10  [cripto] Resuelta diaria: BTC YES > 78000 -> won (0.05 USD)
+2026-10-15 19:22:12  [cripto] OK diario: BTC 82289, vol 38.8%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (19 en el historial), 3 resueltas; rapido: 138 apuestas
+2026-10-15 19:22:36  --- inicio ---
+2026-10-15 19:23:33  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-16T00:15:15.038Z)
+2026-10-15 19:23:43  Apuesta conservadora: $3 a YES en Will Aleksandar Vučić – United Serbia win the most seats in the 2026 Serbian parliamentary election? @ 62c (score 61, consenso 8/10)
+2026-10-15 19:23:43  Resuelta: Counter-Strike: MIBR vs BC.Game Esports (BO3) - Stake Pulse Beat III Group D [MIBR] -> lost
+2026-10-15 19:23:43  Resuelta: US x Iran ceasefire continues through October 15? [YES] -> won
+2026-10-15 19:23:43  Resuelta: Counter-Strike: MIBR vs BC.Game Esports (BO3) - Stake Pulse Beat III Group D [BC.GAME ESPORTS] -> won
+2026-10-15 19:23:43  Resuelta: Israel x Iran ceasefire continues through October 15? [YES] -> won
+2026-10-15 19:23:43  Resuelta: LoL: Team WE vs HANJIN BRION (BO5) - Demacia Cup Global Invitational Playoffs [TEAM WE] -> won
+2026-10-15 19:23:43  Resuelta: LoL: Team WE vs HANJIN BRION (BO5) - Demacia Cup Global Invitational Playoffs [HANJIN BRION] -> lost
+2026-10-15 19:23:43  Resuelta: Counter-Strike: MIBR vs BC.Game Esports (BO3) - Stake Pulse Beat III Group D [MIBR] -> lost
+2026-10-15 19:23:49  OK: 17 mercados >= 60, 6 >= 70, 1 senales nuevas, 4 de control nuevas, 1 apuestas nuevas (51 en el historial), 0 alertas de venta, 7 resueltas, 168 senales + 413 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (18 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-15 19:23:51  [cripto-rapido] Apuesta rapida btc-updown-15m-1792109700: DOWN $1 a 88c, modelo 94.6%, ventaja 5.8 pp, faltan 369 s
+2026-10-15 19:23:52  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-15 19:23:53  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-15 19:23:53  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-15 19:24:30  [ligas] Cuotas: soccer_spain_la_liga actualizado (21 partidos; creditos restantes 446)
+2026-10-15 19:24:39  [ligas] OK: 28 partidos en 10 dias, 12 con Vegas, 0 apuestas en el historial
+2026-10-15 19:24:45  [no-favoritos] Resuelta [ml] tur2-mar-kar-2026-10-15-kar: 'Yes' -> lost (-1.04 USD)
+2026-10-15 19:24:46  [no-favoritos] Resuelta [ml] spl-haz-fat-2026-10-15-fat: 'Yes' -> won (2.19 USD)
+2026-10-15 19:24:46  [no-favoritos] Resuelta [mlx] tur2-mar-kar-2026-10-15-kar: 'Yes' -> lost (-1.04 USD)
+2026-10-15 19:24:46  [no-favoritos] Resuelta [mlx] spl-haz-fat-2026-10-15-fat: 'Yes' -> won (2.19 USD)
+2026-10-15 19:24:47  [no-favoritos] Resuelta [st] tur2-mar-kar-2026-10-15-spread-home-1pt5: 'Mardin 1969 Spor' -> lost (-1.04 USD)
+2026-10-15 19:24:47  [no-favoritos] Resuelta [st] spl-kha-fay-2026-10-15-spread-home-1pt5: 'Al Khaleej Saudi Club' -> won (3.72 USD)
+2026-10-15 19:24:47  [no-favoritos] OK: 3 mercados principales en la ventana, 0 apuestas nuevas, 6 resueltas

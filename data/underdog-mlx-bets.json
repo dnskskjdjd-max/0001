@@ -1551,9 +1551,10 @@
         "start":  "2026-10-15T14:00:00Z",
         "minBefore":  149,
         "placedAt":  "2026-10-15T11:31:15Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "lost",
+        "pnl":  -1.0365,
+        "version":  1,
+        "resolvedAt":  "2026-10-16T00:24:40Z"
     },
     {
         "id":  "spl-haz-fat-2026-10-15-fat|0",
@@ -1576,8 +1577,9 @@
         "start":  "2026-10-15T15:15:00Z",
         "minBefore":  146,
         "placedAt":  "2026-10-15T12:48:43Z",
-        "status":  "open",
-        "pnl":  null,
-        "version":  1
+        "status":  "won",
+        "pnl":  2.1913,
+        "version":  1,
+        "resolvedAt":  "2026-10-16T00:24:40Z"
     }
 ]
