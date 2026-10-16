@@ -12087,10 +12087,12 @@
         "askUp":  0.26,
         "askDown":  0.75,
         "placedAt":  "2026-10-16T01:48:32Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.299,
         "version":  9,
         "n":  1,
-        "rule":  "cross"
+        "rule":  "cross",
+        "provisional":  true,
+        "resolvedAt":  "2026-10-16T01:50:01Z"
     }
 ]
