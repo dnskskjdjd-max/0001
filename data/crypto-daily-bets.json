@@ -1722,9 +1722,9 @@
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-16T00:59:21Z",
+        "curPriceAt":  "2026-10-16T01:00:20Z",
         "curP":  0.9996,
-        "curSpot":  82360.48,
+        "curSpot":  82324.01,
         "hist":  [
                      {
                          "t":  "2026-10-15T11:29:21Z",
@@ -1769,9 +1769,9 @@
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-16T00:59:21Z",
-        "curP":  0.3953,
-        "curSpot":  82360.48,
+        "curPriceAt":  "2026-10-16T01:00:20Z",
+        "curP":  0.4059,
+        "curSpot":  82324.01,
         "hist":  [
                      {
                          "t":  "2026-10-15T13:31:36Z",
