@@ -15349,3 +15349,53 @@
 2026-10-15 21:01:17  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
 2026-10-15 21:01:17  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
 2026-10-15 21:01:21  [no-favoritos] OK: 0 mercados principales en la ventana, 0 apuestas nuevas, 0 resueltas
+2026-10-16 04:34:19  [cripto-rapido] Resueltas rapida btc-updown-15m-1792115100: DOWN won (0.39 USD)
+2026-10-16 04:34:19  [cripto-5m] Resueltas rapida btc-updown-5m-1792115700: DOWN lost, UP won (-0.68 USD)
+2026-10-16 04:34:20  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792115100: DOWN won (0.39 USD)
+2026-10-16 04:34:20  [cripto-5m] Resueltas al contrario btc-updown-5m-1792115700: DOWN lost, UP won (-0.68 USD)
+2026-10-16 04:34:20  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1792115700: DOWN lost (-1.02 USD)
+2026-10-16 04:34:20  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792115700: DOWN lost, UP won (-0.68 USD)
+2026-10-16 04:34:21  [cripto-5m] Resueltas rapida btc-updown-5m-1792116000: DOWN lost, DOWN lost (-2.03 USD)
+2026-10-16 04:34:21  [cripto-5m] Resueltas al contrario btc-updown-5m-1792116000: DOWN lost, DOWN lost (-2.03 USD)
+2026-10-16 04:34:21  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1792116000: DOWN lost, DOWN lost (-2.03 USD)
+2026-10-16 04:34:21  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792116000: DOWN lost, DOWN lost (-2.03 USD)
+2026-10-16 18:38:50  [cripto-rapido] Iniciado (pid 15400)
+2026-10-16 18:38:51  [cripto-5m] Iniciado (pid 15180)
+2026-10-16 18:39:25  [cripto] Apuesta diaria: BTC YES > 82000 (bitcoin-above-on-october-17-2026) $3 a 26c, modelo 39.7%, ventaja 12.3 pp
+2026-10-16 18:39:26  [cripto] Resuelta diaria: BTC YES > 78000 -> won (0.07 USD)
+2026-10-16 18:39:26  [cripto] Resuelta diaria: BTC NO > 82000 -> won (0.19 USD)
+2026-10-16 18:39:27  [cripto] OK diario: BTC 81660, vol 38%, 3 fechas, 1 senales nuevas, 1 apuestas nuevas (20 en el historial), 2 resueltas; rapido: 145 apuestas
+2026-10-16 18:39:33  --- inicio ---
+2026-10-16 18:39:54  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-16T23:15:15.843Z)
+2026-10-16 18:40:04  [prueba:no-perseguir] Apuesta: $2 a NO en Will Crude Oil reach a new all-time high by December 31? @ 87c (score 63, consenso 7/10)
+2026-10-16 18:40:04  Resuelta: Will the Tesla Roadster fly for 1s+? [YES] -> won
+2026-10-16 18:40:04  Resuelta: Will the Los Angeles Dodgers win the 2026 World Series? [NO] -> won
+2026-10-16 18:40:04  Resuelta: Seahawks vs. Broncos [SEAHAWKS] -> lost
+2026-10-16 18:40:04  Resuelta: LoL: FURIA Esports vs MVK Esports (BO5) - Worlds Play-In [MVK ESPORTS] -> won
+2026-10-16 18:40:04  Resuelta: Seahawks vs. Broncos [BRONCOS] -> won
+2026-10-16 18:40:04  Resuelta: Seahawks vs. Broncos [BRONCOS] -> won
+2026-10-16 18:40:04  Resuelta: Utah vs. Oilers [UTAH] -> won
+2026-10-16 18:40:04  Resuelta: Colorado State vs. Texas State: O/U 69.5 [OVER] -> won
+2026-10-16 18:40:04  Resuelta: US announces end of Iranian blockade by October 15, 2026? [NO] -> won
+2026-10-16 18:40:04  Resuelta: Milwaukee Brewers vs. Los Angeles Dodgers [LOS ANGELES DODGERS] -> lost
+2026-10-16 18:40:04  Resuelta: Will the Los Angeles Dodgers win the 2026 World Series? [YES] -> lost
+2026-10-16 18:40:04  Resuelta: US announces end of Iranian blockade by October 15, 2026? [NO] -> won
+2026-10-16 18:40:04  Resuelta: Seahawks vs. Broncos [SEAHAWKS] -> lost
+2026-10-16 18:40:04  Resuelta: Spread: Seahawks (-2.5) [BRONCOS] -> won
+2026-10-16 18:40:04  Resuelta: Will the Los Angeles Dodgers win the 2026 World Series? [NO] -> won
+2026-10-16 18:40:04  Apuesta resuelta: US announces end of Iranian blockade by October 15, 2026? [NO] -> won (0.2609)
+2026-10-16 18:40:04  [prueba:no-perseguir] Apuesta resuelta: US announces end of Iranian blockade by October 15, 2026? [NO] -> won (0.2472)
+2026-10-16 18:40:04  [prueba:no-perseguir] Apuesta resuelta: Seahawks vs. Broncos [SEAHAWKS] -> lost (-2.0258)
+2026-10-16 18:40:04  [prueba:zona-media] Apuesta resuelta: Seahawks vs. Broncos [SEAHAWKS] -> lost (-2.0258)
+2026-10-16 18:40:04  [prueba:zona-media-sin-perseguir] Apuesta resuelta: Seahawks vs. Broncos [SEAHAWKS] -> lost (-2.0258)
+2026-10-16 18:40:14  OK: 17 mercados >= 60, 6 >= 70, 2 senales nuevas, 2 de control nuevas, 0 apuestas nuevas (51 en el historial), 0 alertas de venta, 15 resueltas, 170 senales + 420 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 1 nuevas (19 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-16 18:40:27  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-16 18:40:28  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-16 18:40:28  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
+2026-10-16 18:41:09  [ligas] Cuotas: soccer_spain_la_liga actualizado (20 partidos; creditos restantes 445)
+2026-10-16 18:41:20  [ligas] OK: 27 partidos en 10 dias, 11 con Vegas, 0 apuestas en el historial
+2026-10-16 18:41:22  [cripto-rapido] Apuesta rapida btc-updown-15m-1792193400: UP $1 a 32c, modelo 38.6%, ventaja 5.1 pp, faltan 218 s
+2026-10-16 18:41:24  [no-favoritos] Apuesta [ml] soccer moneyline: $1 a 'Yes' a 26c | Will HFX Wanderers FC win on 2026-10-16? | empieza en 139 min
+2026-10-16 18:41:24  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 26c | Will HFX Wanderers FC win on 2026-10-16? | empieza en 139 min
+2026-10-16 18:41:26  [no-favoritos] Apuesta [st] nhl spreads: $1 a 'Ducks' a 29c | Spread: Ducks (-1.5) | empieza en 139 min
+2026-10-16 18:41:28  [no-favoritos] OK: 12 mercados principales en la ventana, 3 apuestas nuevas, 0 resueltas

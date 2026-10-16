@@ -1581,5 +1581,30 @@
         "pnl":  2.1913,
         "version":  1,
         "resolvedAt":  "2026-10-16T00:24:40Z"
+    },
+    {
+        "id":  "canpl-van-hfx-2026-10-16-hfx|0",
+        "strategy":  "mlx",
+        "slug":  "canpl-van-hfx-2026-10-16-hfx",
+        "ev":  "canpl-van-hfx-2026-10-16",
+        "league":  "soccer",
+        "type":  "moneyline",
+        "line":  null,
+        "question":  "Will HFX Wanderers FC win on 2026-10-16?",
+        "side":  0,
+        "outcome":  "Yes",
+        "token":  "85025814320427429696827195410627246420784466056438191143509896724024472717716",
+        "stake":  1,
+        "price":  0.26,
+        "bestBid":  0.24,
+        "feeRate":  0.05,
+        "fee":  0.037,
+        "vol":  1074,
+        "start":  "2026-10-17T02:00:00Z",
+        "minBefore":  139,
+        "placedAt":  "2026-10-16T23:41:21Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
