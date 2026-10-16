@@ -15399,3 +15399,12 @@
 2026-10-16 18:41:24  [no-favoritos] Apuesta [mlx] soccer moneyline: $1 a 'Yes' a 26c | Will HFX Wanderers FC win on 2026-10-16? | empieza en 139 min
 2026-10-16 18:41:26  [no-favoritos] Apuesta [st] nhl spreads: $1 a 'Ducks' a 29c | Spread: Ducks (-1.5) | empieza en 139 min
 2026-10-16 18:41:28  [no-favoritos] OK: 12 mercados principales en la ventana, 3 apuestas nuevas, 0 resueltas
+2026-10-16 18:42:08  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792194000: UP $1 a 74c (paso los 73c), faltan 172 s
+2026-10-16 18:43:05  [cripto-5m] Apuesta cruce 2 btc-updown-5m-1792194000: UP $1 a 75c (paso los 73c), faltan 116 s
+2026-10-16 18:45:28  [cripto] OK diario: BTC 81624, vol 37.9%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (20 en el historial), 0 resueltas; rapido: 146 apuestas
+2026-10-16 18:45:34  --- inicio ---
+2026-10-16 18:45:51  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-16T23:40:04.422Z)
+2026-10-16 18:46:04  OK: 16 mercados >= 60, 6 >= 70, 0 senales nuevas, 1 de control nuevas, 0 apuestas nuevas (51 en el historial), 0 alertas de venta, 0 resueltas, 170 senales + 421 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (19 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-16 18:46:07  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-16 18:46:08  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-16 18:46:08  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
