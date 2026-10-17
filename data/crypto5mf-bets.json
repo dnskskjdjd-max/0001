@@ -5527,13 +5527,15 @@
         "askUp":  0.73,
         "askDown":  0.28,
         "placedAt":  "2026-10-17T00:37:00Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "lost",
+        "pnl":  -1.0182,
         "version":  9,
         "n":  1,
         "rule":  "cross",
         "flipped":  false,
         "trend30":  0.07,
-        "vol30":  0.1496
+        "vol30":  0.1496,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-17T00:40:01Z"
     }
 ]
