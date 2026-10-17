@@ -13374,11 +13374,13 @@
         "askUp":  0.81,
         "askDown":  0.2,
         "placedAt":  "2026-10-17T00:51:12Z",
-        "status":  "open",
-        "pnl":  null,
+        "status":  "won",
+        "pnl":  0.2069,
         "version":  9,
         "n":  1,
         "rule":  "cross",
-        "flipped":  false
+        "flipped":  false,
+        "provisional":  true,
+        "resolvedAt":  "2026-10-17T00:55:02Z"
     }
 ]
