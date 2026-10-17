@@ -2336,5 +2336,30 @@
         "status":  "open",
         "pnl":  null,
         "version":  1
+    },
+    {
+        "id":  "mex-tij-pue-2026-10-16-spread-home-1pt5|0",
+        "strategy":  "st",
+        "slug":  "mex-tij-pue-2026-10-16-spread-home-1pt5",
+        "ev":  "mex-tij-pue-2026-10-16",
+        "league":  "soccer",
+        "type":  "spreads",
+        "line":  -1.5,
+        "question":  "Spread: Club Tijuana (-1.5)",
+        "side":  0,
+        "outcome":  "Club Tijuana",
+        "token":  "32799736848416868748002968657720816495433461239973865026494523598942732477739",
+        "stake":  1,
+        "price":  0.32,
+        "bestBid":  0.3,
+        "feeRate":  0.05,
+        "fee":  0.034,
+        "vol":  890,
+        "start":  "2026-10-17T03:05:00Z",
+        "minBefore":  148,
+        "placedAt":  "2026-10-17T00:36:33Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  1
     }
 ]
