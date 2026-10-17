@@ -250,5 +250,32 @@
         "pnl":  -1.0245,
         "version":  9,
         "resolvedAt":  "2026-10-16T00:30:01Z"
+    },
+    {
+        "id":  "btc-updown-15m-1792195200|DOWN",
+        "W":  1792195200,
+        "slug":  "btc-updown-15m-1792195200",
+        "side":  "DOWN",
+        "token":  "104130952217503949154844770858593002699995076386620926312075433482531384332523",
+        "stake":  1,
+        "price":  0.74,
+        "fee":  0.0182,
+        "z":  -2.05,
+        "lookSec":  15,
+        "pmMove":  -0.015,
+        "mid":  0.27,
+        "askUp":  0.28,
+        "askDown":  0.74,
+        "secLeft":  282,
+        "S":  81590.53,
+        "Slook":  81601.68,
+        "volAnnual":  0.0967,
+        "night":  true,
+        "p":  null,
+        "edge":  null,
+        "placedAt":  "2026-10-17T00:10:18Z",
+        "status":  "open",
+        "pnl":  null,
+        "version":  9
     }
 ]
