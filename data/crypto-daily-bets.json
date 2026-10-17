@@ -1824,9 +1824,9 @@
         "version":  9,
         "flipped":  false,
         "orig":  null,
-        "curPriceAt":  "2026-10-17T00:59:25Z",
-        "curP":  0.3654,
-        "curSpot":  81571.65,
+        "curPriceAt":  "2026-10-17T01:00:24Z",
+        "curP":  0.3548,
+        "curSpot":  81535.68,
         "hist":  [
                      {
                          "t":  "2026-10-16T23:39:21Z",
