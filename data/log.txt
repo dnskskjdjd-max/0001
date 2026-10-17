@@ -15583,3 +15583,23 @@
 2026-10-16 19:45:39  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792197900: DOWN $1 a 82c (paso los 73c), faltan 262 s
 2026-10-16 19:45:39  [cripto-5m] Filtro de mercado btc-updown-5m-1792197900: DOWN (tendencia -0.1%, volatilidad 15%)
 2026-10-16 19:45:50  [ligas] OK: 27 partidos en 10 dias, 11 con Vegas, 0 apuestas en el historial
+2026-10-16 19:46:33  [cripto-5m] Resueltas rapida btc-updown-5m-1792197300: UP lost, DOWN won (-0.75 USD)
+2026-10-16 19:46:33  [cripto-5m] Resueltas al contrario btc-updown-5m-1792197300: UP lost, DOWN won (-0.75 USD)
+2026-10-16 19:46:33  [cripto-5m] Resueltas filtro de mercado btc-updown-5m-1792197300: UP lost (-1.02 USD)
+2026-10-16 19:46:34  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792197300: UP lost, DOWN won (-0.75 USD)
+2026-10-16 19:49:35  [cripto-rapido] Resueltas rapida btc-updown-15m-1792197000: UP lost (-3.04 USD)
+2026-10-16 19:49:35  [cripto-rapido] Resueltas 3 tramos btc-updown-15m-1792197000: 10 min UP lost, 6 min UP lost, 3 min UP lost (-7.16 USD)
+2026-10-16 19:49:35  [cripto-rapido] Resueltas al contrario btc-updown-15m-1792197000: UP lost (-3.04 USD)
+2026-10-16 19:50:02  [cripto-rapido] Apuesta rapida btc-updown-15m-1792197900: DOWN $3 a 80c, modelo 95.8%, ventaja 14.7 pp, faltan 600 s
+2026-10-16 19:50:02  [cripto-rapido] Apuesta 3 tramos (10 min) btc-updown-15m-1792197900: DOWN $3 a 80c, modelo 95.8%, ventaja 14.7 pp
+2026-10-16 19:50:37  [cripto-5m] Resueltas rapida btc-updown-5m-1792197600: DOWN won (0.21 USD)
+2026-10-16 19:50:37  [cripto-5m] Resueltas al contrario btc-updown-5m-1792197600: DOWN won (0.21 USD)
+2026-10-16 19:50:38  [cripto-5m] Resueltas pausa por racha btc-updown-5m-1792197600: DOWN won (0.21 USD)
+2026-10-16 19:50:38  [cripto] OK diario: BTC 81501, vol 37.6%, 3 fechas, 0 senales nuevas, 0 apuestas nuevas (20 en el historial), 0 resueltas; rapido: 151 apuestas
+2026-10-16 19:50:48  --- inicio ---
+2026-10-16 19:51:12  [cripto-5m] Apuesta cruce 1 btc-updown-5m-1792198200: UP $1 a 82c (paso los 73c), faltan 229 s
+2026-10-16 19:51:16  Mercados recibidos: 200 (actualizado en el sitio: 2026-10-17T00:31:08.573Z)
+2026-10-16 19:51:31  OK: 16 mercados >= 60, 6 >= 70, 0 senales nuevas, 0 de control nuevas, 0 apuestas nuevas (51 en el historial), 0 alertas de venta, 0 resueltas, 170 senales + 422 de control; prueba filtrada: 0 nuevas (1 en total) ; prueba no-perseguir: 0 nuevas (19 en total) ; prueba zona-media: 0 nuevas (10 en total) ; prueba zona-media-sin-comision: 0 nuevas (2 en total) ; prueba zona-media-sin-perseguir: 0 nuevas (10 en total)
+2026-10-16 19:51:40  [copia:fed] OK: 3 posiciones de MysticFind a copiar, 0 copias nuevas, 0 cerradas, 3 en el historial
+2026-10-16 19:51:41  [copia:futbol] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 1 en el historial
+2026-10-16 19:51:41  [copia:nfl] OK: 0 posiciones de Elaran1993 a copiar, 0 copias nuevas, 0 cerradas, 4 en el historial
